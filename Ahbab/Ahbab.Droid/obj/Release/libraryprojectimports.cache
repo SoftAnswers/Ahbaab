@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+  <Jars></Jars>
+  <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Release\__library_projects__\Refractored.Controls.CircleImageView\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Release\__library_projects__\Xamarin.InAppBilling\library_project_imports\res</ResolvedResourceDirectory>
+  </ResolvedResourceDirectories>
+  <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\Refractored.Controls.CircleImageView\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\Xamarin.InAppBilling\library_project_imports\assets</ResolvedAssetDirectory>
+  </ResolvedAssetDirectories>
+  <ResolvedEnvironmentFiles />
+  <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Release\__library_projects__\Refractored.Controls.CircleImageView.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Release\__library_projects__\Xamarin.InAppBilling.stamp</ResolvedResourceDirectoryStamp>
+  </ResolvedResourceDirectoryStamps>
+</Paths>

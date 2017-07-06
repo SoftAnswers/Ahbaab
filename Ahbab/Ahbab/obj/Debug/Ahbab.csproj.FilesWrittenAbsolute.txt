@@ -1,0 +1,6 @@
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab/bin/Debug/Ahbab.dll.mdb
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab/bin/Debug/Ahbab.dll
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab/obj/Debug/Ahbab.dll
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab/obj/Debug/Ahbab.dll.mdb
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab/bin/Debug/Newtonsoft.Json.dll

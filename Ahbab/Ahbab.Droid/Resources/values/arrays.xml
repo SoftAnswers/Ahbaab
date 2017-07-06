@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string-array name="status">
+    <!--<item>إختر واحداً</item>-->
+    <item>متزوج</item>
+    <item>اعزب</item>
+    <item>مطلق</item>
+    <item>ارمل</item>
+    <item>مخطوب</item>
+    <item>غير ذلك</item>
+  </string-array>
+
+  <string-array name="eyecolor">
+    <!--<item>إختر واحداً</item>-->
+    <item>أخضر</item>
+    <item>أزرق</item>
+    <item>أسود</item>
+    <item>بني</item>
+    <item>عسلي</item>
+    <item>غير ذلك</item>
+  </string-array>
+
+  <string-array name="haircolor">
+    <!--<item>إختر واحداً</item>-->
+    <item>أسود</item>
+    <item>اشقر</item>
+    <item>كستنائي</item>
+    <item>رمادي</item>
+    <item>ابيض</item>
+    <item>غير ذلك</item>
+  </string-array>
+
+  <string-array name="height">
+    <!--<item>إختر واحداً</item>-->
+    <item>طويل</item>
+    <item>قصير</item>
+    <item>متوسط</item>
+  </string-array>
+
+  <string-array name="weight">
+    <!--<item>إختر واحداً</item>-->
+    <item>ضعيف</item>
+    <item>سمين</item>
+    <item>عادي</item>
+  </string-array>
+
+  <string-array name="usagePurpose">
+    <!--<item>إختر واحداً</item>-->
+    <item>زواج عادي</item>
+    <item>زواج مسيار</item>
+    <item>تواصل وتعارف</item>
+    <item>اصدقاء عبر النت</item>
+    <item>تبادل افكار واحاديث</item>
+    <item>تعارف على اناس جدد</item>
+    <item>تعارف على ثقافات جديدة</item>
+    <item>بعد التفاهم</item>
+    <item>زواج تعدد</item>
+    <item>غير ذلك</item>
+  </string-array>
+
+  <string-array name="age">
+    <!--<item>إختر واحداً</item>-->
+    <item>18-22</item>
+    <item>23-27</item>
+    <item>28-32</item>
+    <item>33-37</item>
+    <item>38-42</item>
+    <item>43-47</item>
+    <item>48-52</item>
+    <item>53-57</item>
+    <item>58-99</item>
+  </string-array>
+
+  <string-array name="educationLevel">
+    <!--<item>إختر واحداً</item>-->
+    <item>تعليم جامعي</item>
+    <item>تعليم مدرسي</item>
+    <item>اختصاصات عليا</item>
+    <item>تعليم مهني</item>
+    <item>غير متعلم</item>
+  </string-array>
+
+  <string-array name="originCountry">
+    <!--<item>إختر واحداً</item>-->
+    <item>لبنان</item>
+    <item>المملكة العربية السعودية</item>
+    <item>الامارات العربية المتحدة</item>
+    <item>قطر</item>
+    <item>الكويت</item>
+    <item>سلطنة عمان</item>
+    <item>البحرين</item>
+    <item>الاردن</item>
+    <item>المغرب</item>
+    <item>مصر</item>
+    <item>تونس</item>
+    <item>الجزائر</item>
+    <item>ليبيا</item>
+    <item>العراق</item>
+    <item>السودان</item>
+    <item>سوريا</item>
+    <item>اليمن</item>
+    <item>فلسطين</item>
+    <item>دولة آسيوية</item>
+    <item>دولة أوروبية</item>
+    <item>دولة أميريكية</item>
+    <item>أستراليا</item>
+    <item>دولة أخرى</item>
+  </string-array>
+
+  <string-array name="residenceCountry">
+    <!--<item>إختر واحداً</item>-->
+    <item>لبنان</item>
+    <item>المملكة العربية السعودية</item>
+    <item>الامارات العربية المتحدة</item>
+    <item>قطر</item>
+    <item>الكويت</item>
+    <item>سلطنة عمان</item>
+    <item>البحرين</item>
+    <item>الاردن</item>
+    <item>المغرب</item>
+    <item>مصر</item>
+    <item>تونس</item>
+    <item>الجزائر</item>
+    <item>ليبيا</item>
+    <item>العراق</item>
+    <item>السودان</item>
+    <item>سوريا</item>
+    <item>اليمن</item>
+    <item>فلسطين</item>
+    <item>دولة آسيوية</item>
+    <item>دولة أوروبية</item>
+    <item>دولة أميريكية</item>
+    <item>أستراليا</item>
+    <item>دولة أخرى</item>
+  </string-array>
+
+  <string-array name="job">
+    <!--<item>إختر واحداً</item>-->
+    <item>طالب</item>
+    <item>موظف حكومي</item>
+    <item>موظف قطاع خاص</item>
+    <item>قطاع المصرفي</item>
+    <item>قطاع التدريس</item>
+    <item>القطاع الطبي</item>
+    <item>صحفي</item>
+    <item>تجارة</item>
+    <item>لا اعمل حاليا</item>
+    <item>عسكري</item>
+    <item>غير ذلك</item>
+  </string-array>
+
+  <string-array name="timezone">
+    <!--<item>إختر واحداً</item>-->
+    <item>مكة المكرمة</item>
+  </string-array>
+
+  <string-array name="available">
+    <!--<item>إختر واحداً</item>-->
+    <item>00:00-04:00</item>
+    <item>04:00-08:00</item>
+    <item>08:00-12:00</item>
+    <item>12:00-04:00</item>
+    <item>04:00-08:00</item>
+    <item>08:00-12:00</item>
+  </string-array>
+
+  <string-array name="communicationWays">
+    <item>هاتف</item>
+    <item>البريد الإلكتروني</item>
+    <item>فايسبوك</item>
+    <item>تويتر</item>
+    <item>ياهو مسنجر</item>
+    <item>واتس اب</item>
+    <item>سكايب</item>
+  </string-array>
+</resources>

@@ -1,0 +1,11 @@
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/actool/_PartialAppManifest.items
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/optimized/
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/AhbabiOS.exe.mdb
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/AhbabiOS.exe
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/AhbabiOS.exe
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/AhbabiOS.exe.mdb
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Newtonsoft.Json.dll
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Ahbab.dll
+/Users/Nasr/ws/repo/defalut/SoftAnswers.MobileApps/Ahbab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Ahbab.dll.mdb

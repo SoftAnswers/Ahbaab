@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <style name="dialogAnimation">
+    <item name="android:windowEnterAnimation">@anim/slide_up</item>
+    <item name="android:windowExitAnimation">@anim/slide_right</item>
+  </style>
+
+  <style name="Theme.Ahbab" parent="Base.Theme.Ahbab">
+  </style>
+	
+  <style name="Theme.AhbabAlt" parent="Base.Theme.Ahbab">
+  </style>
+	
+  <style name="Base.Theme.Ahbab" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">#673AB7</item>
+    <item name="colorPrimaryDark">#512DA8</item>
+    <item name="colorAccent">#FF4081</item>
+  </style>
+
+  <style name="Widget.CardContent" parent="android:Widget">
+    <item name="android:paddingLeft">16dp</item>
+    <item name="android:paddingRight">16dp</item>
+    <item name="android:paddingTop">24dp</item>
+    <item name="android:paddingBottom">24dp</item>
+    <item name="android:orientation">vertical</item>
+  </style>
+
+  <style name="Theme.Ahbab.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+  <style name="Theme.Ahbab.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+ <style name="spinner_style">
+      <item name="android:background">@drawable/gradient_spinner</item>
+ </style>
+</resources>

@@ -1,0 +1,6 @@
+﻿namespace SharedCode
+{
+	class HttpClient
+	{
+	}
+}

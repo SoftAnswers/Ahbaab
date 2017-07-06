@@ -1,0 +1,340 @@
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.Droid.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.Droid.pdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\com.SoftAnswers.Ahbab.apk
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\com.SoftAnswers.Ahbab-Signed.apk
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Refractored.Controls.CircleImageView.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Design.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.v7.CardView.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.InAppBilling.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.pdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Refractored.Controls.CircleImageView.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.InAppBilling.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.csprojResolveAssemblyReference.cache
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.pdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\bin\com.SoftAnswers.Ahbab.apk
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\register.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\signindialog.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\mainpage.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\slidingtabfragment.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\pager_item.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\actionbar_main.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\ic_action_overflow.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\xs.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\searchfragment.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\inboxfragment.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\outboxfragment.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\femaleon.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\femaleusers.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\logo.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\maleoff.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\maleon.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\include_list_viewpager.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\nav_header.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\drawer_view.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\sample_actions.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_dashboard.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_discuss.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_done.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_event.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_forum.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_headset.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_dashboard.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_discuss.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_done.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_event.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_forum.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_headset.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_menu.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_dashboard.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_discuss.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_done.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_event.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_forum.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_headset.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_menu.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_dashboard.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_discuss.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_done.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_event.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_forum.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_headset.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_menu.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\ic_done.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\ic_menu.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\values\colors.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\values-v21\styles.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\values\dimens.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\gradient_spinner.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\list_item.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\messagedetailsactivity.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\legalnotesfragment.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\select.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\select.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\select.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\select.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\select.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\select.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\searchresultsactivity.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\userdetailsactivity.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\add_img.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\add_img.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\add_img.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\add_img.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\add_img.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\add_img.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\userdetailsactivitymenu.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\ic_discuss.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\sendmessagefragment.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\messagedetailsmenu.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\main.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\values\strings.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\icon.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\icon.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\icon.png
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\values\arrays.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\buttonsigninstyle.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\buttonsignupstyle.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\progressbarstyle.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\edit_text_style.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\spinneritem.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\spinnerdropdownitemstyle.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\anim\slide_right.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\anim\slide_up.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\res\values\styles.xml
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\R.cs.flag
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\uploadflags.txt
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.Droid.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Java.Interop.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Microsoft.CSharp.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Mono.Android.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\Mono.CSharp.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\mscorlib.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\System.ComponentModel.Composition.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\System.Core.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\System.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\System.Net.Http.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\System.Runtime.Serialization.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\System.ServiceModel.Internals.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\System.Xml.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\bin\Debug\System.Xml.Linq.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Ahbab.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Ahbab.Droid.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Java.Interop.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Mono.Android.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Mono.CSharp.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\mscorlib.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Core.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Net.Http.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps\Ahbab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.dll.mdb
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.csprojResolveAssemblyReference.cache
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Fragment.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Design.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v4.dll
+C:\Users\nasrn\Documents\Visual Studio 2015\Projects\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.CardView.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.Droid.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.Droid.pdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\com.SoftAnswers.Ahbab.apk
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\com.SoftAnswers.Ahbab-Signed.apk
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Refractored.Controls.CircleImageView.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Compat.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Core.UI.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Core.Utils.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Design.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Fragment.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Media.Compat.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Transition.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.v7.CardView.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.InAppBilling.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.pdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Newtonsoft.Json.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Refractored.Controls.CircleImageView.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Xamarin.InAppBilling.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.csprojResolveAssemblyReference.cache
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.Utils.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Media.Compat.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Fragment.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Vector.Drawable.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.AppCompat.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.Design.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v4.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.CardView.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.dll
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.pdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\bin\com.SoftAnswers.Ahbab.apk
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\register.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\signindialog.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\mainpage.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\slidingtabfragment.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\pager_item.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\actionbar_main.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\ic_action_overflow.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\xs.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\searchfragment.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\inboxfragment.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\outboxfragment.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\femaleon.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\femaleusers.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\logo.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\maleoff.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\maleon.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\include_list_viewpager.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\nav_header.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\drawer_view.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\sample_actions.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_dashboard.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_discuss.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_done.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_event.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_forum.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_headset.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_dashboard.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_discuss.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_done.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_event.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_forum.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_headset.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_menu.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_dashboard.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_discuss.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_done.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_event.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_forum.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_headset.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_menu.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_dashboard.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_discuss.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_done.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_event.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_forum.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_headset.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_menu.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\ic_done.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\ic_menu.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\values\colors.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\values-v21\styles.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\values\dimens.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\gradient_spinner.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\list_item.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\messagedetailsactivity.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\legalnotesfragment.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\select.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\select.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\select.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\select.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\select.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\select.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\searchresultsactivity.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\userdetailsactivity.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\add_img.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\add_img.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\add_img.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\add_img.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\add_img.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\add_img.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\userdetailsactivitymenu.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\ic_discuss.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\sendmessagefragment.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\messagedetailsmenu.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\main.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\values\strings.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\icon.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\icon.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\icon.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\icon.png
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\values\arrays.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\buttonsigninstyle.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\buttonsignupstyle.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\progressbarstyle.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\edit_text_style.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\spinneritem.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\spinnerdropdownitemstyle.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\anim\slide_right.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\anim\slide_up.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\values\styles.xml
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\R.cs.flag
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\uploadflags.txt
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.Droid.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Java.Interop.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Microsoft.CSharp.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Mono.Android.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Mono.CSharp.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\mscorlib.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.ComponentModel.Composition.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.Core.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.Net.Http.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.Runtime.Serialization.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.Runtime.Serialization.Primitives.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.ServiceModel.Internals.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.Xml.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\System.Xml.Linq.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Ahbab.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Ahbab.Droid.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Java.Interop.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Mono.Android.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Mono.CSharp.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\mscorlib.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Core.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Net.Http.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.dll.mdb
+C:\ws\repo\default\SoftAnswers.MobileApps.Ahbaab\Ahbab\Ahbab.Droid\bin\Debug\Ahbab.Droid.dll.mdb

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/dialogActionBar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:textDirection="rtl"
+        android:layoutDirection="rtl"
+        android:background="#673AB7" />
+    <android.support.v4.widget.NestedScrollView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textDirection="rtl"
+        android:layoutDirection="rtl">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/txtInputLayoutSubject"
+                android:layout_gravity="top">
+                <EditText
+                    android:id="@+id/txtDialogSubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/edit_text_style"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="25dp"
+                    android:hint="@string/subject"
+                    android:textColorHint="#000"
+                    android:paddingLeft="10dp"
+                    android:textColor="#000" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/txtInputLayoutBody"
+                android:layout_below="@id/txtInputLayoutSubject">
+                <EditText
+                    android:id="@+id/txtDialogBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_style"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:hint="@string/body"
+                    android:paddingLeft="10dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:inputType="textMultiLine"
+                    android:minLines="4"
+                    android:lines="10" />
+            </android.support.design.widget.TextInputLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtInputLayoutBody"
+                android:layout_marginTop="50dp">
+                <Button
+                    android:text="@string/send"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnDialogSend"
+                    android:textSize="20dp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    android:height="30dp"
+                    android:paddingTop="2dp"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
