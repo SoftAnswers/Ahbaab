@@ -62,12 +62,17 @@ namespace Ahbab.Droid
 					mToolbar.SetTitleTextColor(Android.Graphics.Color.White);
 					mLegalBody.SetText(Resource.String.privacyPolicyBody);
 					return;
-					case Resource.Id.termsAndConditions:
+				case Resource.Id.termsAndConditions:
 					mToolbar.SetTitle(Resource.String.termsAndConditionTitle);
 					mToolbar.SetTitleTextColor(Android.Graphics.Color.White);
 					mLegalBody.SetText(Resource.String.termsAndConditionsBody);
 					return;
-				default:
+                case Resource.Id.securityPolicy:
+                    mToolbar.SetTitle(Resource.String.securityPolicyTitle);
+                    mToolbar.SetTitleTextColor(Android.Graphics.Color.White);
+                    mLegalBody.SetText(Resource.String.securityPolicyBody);
+                    return;
+                default:
 					return;
 			}
 		}

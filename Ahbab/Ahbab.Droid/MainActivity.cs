@@ -40,7 +40,7 @@ namespace Ahbab.Droid
                 var email = new Intent(Intent.ActionSend);
 
                 email.PutExtra(Intent.ExtraEmail,
-                               new string[] { "nasr.nassar@live.com" });
+                               new string[] { "jad.abinader18@gmail.com" });
 
                 email.PutExtra(Intent.ExtraText, new string[] { ex.ToString() });
 
@@ -205,7 +205,7 @@ namespace Ahbab.Droid
             Ahbab.statusItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
                                                         Constants.Tables.Status);
 
-            Ahbab.statusItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.FamilyStatus));
+            Ahbab.statusItems.Insert(0, new SpinnerItem(-1, "Choose", Constants.DefaultValues.FamilyStatus));
 
             Ahbab.mAgeItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri),
                                                       Constants.Tables.Age);

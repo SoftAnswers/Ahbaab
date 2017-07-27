@@ -14,7 +14,7 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AssemblyName>Ahbab.Droid</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <SccProjectName>SAK</SccProjectName>
@@ -168,7 +168,9 @@
     <AndroidResource Include="Resources\drawable\maleOn.png" />
     <AndroidResource Include="Resources\layout\include_list_viewpager.axml" />
     <AndroidResource Include="Resources\layout\nav_header.axml" />
-    <AndroidResource Include="Resources\menu\drawer_view.axml" />
+    <AndroidResource Include="Resources\menu\drawer_view.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\menu\sample_actions.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_dashboard.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_discuss.png" />
@@ -229,9 +231,14 @@
     <AndroidResource Include="Resources\drawable\ic_discuss.png" />
     <AndroidResource Include="Resources\layout\SendMessageFragment.axml" />
     <AndroidResource Include="Resources\menu\MessageDetailsMenu.axml" />
+    <AndroidResource Include="Resources\menu\main_drawer_view.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\layout\Main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -273,7 +280,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <XamarinComponentReference Include="xamandroidsupportv4-18">
       <Version>23.4.0.1</Version>

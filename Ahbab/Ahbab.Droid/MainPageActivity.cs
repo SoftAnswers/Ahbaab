@@ -94,11 +94,17 @@ namespace Ahbab.Droid
         void SetUpDrawerContent(NavigationView navigationView)
         {
             navigationView.NavigationItemSelected += (sender, e) =>
-            {
+            {   
+                // If the user click on contact us we open directly the email screen
                 if (e.MenuItem.ItemId != Resource.Id.contactUs)
-                {
-                    OpenLegalNotesFragment(e.MenuItem);
-                    mDrawerLayout.CloseDrawers();
+                {   
+                    // If the user clicks on logout we display the logout popup
+                    if (e.MenuItem.ItemId == Resource.Id.logout) {
+                        this.OnBackPressed();
+                    } else{
+                        OpenLegalNotesFragment(e.MenuItem);
+                        mDrawerLayout.CloseDrawers();
+                    }
                 }
                 else
                 {

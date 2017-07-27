@@ -18,6 +18,10 @@
         android:id="@+id/termsAndConditions"
         android:icon="@drawable/ic_forum"
         android:title="@string/termsAndConditionTitle" />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_forum"
+        android:title="@string/logout"/>
   </group>
 
 </menu>
