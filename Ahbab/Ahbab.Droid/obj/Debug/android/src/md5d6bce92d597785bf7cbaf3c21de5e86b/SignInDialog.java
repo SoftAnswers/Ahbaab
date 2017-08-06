@@ -24,6 +24,13 @@ public class SignInDialog
 			mono.android.TypeManager.Activate ("Ahbab.Droid.SignInDialog, Ahbab.Droid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
+	public SignInDialog (android.content.Context p0) throws java.lang.Throwable
+	{
+		super ();
+		if (getClass () == SignInDialog.class)
+			mono.android.TypeManager.Activate ("Ahbab.Droid.SignInDialog, Ahbab.Droid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
+	}
+
 
 	public android.app.Dialog onCreateDialog (android.os.Bundle p0)
 	{

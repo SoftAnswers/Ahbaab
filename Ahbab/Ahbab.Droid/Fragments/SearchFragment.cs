@@ -33,23 +33,22 @@ namespace Ahbab.Droid
 		private CustomSpinnerAdapter mAgeAdapter;
 		private CustomSpinnerAdapter mStatusAdapter;
 		private CustomSpinnerAdapter mGoalFromSiteAdapter;
-		private CustomSpinnerAdapter mCountriesAdapter;
+		private CustomSpinnerAdapter mCountriesAdapter; 
 
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            //base.OnCreateView(inflater, container, savedInstanceState);
 
-		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-		{
-			//base.OnCreateView(inflater, container, savedInstanceState);
+            var mView = inflater.Inflate(Resource.Layout.SearchFragment, container, false);
 
-			var mView = inflater.Inflate(Resource.Layout.SearchFragment, container,false);
+            Initiate(mView);
 
-			Initiate(mView);
+            BindValues();
 
-			BindValues();
+            return mView;
+        }
 
-			return mView;
-		}
-
-		void BindValues()
+        void BindValues()
 		{
 			mStatusAdapter = new CustomSpinnerAdapter(this.Activity, Resource.Drawable.spinnerItem,
 												   Resource.Id.item_value, Ahbab.statusItems);

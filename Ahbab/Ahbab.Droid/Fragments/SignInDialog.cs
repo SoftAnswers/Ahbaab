@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using Android.Views.InputMethods;
 
 namespace Ahbab.Droid
 {
@@ -20,6 +21,11 @@ namespace Ahbab.Droid
         private Button mSignIn;
         //private SupportToolbar mActionBar;
         public EventHandler<OnSignInEventArgs> mOnSignInComplete;
+        private Context context;
+
+        public SignInDialog(Context context) {
+            this.context = context;
+        }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
@@ -44,7 +50,17 @@ namespace Ahbab.Droid
 
             mSignIn.Click += MSignIn_Click;
 
+            ShowKeyboard(view);
+
             return view;
+        }
+
+        // Function used to display the keyboard when the sign in popup is displayed
+        void ShowKeyboard(View view) {
+            view.RequestFocus();
+            InputMethodManager inputMethodManager = context.GetSystemService(Context.InputMethodService) as InputMethodManager;
+            inputMethodManager.ShowSoftInput(view, ShowFlags.Forced);
+            inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
         }
 
         private void MSignIn_Click(object sender, EventArgs e)

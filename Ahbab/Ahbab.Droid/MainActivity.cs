@@ -38,12 +38,8 @@ namespace Ahbab.Droid
             catch (Exception ex)
             {
                 var email = new Intent(Intent.ActionSend);
-
-                email.PutExtra(Intent.ExtraEmail,
-                               new string[] { "jad.abinader18@gmail.com" });
-
+                email.PutExtra(Intent.ExtraEmail, new string[] { "jad.abinader18@gmail.com" });
                 email.PutExtra(Intent.ExtraText, new string[] { ex.ToString() });
-
                 email.SetType("message/rfc822");
                 StartActivity(email);
             }
@@ -88,7 +84,7 @@ namespace Ahbab.Droid
             {
                 var transaction = SupportFragmentManager.BeginTransaction();
 
-                SignInDialog singInDialog = new SignInDialog();
+                SignInDialog singInDialog = new SignInDialog(this);
 
                 singInDialog.Show(transaction, "dialog_fragment");
 
@@ -190,7 +186,7 @@ namespace Ahbab.Droid
                     var email = new Intent(Intent.ActionSend);
 
                     email.PutExtra(Intent.ExtraEmail,
-                                   new string[] { "nasr.nassar@live.com" });
+                                   new string[] { "info@ahbaab.com" });
 
                     email.PutExtra(Intent.ExtraText, new string[] { ex.ToString() });
 

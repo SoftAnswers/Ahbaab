@@ -26,7 +26,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/edit_text_style"
                     android:hint="@string/userName"
-                    android:textColorHint="#000" />
+                    android:textColorHint="#000"
+                    android:gravity="right"/>
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"

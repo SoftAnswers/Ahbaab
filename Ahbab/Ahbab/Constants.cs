@@ -44,22 +44,21 @@ namespace Ahbab
 
         public struct FunctionsUri
         {
-            private const string HostIP = "http://www.ahbaab.net/app";
+            //private const string HostIP = "http://www.ahbaab.net/app";
+            private const string HostIP = "http://192.168.2.236/ahbab/api"; 
 
-            public const string GetSpinnerItemsUri = "http://www.ahbaab.net/app/GetsAllItemsFromTable.php";
-            public const string GetTwoColumnsSpinnersItemUri = "http://www.ahbaab.net/app/GetItemsFromTableWithTwoColumns.php";
-            public const string LoginUri = "http://www.ahbaab.net/app/Login.php";
-            public const string RegisterUri = "http://www.ahbaab.net/app/AppRegister.php";
-            public const string SearchUri = "http://www.ahbaab.net/app/AppSearch.php";
-            public const string InboxUri = "http://www.ahbaab.net/app/inbox.php";
-            public const string OutboxUri = "http://www.ahbaab.net/app/outbox.php";
-            public const string UpdateUri = "http://www.ahbaab.net/app/update.php";
-            public const string SendMessageUri = "http://www.ahbaab.net/app/SendMessage.php";
-            public const string BlockUri = "http://www.ahbaab.net/app/block.php";
-            public const string InterestUri = "http://www.ahbaab.net/app/interest.php";
-            public const string DeleteMessageUri = "http://www.ahbaab.net/app/DeleteMessage.php";
-
-
+            public const string GetSpinnerItemsUri = "http://192.168.2.236/ahbab/api/GetsAllItemsFromTable.php";
+            public const string GetTwoColumnsSpinnersItemUri = "http://192.168.2.236/ahbab/api/GetItemsFromTableWithTwoColumns.php";
+            public const string LoginUri = "http://192.168.2.236/ahbab/api/Login.php";
+            public const string RegisterUri = "http://192.168.2.236/ahbab/api/AppRegister.php";
+            public const string SearchUri = "http://192.168.2.236/ahbab/api/AppSearch.php";
+            public const string InboxUri = "http://192.168.2.236/ahbab/api/inbox.php";
+            public const string OutboxUri = "http://192.168.2.236/ahbab/api/outbox.php";
+            public const string UpdateUri = "http://192.168.2.236/ahbab/api/update.php";
+            public const string SendMessageUri = "http://192.168.2.236/ahbab/api/SendMessage.php";
+            public const string BlockUri = "http://192.168.2.236/ahbab/api/block.php";
+            public const string InterestUri = "http://192.168.2.236/ahbab/api/interest.php";
+            public const string DeleteMessageUri = "http://192.168.2.236/ahbab/api/DeleteMessage.php";
         }
 
         public struct TabsNames
