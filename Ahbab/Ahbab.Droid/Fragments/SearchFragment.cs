@@ -123,7 +123,7 @@ namespace Ahbab.Droid
 			{
 				parameters.Add("age", age.ToString());
 			}
-			if (status != 0)
+			if (status > 0)
 			{
 				parameters.Add("status", status.ToString());
 			}
