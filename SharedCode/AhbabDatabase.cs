@@ -171,5 +171,25 @@ namespace SharedCode
                 return "Send Failed";
             }
         }
+
+        internal static string LogMessage(String message, String level) {
+            try {
+                var mClient = new WebClient();
+
+                NameValueCollection parameters = new NameValueCollection();
+
+                parameters.Add("message", message);
+
+                parameters.Add("level", level);
+
+                var result = mClient.UploadValues(Constants.FunctionsUri.LogMessage, parameters);
+
+                return Encoding.UTF8.GetString(result);
+
+            }
+            catch (Exception ex) {
+                return "Logging Failed";
+            }
+        }
     }
 }

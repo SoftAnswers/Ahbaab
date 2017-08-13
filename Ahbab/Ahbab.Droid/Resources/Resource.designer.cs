@@ -2419,8 +2419,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a0043
 			public const int action_mode_close_button = 2131361859;
 			
-			// aapt resource value: 0x7f0a0106
-			public const int action_settings = 2131362054;
+			// aapt resource value: 0x7f0a0108
+			public const int action_settings = 2131362056;
 			
 			// aapt resource value: 0x7f0a009a
 			public const int action_text = 2131361946;
@@ -2461,17 +2461,17 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a003a
 			public const int beginning = 2131361850;
 			
-			// aapt resource value: 0x7f0a0108
-			public const int block = 2131362056;
+			// aapt resource value: 0x7f0a010a
+			public const int block = 2131362058;
 			
 			// aapt resource value: 0x7f0a0015
 			public const int bottom = 2131361813;
 			
-			// aapt resource value: 0x7f0a00ec
-			public const int btnDialogRegister = 2131362028;
+			// aapt resource value: 0x7f0a00ee
+			public const int btnDialogRegister = 2131362030;
 			
-			// aapt resource value: 0x7f0a00e9
-			public const int btnDialogSend = 2131362025;
+			// aapt resource value: 0x7f0a00eb
+			public const int btnDialogSend = 2131362027;
 			
 			// aapt resource value: 0x7f0a008b
 			public const int btnLogin = 2131361931;
@@ -2482,8 +2482,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a00e4
 			public const int btnSearch = 2131362020;
 			
-			// aapt resource value: 0x7f0a00fa
-			public const int btnSendMessage = 2131362042;
+			// aapt resource value: 0x7f0a00fc
+			public const int btnSendMessage = 2131362044;
 			
 			// aapt resource value: 0x7f0a00d4
 			public const int btnUpdate = 2131362004;
@@ -2524,8 +2524,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a00cd
 			public const int contactTimeSpinner = 2131361997;
 			
-			// aapt resource value: 0x7f0a0100
-			public const int contactUs = 2131362048;
+			// aapt resource value: 0x7f0a0102
+			public const int contactUs = 2131362050;
 			
 			// aapt resource value: 0x7f0a00cf
 			public const int contactWays = 2131361999;
@@ -2545,8 +2545,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a0047
 			public const int default_activity_button = 2131361863;
 			
-			// aapt resource value: 0x7f0a0107
-			public const int deleteMessage = 2131362055;
+			// aapt resource value: 0x7f0a0109
+			public const int deleteMessage = 2131362057;
 			
 			// aapt resource value: 0x7f0a0076
 			public const int design_bottom_sheet = 2131361910;
@@ -2659,11 +2659,11 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a00a5
 			public const int info = 2131361957;
 			
-			// aapt resource value: 0x7f0a0109
-			public const int interest = 2131362057;
+			// aapt resource value: 0x7f0a010b
+			public const int interest = 2131362059;
 			
-			// aapt resource value: 0x7f0a00fe
-			public const int item_id = 2131362046;
+			// aapt resource value: 0x7f0a0100
+			public const int item_id = 2131362048;
 			
 			// aapt resource value: 0x7f0a00af
 			public const int item_subtitle = 2131361967;
@@ -2674,8 +2674,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a000c
 			public const int item_touch_helper_previous_elevation = 2131361804;
 			
-			// aapt resource value: 0x7f0a00fd
-			public const int item_value = 2131362045;
+			// aapt resource value: 0x7f0a00ff
+			public const int item_value = 2131362047;
 			
 			// aapt resource value: 0x7f0a00c7
 			public const int jobSpinner = 2131361991;
@@ -2698,20 +2698,20 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a0048
 			public const int list_item = 2131361864;
 			
-			// aapt resource value: 0x7f0a0104
-			public const int logout = 2131362052;
+			// aapt resource value: 0x7f0a0106
+			public const int logout = 2131362054;
 			
 			// aapt resource value: 0x7f0a0090
 			public const int main_content = 2131361936;
 			
-			// aapt resource value: 0x7f0a00fc
-			public const int masked = 2131362044;
+			// aapt resource value: 0x7f0a00fe
+			public const int masked = 2131362046;
 			
 			// aapt resource value: 0x7f0a009e
 			public const int media_actions = 2131361950;
 			
-			// aapt resource value: 0x7f0a00ff
-			public const int menu = 2131362047;
+			// aapt resource value: 0x7f0a0101
+			public const int menu = 2131362049;
 			
 			// aapt resource value: 0x7f0a003b
 			public const int middle = 2131361851;
@@ -2730,6 +2730,9 @@ namespace Ahbab.Droid
 			
 			// aapt resource value: 0x7f0a003f
 			public const int never = 2131361855;
+			
+			// aapt resource value: 0x7f0a00e5
+			public const int nextBtn = 2131362021;
 			
 			// aapt resource value: 0x7f0a001f
 			public const int none = 2131361823;
@@ -2758,8 +2761,11 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a0021
 			public const int pin = 2131361825;
 			
-			// aapt resource value: 0x7f0a0102
-			public const int privacyPolicy = 2131362050;
+			// aapt resource value: 0x7f0a00e6
+			public const int prevBtn = 2131362022;
+			
+			// aapt resource value: 0x7f0a0104
+			public const int privacyPolicy = 2131362052;
 			
 			// aapt resource value: 0x7f0a008e
 			public const int progressBar = 2131361934;
@@ -2866,8 +2872,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a0071
 			public const int search_voice_btn = 2131361905;
 			
-			// aapt resource value: 0x7f0a0105
-			public const int securityPolicy = 2131362053;
+			// aapt resource value: 0x7f0a0107
+			public const int securityPolicy = 2131362055;
 			
 			// aapt resource value: 0x7f0a0072
 			public const int select_dialog_listview = 2131361906;
@@ -2884,8 +2890,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a0036
 			public const int showTitle = 2131361846;
 			
-			// aapt resource value: 0x7f0a00ed
-			public const int sliding_tabs = 2131362029;
+			// aapt resource value: 0x7f0a00ef
+			public const int sliding_tabs = 2131362031;
 			
 			// aapt resource value: 0x7f0a0073
 			public const int smallLabel = 2131361907;
@@ -2935,8 +2941,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a0082
 			public const int tabs = 2131361922;
 			
-			// aapt resource value: 0x7f0a0103
-			public const int termsAndConditions = 2131362051;
+			// aapt resource value: 0x7f0a0105
+			public const int termsAndConditions = 2131362053;
 			
 			// aapt resource value: 0x7f0a00ad
 			public const int text = 2131361965;
@@ -2998,8 +3004,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a000e
 			public const int transition_scene_layoutid_cache = 2131361806;
 			
-			// aapt resource value: 0x7f0a00f4
-			public const int txtAge = 2131362036;
+			// aapt resource value: 0x7f0a00f6
+			public const int txtAge = 2131362038;
 			
 			// aapt resource value: 0x7f0a0096
 			public const int txtBody = 2131361942;
@@ -3007,44 +3013,44 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a00ce
 			public const int txtContactWays = 2131361998;
 			
-			// aapt resource value: 0x7f0a00e8
-			public const int txtDialogBody = 2131362024;
-			
-			// aapt resource value: 0x7f0a00eb
-			public const int txtDialogPassword = 2131362027;
-			
-			// aapt resource value: 0x7f0a00e6
-			public const int txtDialogSubject = 2131362022;
-			
 			// aapt resource value: 0x7f0a00ea
-			public const int txtDialogUserName = 2131362026;
+			public const int txtDialogBody = 2131362026;
 			
-			// aapt resource value: 0x7f0a00f5
-			public const int txtEducationLevel = 2131362037;
+			// aapt resource value: 0x7f0a00ed
+			public const int txtDialogPassword = 2131362029;
+			
+			// aapt resource value: 0x7f0a00e8
+			public const int txtDialogSubject = 2131362024;
+			
+			// aapt resource value: 0x7f0a00ec
+			public const int txtDialogUserName = 2131362028;
+			
+			// aapt resource value: 0x7f0a00f7
+			public const int txtEducationLevel = 2131362039;
 			
 			// aapt resource value: 0x7f0a00b6
 			public const int txtEmail = 2131361974;
 			
-			// aapt resource value: 0x7f0a00ee
-			public const int txtEyesColor = 2131362030;
-			
 			// aapt resource value: 0x7f0a00f0
-			public const int txtFamilyStatus = 2131362032;
+			public const int txtEyesColor = 2131362032;
+			
+			// aapt resource value: 0x7f0a00f2
+			public const int txtFamilyStatus = 2131362034;
 			
 			// aapt resource value: 0x7f0a00b8
 			public const int txtFullname = 2131361976;
 			
-			// aapt resource value: 0x7f0a00f3
-			public const int txtGoalFromSite = 2131362035;
-			
-			// aapt resource value: 0x7f0a00ef
-			public const int txtHairColor = 2131362031;
+			// aapt resource value: 0x7f0a00f5
+			public const int txtGoalFromSite = 2131362037;
 			
 			// aapt resource value: 0x7f0a00f1
-			public const int txtHeight = 2131362033;
+			public const int txtHairColor = 2131362033;
 			
-			// aapt resource value: 0x7f0a00e7
-			public const int txtInputLayoutBody = 2131362023;
+			// aapt resource value: 0x7f0a00f3
+			public const int txtHeight = 2131362035;
+			
+			// aapt resource value: 0x7f0a00e9
+			public const int txtInputLayoutBody = 2131362025;
 			
 			// aapt resource value: 0x7f0a00b5
 			public const int txtInputLayoutEmail = 2131361973;
@@ -3061,8 +3067,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a00c8
 			public const int txtInputLayoutSelfDescription = 2131361992;
 			
-			// aapt resource value: 0x7f0a00e5
-			public const int txtInputLayoutSubject = 2131362021;
+			// aapt resource value: 0x7f0a00e7
+			public const int txtInputLayoutSubject = 2131362023;
 			
 			// aapt resource value: 0x7f0a00d5
 			public const int txtInputLayoutUser = 2131362005;
@@ -3070,11 +3076,11 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a00b1
 			public const int txtInputLayoutUserName = 2131361969;
 			
-			// aapt resource value: 0x7f0a00f8
-			public const int txtJob = 2131362040;
+			// aapt resource value: 0x7f0a00fa
+			public const int txtJob = 2131362042;
 			
-			// aapt resource value: 0x7f0a00f9
-			public const int txtLastOnline = 2131362041;
+			// aapt resource value: 0x7f0a00fb
+			public const int txtLastOnline = 2131362043;
 			
 			// aapt resource value: 0x7f0a0086
 			public const int txtLegalBody = 2131361926;
@@ -3082,8 +3088,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a008c
 			public const int txtOr = 2131361932;
 			
-			// aapt resource value: 0x7f0a00f6
-			public const int txtOriginCountry = 2131362038;
+			// aapt resource value: 0x7f0a00f8
+			public const int txtOriginCountry = 2131362040;
 			
 			// aapt resource value: 0x7f0a00cb
 			public const int txtPartnerDescription = 2131361995;
@@ -3094,8 +3100,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a00d0
 			public const int txtPhotos = 2131362000;
 			
-			// aapt resource value: 0x7f0a00f7
-			public const int txtResidenceCountry = 2131362039;
+			// aapt resource value: 0x7f0a00f9
+			public const int txtResidenceCountry = 2131362041;
 			
 			// aapt resource value: 0x7f0a00e2
 			public const int txtSearchAge = 2131362018;
@@ -3136,8 +3142,8 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a008a
 			public const int txtViewCreateAccount = 2131361930;
 			
-			// aapt resource value: 0x7f0a00f2
-			public const int txtWeight = 2131362034;
+			// aapt resource value: 0x7f0a00f4
+			public const int txtWeight = 2131362036;
 			
 			// aapt resource value: 0x7f0a000b
 			public const int up = 2131361803;
@@ -3151,14 +3157,14 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f0a0083
 			public const int viewpager = 2131361923;
 			
-			// aapt resource value: 0x7f0a00fb
-			public const int visible = 2131362043;
+			// aapt resource value: 0x7f0a00fd
+			public const int visible = 2131362045;
 			
 			// aapt resource value: 0x7f0a00c1
 			public const int weightSpinner = 2131361985;
 			
-			// aapt resource value: 0x7f0a0101
-			public const int whoAreWe = 2131362049;
+			// aapt resource value: 0x7f0a0103
+			public const int whoAreWe = 2131362051;
 			
 			// aapt resource value: 0x7f0a0040
 			public const int withText = 2131361856;

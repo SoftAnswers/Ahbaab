@@ -413,13 +413,6 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\d
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_forum.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_headset.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_menu.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_dashboard.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_discuss.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_done.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_event.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_forum.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_headset.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_menu.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_dashboard.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_discuss.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_done.png
@@ -435,7 +428,6 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\v
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\gradient_spinner.xml
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\ic_keyboard_arrow_down_black_24dp.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\ic_keyboard_arrow_down_black_24dp.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\ic_keyboard_arrow_down_black_24dp.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\ic_keyboard_arrow_down_black_24dp.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\ic_keyboard_arrow_down_black_24dp.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\list_item.xml
@@ -444,7 +436,6 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\l
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\select.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\select.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\select.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\select.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\select.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\select.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\searchresultsactivity.xml
@@ -452,7 +443,6 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\l
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\add_img.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\add_img.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\add_img.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\add_img.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\add_img.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\add_img.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\userdetailsactivitymenu.xml
@@ -463,7 +453,6 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\l
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\values\strings.xml
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\icon.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-mdpi\icon.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xhdpi\icon.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\icon.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\values\arrays.xml
@@ -510,3 +499,14 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\andro
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\menu\main_drawer_view.xml
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\ic_dashboard.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\ic_discuss.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\ic_done.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\ic_event.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\ic_forum.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\ic_headset.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\ic_menu.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\ic_keyboard_arrow_down_black_24dp.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\select.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\add_img.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\icon.png

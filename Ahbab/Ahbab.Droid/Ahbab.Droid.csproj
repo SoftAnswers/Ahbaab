@@ -120,6 +120,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Paginator.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RegisterActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -185,13 +186,13 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_forum.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_headset.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_menu.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_dashboard.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_discuss.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_done.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_event.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_forum.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_headset.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_menu.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\ic_dashboard.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\ic_discuss.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\ic_done.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\ic_event.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\ic_forum.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\ic_headset.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\ic_menu.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_dashboard.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_discuss.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_done.png" />
@@ -207,7 +208,7 @@
     <AndroidResource Include="Resources\drawable\gradient_spinner.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_keyboard_arrow_down_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_keyboard_arrow_down_black_24dp.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_keyboard_arrow_down_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\ic_keyboard_arrow_down_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_keyboard_arrow_down_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_keyboard_arrow_down_black_24dp.png" />
     <AndroidResource Include="Resources\layout\List_Item.axml" />
@@ -216,15 +217,17 @@
     <AndroidResource Include="Resources\drawable\select.png" />
     <AndroidResource Include="Resources\drawable-hdpi\select.png" />
     <AndroidResource Include="Resources\drawable-mdpi\select.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\select.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\select.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\select.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\select.png" />
-    <AndroidResource Include="Resources\layout\SearchResultsActivity.axml" />
+    <AndroidResource Include="Resources\layout\SearchResultsActivity.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\UserDetailsActivity.axml" />
     <AndroidResource Include="Resources\drawable\add_img.png" />
     <AndroidResource Include="Resources\drawable-hdpi\add_img.png" />
     <AndroidResource Include="Resources\drawable-mdpi\add_img.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\add_img.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\add_img.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\add_img.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\add_img.png" />
     <AndroidResource Include="Resources\menu\UserDetailsActivityMenu.axml" />
@@ -244,7 +247,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
   </ItemGroup>

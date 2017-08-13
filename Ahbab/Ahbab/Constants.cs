@@ -59,6 +59,7 @@ namespace Ahbab
             public const string BlockUri = "http://192.168.2.236/ahbab/api/block.php";
             public const string InterestUri = "http://192.168.2.236/ahbab/api/interest.php";
             public const string DeleteMessageUri = "http://192.168.2.236/ahbab/api/DeleteMessage.php";
+            public const string LogMessage = "http://192.168.2.236/ahbab/api/AppLogging.php";
         }
 
         public struct TabsNames

@@ -56,9 +56,7 @@ namespace Ahbab.Droid
 
             if (mValues[position].ImageBytes != null && mValues[position].ImageBytes.Length > 0)
             {
-                bitMap = await BitmapFactory.DecodeByteArrayAsync(mValues[position].ImageBytes,
-                                                                  0,
-                                                                  mValues[position].ImageBytes.Length);
+                bitMap = await BitmapFactory.DecodeByteArrayAsync(mValues[position].ImageBytes, 0, mValues[position].ImageBytes.Length);
             }
             else
             {
@@ -66,7 +64,6 @@ namespace Ahbab.Droid
                 {
                     options.InSampleSize = mCalculatedSizes[drawableID];
                 }
-
                 else
                 {
                     options.InJustDecodeBounds = true;
@@ -78,11 +75,8 @@ namespace Ahbab.Droid
 
                     mCalculatedSizes.Add(drawableID, options.InSampleSize);
                 }
-
                 bitMap = await BitmapFactory.DecodeResourceAsync(mResource, drawableID, options);
             }
-
-
             simpleHolder.mImageView.SetImageBitmap(bitMap);
         }
 

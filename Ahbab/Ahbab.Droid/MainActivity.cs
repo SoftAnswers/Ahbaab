@@ -181,17 +181,8 @@ namespace Ahbab.Droid
                         }
                     });
                 }
-                catch (Exception ex)
-                {
-                    var email = new Intent(Intent.ActionSend);
-
-                    email.PutExtra(Intent.ExtraEmail,
-                                   new string[] { "info@ahbaab.com" });
-
-                    email.PutExtra(Intent.ExtraText, new string[] { ex.ToString() });
-
-                    email.SetType("message/rfc822");
-                    StartActivity(email);
+                catch (Exception ex) {
+                    var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
                 }
             })).Start();
         }
