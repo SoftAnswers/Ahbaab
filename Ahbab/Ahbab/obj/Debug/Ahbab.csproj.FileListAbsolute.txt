@@ -28,3 +28,6 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\bin\Debug\Newtonsoft.
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\obj\Debug\Ahbab.csprojResolveAssemblyReference.cache
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\obj\Debug\Ahbab.dll
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\obj\Debug\Ahbab.pdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\bin\Debug\Mono.Android.dll
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\bin\Debug\Mono.Android.pdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\bin\Debug\Mono.Android.xml

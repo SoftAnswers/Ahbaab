@@ -91,13 +91,13 @@
 			$stmtcheckuser->bindParam(':username',$user);
 			$user = $_POST['user'];
 			if ($stmtcheckuser->execute()) 
+			{
+				$countuser =0;// $stmtcheckuser->dataCount();
+				if($countuser != 0)
 				{
-					$countuser =0;// $stmtcheckuser->dataCount();
-					if($countuser != 0)
-					{
-						echo " إن هذا الإسم للمستخدم مستعمل ، الرجاء إدخال إسم آخر";
-					}
+					echo " إن هذا الإسم للمستخدم مستعمل ، الرجاء إدخال إسم آخر";
 				}
+			}
 			$stmt = $dbh->prepare("INSERT INTO accounts (username,password,email,name,gender,status_id,IP,last_active_date,created_on,eye_color_id,hair_color_id,height_id,weight_id,usage_purpose_id,age_id,educ_level_id,origin_ctry_id,current_ctry_id,job_id,describe_you,describe_others,phone_number,paid,visit_count_to,visit_count_from,interests_to,interests_from,blocks_to,blocks_from,logins,active,time_frame_id,paid_begin,paid_end,account_status,timezone_id) VALUES (:user,:pass,:mail,:name,:gender,:status,:IP,:lastactive,:createdon,:eyecolor,:haircolor,:height,:weight,:usagepurpose,:age,:educlevel,:origin,:current,:job,:describeyou,:describeother,:phone,:paid,:visitto,:visitfrom,:interestto,:interestfrom,:blocksto,:blocksfrom,:logins,:active,:timeframe,:paidbegin,:paidend,:accountstatus,:timezone)");
 			$stmt->bindParam(':user', $user);
 			$stmt->bindParam(':pass',$pass);
@@ -206,37 +206,38 @@
 			$stmtinsertimage->execute();
 		}
 			
-  			/*if(!empty($aWay)) 
-  			{
-    			$N = count($aWay);
-   			 for($i=0; $i < $N; $i++)
-    			{
-					if($gender == "M")
-					{
-      					$stmtinsertway = $dbh->prepare("insert into contact_preferences (account_id,way_id,way_value,status) values (:acc,:way,:value,:status)");
-						$stmtinsertway->bindParam(':acc',$lastid);
-						$stmtinsertway->bindParam(':way',$way);
-						$stmtinsertway->bindParam(':value',$value);
-						$stmtinsertway->bindParam(':status',$status);
-						$way = $aWay[$i];
-						$value = "";
-						$status ='A';
-						$stmtinsertway->execute();
-					}
-					else
-					{
-						$stmtinsertway = $dbh->prepare("insert into contact_preferences (account_id,way_id,way_value,status) values (:acc,:way,:value,:status)");
-						$stmtinsertway->bindParam(':acc',$lastid);
-						$stmtinsertway->bindParam(':way',$way);
-						$stmtinsertway->bindParam(':value',$value);
-						$stmtinsertway->bindParam(':status',$status);
-						$way = $aWay[$i];
-						$value = $aTextBox[$i];
-						$status = 'P';
-						$stmtinsertway->execute();
-					}
-    			}
-  			}*/
+		if(!empty($aWay)) 
+		{
+			$N = count($aWay);
+			$contactWay = json_decode($aWay);
+			for($i=0; $i < $N; $i++)
+			{
+				if($gender == "M")
+				{
+					$stmtinsertway = $dbh->prepare("insert into contact_preferences (account_id, way_id, way_value, status) values (:acc,:way,:value,:status)");
+					$stmtinsertway->bindParam(':acc',$lastid);
+					$stmtinsertway->bindParam(':way',$way);
+					$stmtinsertway->bindParam(':value',$value);
+					$stmtinsertway->bindParam(':status',$status);
+					$way = $contactWay[$i]->{'way_id'};
+					$value = $contactWay[$i]->{'way_value'};
+					$status ='A';
+					$stmtinsertway->execute();
+				}
+				else
+				{
+					$stmtinsertway = $dbh->prepare("insert into contact_preferences (account_id,way_id,way_value,status) values (:acc,:way,:value,:status)");
+					$stmtinsertway->bindParam(':acc',$lastid);
+					$stmtinsertway->bindParam(':way',$way);
+					$stmtinsertway->bindParam(':value',$value);
+					$stmtinsertway->bindParam(':status',$status);
+					$way = $contactWay[$i];
+					$value = $contactWay[$i]->{'way_value'};
+					$status = 'P';
+					$stmtinsertway->execute();
+				}
+			}
+		}
 			$to = $mail;
 			$subject = "أهلاً بكم في موقع أحباب"; 
 			$email = "info@ahbaab.com" ; 

@@ -101,7 +101,6 @@ namespace Ahbab.Droid
 				Context context = view.Context;
 				Intent intent = new Intent(context, typeof(UserDetailsActivity));
 				intent.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(results[position]));
-
 				context.StartActivity(intent);
 			});
             nextBtn.Click += NextButton_Click;

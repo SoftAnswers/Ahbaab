@@ -54,12 +54,7 @@ namespace Ahbab.Droid
 
 		void MSendMessage_Click(object sender, EventArgs e)
 		{
-			mOnSendMessageComplete.Invoke(
-				this,
-				new OnSendMessageEventArgs(
-					mSubjectInputLayout.EditText.Text,
-					mBodyInputLayout.EditText.Text));
-
+			mOnSendMessageComplete.Invoke(this, new OnSendMessageEventArgs(mSubjectInputLayout.EditText.Text, mBodyInputLayout.EditText.Text));
 			this.Dismiss();
 		}
 	}

@@ -54,12 +54,7 @@ namespace Ahbab.Entities
                        timeFrameId, paidStartDate, paidEndDate, accountStatus, timeZoneId, userID);
         }
 
-
-        public int UserID
-        {
-            get;
-            set;
-        }
+        public int UserID{ get; set; }
         public string UserName { get; set; }
         public int ID { get; set; }
         public string Password { get; set; }
@@ -71,158 +66,47 @@ namespace Ahbab.Entities
         public string IP { get; set; }
         public DateTime LastActiveDate { get; set; }
         public DateTime CreatedOn { get; set; }
-        public int EyesColorId
-        {
-            get;
-            set;
-        }
-        public int HairColorId
-        {
-            get;
-            set;
-        }
-        public int HeightId
-        {
-            get;
-            set;
-        }
-        public int WeightId
-        {
-            get;
-            set;
-        }
-
-        public int UsagePurposeId
-        {
-            get;
-            set;
-        }
-
-        public int EducationLevelID
-        {
-            get;
-            set;
-        }
-        public int OriginCountryId
-        {
-            get;
-            set;
-        }
-        public int CurrentCountryId
-        {
-            get;
-            set;
-        }
-        public int JobId
-        {
-            get;
-            set;
-        }
-        public string SelfDescription
-        {
-            get;
-            set;
-        }
-        public string OthersDescription
-        {
-            get;
-            set;
-        }
+        public int EyesColorId { get; set; }
+        public int HairColorId { get; set; }
+        public int HeightId { get; set; }
+        public int WeightId { get; set; }
+        public int UsagePurposeId { get; set; }
+        public int EducationLevelID { get; set; }
+        public int OriginCountryId { get; set; }
+        public int CurrentCountryId { get; set; }
+        public int JobId { get; set; }
+        public string SelfDescription { get; set; }
+        public string OthersDescription { get; set; }
         public string PhoneNumber { get; set; }
-        public string Paid
-        {
-            get;
-            set;
-        }
-        public int VisitCountTo
-        {
-            get;
-            set;
-        }
-        public int VisitCountFrom
-        {
-            get;
-            set;
-        }
-        public int InterestsTo
-        {
-            get;
-            set;
-        }
-        public int InterestsFrom
-        {
-            get;
-            set;
-        }
-        public int BlocksTo
-        {
-            get;
-            set;
-        }
-        public int BlocksFrom
-        {
-            get;
-            set;
-        }
-        public int NumberOfLogins
-        {
-            get;
-            set;
-        }
-        public int Active
-        {
-            get;
-            set;
-        }
-        public int TimeFrameId
-        {
-            get;
-            set;
-        }
-        public DateTime PaidStartDate
-        {
-            get;
-            set;
-        }
-        public DateTime PaidEndDate
-        {
-            get;
-            set;
-        }
-        public string AccountStatus
-        {
-            get;
-            set;
-        }
-        public int TimeZoneId
-        {
-            get;
-            set;
-        }
-
-        public UserImage Image
-        {
-            get;
-            set;
-        }
-
-        public List<UserImage> Images
-        {
-            get;
-            set;
-        }
-
-        public string ImageBase64 { private get; set; }
-        public byte[] ImageBytes
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(this.ImageBase64))
-                {
-                    byte[] image = Convert.FromBase64String(this.ImageBase64);
-                    return image;
+        public string Paid { get; set; }
+        public int VisitCountTo { get; set; }
+        public int VisitCountFrom { get; set; }
+        public int InterestsTo { get; set; }
+        public int InterestsFrom { get; set; }
+        public int BlocksTo { get; set; }
+        public int BlocksFrom { get; set; }
+        public int NumberOfLogins { get; set; }
+        public int Active { get; set; }
+        public int TimeFrameId { get; set; }
+        public DateTime PaidStartDate { get; set; }
+        public DateTime PaidEndDate { get; set; }
+        public string AccountStatus { get; set; }
+        public int TimeZoneId { get; set; }
+        public UserImage Image { get; set; }
+        public List<UserImage> Images { get; set; }
+        public string[] ImageNames { get; set; }
+        public string[] ImageBase64 { private get; set; }
+        public List<byte[]> ImageBytes {
+            get {
+                List<Byte[]> userImages = new List<byte[]>();
+                for (int i = 0; i < ImageBase64.Length; i++) {
+                    if (!string.IsNullOrEmpty(this.ImageBase64[i])) {
+                        byte[] image = Convert.FromBase64String(this.ImageBase64[i]);
+                        userImages.Add(image);
+                    }
                 }
-
+                if (userImages.Count > 0)
+                    return userImages;
                 return null;
             }
         }

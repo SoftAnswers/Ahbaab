@@ -44,9 +44,7 @@ namespace Ahbab
 
         public struct FunctionsUri
         {
-            //private const string HostIP = "http://www.ahbaab.net/app";
             private const string HostIP = "http://192.168.2.236/ahbab/api"; 
-
             public const string GetSpinnerItemsUri = "http://192.168.2.236/ahbab/api/GetsAllItemsFromTable.php";
             public const string GetTwoColumnsSpinnersItemUri = "http://192.168.2.236/ahbab/api/GetItemsFromTableWithTwoColumns.php";
             public const string LoginUri = "http://192.168.2.236/ahbab/api/Login.php";
@@ -54,12 +52,27 @@ namespace Ahbab
             public const string SearchUri = "http://192.168.2.236/ahbab/api/AppSearch.php";
             public const string InboxUri = "http://192.168.2.236/ahbab/api/inbox.php";
             public const string OutboxUri = "http://192.168.2.236/ahbab/api/outbox.php";
-            public const string UpdateUri = "http://192.168.2.236/ahbab/api/update.php";
+            public const string UpdateUri = "http://192.168.2.236/ahbab/api/Update.php";
             public const string SendMessageUri = "http://192.168.2.236/ahbab/api/SendMessage.php";
             public const string BlockUri = "http://192.168.2.236/ahbab/api/block.php";
             public const string InterestUri = "http://192.168.2.236/ahbab/api/interest.php";
             public const string DeleteMessageUri = "http://192.168.2.236/ahbab/api/DeleteMessage.php";
             public const string LogMessage = "http://192.168.2.236/ahbab/api/AppLogging.php";
+
+            /*private const string HostIP = "http://www.ahbaab.com/app";
+            public const string GetSpinnerItemsUri = "http://www.ahbaab.com/app/GetsAllItemsFromTable.php";
+            public const string GetTwoColumnsSpinnersItemUri = "http://www.ahbaab.com/app/GetItemsFromTableWithTwoColumns.php";
+            public const string LoginUri = "http://www.ahbaab.com/app/Login.php";
+            public const string RegisterUri = "http://www.ahbaab.com/app/AppRegister.php";
+            public const string SearchUri = "http://www.ahbaab.com/app/AppSearch.php";
+            public const string InboxUri = "http://www.ahbaab.com/app/inbox.php";
+            public const string OutboxUri = "http://www.ahbaab.com/app/outbox.php";
+            public const string UpdateUri = "http://www.ahbaab.com/app/update.php";
+            public const string SendMessageUri = "http://www.ahbaab.com/app/SendMessage.php";
+            public const string BlockUri = "http://www.ahbaab.com/app/block.php";
+            public const string InterestUri = "http://www.ahbaab.com/app/interest.php";
+            public const string DeleteMessageUri = "http://www.ahbaab.com/app/DeleteMessage.php";
+            public const string LogMessage = "http://www.ahbaab.com/app/AppLogging.php";*/
         }
 
         public struct TabsNames

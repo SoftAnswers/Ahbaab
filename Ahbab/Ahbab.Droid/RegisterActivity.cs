@@ -5,14 +5,11 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Content.PM;
 using System.Threading;
-using System.Net;
 using Ahbab.Entities;
-using System.Collections.Specialized;
 using Newtonsoft.Json;
 using Android.Support.V7.App;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
@@ -25,7 +22,6 @@ using System.IO;
 using Android.Graphics;
 using Android.Provider;
 using Uri = Android.Net.Uri;
-using Android.Graphics.Drawables;
 
 namespace Ahbab.Droid
 {
@@ -76,6 +72,7 @@ namespace Ahbab.Droid
         private LinearLayout mContactWaysLayout;
         private LinearLayout mGalleryLayout;
         private List<UserImage> UserImages = new List<UserImage>();
+        private List<UserImage> UserImagesToDelete = new List<UserImage>();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -145,83 +142,57 @@ namespace Ahbab.Droid
 
         public void SetCurrentUserData()
         {
-            this.mStatusSpinner.SetSelection(
-                this.mStatusAdapter.GetPosition(
-                    Ahbab.statusItems.FirstOrDefault(
+            this.mStatusSpinner.SetSelection(this.mStatusAdapter.GetPosition(Ahbab.statusItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.Status
-                    )));
+            )));
 
-            this.mAgeSpinner.SetSelection(
-                this.mAgeAdapter.GetPosition(
-                    Ahbab.mAgeItems.FirstOrDefault(
+            this.mAgeSpinner.SetSelection(this.mAgeAdapter.GetPosition(Ahbab.mAgeItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.Age
-                    )));
+            )));
 
-            this.mContactTimeSpinner.SetSelection(
-                this.mContactTimeAdapter.GetPosition(
-                    Ahbab.mContactTimeItems.FirstOrDefault(
+            this.mContactTimeSpinner.SetSelection(this.mContactTimeAdapter.GetPosition(Ahbab.mContactTimeItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.TimeFrameId
-                    )));
+            )));
 
-            this.mEducationSpinner.SetSelection(
-                this.mEducationAdapter.GetPosition(
-                    Ahbab.mEducationItems.FirstOrDefault(
+            this.mEducationSpinner.SetSelection(this.mEducationAdapter.GetPosition(Ahbab.mEducationItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.EducationLevelID
-                    )));
+            )));
 
-            this.mEyesColorSpinner.SetSelection(
-                this.mEyesColorAdapter.GetPosition(
-                    Ahbab.mEyesColorItems.FirstOrDefault(
+            this.mEyesColorSpinner.SetSelection(this.mEyesColorAdapter.GetPosition(Ahbab.mEyesColorItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.EyesColorId
-                    )));
+            )));
 
-            this.mGoalFromSiteSpinner.SetSelection(
-                this.mGoalFromSiteAdapter.GetPosition(
-                    Ahbab.mGoalFromSiteItems.FirstOrDefault(
+            this.mGoalFromSiteSpinner.SetSelection(this.mGoalFromSiteAdapter.GetPosition(Ahbab.mGoalFromSiteItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.UsagePurposeId
-                    )));
+            )));
 
-            this.mHairColorSpinner.SetSelection(
-                this.mHairColorAdapter.GetPosition(
-                    Ahbab.mHairColorItems.FirstOrDefault(
+            this.mHairColorSpinner.SetSelection(this.mHairColorAdapter.GetPosition(Ahbab.mHairColorItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.HairColorId
-                    )));
+            )));
 
-            this.mHeightSpinner.SetSelection(
-                this.mHeightAdapter.GetPosition(
-                    Ahbab.mHeightItems.FirstOrDefault(
+            this.mHeightSpinner.SetSelection(this.mHeightAdapter.GetPosition(Ahbab.mHeightItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.HeightId
-                    )));
+            )));
 
-            this.mJobSpinner.SetSelection(
-                this.mJobAdapter.GetPosition(
-                    Ahbab.mJobItems.FirstOrDefault(
+            this.mJobSpinner.SetSelection(this.mJobAdapter.GetPosition(Ahbab.mJobItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.JobId
-                    )));
+            )));
 
-            this.mOriginCountrySpinner.SetSelection(
-                this.mCountriesAdapter.GetPosition(
-                    Ahbab.mCountries.FirstOrDefault(
+            this.mOriginCountrySpinner.SetSelection(this.mCountriesAdapter.GetPosition(Ahbab.mCountries.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.OriginCountryId
-                    )));
+            )));
 
-            this.mResidentCountrySpinner.SetSelection(
-                this.mCountriesAdapter.GetPosition(
-                    Ahbab.mCountries.FirstOrDefault(
+            this.mResidentCountrySpinner.SetSelection(this.mCountriesAdapter.GetPosition(Ahbab.mCountries.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.CurrentCountryId
-                    )));
+            )));
 
-            this.mTimeSpinner.SetSelection(
-                this.mTimeAdapter.GetPosition(
-                    Ahbab.mTimeItems.FirstOrDefault(
+            this.mTimeSpinner.SetSelection(this.mTimeAdapter.GetPosition(Ahbab.mTimeItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.TimeZoneId
-                    )));
+            )));
 
-            this.mWeightSpinner.SetSelection(
-                this.mWeightAdapter.GetPosition(
-                    Ahbab.mWeightItems.FirstOrDefault(
+            this.mWeightSpinner.SetSelection(this.mWeightAdapter.GetPosition(Ahbab.mWeightItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.WeightId
-                    )));
+            )));
 
             if (Ahbab.CurrentUser.Gender == "M")
             {
@@ -232,7 +203,32 @@ namespace Ahbab.Droid
                 this.mSex.Check(Resource.Id.rdbFemale);
             }
 
-            this.mContactWaysLayout = FindViewById<LinearLayout>(Resource.Id.contactWays);
+            // Adding the picture when found
+            if (Ahbab.CurrentUser.ImageBytes != null) {
+                if (Ahbab.CurrentUser.ImageBytes.Count >= 5)
+                    this.mUploadImage.Visibility = ViewStates.Gone;
+                for (int i = 0; i < Ahbab.CurrentUser.ImageBytes.Count; i++) {
+                    var imageView = new ImageView(this);
+                    imageView.Id = i;
+                    LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(mUploadImage.Width, 300, 25f);
+                    imageView.LayoutParameters = parame;
+                    imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
+                    imageView.SetAdjustViewBounds(true);
+                    imageView.SetImageBitmap(BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[i], 0, Ahbab.CurrentUser.ImageBytes[i].Length));
+                    this.mGalleryLayout.AddView(imageView);
+                    imageView.Click += imageView_Click;
+                }
+            }
+
+            for (int i = 0; i < Ahbab.CurrentUser.ContactWays.Count; i++) {
+                for (int j = 0; j < mContactWaysLayout.ChildCount; j++) {
+                    var currentItem = mContactWaysLayout.GetChildAt(j);
+                    if (currentItem is CheckBox && currentItem.Id == Ahbab.CurrentUser.ContactWays[i].way_id) {
+                        var check = (CheckBox)mContactWaysLayout.GetChildAt(j);
+                        check.Checked = true;
+                    }
+                }
+            }
 
             this.mUserNameInputLayout.EditText.Text = Ahbab.CurrentUser.UserName;
             this.mEmailInputLayout.EditText.Text = Ahbab.CurrentUser.Email;
@@ -241,6 +237,18 @@ namespace Ahbab.Droid
             this.mSelfDescriptionInputLayout.EditText.Text = Ahbab.CurrentUser.SelfDescription;
             this.mPartnerDescriptionInputLayout.EditText.Text = Ahbab.CurrentUser.OthersDescription;
 
+        }
+        // Function used to remove the image from the view and add it to the List to be deleted
+        void imageView_Click(object sender, EventArgs e) {
+            var imageView = sender as ImageView;
+            var imageName = Ahbab.CurrentUser.ImageNames[imageView.Id];
+            var image = this.UserImages.Find(userImage => userImage.FileName == imageName);
+            if (image != null) {
+                this.UserImages.RemoveAt(imageView.Id);
+            } else {
+                this.UserImagesToDelete.Add(new UserImage(null, imageName, "jpg"));
+            }
+            this.mGalleryLayout.RemoveView(imageView);
         }
 
         void SetUpDrawerContent(NavigationView navigationView)
@@ -255,10 +263,7 @@ namespace Ahbab.Droid
                 else
                 {
                     var email = new Intent(Intent.ActionSend);
-
-                    email.PutExtra(Intent.ExtraEmail,
-                                   new string[] { "info@ahbaab.com" });
-
+                    email.PutExtra(Intent.ExtraEmail, new string[] { "info@ahbaab.com" });
                     email.SetType("message/rfc822");
                     StartActivity(email);
                 }
@@ -482,10 +487,13 @@ namespace Ahbab.Droid
                     {
                         try
                         {
-                            var resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput);
+                            string resultString = null;
+                            if (this.UserImagesToDelete.Count > 0)
+                                resultString  = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput, this.UserImagesToDelete);
+                            else
+                                resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput);
 
-                            if (!string.IsNullOrEmpty(resultString))
-                            {
+                            if (!string.IsNullOrEmpty(resultString)) {
                                 var result = JsonConvert.DeserializeObject<List<User>>(resultString);
 
                                 Ahbab.CurrentUser = result.FirstOrDefault();
@@ -496,10 +504,8 @@ namespace Ahbab.Droid
 
                                 this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
                                                                Android.Resource.Animation.SlideOutRight);
-
                                 updateSuccessfull = true;
                             }
-
                         }
                         catch (Exception ex)
                         {
@@ -528,6 +534,7 @@ namespace Ahbab.Droid
         {
             var currentUser = new User();
 
+            currentUser.ID = Ahbab.CurrentUser.ID;
             currentUser.UserName = mUserNameInputLayout.EditText.Text;
             currentUser.Name = mFullNameInputLayout.EditText.Text;
             currentUser.Password = mPasswordInputLayout.EditText.Text;
@@ -592,14 +599,12 @@ namespace Ahbab.Droid
                     if (currentChecBox.Checked)
                     {
                         cWay.way_id = currentChecBox.Id;
-                        cWay.way_value = GetWayValue(currentChecBox.Id);
+                        cWay.way_value = currentChecBox.Text;
                         registerContactWays.Add(cWay);
                     }
                 }
             }
-
             currentUser.ContactWays = registerContactWays;
-
             return currentUser;
         }
 
@@ -709,9 +714,9 @@ namespace Ahbab.Droid
 
             var width = mUploadImage.Width;
 
-            if (resultCode == Result.Ok)
-            {
-                this.mUploadImage.Visibility = ViewStates.Gone;
+            if (resultCode == Result.Ok) {
+                if (this.mGalleryLayout.ChildCount >= 5)
+                    this.mUploadImage.Visibility = ViewStates.Gone;
 
                 if (requestCode == REQUEST_CAMERA)
                 {
@@ -839,56 +844,43 @@ namespace Ahbab.Droid
 
         private void BindValues()
         {
-            mStatusAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.statusItems);
+            mStatusAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.statusItems);
             mStatusSpinner.Adapter = mStatusAdapter;
 
-            mAgeAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mAgeItems);
+            mAgeAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mAgeItems);
             mAgeSpinner.Adapter = mAgeAdapter;
 
-            mContactTimeAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                                   Resource.Id.item_value, Ahbab.mContactTimeItems);
+            mContactTimeAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mContactTimeItems);
             mContactTimeSpinner.Adapter = mContactTimeAdapter;
 
-            mEducationAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mEducationItems);
+            mEducationAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mEducationItems);
             mEducationSpinner.Adapter = mEducationAdapter;
 
-            mEyesColorAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                                 Resource.Id.item_value, Ahbab.mEyesColorItems);
+            mEyesColorAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mEyesColorItems);
             mEyesColorSpinner.Adapter = mEyesColorAdapter;
 
-            mGoalFromSiteAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mGoalFromSiteItems);
+            mGoalFromSiteAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mGoalFromSiteItems);
             mGoalFromSiteSpinner.Adapter = mGoalFromSiteAdapter;
 
-            mHairColorAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mHairColorItems);
+            mHairColorAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mHairColorItems);
             mHairColorSpinner.Adapter = mHairColorAdapter;
 
-            mHeightAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mHeightItems);
+            mHeightAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mHeightItems);
             mHeightSpinner.Adapter = mHeightAdapter;
 
-            mJobAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mJobItems);
+            mJobAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mJobItems);
             mJobSpinner.Adapter = mJobAdapter;
 
-            mCountriesAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mCountries);
+            mCountriesAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mCountries);
             mOriginCountrySpinner.Adapter = mCountriesAdapter;
 
-            mResidenceCountriesAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mResidenceCountries);
+            mResidenceCountriesAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mResidenceCountries);
             mResidentCountrySpinner.Adapter = mResidenceCountriesAdapter;
 
-            mTimeAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                    Resource.Id.item_value, Ahbab.mTimeItems);
+            mTimeAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mTimeItems);
             mTimeSpinner.Adapter = mTimeAdapter;
 
-            mWeightAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem,
-                                                   Resource.Id.item_value, Ahbab.mWeightItems);
+            mWeightAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mWeightItems);
             mWeightSpinner.Adapter = mWeightAdapter;
         }
 
@@ -911,8 +903,7 @@ namespace Ahbab.Droid
 
         private void CreateDirectoryForPictures()
         {
-            App._dir = new Java.IO.File(
-                Android.OS.Environment.GetExternalStoragePublicDirectory(
+            App._dir = new Java.IO.File(Android.OS.Environment.GetExternalStoragePublicDirectory(
                     Android.OS.Environment.DirectoryPictures), "AhbabImages");
             if (!App._dir.Exists())
             {

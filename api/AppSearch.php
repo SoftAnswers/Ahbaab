@@ -281,6 +281,7 @@ else
 			$stmtgetimage = $dbh->prepare("select * from images where account_id=:id LIMIT 1");
 			$stmtgetimage->bindParam(':id',$user);
 			$user = $userID;
+			$images = array();
 			//echo $userID;
 			if ($stmtgetimage->execute()) 
 			{
@@ -289,12 +290,13 @@ else
 				  if($imageRow['image_name'] != ""){
 						$filename = file_get_contents("../uimg/Thumbs/".$imageRow['image_name'].".jpg");
 						$userImage = base64_encode($filename);
+						array_push($images,$userImage);
 				  }
 			}
 			
 			$currentUser = array(
 					"ID" => $row["account_id"], "UserName" => $row["username"], "UsagePurposeId" => $row["usage_purpose_id"],
-					"Age" => $row["age_id"], "CurrentCountryId" => $row["current_ctry_id"], "Active" => $row["active"], "ImageBase64" => $userImage
+					"Age" => $row["age_id"], "CurrentCountryId" => $row["current_ctry_id"], "Active" => $row["active"], "ImageBase64" => $images
 				);
 				
 				array_push($userArray,$currentUser);

@@ -70,9 +70,9 @@ namespace Ahbab.Droid
 
             var editAccount = hView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
 
-            if (Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes.Length > 0)
+            if (Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
             {
-                var bitmap = BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes, 0, Ahbab.CurrentUser.ImageBytes.Length);
+                var bitmap = BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[0], 0, Ahbab.CurrentUser.ImageBytes[0].Length);
 
                 editAccount.SetImageBitmap(bitmap);
             }
@@ -109,10 +109,7 @@ namespace Ahbab.Droid
                 else
                 {
                     var email = new Intent(Intent.ActionSend);
-
-                    email.PutExtra(Intent.ExtraEmail,
-                                   new string[] { "info@ahbaab.com" });
-
+                    email.PutExtra(Intent.ExtraEmail, new string[] { "info@ahbaab.com" });
                     email.SetType("message/rfc822");
                     StartActivity(email);
                 }
@@ -154,11 +151,8 @@ namespace Ahbab.Droid
         {
             //TODO: open edit account activity
             Intent registerPageIntent = new Intent(this, typeof(RegisterActivity));
-
             this.StartActivity(registerPageIntent);
-
-            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
-                                           Android.Resource.Animation.SlideOutRight);
+            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
         }
 
         public List<SpinnerItem> GetSpinnerItems(Uri functionUri, string tableName)

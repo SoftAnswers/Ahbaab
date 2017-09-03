@@ -54,9 +54,9 @@ namespace Ahbab.Droid
 
             BitmapFactory.Options options = new BitmapFactory.Options();
 
-            if (mValues[position].ImageBytes != null && mValues[position].ImageBytes.Length > 0)
+            if (mValues[position].ImageBytes != null && mValues[position].ImageBytes[0].Length > 0)
             {
-                bitMap = await BitmapFactory.DecodeByteArrayAsync(mValues[position].ImageBytes, 0, mValues[position].ImageBytes.Length);
+                bitMap = await BitmapFactory.DecodeByteArrayAsync(mValues[position].ImageBytes[0], 0, mValues[position].ImageBytes[0].Length);
             }
             else
             {

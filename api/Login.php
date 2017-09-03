@@ -40,11 +40,14 @@ $mysqli = new mysqli("localhost",$rootusername,$rootpassword, $database);
 			while ($row = mysqli_fetch_assoc($result)) {
 				
 				require_once("conn.conf.php");
-				$userImage = null;
 				$userID = $row["account_id"];
+				$user = $userID;
+				
+				$userImage = null;
+				$imageNames = array();
+				$images = array();
 				$stmtgetimage = $dbh->prepare("select * from images where account_id=:id LIMIT 1");
 				$stmtgetimage->bindParam(':id',$user);
-				$user = $userID;
 				
 				if ($stmtgetimage->execute()) 
 				{
@@ -52,9 +55,22 @@ $mysqli = new mysqli("localhost",$rootusername,$rootpassword, $database);
 					if (!empty($imageRow['image_name'])) {
 						$filename = file_get_contents("../uimg/Thumbs/".$imageRow['image_name'].".jpg");
 						$userImage = base64_encode($filename);
+						array_push($images,$userImage);
+						array_push($imageNames,$imageRow['image_name']);
 					}
 				}
 				
+				$contactWays = array();
+				$stmtgetContactWay = $dbh->prepare("select * from contact_preferences where account_id=:id");
+				$stmtgetContactWay->bindParam(':id',$user);
+				
+				if ($stmtgetContactWay->execute()) {
+					$contactWayRow = $stmtgetContactWay->fetchAll(PDO::FETCH_ASSOC);
+					foreach($contactWayRow as $wayRow) {
+						$way = array("way_value" => $wayRow['way_value'], "way_id" => $wayRow['way_id']);
+						array_push($contactWays,$way);
+					}
+				}
 				$currentUser = array(
 					"ID" => $row["account_id"], "UserName" => $row["username"], "Password" => $row["password"],
 					"Email" => $row["email"], "Name" => $row["name"], "Gender" => $row["gender"],
@@ -68,13 +84,11 @@ $mysqli = new mysqli("localhost",$rootusername,$rootpassword, $database);
 					"InterestsFrom" => $row["interests_from"], "BlocksTo" => $row["blocks_to"], "BlocksFrom" => $row["blocks_from"],
 					"NumberOfLogins" => $row["logins"], "Active" => $row["active"], "TimeFrameId" => $row["time_frame_id"],
 					"PaidStartDate" => $row["paid_begin"], "PaidEndDate" => $row["paid_end"], "AccountStatus" => $row["account_status"],
-					"TimeZoneId" => $row["timezone_id"], "ImageBase64" => $userImage
+					"TimeZoneId" => $row["timezone_id"], "ImageBase64" => $images, "ContactWays" => $contactWays, "ImageNames" => $imageNames
 				);
-				
 				array_push($userArray,$currentUser);
 			}
 		}
-		
 		echo json_encode($userArray);
 		
 	}

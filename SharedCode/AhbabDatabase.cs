@@ -53,12 +53,13 @@ namespace SharedCode
             return retVal;
         }
 
-        internal static string RegisterOrUpdate(string functionUri, User valueToUpload)
+        internal static string RegisterOrUpdate(string functionUri, User valueToUpload, List<UserImage> imgToDelete = null)
         {
             var mClient = new WebClient();
 
             NameValueCollection parameters = new NameValueCollection();
 
+            parameters.Add("userid", valueToUpload.ID.ToString());
             parameters.Add("user", valueToUpload.UserName);
             parameters.Add("pass", valueToUpload.Password);
             parameters.Add("mail", valueToUpload.Email);
@@ -82,13 +83,13 @@ namespace SharedCode
             parameters.Add("way", JsonConvert.SerializeObject(valueToUpload.ContactWays));
             //parameters.Add("wayval", string.Empty);
             parameters.Add("accept", "Y");
-            if (valueToUpload.Images.Count > 0)
-            {
+            if (valueToUpload.Images.Count > 0) {
                 parameters.Add("Images", JsonConvert.SerializeObject(valueToUpload.Images));
-            }
-            else
-            {
+            } else {
                 parameters.Add("Images", string.Empty);
+            }
+            if (imgToDelete != null) {
+                parameters.Add("ImagesToDelete", JsonConvert.SerializeObject(imgToDelete));
             }
 
             var result = mClient.UploadValues(functionUri, parameters);
