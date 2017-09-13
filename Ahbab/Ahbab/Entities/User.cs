@@ -95,7 +95,7 @@ namespace Ahbab.Entities
         public UserImage Image { get; set; }
         public List<UserImage> Images { get; set; }
         public string[] ImageNames { get; set; }
-        public string[] ImageBase64 { private get; set; }
+        public string[] ImageBase64 { get; set; }
         public List<byte[]> ImageBytes {
             get {
                 List<Byte[]> userImages = new List<byte[]>();

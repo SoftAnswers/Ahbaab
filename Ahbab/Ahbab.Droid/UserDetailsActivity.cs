@@ -65,8 +65,9 @@ namespace Ahbab.Droid
 			var job = FindViewById<TextView>(Resource.Id.txtJob);
 			var selfDescription = FindViewById<TextView>(Resource.Id.txtSelfDescription);
 			var partnerDescription = FindViewById<TextView>(Resource.Id.txtPartnerDescription);
+            var updateBtn = FindViewById<Button>(Resource.Id.btnUpdate);
 
-			lastOnline.Text = user.LastActiveDate != null ? user.LastActiveDate.ToString("dd-MM-yyyy") : string.Empty;
+            lastOnline.Text = user.LastActiveDate != null ? user.LastActiveDate.ToString("dd-MM-yyyy") : string.Empty;
 
 			sex.Text = user.Gender;
 
@@ -121,7 +122,7 @@ namespace Ahbab.Droid
 
 			if (user.Age != 0)
 			{
-				age.Text = Ahbab.mHeightItems.FirstOrDefault(i => i.ID == user.Age).DescriptionAR;
+				age.Text = Ahbab.mAgeItems.FirstOrDefault(i => i.ID == user.Age).DescriptionAR;
 			}
 			else
 			{
@@ -157,8 +158,6 @@ namespace Ahbab.Droid
 				goalFromSite.Text = Constants.DefaultValues.NA;
 			}
 
-
-
 			sender.Text = user.UserName;
 
 			if (user.EyesColorId != 0)
@@ -179,12 +178,23 @@ namespace Ahbab.Droid
 				hairColor.Text = Constants.DefaultValues.NA;
 			}
 
+            if (user.UserName.Equals(Ahbab.CurrentUser.UserName)) {
+                updateBtn.Visibility = ViewStates.Visible;
+                updateBtn.Click += updateBtn_Click;
+            }
+
 			LoadBackDrop();
 
 			mSendMessageButton.Click += MSendMessageButton_Click;
 		}
 
-		void MSendMessageButton_Click(object sender, EventArgs e)
+        void updateBtn_Click(object sender, EventArgs e) {
+            Intent registerPageIntent = new Intent(this, typeof(RegisterActivity));
+            this.StartActivity(registerPageIntent);
+            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+        }
+
+        void MSendMessageButton_Click(object sender, EventArgs e)
 		{
 			if (Ahbab.CurrentUser.Paid == "N")
 			{

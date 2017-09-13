@@ -150,8 +150,12 @@ namespace Ahbab.Droid
         void EditAccount_Click(object sender, EventArgs e)
         {
             //TODO: open edit account activity
-            Intent registerPageIntent = new Intent(this, typeof(RegisterActivity));
+            /*Intent registerPageIntent = new Intent(this, typeof(RegisterActivity));
             this.StartActivity(registerPageIntent);
+            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);*/
+            Intent userDetailsActivity = new Intent(this, typeof(UserDetailsActivity));
+            userDetailsActivity.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(Ahbab.CurrentUser));
+            this.StartActivity(userDetailsActivity);
             this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
         }
 

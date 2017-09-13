@@ -144,7 +144,6 @@
 		}
 		// Deleting user images if necessary
 		if (!empty($_POST['ImagesToDelete'])) {
-			echo 'test';
 			$imgToDelete = $_POST['ImagesToDelete'];
 			$images = json_decode($imgToDelete);			
 			for ($i = 0; $i < count($imgToDelete); $i++) {

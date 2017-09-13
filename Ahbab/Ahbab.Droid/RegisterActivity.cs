@@ -241,11 +241,11 @@ namespace Ahbab.Droid
         // Function used to remove the image from the view and add it to the List to be deleted
         void imageView_Click(object sender, EventArgs e) {
             var imageView = sender as ImageView;
-            var imageName = Ahbab.CurrentUser.ImageNames[imageView.Id];
-            var image = this.UserImages.Find(userImage => userImage.FileName == imageName);
+            var image = this.UserImages.Find(userImage => userImage.FileName.Equals(imageView.TransitionName));
             if (image != null) {
                 this.UserImages.RemoveAt(imageView.Id);
             } else {
+                var imageName = Ahbab.CurrentUser.ImageNames[imageView.Id];
                 this.UserImagesToDelete.Add(new UserImage(null, imageName, "jpg"));
             }
             this.mGalleryLayout.RemoveView(imageView);
@@ -483,50 +483,41 @@ namespace Ahbab.Droid
 
                 //var valueToUpload = JsonConvert.SerializeObject(userInput);
 
-                new Thread(new ThreadStart(() =>
+                new Thread(new ThreadStart(() => {
+                    try
                     {
-                        try
-                        {
-                            string resultString = null;
-                            if (this.UserImagesToDelete.Count > 0)
-                                resultString  = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput, this.UserImagesToDelete);
-                            else
-                                resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput);
+                        string resultString = null;
+                        if (this.UserImagesToDelete.Count > 0)
+                            resultString  = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput, this.UserImagesToDelete);
+                        else
+                            resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput);
 
-                            if (!string.IsNullOrEmpty(resultString)) {
-                                var result = JsonConvert.DeserializeObject<List<User>>(resultString);
-
-                                Ahbab.CurrentUser = result.FirstOrDefault();
-
-                                Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
-
-                                this.StartActivity(mainPageIntent);
-
-                                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
-                                                               Android.Resource.Animation.SlideOutRight);
-                                updateSuccessfull = true;
-                            }
+                        if (!string.IsNullOrEmpty(resultString)) {
+                            var result = JsonConvert.DeserializeObject<List<User>>(resultString);
+                            Ahbab.CurrentUser = result.FirstOrDefault();
+                            Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
+                            this.StartActivity(mainPageIntent);
+                            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+                            updateSuccessfull = true;
                         }
-                        catch (Exception ex)
+                    } catch (Exception ex) {
+                        updateSuccessfull = false;
+                    }
+
+                    RunOnUiThread(() =>
+                    {
+                        if (updateSuccessfull)
                         {
-                            updateSuccessfull = false;
+                            Toast.MakeText(this, Constants.UI.SuccessfullUpdate, ToastLength.Short).Show();
                         }
-
-
-                        RunOnUiThread(() =>
+                        else
                         {
-                            if (updateSuccessfull)
-                            {
-                                Toast.MakeText(this, Constants.UI.SuccessfullUpdate, ToastLength.Short).Show();
-                            }
-                            else
-                            {
-                                Toast.MakeText(this, Constants.UI.ErrorOccured, ToastLength.Short).Show();
-                            }
-                            //HIDE PROGRESS DIALOG
-                            progress.Hide();
-                        });
-                    })).Start();
+                            Toast.MakeText(this, Constants.UI.ErrorOccured, ToastLength.Short).Show();
+                        }
+                        //HIDE PROGRESS DIALOG
+                        progress.Hide();
+                    });
+                })).Start();
             }
         }
 
@@ -599,7 +590,7 @@ namespace Ahbab.Droid
                     if (currentChecBox.Checked)
                     {
                         cWay.way_id = currentChecBox.Id;
-                        cWay.way_value = currentChecBox.Text;
+                        cWay.way_value = GetWayValue(i);
                         registerContactWays.Add(cWay);
                     }
                 }
@@ -737,7 +728,6 @@ namespace Ahbab.Droid
                         var fileName = App._file.Name;
                         var fileExtension = "jpg";
                         var imageView = new ImageView(this);
-                        imageView.Id = 0;
                         LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(width, 300, 25f);
                         imageView.LayoutParameters = parame;
                         imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
@@ -749,7 +739,9 @@ namespace Ahbab.Droid
                         byte[] picData = memStream.ToArray();
 
                         this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
-
+                        // Using transition name just to hold the image name in case we want to delete it
+                        imageView.TransitionName = fileName;
+                        imageView.Click += imageView_Click;
                         App.bitmap = null;
                     }
 
@@ -786,34 +778,25 @@ namespace Ahbab.Droid
                             this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
 
                             var imageView = new ImageView(this);
-                            imageView.Id = i;
-                            //imageView.SetMaxWidth(width);
-                            //imageView.SetMaxHeight(height);
-
                             LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(width, 300, 25f);
                             imageView.LayoutParameters = parame;
                             imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
                             imageView.SetAdjustViewBounds(true);
                             imageView.SetImageBitmap(currentImage);
                             this.mGalleryLayout.AddView(imageView);
+                            // Using transition name just to hold the image name in case we want to delete it
+                            imageView.TransitionName = fileName;
+                            imageView.Click += imageView_Click;
                         }
                     }
                     else
                     {
                         var img = BitmapHelpers.DecodeBitmapFromStream(this, data.Data, width, height);
-
                         var fileName = System.IO.Path.GetFileName(data.Data.ToString());
-
                         var fileExtension = System.IO.Path.GetExtension(data.Data.ToString());
-
                         if (img != null)
                         {
-                            //mUploadImage.SetImageBitmap(img);
                             var imageView = new ImageView(this);
-                            imageView.Id = 0;
-                            //imageView.SetMaxWidth(width);
-                            //imageView.SetMaxHeight(height);
-
                             LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(width, 300, 25f);
                             imageView.LayoutParameters = parame;
                             imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
@@ -825,6 +808,9 @@ namespace Ahbab.Droid
                             byte[] picData = memStream.ToArray();
 
                             this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
+                            // Using transition name just to hold the image name in case we want to delete it
+                            imageView.TransitionName = fileName;
+                            imageView.Click += imageView_Click;
                         }
                     }
                 }
