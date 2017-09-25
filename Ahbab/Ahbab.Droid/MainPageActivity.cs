@@ -70,10 +70,9 @@ namespace Ahbab.Droid
 
             var editAccount = hView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
 
-            if (Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
+            if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
             {
                 var bitmap = BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[0], 0, Ahbab.CurrentUser.ImageBytes[0].Length);
-
                 editAccount.SetImageBitmap(bitmap);
             }
 
@@ -100,7 +99,7 @@ namespace Ahbab.Droid
                 {   
                     // If the user clicks on logout we display the logout popup
                     if (e.MenuItem.ItemId == Resource.Id.logout) {
-                        this.OnBackPressed();
+                        this.logout();
                     } else{
                         OpenLegalNotesFragment(e.MenuItem);
                         mDrawerLayout.CloseDrawers();
@@ -114,6 +113,25 @@ namespace Ahbab.Droid
                     StartActivity(email);
                 }
             };
+        }
+
+        // Function used to redirect the user to the login activity after clicking in logout
+        public void logout() {
+            Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+            alert.SetTitle(Constants.UI.LogoutHeader);
+            alert.SetMessage(Constants.UI.LogoutMessage);
+            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
+                Ahbab.CurrentUser = null;
+                Intent loginPageIntent = new Intent(this, typeof(MainActivity));
+                loginPageIntent.AddFlags(ActivityFlags.ClearTop| ActivityFlags.NewTask);
+                this.StartActivity(loginPageIntent);
+                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+            });
+            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) =>{});
+            Android.Support.V7.App.AlertDialog dialog = alert.Create();
+            dialog.SetCanceledOnTouchOutside(false);
+            dialog.SetCancelable(false);
+            dialog.Show();
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -149,10 +167,6 @@ namespace Ahbab.Droid
 
         void EditAccount_Click(object sender, EventArgs e)
         {
-            //TODO: open edit account activity
-            /*Intent registerPageIntent = new Intent(this, typeof(RegisterActivity));
-            this.StartActivity(registerPageIntent);
-            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);*/
             Intent userDetailsActivity = new Intent(this, typeof(UserDetailsActivity));
             userDetailsActivity.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(Ahbab.CurrentUser));
             this.StartActivity(userDetailsActivity);
@@ -183,18 +197,11 @@ namespace Ahbab.Droid
             Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
             alert.SetTitle(Constants.UI.LogoutHeader);
             alert.SetMessage(Constants.UI.LogoutMessage);
-            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) =>
-            {
-                //TODO: Set up payment
-
+            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
                 Ahbab.CurrentUser = null;
                 base.OnBackPressed();
             });
-
-            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) =>
-            {
-
-            });
+            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => {});
 
             Android.Support.V7.App.AlertDialog dialog = alert.Create();
             dialog.SetCanceledOnTouchOutside(false);

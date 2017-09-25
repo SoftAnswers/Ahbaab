@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -83,7 +82,6 @@ namespace Ahbab.Droid
             SupportToolbar toolbar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
 
             SetSupportActionBar(toolbar);
-
             SupportActionBar ab = SupportActionBar;
 
             ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
@@ -107,16 +105,15 @@ namespace Ahbab.Droid
                 CreateDirectoryForPictures();
             }
 
-            if (Ahbab.CurrentUser != null)
-            {
+            if (Ahbab.CurrentUser != null) {
                 SetCurrentUserData();
-
                 this.mRegisterButton.Visibility = ViewStates.Gone;
-
                 this.mUpdateButton.Visibility = ViewStates.Visible;
-
-                if (Ahbab.CurrentUser.Paid == "N")
-                {
+                this.mUserNameInputLayout.Visibility = ViewStates.Gone;
+                this.mSex.Visibility = ViewStates.Gone;
+                var sexText = FindViewById<TextView>(Resource.Id.txtSex);
+                sexText.Visibility = ViewStates.Gone;
+                if (Ahbab.CurrentUser.Paid == "N") {
                     Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
                     alert.SetTitle(Constants.UI.Subscription);
                     alert.SetMessage(Constants.UI.Upgrade);
@@ -136,6 +133,13 @@ namespace Ahbab.Droid
                     dialog.SetCanceledOnTouchOutside(false);
                     dialog.SetCancelable(false);
                     dialog.Show();
+                }
+
+                var hView = navigationView.GetHeaderView(0);
+                var editAccount = hView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
+                if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0) {
+                    var bitmap = BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[0], 0, Ahbab.CurrentUser.ImageBytes[0].Length);
+                    editAccount.SetImageBitmap(bitmap);
                 }
             }
         }
@@ -229,14 +233,12 @@ namespace Ahbab.Droid
                     }
                 }
             }
-
             this.mUserNameInputLayout.EditText.Text = Ahbab.CurrentUser.UserName;
             this.mEmailInputLayout.EditText.Text = Ahbab.CurrentUser.Email;
             this.mPasswordInputLayout.EditText.Text = Ahbab.CurrentUser.Password;
             this.mFullNameInputLayout.EditText.Text = Ahbab.CurrentUser.Name;
             this.mSelfDescriptionInputLayout.EditText.Text = Ahbab.CurrentUser.SelfDescription;
             this.mPartnerDescriptionInputLayout.EditText.Text = Ahbab.CurrentUser.OthersDescription;
-
         }
         // Function used to remove the image from the view and add it to the List to be deleted
         void imageView_Click(object sender, EventArgs e) {
@@ -257,8 +259,16 @@ namespace Ahbab.Droid
             {
                 if (e.MenuItem.ItemId != Resource.Id.contactUs)
                 {
-                    OpenLegalNotesFragment(e.MenuItem);
-                    mDrawerLayout.CloseDrawers();
+                    // If the user clicks on logout we display the logout popup
+                    if (e.MenuItem.ItemId == Resource.Id.logout)
+                    {
+                        this.logout();
+                    }
+                    else
+                    {
+                        OpenLegalNotesFragment(e.MenuItem);
+                        mDrawerLayout.CloseDrawers();
+                    }
                 }
                 else
                 {
@@ -268,6 +278,25 @@ namespace Ahbab.Droid
                     StartActivity(email);
                 }
             };
+        }
+
+        // Function used to redirect the user to the login activity after clicking in logout
+        public void logout() {
+            Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+            alert.SetTitle(Constants.UI.LogoutHeader);
+            alert.SetMessage(Constants.UI.LogoutMessage);
+            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
+                Ahbab.CurrentUser = null;
+                Intent loginPageIntent = new Intent(this, typeof(MainActivity));
+                loginPageIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+                this.StartActivity(loginPageIntent);
+                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+            });
+            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
+            Android.Support.V7.App.AlertDialog dialog = alert.Create();
+            dialog.SetCanceledOnTouchOutside(false);
+            dialog.SetCancelable(false);
+            dialog.Show();
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -333,6 +362,7 @@ namespace Ahbab.Droid
             this.mPartnerDescriptionInputLayout = FindViewById<TextInputLayout>(Resource.Id.txtInputLayoutPartnerDescription);
 
             this.mUploadImage = FindViewById<ImageView>(Resource.Id.imgPic);
+
 
             for (int i = 0; i < Ahbab.mContactWays.Count; i++)
             {
@@ -525,7 +555,9 @@ namespace Ahbab.Droid
         {
             var currentUser = new User();
 
-            currentUser.ID = Ahbab.CurrentUser.ID;
+            if (Ahbab.CurrentUser != null) {
+                currentUser.ID = Ahbab.CurrentUser.ID;
+            }
             currentUser.UserName = mUserNameInputLayout.EditText.Text;
             currentUser.Name = mFullNameInputLayout.EditText.Text;
             currentUser.Password = mPasswordInputLayout.EditText.Text;
@@ -551,7 +583,6 @@ namespace Ahbab.Droid
             currentUser.LastActiveDate = DateTime.Today;
             currentUser.NumberOfLogins = 1;
             currentUser.OriginCountryId = mCountriesAdapter.GetItemAtPosition(mOriginCountrySpinner.SelectedItemPosition).ID;
-            currentUser.OthersDescription = mPartnerDescriptionInputLayout.EditText.Text;
             currentUser.Status = mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID;
             currentUser.Paid = "N";
             currentUser.PaidEndDate = DateTime.Today;
@@ -620,43 +651,69 @@ namespace Ahbab.Droid
 
         bool ValidateDataInput()
         {
-            var validInput = false;
+            var validInput = true;
 
-            if (string.IsNullOrEmpty(mUserNameInputLayout.EditText.Text))
-            {
+            if (string.IsNullOrEmpty(mUserNameInputLayout.EditText.Text)) {
                 mUserNameInputLayout.Error = "Can't leave this empty";
                 validInput = false;
-            }
-            else
-            {
-                validInput = true;
+            }else {
+                mUserNameInputLayout.Error = null;
             }
 
-            if (string.IsNullOrEmpty(mPasswordInputLayout.EditText.Text))
-            {
+            if (string.IsNullOrEmpty(mPasswordInputLayout.EditText.Text)){
                 mPasswordInputLayout.Error = "Can't leave this empty";
-            }
-            else
-            {
-                validInput = true;
-            }
-            if (string.IsNullOrEmpty(mFullNameInputLayout.EditText.Text))
-            {
-                mFullNameInputLayout.Error = "Can't leave this empty";
-            }
-            else
-            {
-                validInput = true;
-            }
-            if (string.IsNullOrEmpty(mEmailInputLayout.EditText.Text))
-            {
-                mEmailInputLayout.Error = "Can't leave this empty";
-            }
-            else
-            {
-                validInput = true;
+                validInput = false;
+            } else {
+                mPasswordInputLayout.Error = null;
             }
 
+            if (string.IsNullOrEmpty(mFullNameInputLayout.EditText.Text)) {
+                mFullNameInputLayout.Error = "Can't leave this empty";
+                validInput = false;
+            } else {
+                mFullNameInputLayout.Error = null;
+            }
+
+            if (string.IsNullOrEmpty(mEmailInputLayout.EditText.Text)) {
+                mEmailInputLayout.Error = "Can't leave this empty";
+                validInput = false;
+            } else {
+                mEmailInputLayout.Error = null;
+            }
+
+            if (string.IsNullOrEmpty(mSelfDescriptionInputLayout.EditText.Text)) {
+                mSelfDescriptionInputLayout.Error = "Can't leave this empty";
+                validInput = false;
+            } else {
+                mSelfDescriptionInputLayout.Error = null;
+            }
+
+            if (string.IsNullOrEmpty(mPartnerDescriptionInputLayout.EditText.Text)) {
+                mPartnerDescriptionInputLayout.Error = "Can't leave this empty";
+                validInput = false;
+            } else {
+                mPartnerDescriptionInputLayout.Error = null;
+            }
+
+            if (mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID == -1) {
+                validInput = false;
+            }
+
+            if (mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID == 0) {
+                validInput = false;
+            }
+
+            if (mAgeAdapter.GetItemAtPosition(mAgeSpinner.SelectedItemPosition).ID == 0) { 
+                validInput = false;
+            }
+
+            if (mCountriesAdapter.GetItemAtPosition(mOriginCountrySpinner.SelectedItemPosition).ID == 0) {
+                validInput = false;
+            }
+
+            if (mCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID == 0) {
+                validInput = false;
+            }
             return validInput;
         }
 

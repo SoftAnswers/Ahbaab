@@ -14,7 +14,7 @@ namespace Ahbab.Droid.Helpers {
             searchResults = results;
             TOTAL_NUM_ITEMS = results.Count;
             ITEMS_REMAINING = TOTAL_NUM_ITEMS % ITEMS_PER_PAGE;
-            LAST_PAGE = TOTAL_NUM_ITEMS / ITEMS_PER_PAGE;
+            LAST_PAGE = (int)Math.Ceiling((double)TOTAL_NUM_ITEMS / ITEMS_PER_PAGE);
         }
 
         /**
@@ -27,7 +27,7 @@ namespace Ahbab.Droid.Helpers {
 
             List<User> pageData = new List<User>();
 
-            if (currentPage == LAST_PAGE && ITEMS_REMAINING > 0) {
+            if (currentPage == LAST_PAGE - 1 && ITEMS_REMAINING > 0) {
                 for (int i = startItem; i < startItem + ITEMS_REMAINING; i++) {
                     pageData.Add(searchResults[i]);
                 }

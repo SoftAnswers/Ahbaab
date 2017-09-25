@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
+using Android.Support.V4.View;
 using Android.Widget;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Newtonsoft.Json;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using Ahbab.Entities;
-using Ahbab;
 using SharedCode;
 using System.Net;
 using System.Collections.Specialized;
+using Ahbab.Droid.Adapters;
 
 namespace Ahbab.Droid
 {
@@ -44,7 +43,6 @@ namespace Ahbab.Droid
 
 			CollapsingToolbarLayout collapsingToolBar = FindViewById<CollapsingToolbarLayout>(Resource.Id.collapsing_toolbar);
 			collapsingToolBar.Title = !string.IsNullOrEmpty(user.Name) ? user.Name : user.UserName;
-
 			mSendMessageButton = this.FindViewById<FloatingActionButton>(Resource.Id.btnSendMessage);
 
 			var sender = FindViewById<TextView>(Resource.Id.txtUserName);
@@ -66,6 +64,7 @@ namespace Ahbab.Droid
 			var selfDescription = FindViewById<TextView>(Resource.Id.txtSelfDescription);
 			var partnerDescription = FindViewById<TextView>(Resource.Id.txtPartnerDescription);
             var updateBtn = FindViewById<Button>(Resource.Id.btnUpdate);
+            var contactWays = FindViewById<LinearLayout>(Resource.Id.contactWays);
 
             lastOnline.Text = user.LastActiveDate != null ? user.LastActiveDate.ToString("dd-MM-yyyy") : string.Empty;
 
@@ -122,7 +121,7 @@ namespace Ahbab.Droid
 
 			if (user.Age != 0)
 			{
-				age.Text = Ahbab.mAgeItems.FirstOrDefault(i => i.ID == user.Age).DescriptionAR;
+				age.Text = Ahbab.mAgeItems.FirstOrDefault(i => i.ID == user.Age).DescriptionEN;
 			}
 			else
 			{
@@ -137,7 +136,6 @@ namespace Ahbab.Droid
 			{
 				height.Text = Constants.DefaultValues.NA;
 			}
-
 
 			if (user.WeightId != 0)
 			{
@@ -183,8 +181,19 @@ namespace Ahbab.Droid
                 updateBtn.Click += updateBtn_Click;
             }
 
-			LoadBackDrop();
+            if (user.ContactWays != null && user.ContactWays.Count > 0) {
+                for (int i = 0; i < user.ContactWays.Count; i++){
+                    TextView contactWayValue = new TextView(this);
+                    contactWayValue.Text = Ahbab.mContactWays.FirstOrDefault(j => j.ID == user.ContactWays[i].way_id).DescriptionAR;
+                    contactWays.AddView(contactWayValue);
+                }
+            } else {
+                TextView contactWayValue = new TextView(this);
+                contactWayValue.Text = Constants.DefaultValues.NA;
+                contactWays.AddView(contactWayValue);
+            }
 
+            LoadUserImages();
 			mSendMessageButton.Click += MSendMessageButton_Click;
 		}
 
@@ -255,72 +264,57 @@ namespace Ahbab.Droid
 			}
 		}
 
-		public override bool OnOptionsItemSelected(IMenuItem item)
-		{
+		public override bool OnOptionsItemSelected(IMenuItem item) {
 			var mClient = new WebClient();
-
 			NameValueCollection parameters = new NameValueCollection();
-
-			switch (item.ItemId)
-			{
+			switch (item.ItemId) {
 				case Resource.Id.block:
-
 					parameters.Add("from", Ahbab.CurrentUser.ID.ToString());
-
 					parameters.Add("to", user.ID.ToString());
-
 					mClient.UploadValuesCompleted += MClient_UploadValuesCompleted;
-
-					mClient.UploadValuesAsync(
-						new Uri(Constants.FunctionsUri.BlockUri),
-						parameters);
-
+					mClient.UploadValuesAsync(new Uri(Constants.FunctionsUri.BlockUri), parameters);
 					return this.BlockSent;
 				case Resource.Id.interest:
-
 					parameters.Add("from", Ahbab.CurrentUser.ID.ToString());
-
 					parameters.Add("to", user.ID.ToString());
-
 					mClient.UploadValuesCompleted += MClient_UploadValuesCompleted;
-
-					mClient.UploadValuesAsync(
-						new Uri(Constants.FunctionsUri.InterestUri),
-						parameters);
+					mClient.UploadValuesAsync(new Uri(Constants.FunctionsUri.InterestUri), parameters);
 					return this.InterestSent;
-			}
+                case Android.Resource.Id.Home:
+                    Finish();
+                    break;
+            }
 			return base.OnOptionsItemSelected(item);
 		}
 
-		void MClient_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
-		{
+		void MClient_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e) {
 			var result = Encoding.UTF8.GetString(e.Result);
-
-			if (result.Contains("block success"))
-			{
+			if (result.Contains("block success")) {
 				this.BlockSent = true;
-
 				Toast.MakeText(this, "User Blocked.", ToastLength.Short).Show();
 			}
-			else if (result.Contains("interest success"))
-			{
+			else if (result.Contains("interest success")) {
 				this.InterestSent = true;
-
 				Toast.MakeText(this, "Interest Sent.", ToastLength.Short).Show();
 			}
 		}
 
-		public override bool OnCreateOptionsMenu(IMenu menu)
-		{
+		public override bool OnCreateOptionsMenu(IMenu menu) {
 			MenuInflater.Inflate(Resource.Menu.UserDetailsActivityMenu, menu);
 			return true;
 		}
 
-		private void LoadBackDrop()
-		{
-			ImageView imageView = FindViewById<ImageView>(Resource.Id.backdrop);
-			imageView.SetImageResource(Messages.RandomMessagesDrawable);
-		}
+		private void LoadUserImages() {
+            ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
+            if (user.ImageBase64 != null && user.ImageBase64.Length > 0) {
+                viewPager.Adapter = new UserImagesPageViewerAdapter(this, user.ImageBytes);
+            } else {
+                viewPager.Visibility = ViewStates.Gone;
+                ImageView imageView = FindViewById<ImageView>(Resource.Id.backdrop);
+                imageView.SetImageResource(Messages.RandomMessagesDrawable);
+            }
+
+        }
 	}
 }
 
