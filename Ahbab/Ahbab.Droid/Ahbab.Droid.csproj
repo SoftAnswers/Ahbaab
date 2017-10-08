@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\UserImagesPageViewerAdapter.cs" />
+    <Compile Include="Fragments\VisitorsFragment.cs" />
     <Compile Include="Helpers\Paginator.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RegisterActivity.cs" />
@@ -238,6 +239,9 @@
     <AndroidResource Include="Resources\layout\SendMessageFragment.axml" />
     <AndroidResource Include="Resources\menu\MessageDetailsMenu.axml" />
     <AndroidResource Include="Resources\menu\main_drawer_view.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Visitors_List.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

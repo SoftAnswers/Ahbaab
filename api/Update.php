@@ -96,9 +96,8 @@
 			$stmtdeleteway->bindParam(':id',$accountId);
 			$stmtdeleteway->execute();
 			
-			$N = count($contactWays);
 			$contactWay = json_decode($contactWays);
-			for($i=0; $i < $N; $i++) {
+			for($i=0; $i < count($contactWay); $i++) {
 				if($gender == "M") {
 					$stmtinsertway = $dbh->prepare("insert into contact_preferences (account_id, way_id, way_value, status) values (:acc,:way,:value,:status)");
 					$stmtinsertway->bindParam(':acc',$accountId);
@@ -146,7 +145,7 @@
 		if (!empty($_POST['ImagesToDelete'])) {
 			$imgToDelete = $_POST['ImagesToDelete'];
 			$images = json_decode($imgToDelete);			
-			for ($i = 0; $i < count($imgToDelete); $i++) {
+			for ($i = 0; $i < count($images); $i++) {
 				$fileName = $images[$i]->{'FileName'};
 				unlink('../uimg/FullSize/'.$fileName.".jpg");
 				unlink("../uimg/usized/".$fileName.".jpg");
@@ -174,16 +173,18 @@
 		//Fetching the images corresponding to the current user
 		$userImage = null;
 		$images = array();
-		$stmtgetimage = $dbh->prepare("select * from images where account_id=:id LIMIT 1");
-		$stmtgetimage->bindParam(':id',$user);
+		$stmtgetimage = $dbh->prepare("select * from images where account_id=:id");
+		$stmtgetimage->bindParam(':id',$accountId);
 		
 		if ($stmtgetimage->execute()) 
 		{
-			$imageRow = $stmtgetimage->fetch(PDO::FETCH_BOTH);
-			if (!empty($imageRow['image_name'])) {
-				$filename = file_get_contents("../uimg/Thumbs/".$imageRow['image_name'].".jpg");
-				$userImage = base64_encode($filename);
-				array_push($images,$userImage);
+			$imageRows = $stmtgetimage->fetchAll(PDO::FETCH_ASSOC);
+			foreach($imageRows as $row) {
+				if (!empty($row['image_name'])) {
+					$filename = file_get_contents("../uimg/Thumbs/".$row['image_name'].".jpg");
+					$userImage = base64_encode($filename);
+					array_push($images,$userImage);
+				}
 			}
 		}
 		

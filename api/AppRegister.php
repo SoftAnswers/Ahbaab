@@ -208,9 +208,8 @@
 			
 		if(!empty($aWay)) 
 		{
-			$N = count($aWay);
 			$contactWay = json_decode($aWay);
-			for($i=0; $i < $N; $i++)
+			for($i=0; $i < count($contactWay); $i++)
 			{
 				if($gender == "M")
 				{
@@ -271,8 +270,37 @@ ________________________________<br>
 			$stmtgetlastinserted = $dbh->prepare("Select * from accounts where account_id=:id");
 			$stmtgetlastinserted->bindParam(':id',$accountid);
 			$accountid = $lastid;
-			if($stmtgetlastinserted->execute())
-			{
+			if($stmtgetlastinserted->execute()){
+				$userImage = null;
+				$imageNames = array();
+				$images = array();
+				$stmtgetimage = $dbh->prepare("select * from images where account_id=:id");
+				$stmtgetimage->bindParam(':id',$accountid);
+				
+				if ($stmtgetimage->execute()) 
+				{
+					$imageRows = $stmtgetimage->fetchAll(PDO::FETCH_ASSOC);
+					foreach($imageRows as $imageRow) {
+						if (!empty($imageRow['image_name'])) {
+							$filename = file_get_contents("../uimg/Thumbs/".$imageRow['image_name'].".jpg");
+							$userImage = base64_encode($filename);
+							array_push($images,$userImage);
+							array_push($imageNames,$imageRow['image_name']);
+						}
+					}
+				}
+				
+				$contactWays = array();
+				$stmtgetContactWay = $dbh->prepare("select * from contact_preferences where account_id=:id");
+				$stmtgetContactWay->bindParam(':id',$accountid);
+				
+				if ($stmtgetContactWay->execute()) {
+					$contactWayRow = $stmtgetContactWay->fetchAll(PDO::FETCH_ASSOC);
+					foreach($contactWayRow as $wayRow) {
+						$way = array("way_value" => $wayRow['way_value'], "way_id" => $wayRow['way_id']);
+						array_push($contactWays,$way);
+					}
+				}
 				$data = $stmtgetlastinserted->fetch(PDO::FETCH_ASSOC);
 				//$data = $allData[0];
 				$currentUser = array(
@@ -288,7 +316,7 @@ ________________________________<br>
 					"InterestsFrom" => $data["interests_from"], "BlocksTo" => $data["blocks_to"], "BlocksFrom" => $data["blocks_from"],
 					"NumberOfLogins" => $data["logins"], "Active" => $data["active"], "TimeFrameId" => $data["time_frame_id"],
 					"PaidStartDate" => $data["paid_begin"], "PaidEndDate" => $data["paid_end"], "AccountStatus" => $data["account_status"],
-					"TimeZoneId" => $data["timezone_id"]
+					"TimeZoneId" => $data["timezone_id"], "ImageBase64" => $images, "ContactWays" => $contactWays, "ImageNames" => $imageNames
 				);
 				
 				array_push($userArray,$currentUser);

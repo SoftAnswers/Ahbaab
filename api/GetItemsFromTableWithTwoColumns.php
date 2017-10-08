@@ -21,6 +21,10 @@ if(isset($_POST["TableName"]))
 	
 	$query = "SELECT * FROM `" . $tableName . "`";
 	
+	if ($tableName == 'ages') {
+		$query = $query ."ORDER BY `age_range` ASC";
+	}
+	
 	$queryResult = mysqli_query($mysqli, $query);
 	 
 	$itemsArray = array();

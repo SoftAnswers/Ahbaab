@@ -17,6 +17,9 @@ using SharedCode;
 using System.Net;
 using System.Collections.Specialized;
 using Ahbab.Droid.Adapters;
+using Android.Support.V7.Widget;
+using Ahbab.Droid.Fragments;
+using System.Threading;
 
 namespace Ahbab.Droid
 {
@@ -28,8 +31,9 @@ namespace Ahbab.Droid
 		private FloatingActionButton mSendMessageButton;
 		private bool BlockSent = false;
 		private bool InterestSent = false;
+        private ProgressBar mProgressBar;
 
-		protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
@@ -50,10 +54,8 @@ namespace Ahbab.Droid
 			var hairColor = FindViewById<TextView>(Resource.Id.txtHairColor);
 			var lastOnline = FindViewById<TextView>(Resource.Id.txtLastOnline);
 			var height = FindViewById<TextView>(Resource.Id.txtHeight);
-
 			var goalFromSite = FindViewById<TextView>(Resource.Id.txtGoalFromSite);
 			var weight = FindViewById<TextView>(Resource.Id.txtWeight);
-
 			var age = FindViewById<TextView>(Resource.Id.txtAge);
 			var sex = FindViewById<TextView>(Resource.Id.txtSex);
 			var familyStatus = FindViewById<TextView>(Resource.Id.txtFamilyStatus);
@@ -65,6 +67,16 @@ namespace Ahbab.Droid
 			var partnerDescription = FindViewById<TextView>(Resource.Id.txtPartnerDescription);
             var updateBtn = FindViewById<Button>(Resource.Id.btnUpdate);
             var contactWays = FindViewById<LinearLayout>(Resource.Id.contactWays);
+            var visitCountFrom = FindViewById<TextView>(Resource.Id.visitCountFrom);
+            var visitCountFromCardView = FindViewById<CardView>(Resource.Id.visitCountFromCardView);
+            var blocksFrom = FindViewById<TextView>(Resource.Id.blocksFrom);
+            var blocksFromCardView = FindViewById<CardView>(Resource.Id.blocksFromCardView);
+            var blocksTo = FindViewById<TextView>(Resource.Id.blocksTo);
+            var blocksToCardView = FindViewById<CardView>(Resource.Id.blocksToCardView);
+            var interestsTo = FindViewById<TextView>(Resource.Id.interestsTo);
+            var interestsToCardView = FindViewById<CardView>(Resource.Id.interestsToCardView);
+            var interestsFrom = FindViewById<TextView>(Resource.Id.interestsFrom);
+            mProgressBar = this.FindViewById<ProgressBar>(Resource.Id.progressBar);
 
             lastOnline.Text = user.LastActiveDate != null ? user.LastActiveDate.ToString("dd-MM-yyyy") : string.Empty;
 
@@ -176,9 +188,20 @@ namespace Ahbab.Droid
 				hairColor.Text = Constants.DefaultValues.NA;
 			}
 
+            visitCountFrom.Text = Ahbab.CurrentUser.VisitCountFrom.ToString();
+            blocksFrom.Text = Ahbab.CurrentUser.BlocksFrom.ToString();
+            blocksTo.Text = Ahbab.CurrentUser.BlocksTo.ToString();
+            interestsTo.Text = Ahbab.CurrentUser.InterestsTo.ToString();
+            interestsFrom.Text = Ahbab.CurrentUser.InterestsFrom.ToString();
+
             if (user.UserName.Equals(Ahbab.CurrentUser.UserName)) {
                 updateBtn.Visibility = ViewStates.Visible;
                 updateBtn.Click += updateBtn_Click;
+                visitCountFromCardView.Click += visitCountFromCardView_Click;
+            } else {
+                blocksFromCardView.Visibility = ViewStates.Gone;
+                blocksToCardView.Visibility = ViewStates.Gone;
+                interestsToCardView.Visibility = ViewStates.Gone;
             }
 
             if (user.ContactWays != null && user.ContactWays.Count > 0) {
@@ -198,15 +221,45 @@ namespace Ahbab.Droid
 		}
 
         void updateBtn_Click(object sender, EventArgs e) {
-            Intent registerPageIntent = new Intent(this, typeof(RegisterActivity));
-            this.StartActivity(registerPageIntent);
-            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+            if (Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N") {
+                Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+                alert.SetTitle(Constants.UI.Subscription);
+                alert.SetMessage(Constants.UI.Upgrade);
+                alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
+                { //TODO: Set up payment 
+                });
+                alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => {});
+                Android.Support.V7.App.AlertDialog dialog = alert.Create();
+                dialog.SetCanceledOnTouchOutside(false);
+                dialog.SetCancelable(false);
+                dialog.Show();
+            } else {
+                Intent registerPageIntent = new Intent(this, typeof(RegisterActivity));
+                this.StartActivity(registerPageIntent);
+                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+            }
         }
 
-        void MSendMessageButton_Click(object sender, EventArgs e)
-		{
-			if (Ahbab.CurrentUser.Paid == "N")
-			{
+        void visitCountFromCardView_Click(object sender, EventArgs e) {
+            mProgressBar.Visibility = ViewStates.Visible;
+                try {
+                    var result = AhbabDatabase.getActions(user.ID, "visits", "to");
+                    if (result != null) {
+                    VisitorsFragment visitors = new VisitorsFragment(result);
+                    var ft = FragmentManager.BeginTransaction();
+                        ft.Replace(Resource.Id.fragment_container, visitors);
+                        ft.AddToBackStack(null);
+                        ft.Show(visitors);
+                        ft.Commit();
+                    }
+                } catch (Exception ex) {
+                    var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                }
+    
+        }
+
+        void MSendMessageButton_Click(object sender, EventArgs e) {
+			if (Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N") {
 				Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
 				alert.SetTitle(Constants.UI.Subscription);
 				alert.SetMessage(Constants.UI.Upgrade);
@@ -215,30 +268,19 @@ namespace Ahbab.Droid
 					//TODO: Set up payment
 				});
 
-				alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) =>
-				{
-
-				});
+				alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => {});
 
 				Android.Support.V7.App.AlertDialog dialog = alert.Create();
 				dialog.SetCanceledOnTouchOutside(false);
 				dialog.SetCancelable(false);
 				dialog.Show();
-			}
-			else
-			{
+			} else {
 				Bundle mybundle = new Bundle();
-
 				mybundle.PutString("User", user.UserName);
-
 				FragmentTransaction transaction = FragmentManager.BeginTransaction();
-
 				SendMessageFragment sendMessageFragment = new SendMessageFragment();
-
 				sendMessageFragment.Arguments = mybundle;
-
 				sendMessageFragment.Show(transaction, "dialog_fragment");
-
 				sendMessageFragment.mOnSendMessageComplete += SendMessageFragment_MOnSendMessageComplete;
 			}
 		}
@@ -265,27 +307,43 @@ namespace Ahbab.Droid
 		}
 
 		public override bool OnOptionsItemSelected(IMenuItem item) {
-			var mClient = new WebClient();
-			NameValueCollection parameters = new NameValueCollection();
 			switch (item.ItemId) {
 				case Resource.Id.block:
-					parameters.Add("from", Ahbab.CurrentUser.ID.ToString());
-					parameters.Add("to", user.ID.ToString());
-					mClient.UploadValuesCompleted += MClient_UploadValuesCompleted;
-					mClient.UploadValuesAsync(new Uri(Constants.FunctionsUri.BlockUri), parameters);
+                    CheckForUserValidity(Constants.FunctionsUri.BlockUri);
 					return this.BlockSent;
 				case Resource.Id.interest:
-					parameters.Add("from", Ahbab.CurrentUser.ID.ToString());
-					parameters.Add("to", user.ID.ToString());
-					mClient.UploadValuesCompleted += MClient_UploadValuesCompleted;
-					mClient.UploadValuesAsync(new Uri(Constants.FunctionsUri.InterestUri), parameters);
-					return this.InterestSent;
+                    CheckForUserValidity(Constants.FunctionsUri.InterestUri);
+                    return this.InterestSent;
                 case Android.Resource.Id.Home:
                     Finish();
                     break;
             }
 			return base.OnOptionsItemSelected(item);
 		}
+
+        void CheckForUserValidity(string uri) {
+            var mClient = new WebClient();
+            NameValueCollection parameters = new NameValueCollection();
+            if (Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N") {
+                Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+                alert.SetTitle(Constants.UI.Subscription);
+                alert.SetMessage(Constants.UI.Upgrade);
+                alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
+                {
+                    //TODO: Set up payment
+                });
+                alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
+                Android.Support.V7.App.AlertDialog dialog = alert.Create();
+                dialog.SetCanceledOnTouchOutside(false);
+                dialog.SetCancelable(false);
+                dialog.Show();
+            } else {
+                parameters.Add("from", Ahbab.CurrentUser.ID.ToString());
+                parameters.Add("to", user.ID.ToString());
+                mClient.UploadValuesCompleted += MClient_UploadValuesCompleted;
+                mClient.UploadValuesAsync(new Uri(uri), parameters);
+            }
+        }
 
 		void MClient_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e) {
 			var result = Encoding.UTF8.GetString(e.Result);

@@ -58,6 +58,8 @@ namespace Ahbab
             public const string InterestUri = "http://192.168.2.236/ahbab/api/interest.php";
             public const string DeleteMessageUri = "http://192.168.2.236/ahbab/api/DeleteMessage.php";
             public const string LogMessage = "http://192.168.2.236/ahbab/api/AppLogging.php";
+            public const string VisitsUri = "http://192.168.2.236/ahbab/api/visit.php";
+            public const string GetActions = "http://192.168.2.236/ahbab/api/GetActions.php";
 
             /*private const string HostIP = "http://www.ahbaab.com/app";
             public const string GetSpinnerItemsUri = "http://www.ahbaab.com/app/GetsAllItemsFromTable.php";

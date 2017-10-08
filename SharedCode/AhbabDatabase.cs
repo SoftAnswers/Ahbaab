@@ -192,5 +192,34 @@ namespace SharedCode
                 return "Logging Failed";
             }
         }
+
+        internal static string updateVisits(int from, int to) {
+            try {
+                var mClient = new WebClient();
+                NameValueCollection parameters = new NameValueCollection();
+                parameters.Add("from", from.ToString());
+                parameters.Add("to", to.ToString());
+                var result = mClient.UploadValues(Constants.FunctionsUri.VisitsUri, parameters);
+                var resultString = Encoding.UTF8.GetString(result);
+                return resultString;
+            } catch (Exception ex) {
+                return "Update Visits failed";
+            }
+        }
+
+        internal static List<User> getActions(int userId, string tableName, string destination) {
+            try {
+                var mClient = new WebClient();
+                NameValueCollection parameters = new NameValueCollection();
+                parameters.Add(destination, userId.ToString());
+                parameters.Add("TableName", tableName);
+                var result = mClient.UploadValues(Constants.FunctionsUri.GetActions, parameters);
+                var resultString = Encoding.UTF8.GetString(result);
+                var users = JsonConvert.DeserializeObject<List<User>>(resultString);
+                return users;
+            } catch (Exception ex) {
+                return new List<User>();
+            }
+        }
     }
 }

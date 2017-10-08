@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v23</xs:documentation>
-    <xs:documentation>9/26/2017 12:46:42 AM</xs:documentation>
+    <xs:documentation>10/8/2017 1:51:19 AM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -346,6 +346,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -1191,6 +1192,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -1615,6 +1617,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -2141,6 +2144,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -2158,6 +2163,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -2202,6 +2209,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -5484,6 +5492,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -6444,6 +6453,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -6461,6 +6472,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -6505,6 +6518,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -10566,6 +10580,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -10583,6 +10599,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -10627,6 +10645,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -10732,6 +10751,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -11634,6 +11654,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -12187,6 +12208,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -13075,6 +13097,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -13092,6 +13116,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -13136,6 +13162,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -13576,6 +13603,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -13593,6 +13622,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -13637,6 +13668,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -14498,6 +14530,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -14515,6 +14549,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -14559,6 +14595,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -14999,6 +15036,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -15016,6 +15055,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -15060,6 +15101,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -15572,6 +15614,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -16666,6 +16709,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -16683,6 +16728,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -16727,6 +16774,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -16877,6 +16925,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -18548,6 +18597,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -19074,6 +19124,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -19091,6 +19143,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -19135,6 +19189,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />
@@ -19602,6 +19657,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -21458,6 +21514,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -23168,6 +23225,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -23721,6 +23779,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -24100,6 +24159,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -25857,6 +25917,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />
@@ -26772,6 +26833,7 @@
             <xs:enumeration value="@color/dim_foreground_material_light" />
             <xs:enumeration value="@color/foreground_material_dark" />
             <xs:enumeration value="@color/foreground_material_light" />
+            <xs:enumeration value="@color/fragment_background" />
             <xs:enumeration value="@color/highlighted_text_material_dark" />
             <xs:enumeration value="@color/highlighted_text_material_light" />
             <xs:enumeration value="@color/material_blue_grey_800" />

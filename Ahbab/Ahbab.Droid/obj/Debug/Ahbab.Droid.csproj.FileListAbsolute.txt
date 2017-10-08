@@ -510,3 +510,4 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\d
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\select.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\add_img.png
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-hdpi\drawable-xhdpi\icon.png
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\res\layout\visitors_list.xml

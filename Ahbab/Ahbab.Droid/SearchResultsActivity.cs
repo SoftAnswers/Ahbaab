@@ -15,6 +15,7 @@ using Android.Support.V4.Widget;
 using Ahbab.Droid.Helpers;
 using Ahbab.Entities;
 using Android.Graphics;
+using SharedCode;
 
 namespace Ahbab.Droid
 {
@@ -137,18 +138,16 @@ namespace Ahbab.Droid
 		void SetUpRecyclerView()
 		{
             mRecyclerView.SetLayoutManager(new LinearLayoutManager(mRecyclerView.Context));
-
             mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.generatePage(currentPage), this.Resources));
-
-            mRecyclerView.SetItemClickListener((rv, position, view) =>
-			{
+            mRecyclerView.SetItemClickListener((rv, position, view) => {
                 var userPosition = this.currentPage * Paginator.ITEMS_PER_PAGE + position;
-				//An item has been clicked
-				Context context = view.Context;
-				Intent intent = new Intent(context, typeof(UserDetailsActivity));
-				intent.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(results[userPosition]));
-				context.StartActivity(intent);
-			});
+                var result = AhbabDatabase.updateVisits(Ahbab.CurrentUser.ID, results[userPosition].ID);
+                //An item has been clicked
+                Context context = view.Context;
+                Intent intent = new Intent(context, typeof(UserDetailsActivity));
+                intent.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(results[userPosition]));
+                context.StartActivity(intent);
+            });
             nextBtn.Click += NextButton_Click;
             prevBtn.Click += PreviousButton_Click;
         }

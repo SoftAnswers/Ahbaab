@@ -78,6 +78,10 @@ Ahbab.Droid.SendMessageFragment, Ahbab.Droid;md5d6bce92d597785bf7cbaf3c21de5e86b
 Ahbab.Droid.SendMessageFragment, Ahbab.Droid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;md5d6bce92d597785bf7cbaf3c21de5e86b.SendMessageFragment
 Ahbab.Droid.SendMessageFragment;md5d6bce92d597785bf7cbaf3c21de5e86b.SendMessageFragment
 ahbab.droid.SendMessageFragment;md5d6bce92d597785bf7cbaf3c21de5e86b.SendMessageFragment
+Ahbab.Droid.Fragments.VisitorsFragment, Ahbab.Droid;md59dc710f6ff4d36db70093049fbc1941b.VisitorsFragment
+Ahbab.Droid.Fragments.VisitorsFragment, Ahbab.Droid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;md59dc710f6ff4d36db70093049fbc1941b.VisitorsFragment
+Ahbab.Droid.Fragments.VisitorsFragment;md59dc710f6ff4d36db70093049fbc1941b.VisitorsFragment
+ahbab.droid.fragments.VisitorsFragment;md59dc710f6ff4d36db70093049fbc1941b.VisitorsFragment
 Ahbab.Droid.Adapters.UserImagesPageViewerAdapter, Ahbab.Droid;md5bf9a62529e9676dd2a030b8a3905a776.UserImagesPageViewerAdapter
 Ahbab.Droid.Adapters.UserImagesPageViewerAdapter, Ahbab.Droid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null;md5bf9a62529e9676dd2a030b8a3905a776.UserImagesPageViewerAdapter
 Ahbab.Droid.Adapters.UserImagesPageViewerAdapter;md5bf9a62529e9676dd2a030b8a3905a776.UserImagesPageViewerAdapter

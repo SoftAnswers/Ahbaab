@@ -40,23 +40,30 @@ $mysqli = new mysqli("localhost",$rootusername,$rootpassword, $database);
 			while ($row = mysqli_fetch_assoc($result)) {
 				
 				require_once("conn.conf.php");
-				$userID = $row["account_id"];
-				$user = $userID;
+				$user = $row["account_id"];
 				
+				$stmt = $dbh->prepare("Update accounts set last_active_date=:date where account_id=:account");
+				$stmt->bindParam(':account',$user);
+				$stmt->bindParam(':date',$date);
+				$date = date('Y-m-d');
+				$stmt->execute();
+									
 				$userImage = null;
 				$imageNames = array();
 				$images = array();
-				$stmtgetimage = $dbh->prepare("select * from images where account_id=:id LIMIT 1");
+				$stmtgetimage = $dbh->prepare("select * from images where account_id=:id");
 				$stmtgetimage->bindParam(':id',$user);
 				
 				if ($stmtgetimage->execute()) 
 				{
-					$imageRow = $stmtgetimage->fetch(PDO::FETCH_BOTH);
-					if (!empty($imageRow['image_name'])) {
-						$filename = file_get_contents("../uimg/Thumbs/".$imageRow['image_name'].".jpg");
-						$userImage = base64_encode($filename);
-						array_push($images,$userImage);
-						array_push($imageNames,$imageRow['image_name']);
+					$imageRows = $stmtgetimage->fetchAll(PDO::FETCH_ASSOC);
+					foreach($imageRows as $imageRow) {
+						if (!empty($imageRow['image_name'])) {
+							$filename = file_get_contents("../uimg/Thumbs/".$imageRow['image_name'].".jpg");
+							$userImage = base64_encode($filename);
+							array_push($images,$userImage);
+							array_push($imageNames,$imageRow['image_name']);
+						}
 					}
 				}
 				

@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v23</xs:documentation>
-    <xs:documentation>9/26/2017 12:46:42 AM</xs:documentation>
+    <xs:documentation>10/8/2017 1:51:19 AM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -89,6 +89,8 @@
             <xs:enumeration value="@layout/slidingtabfragment" />
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
             <xs:enumeration value="@layout/userdetailsactivity" />
+            <xs:enumeration value="@layout/visitors_list" />
+            <xs:enumeration value="@layout/xmlfile1" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -213,6 +215,8 @@
             <xs:enumeration value="@layout/slidingtabfragment" />
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
             <xs:enumeration value="@layout/userdetailsactivity" />
+            <xs:enumeration value="@layout/visitors_list" />
+            <xs:enumeration value="@layout/xmlfile1" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -337,6 +341,8 @@
             <xs:enumeration value="@layout/slidingtabfragment" />
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
             <xs:enumeration value="@layout/userdetailsactivity" />
+            <xs:enumeration value="@layout/visitors_list" />
+            <xs:enumeration value="@layout/xmlfile1" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -461,6 +467,8 @@
             <xs:enumeration value="@layout/slidingtabfragment" />
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
             <xs:enumeration value="@layout/userdetailsactivity" />
+            <xs:enumeration value="@layout/visitors_list" />
+            <xs:enumeration value="@layout/xmlfile1" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -560,6 +568,8 @@
             <xs:enumeration value="@string/app_name" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/block" />
+            <xs:enumeration value="@string/BlocksFrom" />
+            <xs:enumeration value="@string/BlocksTo" />
             <xs:enumeration value="@string/body" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
@@ -577,6 +587,8 @@
             <xs:enumeration value="@string/hairColor" />
             <xs:enumeration value="@string/height" />
             <xs:enumeration value="@string/inbox" />
+            <xs:enumeration value="@string/InterestsFrom" />
+            <xs:enumeration value="@string/InterestsTo" />
             <xs:enumeration value="@string/job" />
             <xs:enumeration value="@string/lastOnline" />
             <xs:enumeration value="@string/library_name" />
@@ -621,6 +633,7 @@
             <xs:enumeration value="@string/update" />
             <xs:enumeration value="@string/uploadPhotos" />
             <xs:enumeration value="@string/userName" />
+            <xs:enumeration value="@string/VisitCountFrom" />
             <xs:enumeration value="@string/weight" />
             <xs:enumeration value="@string/welcome" />
             <xs:enumeration value="@string/whoAreWeBody" />

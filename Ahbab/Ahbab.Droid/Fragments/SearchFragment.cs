@@ -1,20 +1,10 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Net;
-using System.Text;
-using Ahbab.Entities;
-using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.Design.Widget;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Newtonsoft.Json;
 using SharedCode;
 using SupportFragment = Android.Support.V4.App.Fragment;
 

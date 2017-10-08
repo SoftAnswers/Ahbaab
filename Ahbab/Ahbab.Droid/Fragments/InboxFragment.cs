@@ -29,20 +29,12 @@ namespace Ahbab.Droid
 			return recyclerView;
 		}
 
-		void SetUpRecyclerView(RecyclerView recyclerView)
-		{
-			var values = AhbabDatabase.GetMessages(new Uri(Constants.FunctionsUri.InboxUri),
-												   Ahbab.CurrentUser.ID);
-
+		void SetUpRecyclerView(RecyclerView recyclerView) {
+			var values = AhbabDatabase.GetMessages(new Uri(Constants.FunctionsUri.InboxUri), Ahbab.CurrentUser.ID);
 			recyclerView.SetLayoutManager(new LinearLayoutManager(recyclerView.Context));
-
-			recyclerView.SetAdapter(new MessageRecycleViewAdapter(recyclerView.Context,
-																  values, Activity.Resources));
-
-			recyclerView.SetItemClickListener((rv, position, view) =>
-			{
-				if (Ahbab.CurrentUser.Paid == "N")
-				{
+			recyclerView.SetAdapter(new MessageRecycleViewAdapter(recyclerView.Context, values, Activity.Resources));
+			recyclerView.SetItemClickListener((rv, position, view) => {
+				if (Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N") {
 					Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(recyclerView.Context);
 					alert.SetTitle(Constants.UI.Subscription);
 					alert.SetMessage(Constants.UI.Upgrade);
@@ -50,25 +42,16 @@ namespace Ahbab.Droid
 					{
 						//TODO: Set up payment
 					});
-
-					alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) =>
-					{
-
-					});
-
+					alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
 					Android.Support.V7.App.AlertDialog dialog = alert.Create();
 					dialog.SetCanceledOnTouchOutside(false);
 					dialog.SetCancelable(false);
 					dialog.Show();
-				}
-				else
-				{
+				} else {
 					//An item has been clicked
 					Context context = view.Context;
 					Intent intent = new Intent(context, typeof(MessageDetailsActivity));
-					intent.PutExtra(MessageDetailsActivity.EXTRA_MESSAGE,
-									JsonConvert.SerializeObject(values[position]));
-
+					intent.PutExtra(MessageDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(values[position]));
 					context.StartActivity(intent);
 				}
 			});
