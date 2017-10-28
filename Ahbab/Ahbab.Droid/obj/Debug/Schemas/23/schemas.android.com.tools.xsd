@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v23</xs:documentation>
-    <xs:documentation>10/8/2017 1:51:19 AM</xs:documentation>
+    <xs:documentation>10/28/2017 2:36:02 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -11,121 +11,7 @@
     <xs:simpleType>
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="@layout/abc_action_bar_title_item" />
-            <xs:enumeration value="@layout/abc_action_bar_up_container" />
-            <xs:enumeration value="@layout/abc_action_bar_view_list_nav_layout" />
-            <xs:enumeration value="@layout/abc_action_menu_item_layout" />
-            <xs:enumeration value="@layout/abc_action_menu_layout" />
-            <xs:enumeration value="@layout/abc_action_mode_bar" />
-            <xs:enumeration value="@layout/abc_action_mode_close_item_material" />
-            <xs:enumeration value="@layout/abc_activity_chooser_view" />
-            <xs:enumeration value="@layout/abc_activity_chooser_view_list_item" />
-            <xs:enumeration value="@layout/abc_alert_dialog_button_bar_material" />
-            <xs:enumeration value="@layout/abc_alert_dialog_material" />
-            <xs:enumeration value="@layout/abc_alert_dialog_title_material" />
-            <xs:enumeration value="@layout/abc_dialog_title_material" />
-            <xs:enumeration value="@layout/abc_expanded_menu_layout" />
-            <xs:enumeration value="@layout/abc_list_menu_item_checkbox" />
-            <xs:enumeration value="@layout/abc_list_menu_item_icon" />
-            <xs:enumeration value="@layout/abc_list_menu_item_layout" />
-            <xs:enumeration value="@layout/abc_list_menu_item_radio" />
-            <xs:enumeration value="@layout/abc_popup_menu_header_item_layout" />
-            <xs:enumeration value="@layout/abc_popup_menu_item_layout" />
-            <xs:enumeration value="@layout/abc_screen_content_include" />
-            <xs:enumeration value="@layout/abc_screen_simple" />
-            <xs:enumeration value="@layout/abc_screen_simple_overlay_action_mode" />
-            <xs:enumeration value="@layout/abc_screen_toolbar" />
-            <xs:enumeration value="@layout/abc_search_dropdown_item_icons_2line" />
-            <xs:enumeration value="@layout/abc_search_view" />
-            <xs:enumeration value="@layout/abc_select_dialog_material" />
-            <xs:enumeration value="@layout/design_bottom_navigation_item" />
-            <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
-            <xs:enumeration value="@layout/design_layout_snackbar" />
-            <xs:enumeration value="@layout/design_layout_snackbar_include" />
-            <xs:enumeration value="@layout/design_layout_tab_icon" />
-            <xs:enumeration value="@layout/design_layout_tab_text" />
-            <xs:enumeration value="@layout/design_menu_item_action_area" />
-            <xs:enumeration value="@layout/design_navigation_item" />
-            <xs:enumeration value="@layout/design_navigation_item_header" />
-            <xs:enumeration value="@layout/design_navigation_item_separator" />
-            <xs:enumeration value="@layout/design_navigation_item_subheader" />
-            <xs:enumeration value="@layout/design_navigation_menu" />
-            <xs:enumeration value="@layout/design_navigation_menu_item" />
-            <xs:enumeration value="@layout/design_text_input_password_icon" />
-            <xs:enumeration value="@layout/inboxfragment" />
-            <xs:enumeration value="@layout/include_list_viewpager" />
-            <xs:enumeration value="@layout/legalnotesfragment" />
-            <xs:enumeration value="@layout/list_item" />
-            <xs:enumeration value="@layout/main" />
-            <xs:enumeration value="@layout/mainpage" />
-            <xs:enumeration value="@layout/messagedetailsactivity" />
-            <xs:enumeration value="@layout/nav_header" />
-            <xs:enumeration value="@layout/notification_action" />
-            <xs:enumeration value="@layout/notification_action_tombstone" />
-            <xs:enumeration value="@layout/notification_media_action" />
-            <xs:enumeration value="@layout/notification_media_cancel_action" />
-            <xs:enumeration value="@layout/notification_template_big_media" />
-            <xs:enumeration value="@layout/notification_template_big_media_custom" />
-            <xs:enumeration value="@layout/notification_template_big_media_narrow" />
-            <xs:enumeration value="@layout/notification_template_big_media_narrow_custom" />
-            <xs:enumeration value="@layout/notification_template_custom_big" />
-            <xs:enumeration value="@layout/notification_template_icon_group" />
-            <xs:enumeration value="@layout/notification_template_lines_media" />
-            <xs:enumeration value="@layout/notification_template_media" />
-            <xs:enumeration value="@layout/notification_template_media_custom" />
-            <xs:enumeration value="@layout/notification_template_part_chronometer" />
-            <xs:enumeration value="@layout/notification_template_part_time" />
-            <xs:enumeration value="@layout/outboxfragment" />
-            <xs:enumeration value="@layout/pager_item" />
-            <xs:enumeration value="@layout/register" />
-            <xs:enumeration value="@layout/searchfragment" />
-            <xs:enumeration value="@layout/searchresultsactivity" />
-            <xs:enumeration value="@layout/select_dialog_item_material" />
-            <xs:enumeration value="@layout/select_dialog_multichoice_material" />
-            <xs:enumeration value="@layout/select_dialog_singlechoice_material" />
-            <xs:enumeration value="@layout/sendmessagefragment" />
-            <xs:enumeration value="@layout/signindialog" />
-            <xs:enumeration value="@layout/slidingtabfragment" />
-            <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
-            <xs:enumeration value="@layout/userdetailsactivity" />
-            <xs:enumeration value="@layout/visitors_list" />
-            <xs:enumeration value="@layout/xmlfile1" />
-            <xs:enumeration value="@android:layout/activity_list_item" />
-            <xs:enumeration value="@android:layout/browser_link_context_header" />
-            <xs:enumeration value="@android:layout/expandable_list_content" />
-            <xs:enumeration value="@android:layout/list_content" />
-            <xs:enumeration value="@android:layout/preference_category" />
-            <xs:enumeration value="@android:layout/select_dialog_item" />
-            <xs:enumeration value="@android:layout/select_dialog_multichoice" />
-            <xs:enumeration value="@android:layout/select_dialog_singlechoice" />
-            <xs:enumeration value="@android:layout/simple_dropdown_item_1line" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_gallery_item" />
-            <xs:enumeration value="@android:layout/simple_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_checked" />
-            <xs:enumeration value="@android:layout/simple_list_item_multiple_choice" />
-            <xs:enumeration value="@android:layout/simple_list_item_single_choice" />
-            <xs:enumeration value="@android:layout/simple_selectable_list_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_dropdown_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_item" />
-            <xs:enumeration value="@android:layout/test_list_item" />
-            <xs:enumeration value="@android:layout/two_line_list_item" />
-            <xs:enumeration value="?android:attr/dialogCustomTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleIconsDecorLayout" />
-            <xs:enumeration value="?android:attr/preferenceLayoutChild" />
-            <xs:enumeration value="?android:attr/textEditNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSideNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSidePasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionItemLayout" />
-            <xs:enumeration value="?android:attr/windowActionBarFullscreenDecorLayout" />
-          </xs:restriction>
+          <xs:restriction base="xs:string" />
         </xs:simpleType>
       </xs:union>
     </xs:simpleType>
@@ -216,7 +102,6 @@
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
             <xs:enumeration value="@layout/userdetailsactivity" />
             <xs:enumeration value="@layout/visitors_list" />
-            <xs:enumeration value="@layout/xmlfile1" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -342,7 +227,6 @@
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
             <xs:enumeration value="@layout/userdetailsactivity" />
             <xs:enumeration value="@layout/visitors_list" />
-            <xs:enumeration value="@layout/xmlfile1" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -468,7 +352,6 @@
             <xs:enumeration value="@layout/support_simple_spinner_dropdown_item" />
             <xs:enumeration value="@layout/userdetailsactivity" />
             <xs:enumeration value="@layout/visitors_list" />
-            <xs:enumeration value="@layout/xmlfile1" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -597,6 +480,7 @@
             <xs:enumeration value="@string/male" />
             <xs:enumeration value="@string/menu_settings" />
             <xs:enumeration value="@string/message" />
+            <xs:enumeration value="@string/nextBtnLabel" />
             <xs:enumeration value="@string/or" />
             <xs:enumeration value="@string/originCountry" />
             <xs:enumeration value="@string/outbox" />
@@ -610,6 +494,7 @@
             <xs:enumeration value="@string/phoneNumber" />
             <xs:enumeration value="@string/pickOne" />
             <xs:enumeration value="@string/pressHere" />
+            <xs:enumeration value="@string/prevBtnLabel" />
             <xs:enumeration value="@string/privacyPolicyBody" />
             <xs:enumeration value="@string/privacyPolicyTitle" />
             <xs:enumeration value="@string/register" />

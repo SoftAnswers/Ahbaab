@@ -25,10 +25,10 @@ if(isset($_POST["TableName"]))
 		$target = "from";
 	} else if ($tableName == 'interests') {
 		if(isset($_POST["from"])) {
-			$query = $query ."WHERE visit_from=".$_POST['from'];
+			$query = $query ."WHERE interest_from=".$_POST['from'];
 			$target = "to";
 		} else {
-			$query = $query ."WHERE visit_to=".$_POST['to'];
+			$query = $query ."WHERE interest_to=".$_POST['to'];
 			$target = "from";
 		}
 	} else if ($tableName == 'blocks') {

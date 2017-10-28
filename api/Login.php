@@ -10,8 +10,6 @@ $database="ahbaar_db";
 
 $mysqli = new mysqli("localhost",$rootusername,$rootpassword, $database);
 
-//if(isset($_POST["UserName"]) && isset($_POST["Password"]))
-//{
 	if (mysqli_connect_errno()) {
 		echo "Connect failed: %s\n", mysqli_connect_error();
 		exit();
@@ -23,9 +21,7 @@ $mysqli = new mysqli("localhost",$rootusername,$rootpassword, $database);
 	$query = "SELECT * from accounts WHERE username LIKE '{$username}' AND password LIKE '{$password}' LIMIT 1";
 	
 	$result = mysqli_query($mysqli, $query);
-	 
-	//$result = $mysqli->query($sql);
-	
+	 	
 	if (!$result->num_rows == 1) {
 		echo "Invalid UserName/Password";
 	} else {
@@ -47,7 +43,24 @@ $mysqli = new mysqli("localhost",$rootusername,$rootpassword, $database);
 				$stmt->bindParam(':date',$date);
 				$date = date('Y-m-d');
 				$stmt->execute();
-									
+				
+				$loginsCount = $row["logins"] + 1;
+				//Updating the logins 
+				$updateLogins = $dbh->prepare("UPDATE accounts SET logins=:count WHERE account_id=:user");
+				$updateLogins->bindParam(':user',$user);
+				$updateLogins->bindParam(':count',$loginsCount);
+				$updateLogins->execute();
+				
+				$today_dt = new DateTime($date);
+				$expire_dt = new DateTime($row["paid_end"]);
+				if ($expire_dt < $today_dt) {
+					$updatePaid = $dbh->prepare("UPDATE accounts SET paid=:isPaid WHERE account_id=:user");
+					$updatePaid->bindParam(':user',$user);
+					$updatePaid->bindParam(':isPaid', $pay);
+					$pay = "N";
+					$updatePaid->execute();
+				}
+		
 				$userImage = null;
 				$imageNames = array();
 				$images = array();

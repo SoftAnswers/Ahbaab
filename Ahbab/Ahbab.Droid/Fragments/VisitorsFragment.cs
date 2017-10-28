@@ -3,6 +3,7 @@ using Ahbab.Entities;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -28,12 +29,18 @@ namespace Ahbab.Droid.Fragments {
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             var mView = inflater.Inflate(Resource.Layout.Visitors_List, container, false);
-            mRecyclerView = mView.FindViewById<RecyclerView>(Resource.Id.recyclerview);
             nextBtn = mView.FindViewById<Button>(Resource.Id.nextBtn);
             prevBtn = mView.FindViewById<Button>(Resource.Id.prevBtn);
-            prevBtn.Enabled = false;
-
-            SetUpRecyclerView();
+            mRecyclerView = mView.FindViewById<RecyclerView>(Resource.Id.recyclerview);
+            if (results.Count > 0) {
+                SetUpRecyclerView();
+                nextBtn.Click += NextButton_Click;
+                prevBtn.Click += PreviousButton_Click;
+                toggleButtons();
+            } else {
+                nextBtn.Visibility = ViewStates.Gone;
+                prevBtn.Visibility = ViewStates.Gone;
+            }          
             return mView;
         }
 
@@ -49,8 +56,6 @@ namespace Ahbab.Droid.Fragments {
                 intent.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(results[userPosition]));
                 context.StartActivity(intent);
             });
-            nextBtn.Click += NextButton_Click;
-            prevBtn.Click += PreviousButton_Click;
         }
 
         /**
@@ -76,7 +81,10 @@ namespace Ahbab.Droid.Fragments {
          * buttons based on the page index
          */
         private void toggleButtons() {
-            if (currentPage == totalPages - 1) {
+            if (totalPages == 1) {
+                nextBtn.Enabled = false;
+                prevBtn.Enabled = false;
+            } else if (currentPage == totalPages - 1) {
                 nextBtn.Enabled = false;
                 prevBtn.Enabled = true;
             } else if (currentPage == 0) {

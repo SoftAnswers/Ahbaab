@@ -121,6 +121,20 @@ else
 {
 	$sql= $sql ." where account_status = 'A'";
 }
+
+if(isset($_POST['userId']) || isset($_GET['userId']))
+{
+	if($begincondition == true)
+	{
+		$sql = $sql . ' and NOT account_id = :userId';
+	}
+	else
+	{
+		$sql = $sql .' where NOT account_id = :userId';
+		$begincondition = true;
+	}
+}
+
 $sql = $sql . ' order by account_id DESC';
 $stmtsearch = $dbh->prepare($sql);
 if(!isset($_GET['active']))
@@ -136,6 +150,7 @@ else
 		$stmtsearch->bindParam(':active',$active);
 		$active = $_GET['active'];
 }
+
 if(!isset($_GET['user']))
 {
 	if(isset($_POST['user']) && $_POST['user'] != "")
@@ -270,6 +285,21 @@ else
 	$stmtsearch->bindParam(':lastactive',$lastactive);
 	$lastactive = $_GET['lastactive'];
 }
+
+if(!isset($_GET['userId']))
+{
+	if(isset($_POST['userId']))
+	{
+		$stmtsearch->bindParam(':userId',$id);
+		$id = $_POST['userId'];	
+	}
+}
+else
+{
+		$stmtsearch->bindParam(':userId',$id);
+		$id = $_GET['userId'];	
+}
+
 	if ($stmtsearch->execute()) 
 	{
 		$userArray = array();

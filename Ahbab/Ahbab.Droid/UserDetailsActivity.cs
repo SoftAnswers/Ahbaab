@@ -26,12 +26,14 @@ namespace Ahbab.Droid
 	[Activity(Label = "UserDetailsActivity", Theme = "@style/Theme.Ahbab")]
 	public class UserDetailsActivity : AppCompatActivity
 	{
-		public const string EXTRA_MESSAGE = "message";
+        public const string EXTRA_MESSAGE = "message";
 		private User user;
 		private FloatingActionButton mSendMessageButton;
 		private bool BlockSent = false;
 		private bool InterestSent = false;
         private ProgressBar mProgressBar;
+        public AppBarLayout appBarLayout;
+        private Boolean isFragmentOpen = false;
 
         protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -39,17 +41,18 @@ namespace Ahbab.Droid
 
 			SetContentView(Resource.Layout.UserDetailsActivity);
 
-			SupportToolbar toolBar = FindViewById<SupportToolbar>(Resource.Id.toolbar);
+            SupportToolbar toolBar = FindViewById<SupportToolbar>(Resource.Id.toolbar);
 			SetSupportActionBar(toolBar);
 			SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
 			user = JsonConvert.DeserializeObject<User>(Intent.GetStringExtra(EXTRA_MESSAGE));
 
-			CollapsingToolbarLayout collapsingToolBar = FindViewById<CollapsingToolbarLayout>(Resource.Id.collapsing_toolbar);
+            CollapsingToolbarLayout collapsingToolBar = FindViewById<CollapsingToolbarLayout>(Resource.Id.collapsing_toolbar);
 			collapsingToolBar.Title = !string.IsNullOrEmpty(user.Name) ? user.Name : user.UserName;
 			mSendMessageButton = this.FindViewById<FloatingActionButton>(Resource.Id.btnSendMessage);
 
-			var sender = FindViewById<TextView>(Resource.Id.txtUserName);
+            appBarLayout = FindViewById<AppBarLayout>(Resource.Id.appbar);
+            var sender = FindViewById<TextView>(Resource.Id.txtUserName);
 			var eyesColor = FindViewById<TextView>(Resource.Id.txtEyesColor);
 			var hairColor = FindViewById<TextView>(Resource.Id.txtHairColor);
 			var lastOnline = FindViewById<TextView>(Resource.Id.txtLastOnline);
@@ -76,6 +79,8 @@ namespace Ahbab.Droid
             var interestsTo = FindViewById<TextView>(Resource.Id.interestsTo);
             var interestsToCardView = FindViewById<CardView>(Resource.Id.interestsToCardView);
             var interestsFrom = FindViewById<TextView>(Resource.Id.interestsFrom);
+            var interestsFromCardView = FindViewById<CardView>(Resource.Id.interestsFromCardView);
+            
             mProgressBar = this.FindViewById<ProgressBar>(Resource.Id.progressBar);
 
             lastOnline.Text = user.LastActiveDate != null ? user.LastActiveDate.ToString("dd-MM-yyyy") : string.Empty;
@@ -198,6 +203,10 @@ namespace Ahbab.Droid
                 updateBtn.Visibility = ViewStates.Visible;
                 updateBtn.Click += updateBtn_Click;
                 visitCountFromCardView.Click += visitCountFromCardView_Click;
+                interestsFromCardView.Click += interestsFromCardView_Click;
+                interestsToCardView.Click += interestsToCardView_Click;
+                blocksFromCardView.Click += blocksFromCardView_Click;
+                blocksToCardView.Click += blocksToCardView_Click;
             } else {
                 blocksFromCardView.Visibility = ViewStates.Gone;
                 blocksToCardView.Visibility = ViewStates.Gone;
@@ -240,22 +249,118 @@ namespace Ahbab.Droid
             }
         }
 
+       /**
+        * Function used to display the list of users that visited
+        * the logged in user
+        **/ 
         void visitCountFromCardView_Click(object sender, EventArgs e) {
-            mProgressBar.Visibility = ViewStates.Visible;
-                try {
-                    var result = AhbabDatabase.getActions(user.ID, "visits", "to");
-                    if (result != null) {
+            try {
+                var result = AhbabDatabase.getActions(user.ID, "visits", "to");
+                if (result != null) {
+                    hideElements();
                     VisitorsFragment visitors = new VisitorsFragment(result);
                     var ft = FragmentManager.BeginTransaction();
                         ft.Replace(Resource.Id.fragment_container, visitors);
                         ft.AddToBackStack(null);
                         ft.Show(visitors);
                         ft.Commit();
-                    }
-                } catch (Exception ex) {
-                    var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
                 }
+                this.isFragmentOpen = true;
+            } catch (Exception ex) {
+                var result = AhbabDatabase.LogMessage("Get user visits error: " + ex.Message, "error");
+            }
     
+        }
+
+        /**
+         * Function used to display the list of users liked by the logged in user
+         **/
+        void interestsFromCardView_Click(object sender, EventArgs e) {
+            try {
+                var result = AhbabDatabase.getActions(user.ID, "interests", "from");
+                if (result != null) {
+                    hideElements();
+                    VisitorsFragment visitors = new VisitorsFragment(result);
+                    var ft = FragmentManager.BeginTransaction();
+                    ft.Replace(Resource.Id.fragment_container, visitors);
+                    ft.AddToBackStack(null);
+                    ft.Show(visitors);
+                    ft.Commit();
+                    this.isFragmentOpen = true;
+                }
+            } catch (Exception ex) {
+                var result = AhbabDatabase.LogMessage("Get user interests error: " + ex.Message, "error");
+            }
+        }
+
+        /**
+         * Function used to display the list of users that are interested by the logged in user
+         **/ 
+        void interestsToCardView_Click(object sender, EventArgs e) {
+            try {
+                var result = AhbabDatabase.getActions(user.ID, "interests", "to");
+                if (result != null) {
+                    hideElements();
+                    VisitorsFragment visitors = new VisitorsFragment(result);
+                    var ft = FragmentManager.BeginTransaction();
+                    ft.Replace(Resource.Id.fragment_container, visitors);
+                    ft.AddToBackStack(null);
+                    ft.Show(visitors);
+                    ft.Commit();
+                    this.isFragmentOpen = true;
+                }
+            } catch (Exception ex) {
+                var result = AhbabDatabase.LogMessage("Get user interests error: " + ex.Message, "error");
+            }
+        }
+
+        /**
+         * Function used to display the list of users blocked by the logged in user
+         **/ 
+        void blocksFromCardView_Click(object sender, EventArgs e) {
+            try {
+                var result = AhbabDatabase.getActions(user.ID, "blocks", "from");
+                if (result != null) {
+                    hideElements();
+                    VisitorsFragment visitors = new VisitorsFragment(result);
+                    var ft = FragmentManager.BeginTransaction();
+                    ft.Replace(Resource.Id.fragment_container, visitors);
+                    ft.AddToBackStack(null);
+                    ft.Show(visitors);
+                    ft.Commit();
+                    this.isFragmentOpen = true;
+                }
+            } catch (Exception ex) {
+                var result = AhbabDatabase.LogMessage("Get user blocks error: " + ex.Message, "error");
+            }
+        }
+
+        /**
+         * Function used to display the list of users that blovked the logged in user
+         **/
+        void blocksToCardView_Click(object sender, EventArgs e) {
+            try {
+                var result = AhbabDatabase.getActions(user.ID, "blocks", "to");
+                if (result != null) {
+                    hideElements();
+                    VisitorsFragment visitors = new VisitorsFragment(result);
+                    var ft = FragmentManager.BeginTransaction();
+                    ft.Replace(Resource.Id.fragment_container, visitors);
+                    ft.AddToBackStack(null);
+                    ft.Show(visitors);
+                    ft.Commit();
+                    this.isFragmentOpen = true;
+                }
+            } catch (Exception ex) {
+                var result = AhbabDatabase.LogMessage("Get user blocks error: " + ex.Message, "error");
+            }
+        }
+
+        /**
+         * Function used to hide the app bar when displaying the visitors fragment
+         **/
+        void hideElements() {
+            appBarLayout.Visibility = ViewStates.Gone;
         }
 
         void MSendMessageButton_Click(object sender, EventArgs e) {
@@ -358,21 +463,34 @@ namespace Ahbab.Droid
 		}
 
 		public override bool OnCreateOptionsMenu(IMenu menu) {
-			MenuInflater.Inflate(Resource.Menu.UserDetailsActivityMenu, menu);
+            if (!user.UserName.Equals(Ahbab.CurrentUser.UserName)) {
+                MenuInflater.Inflate(Resource.Menu.UserDetailsActivityMenu, menu);
+            }
 			return true;
 		}
 
-		private void LoadUserImages() {
+        private void LoadUserImages() {
             ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
-            if (user.ImageBase64 != null && user.ImageBase64.Length > 0) {
+            if (user.ImageBase64 != null && user.ImageBase64.Length > 0)
+            {
                 viewPager.Adapter = new UserImagesPageViewerAdapter(this, user.ImageBytes);
-            } else {
+            }
+            else
+            {
                 viewPager.Visibility = ViewStates.Gone;
                 ImageView imageView = FindViewById<ImageView>(Resource.Id.backdrop);
                 imageView.SetImageResource(Messages.RandomMessagesDrawable);
             }
 
         }
-	}
+
+        public override void OnBackPressed() {
+            if (this.isFragmentOpen) {
+                this.appBarLayout.Visibility = ViewStates.Visible;
+                this.isFragmentOpen = false;
+            }
+            base.OnBackPressed();
+        }
+    }
 }
 

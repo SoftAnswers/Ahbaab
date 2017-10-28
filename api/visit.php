@@ -13,7 +13,6 @@
 			$visitToCount = $user['visit_count_to'];
 		}
 		$visitToCount++;
-		echo $visitToCount;
 		//Updating the visit to 
 		$updateVisitTo = $dbh->prepare("UPDATE accounts SET visit_count_to=:count WHERE account_id=:from");
 		$updateVisitTo->bindParam(':from',$from);
@@ -29,7 +28,6 @@
 			$visitFromCount = $user['visit_count_from'];
 		}
 		$visitFromCount++;
-		echo $visitFromCount; 
 		//Updating the visit from 
 		$updateVisitFrom = $dbh->prepare("UPDATE accounts SET visit_count_from=:count WHERE account_id=:to");
 		$updateVisitFrom->bindParam(':to',$to);

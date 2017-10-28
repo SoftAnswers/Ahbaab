@@ -69,7 +69,7 @@ namespace Ahbab.Droid
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerview);
             nextBtn = FindViewById<Button>(Resource.Id.nextBtn);
             prevBtn = FindViewById<Button>(Resource.Id.prevBtn);
-            prevBtn.Enabled = false;
+            toggleButtons();
 
             SetUpRecyclerView();
 		}
@@ -189,15 +189,16 @@ namespace Ahbab.Droid
          * buttons based on the page index
          */
         private void toggleButtons() {
-            if (currentPage == totalPages - 1) {
+            if (totalPages == 1) {
+                nextBtn.Enabled = false;
+                prevBtn.Enabled = false;
+            } else if (currentPage == totalPages - 1) {
                 nextBtn.Enabled = false;
                 prevBtn.Enabled = true;
-            }
-            else if (currentPage == 0) {
+            } else if (currentPage == 0) {
                 prevBtn.Enabled = false;
                 nextBtn.Enabled = true;
-            }
-            else if (currentPage >= 1 && currentPage <= totalPages - 2) {
+            } else if (currentPage >= 1 && currentPage <= totalPages - 2) {
                 nextBtn.Enabled = true;
                 prevBtn.Enabled = true;
             }

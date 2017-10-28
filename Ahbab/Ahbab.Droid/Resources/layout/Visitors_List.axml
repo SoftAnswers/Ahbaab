@@ -17,21 +17,23 @@
         android:layout_height="match_parent"
         android:textDirection="rtl"
         android:layoutDirection="rtl" />
-      <LinearLayout
+    </LinearLayout>
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
       <Button
-          android:text="Next"
+          android:text="@string/nextBtnLabel"
+          android:layout_weight="1"
           android:id="@+id/nextBtn"
           android:layout_width="wrap_content"
           android:layout_height="40dp"/>
       <Button
-          android:text="Previous"
+          android:text="@string/prevBtnLabel"
           android:id="@+id/prevBtn"
           android:layout_width="wrap_content"
-          android:layout_height="40dp"/>
+          android:layout_height="40dp"
+          android:layout_weight="1"/>
     </LinearLayout>
-  </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

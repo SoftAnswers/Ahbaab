@@ -101,6 +101,8 @@ namespace Ahbab.Droid
 
 			var parameters = new NameValueCollection();
 
+            parameters.Add("userId", Ahbab.CurrentUser.ID.ToString());
+
 			if (!string.IsNullOrEmpty(userName))
 			{
 				parameters.Add("user", userName);
@@ -140,10 +142,7 @@ namespace Ahbab.Droid
 
 				this.Activity.StartActivity(searchResultIntent);
 
-				this.Activity.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
-											   Android.Resource.Animation.SlideOutRight);
-
-				//Toast.MakeText(this.Activity, "Login Successfull.", ToastLength.Short).Show();
+				this.Activity.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
 			}
 			else
 			{

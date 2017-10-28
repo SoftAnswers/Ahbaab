@@ -129,7 +129,7 @@ namespace SharedCode
 
                 NameValueCollection parameters = new NameValueCollection();
 
-                parameters.Add("userid", userID.ToString());
+                parameters.Add("userId", userID.ToString());
 
                 var result = mClient.UploadValues(functionUri, parameters);
 

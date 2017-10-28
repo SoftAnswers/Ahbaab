@@ -54,8 +54,10 @@
   <string name="VisitCountFrom">عدد زوار البيانات</string>
   <string name="BlocksTo">لائحة المنع</string>
   <string name="BlocksFrom">عدد الملفات الممنوعة</string>
-  <string name="InterestsTo">عدد الإعجابات</string>
-  <string name="InterestsFrom">عدد المعجبين</string>
+  <string name="InterestsTo">عدد المعجبين</string>
+  <string name="InterestsFrom">عدد الإعجابات</string>
+  <string name="nextBtnLabel">التالي</string>
+  <string name="prevBtnLabel">السابق</string>
 	<string name="whoAreWeBody">
     موقع أحباب هو موقع متخصص للتعارف والتواصل والزواج كما هو متخصص أيضا في زواج المسيار والتعارف على أصدقاء جدد وثقافات جديدة
 
