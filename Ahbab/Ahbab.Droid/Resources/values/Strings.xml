@@ -51,7 +51,7 @@
 	<string name="block">أضف إلى لائحة المنع</string>
 	<string name="sendInterest">أرسل إعجاب</string>
 	<string name="delete">حذف</string>
-  <string name="VisitCountFrom">عدد زوار البيانات</string>
+  <string name="VisitCountTo">عدد زوار البيانات</string>
   <string name="BlocksTo">لائحة المنع</string>
   <string name="BlocksFrom">عدد الملفات الممنوعة</string>
   <string name="InterestsTo">عدد المعجبين</string>

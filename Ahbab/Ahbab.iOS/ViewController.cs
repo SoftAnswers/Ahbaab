@@ -1,32 +1,124 @@
 ﻿using System;
 
 using UIKit;
+using SharedCode;
+using Ahbab.Entities;
+using Ahbab;
 
 namespace Ahbab.iOS
 {
-    public partial class ViewController : UIViewController
-    {
+    public partial class ViewController : UIViewController {
         int count = 1;
 
-        public ViewController(IntPtr handle) : base(handle)
-        {
-        }
+        public ViewController(IntPtr handle) : base(handle) {}
 
-        public override void ViewDidLoad()
-        {
+        public override void ViewDidLoad() {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
-            //Button.AccessibilityIdentifier = "myButton";
-            //Button.TouchUpInside += delegate {
-            //	var title = string.Format ("{0} clicks!", count++);
-            //	Button.SetTitle (title, UIControlState.Normal);
-            //};
+            try{
+                GetData();
+            }
+            catch (Exception ex) {
+                
+            }
         }
 
-        public override void DidReceiveMemoryWarning()
-        {
+        public override void DidReceiveMemoryWarning() {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
+        }
+
+        partial void LoginBtn_TouchUpInside(UIButton sender) {
+            this.ShowUIAlertController();
+        }
+
+        partial void UIButton109_TouchUpInside(UIButton sender) {}
+
+        /**
+         * Function used to display the pop up containg the username/password field
+         * in order to login
+         */
+        private void ShowUIAlertController() {
+            UIAlertController alert = UIAlertController.Create(Constants.UI.Login, "", UIAlertControllerStyle.Alert);
+
+            alert.AddAction(UIAlertAction.Create(Constants.UI.Login, UIAlertActionStyle.Default, action => {
+                this.LoginClicked();
+            }));
+
+            alert.AddAction(UIAlertAction.Create(Constants.UI.Cancel, UIAlertActionStyle.Cancel, null));
+            alert.AddTextField((field) => {
+                field.Placeholder = Constants.UI.UserName;
+                field.TextAlignment = UITextAlignment.Right;
+            });
+            alert.AddTextField((field) => {
+                field.Placeholder = Constants.UI.Password;
+                field.SecureTextEntry = true;
+                field.TextAlignment = UITextAlignment.Right;
+            });
+            PresentViewController(alert, animated: true, completionHandler: null);
+        }
+
+        /**
+         * Fuction used to perform the actual login. It calls the login service
+         * that returns the requested user
+         */
+        private void LoginClicked() {}
+
+        static void GetData() {
+            Ahbab.statusItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                        Constants.Tables.Status);
+
+            Ahbab.statusItems.Insert(0, new SpinnerItem(-1, "Choose", Constants.DefaultValues.FamilyStatus));
+
+            Ahbab.mAgeItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri),
+                                                      Constants.Tables.Age);
+           Ahbab.mAgeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Age));
+
+            Ahbab.mContactTimeItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri),
+                                                                 Constants.Tables.ContactTime);
+            Ahbab.mContactTimeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.ContactTime));
+
+            Ahbab.mEducationItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                            Constants.Tables.Education);
+            Ahbab.mEducationItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.EducationLevel));
+
+            Ahbab.mEyesColorItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                            Constants.Tables.EyesColor);
+            Ahbab.mEyesColorItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.EyesColor));
+
+            Ahbab.mGoalFromSiteItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                               Constants.Tables.GoalFromSite);
+            Ahbab.mGoalFromSiteItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.GoalFromSite));
+
+            Ahbab.mHairColorItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                            Constants.Tables.HairColor);
+            Ahbab.mHairColorItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.HairColor));
+
+            Ahbab.mHeightItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                         Constants.Tables.Height);
+            Ahbab.mHeightItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Height));
+
+            Ahbab.mJobItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                      Constants.Tables.Job);
+            Ahbab.mJobItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Job));
+
+            Ahbab.mCountries = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                       Constants.Tables.Countries);
+            Ahbab.mCountries.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.OriginCountry));
+
+            Ahbab.mResidenceCountries = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                       Constants.Tables.Countries);
+            Ahbab.mResidenceCountries.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.ResidenceCountry));
+
+            Ahbab.mContactWays = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                  Constants.Tables.ContactWays);
+
+            Ahbab.mTimeItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri),
+                                                       Constants.Tables.Time);
+            Ahbab.mTimeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.TimeZone));
+
+            Ahbab.mWeightItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
+                                                        Constants.Tables.Weight);
+            Ahbab.mWeightItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Weight));
         }
     }
 }

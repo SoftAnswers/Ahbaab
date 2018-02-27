@@ -113,28 +113,6 @@ namespace Ahbab.Droid
                 this.mSex.Visibility = ViewStates.Gone;
                 var sexText = FindViewById<TextView>(Resource.Id.txtSex);
                 sexText.Visibility = ViewStates.Gone;
-                if (Ahbab.CurrentUser.Paid == "N") {
-                    Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
-                    alert.SetTitle(Constants.UI.Subscription);
-                    alert.SetMessage(Constants.UI.Upgrade);
-                    alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
-                    {
-                        //TODO: Set up payment
-                    });
-
-                    alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) =>
-                    {
-                        var intent = new Intent(this, typeof(MainPageActivity))
-                       .SetFlags(ActivityFlags.ReorderToFront);
-                        StartActivity(intent);
-                    });
-
-                    Android.Support.V7.App.AlertDialog dialog = alert.Create();
-                    dialog.SetCanceledOnTouchOutside(false);
-                    dialog.SetCancelable(false);
-                    dialog.Show();
-                }
-
                 var hView = navigationView.GetHeaderView(0);
                 var editAccount = hView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
                 if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0) {

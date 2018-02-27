@@ -17,7 +17,7 @@ public class LegalNotesFragment
 	}
 
 
-	public LegalNotesFragment () throws java.lang.Throwable
+	public LegalNotesFragment ()
 	{
 		super ();
 		if (getClass () == LegalNotesFragment.class)

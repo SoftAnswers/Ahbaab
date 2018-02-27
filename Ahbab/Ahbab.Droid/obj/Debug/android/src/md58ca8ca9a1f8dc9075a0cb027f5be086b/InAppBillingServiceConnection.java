@@ -18,14 +18,14 @@ public class InAppBillingServiceConnection
 	}
 
 
-	public InAppBillingServiceConnection () throws java.lang.Throwable
+	public InAppBillingServiceConnection ()
 	{
 		super ();
 		if (getClass () == InAppBillingServiceConnection.class)
 			mono.android.TypeManager.Activate ("Xamarin.InAppBilling.InAppBillingServiceConnection, Xamarin.InAppBilling, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
-	public InAppBillingServiceConnection (android.app.Activity p0, java.lang.String p1) throws java.lang.Throwable
+	public InAppBillingServiceConnection (android.app.Activity p0, java.lang.String p1)
 	{
 		super ();
 		if (getClass () == InAppBillingServiceConnection.class)

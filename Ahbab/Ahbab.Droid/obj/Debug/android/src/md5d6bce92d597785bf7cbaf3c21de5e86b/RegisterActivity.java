@@ -18,7 +18,7 @@ public class RegisterActivity
 	}
 
 
-	public RegisterActivity () throws java.lang.Throwable
+	public RegisterActivity ()
 	{
 		super ();
 		if (getClass () == RegisterActivity.class)

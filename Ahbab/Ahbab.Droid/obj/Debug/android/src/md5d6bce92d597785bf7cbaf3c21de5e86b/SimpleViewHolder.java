@@ -16,7 +16,7 @@ public class SimpleViewHolder
 	}
 
 
-	public SimpleViewHolder (android.view.View p0) throws java.lang.Throwable
+	public SimpleViewHolder (android.view.View p0)
 	{
 		super (p0);
 		if (getClass () == SimpleViewHolder.class)

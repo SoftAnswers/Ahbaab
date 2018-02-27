@@ -19,7 +19,7 @@ public class UserDetailsActivity
 	}
 
 
-	public UserDetailsActivity () throws java.lang.Throwable
+	public UserDetailsActivity ()
 	{
 		super ();
 		if (getClass () == UserDetailsActivity.class)

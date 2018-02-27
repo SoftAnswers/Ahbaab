@@ -70,8 +70,8 @@ namespace Ahbab.Droid
 			var partnerDescription = FindViewById<TextView>(Resource.Id.txtPartnerDescription);
             var updateBtn = FindViewById<Button>(Resource.Id.btnUpdate);
             var contactWays = FindViewById<LinearLayout>(Resource.Id.contactWays);
-            var visitCountFrom = FindViewById<TextView>(Resource.Id.visitCountFrom);
-            var visitCountFromCardView = FindViewById<CardView>(Resource.Id.visitCountFromCardView);
+            var visitCountTo = FindViewById<TextView>(Resource.Id.visitCountTo);
+            var visitCountToCardView = FindViewById<CardView>(Resource.Id.visitCountToCardView);
             var blocksFrom = FindViewById<TextView>(Resource.Id.blocksFrom);
             var blocksFromCardView = FindViewById<CardView>(Resource.Id.blocksFromCardView);
             var blocksTo = FindViewById<TextView>(Resource.Id.blocksTo);
@@ -193,7 +193,7 @@ namespace Ahbab.Droid
 				hairColor.Text = Constants.DefaultValues.NA;
 			}
 
-            visitCountFrom.Text = Ahbab.CurrentUser.VisitCountFrom.ToString();
+            visitCountTo.Text = Ahbab.CurrentUser.VisitCountTo.ToString();
             blocksFrom.Text = Ahbab.CurrentUser.BlocksFrom.ToString();
             blocksTo.Text = Ahbab.CurrentUser.BlocksTo.ToString();
             interestsTo.Text = Ahbab.CurrentUser.InterestsTo.ToString();
@@ -202,7 +202,7 @@ namespace Ahbab.Droid
             if (user.UserName.Equals(Ahbab.CurrentUser.UserName)) {
                 updateBtn.Visibility = ViewStates.Visible;
                 updateBtn.Click += updateBtn_Click;
-                visitCountFromCardView.Click += visitCountFromCardView_Click;
+                visitCountToCardView.Click += visitCountToCardView_Click;
                 interestsFromCardView.Click += interestsFromCardView_Click;
                 interestsToCardView.Click += interestsToCardView_Click;
                 blocksFromCardView.Click += blocksFromCardView_Click;
@@ -253,7 +253,7 @@ namespace Ahbab.Droid
         * Function used to display the list of users that visited
         * the logged in user
         **/ 
-        void visitCountFromCardView_Click(object sender, EventArgs e) {
+        void visitCountToCardView_Click(object sender, EventArgs e) {
             try {
                 var result = AhbabDatabase.getActions(user.ID, "visits", "to");
                 if (result != null) {

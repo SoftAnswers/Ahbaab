@@ -18,7 +18,7 @@ public class SearchResultsRecyclerViewAdapter
 	}
 
 
-	public SearchResultsRecyclerViewAdapter () throws java.lang.Throwable
+	public SearchResultsRecyclerViewAdapter ()
 	{
 		super ();
 		if (getClass () == SearchResultsRecyclerViewAdapter.class)

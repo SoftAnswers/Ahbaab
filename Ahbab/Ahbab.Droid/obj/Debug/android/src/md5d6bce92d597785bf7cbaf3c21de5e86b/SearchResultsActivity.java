@@ -17,7 +17,7 @@ public class SearchResultsActivity
 	}
 
 
-	public SearchResultsActivity () throws java.lang.Throwable
+	public SearchResultsActivity ()
 	{
 		super ();
 		if (getClass () == SearchResultsActivity.class)

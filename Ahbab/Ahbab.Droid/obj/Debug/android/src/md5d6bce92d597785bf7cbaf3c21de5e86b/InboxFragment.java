@@ -16,7 +16,7 @@ public class InboxFragment
 	}
 
 
-	public InboxFragment () throws java.lang.Throwable
+	public InboxFragment ()
 	{
 		super ();
 		if (getClass () == InboxFragment.class)

@@ -16,7 +16,7 @@ public class SearchSimpleViewHolder
 	}
 
 
-	public SearchSimpleViewHolder (android.view.View p0) throws java.lang.Throwable
+	public SearchSimpleViewHolder (android.view.View p0)
 	{
 		super (p0);
 		if (getClass () == SearchSimpleViewHolder.class)

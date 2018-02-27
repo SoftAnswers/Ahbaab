@@ -18,7 +18,7 @@ public class MessageDetailsActivity
 	}
 
 
-	public MessageDetailsActivity () throws java.lang.Throwable
+	public MessageDetailsActivity ()
 	{
 		super ();
 		if (getClass () == MessageDetailsActivity.class)

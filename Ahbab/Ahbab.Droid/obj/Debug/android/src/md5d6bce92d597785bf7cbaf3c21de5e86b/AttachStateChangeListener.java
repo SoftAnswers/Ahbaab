@@ -18,7 +18,7 @@ public class AttachStateChangeListener
 	}
 
 
-	public AttachStateChangeListener () throws java.lang.Throwable
+	public AttachStateChangeListener ()
 	{
 		super ();
 		if (getClass () == AttachStateChangeListener.class)

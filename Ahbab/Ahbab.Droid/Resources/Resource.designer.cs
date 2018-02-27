@@ -2226,8 +2226,26 @@ namespace Ahbab.Droid
 			// aapt resource value: 0x7f020054
 			public const int avd_hide_password = 2130837588;
 			
+			// aapt resource value: 0x7f020081
+			public const int avd_hide_password_1 = 2130837633;
+			
+			// aapt resource value: 0x7f020082
+			public const int avd_hide_password_2 = 2130837634;
+			
+			// aapt resource value: 0x7f020083
+			public const int avd_hide_password_3 = 2130837635;
+			
 			// aapt resource value: 0x7f020055
 			public const int avd_show_password = 2130837589;
+			
+			// aapt resource value: 0x7f020084
+			public const int avd_show_password_1 = 2130837636;
+			
+			// aapt resource value: 0x7f020085
+			public const int avd_show_password_2 = 2130837637;
+			
+			// aapt resource value: 0x7f020086
+			public const int avd_show_password_3 = 2130837638;
 			
 			// aapt resource value: 0x7f020056
 			public const int ButtonSignInStyle = 2130837590;
@@ -3191,10 +3209,10 @@ namespace Ahbab.Droid
 			public const int visible = 2131362056;
 			
 			// aapt resource value: 0x7f0a00fd
-			public const int visitCountFrom = 2131362045;
+			public const int visitCountTo = 2131362045;
 			
 			// aapt resource value: 0x7f0a00fc
-			public const int visitCountFromCardView = 2131362044;
+			public const int visitCountToCardView = 2131362044;
 			
 			// aapt resource value: 0x7f0a00c1
 			public const int weightSpinner = 2131361985;
@@ -3552,7 +3570,7 @@ namespace Ahbab.Droid
 			public const int InterestsTo = 2131427424;
 			
 			// aapt resource value: 0x7f0b005d
-			public const int VisitCountFrom = 2131427421;
+			public const int VisitCountTo = 2131427421;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int abc_action_bar_home_description = 2131427336;

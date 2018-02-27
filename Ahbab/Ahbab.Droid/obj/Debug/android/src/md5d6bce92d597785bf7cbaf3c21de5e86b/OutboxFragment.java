@@ -16,7 +16,7 @@ public class OutboxFragment
 	}
 
 
-	public OutboxFragment () throws java.lang.Throwable
+	public OutboxFragment ()
 	{
 		super ();
 		if (getClass () == OutboxFragment.class)

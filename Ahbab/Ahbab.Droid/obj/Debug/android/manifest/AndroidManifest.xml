@@ -7,6 +7,7 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="com.android.vending.BILLING" />
   <application android:supportsRtl="true" android:icon="@drawable/maleoff" android:label="Ahbab" android:name="md5d6bce92d597785bf7cbaf3c21de5e86b.Ahbab" android:allowBackup="true" android:debuggable="true">
     <activity android:icon="@drawable/logo" android:label="@string/app_name" android:theme="@style/Theme.Ahbab" android:name="md5d6bce92d597785bf7cbaf3c21de5e86b.MainActivity">
       <intent-filter>

@@ -1,13 +1,13 @@
 <?php
 	require_once("conn.conf.php");
 	
-	if(isset($_POST["userid"]))
+	if(isset($_POST["userId"]))
 	{
 
-		$stmtinbox = $dbh->prepare("select message_id,from_account,subject,message_date,message_read from messages where from_account=:account and message_status !=:msgstat order by message_id DESC");
+		$stmtinbox = $dbh->prepare("select message_id,from_account,subject,message_date,message_read, body from messages where from_account=:account and message_status =:msgstat order by message_id DESC");
 		$stmtinbox->bindParam(':account',$acc);
 		$stmtinbox->bindParam(':msgstat',$msgstat);
-		$acc = $_POST['userid'];
+		$acc = $_POST['userId'];
 		$msgstat = 'D';
 		if($stmtinbox->execute())
 		{

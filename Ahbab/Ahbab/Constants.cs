@@ -122,6 +122,9 @@ namespace Ahbab
             public const string LogoutMessage = "هل أنت متأكد من الخروج";
             public const string LogoutHeader = "تسجيل الخروج";
             public const string Logout = "خروج";
+            public const string Login = "تسجيل الدخول";
+            public const string UserName = "إسم المستخدم";
+            public const string Password = "كلمة السر";
         }
     }
 }

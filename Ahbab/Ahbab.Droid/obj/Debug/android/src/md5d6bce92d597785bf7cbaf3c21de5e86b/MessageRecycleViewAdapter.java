@@ -18,7 +18,7 @@ public class MessageRecycleViewAdapter
 	}
 
 
-	public MessageRecycleViewAdapter () throws java.lang.Throwable
+	public MessageRecycleViewAdapter ()
 	{
 		super ();
 		if (getClass () == MessageRecycleViewAdapter.class)

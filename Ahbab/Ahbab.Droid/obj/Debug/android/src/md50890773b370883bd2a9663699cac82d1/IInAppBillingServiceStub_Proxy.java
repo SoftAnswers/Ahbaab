@@ -17,14 +17,14 @@ public class IInAppBillingServiceStub_Proxy
 	}
 
 
-	public IInAppBillingServiceStub_Proxy () throws java.lang.Throwable
+	public IInAppBillingServiceStub_Proxy ()
 	{
 		super ();
 		if (getClass () == IInAppBillingServiceStub_Proxy.class)
 			mono.android.TypeManager.Activate ("Com.Android.Vending.Billing.IInAppBillingServiceStub+Proxy, Xamarin.InAppBilling, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
-	public IInAppBillingServiceStub_Proxy (android.os.IBinder p0) throws java.lang.Throwable
+	public IInAppBillingServiceStub_Proxy (android.os.IBinder p0)
 	{
 		super ();
 		if (getClass () == IInAppBillingServiceStub_Proxy.class)

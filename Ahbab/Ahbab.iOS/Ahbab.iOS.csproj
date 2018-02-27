@@ -34,10 +34,8 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -58,11 +56,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
-    
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
     <MtouchProfiling>true</MtouchProfiling>
-    
     <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
+    <MtouchFastDev>false</MtouchFastDev>
+    <CodesignKey>iPhone Developer: jad.abinader18@gmail.com (PS4HCHQ538)</CodesignKey>
+    <CodesignProvision>iOS Team Provisioning Profile: comSoftAnswers.Ahbab.iOS</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Ahbab.iOS.Application</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -80,7 +86,6 @@
       <Project>{6CC4B264-78A1-48C5-BF1F-2B7A8F9954F9}</Project>
     </ProjectReference>
   </ItemGroup>
-  
   <ItemGroup>
     <ITunesArtwork Include="Resources\ITunesArtwork" />
     <ITunesArtwork Include="Resources\ITunesArtwork%402x" />
@@ -95,8 +100,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ahbab.cs" />
+    <Compile Include="GenderSelectionCustomCell.cs" />
+    <Compile Include="GenderSelectionCustomCell.designer.cs">
+      <DependentUpon>GenderSelectionCustomCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="PickerCustomCell.cs" />
+    <Compile Include="PickerCustomCell.designer.cs">
+      <DependentUpon>PickerCustomCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationController.cs" />
+    <Compile Include="RegistrationController.designer.cs">
+      <DependentUpon>RegistrationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TextFieldCustomCell.cs" />
+    <Compile Include="TextFieldCustomCell.designer.cs">
+      <DependentUpon>TextFieldCustomCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>

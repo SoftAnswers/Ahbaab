@@ -16,7 +16,7 @@ public class SendMessageFragment
 	}
 
 
-	public SendMessageFragment () throws java.lang.Throwable
+	public SendMessageFragment ()
 	{
 		super ();
 		if (getClass () == SendMessageFragment.class)
