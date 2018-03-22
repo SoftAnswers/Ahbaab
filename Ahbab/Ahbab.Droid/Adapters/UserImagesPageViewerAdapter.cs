@@ -6,7 +6,7 @@ using Android.Views;
 using Android.Widget;
 using System.Collections.Generic;
 
-namespace Ahbab.Droid.Adapters {
+namespace Asawer.Droid.Adapters {
     class UserImagesPageViewerAdapter : PagerAdapter {
 
         Context context;

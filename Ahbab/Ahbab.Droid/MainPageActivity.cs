@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Text;
-using Ahbab.Entities;
 using Android.App;
 using Android.OS;
 using Android.Views;
@@ -20,8 +19,9 @@ using Android.Support.V4.App;
 using Android.Widget;
 using Android.Content;
 using Android.Graphics;
+using Asawer.Entities;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
     [Activity(Label = "@string/app_name", Theme = "@style/Theme.Ahbab")]
     public class MainPageActivity : AppCompatActivity

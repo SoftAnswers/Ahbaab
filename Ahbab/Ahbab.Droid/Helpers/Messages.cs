@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Android.Graphics;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
 	public class Messages
 	{

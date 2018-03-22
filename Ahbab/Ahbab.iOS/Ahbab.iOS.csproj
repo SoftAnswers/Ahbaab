@@ -75,14 +75,20 @@
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SaturdayMP.XPlugins.iOS.BEMCheckBox, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SaturdayMP.XPlugins.iOS.BEMCheckBox.1.4.3\lib\Xamarin.iOS10\SaturdayMP.XPlugins.iOS.BEMCheckBox.dll</HintPath>
+    </Reference>
+    <Reference Include="SlideMenuController, Version=1.0.6263.28323, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SlideMenuControllerXamarin.1.1.1\lib\Xamarin.iOS10\SlideMenuController.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ahbab\Ahbab.csproj">
-      <Name>Ahbab</Name>
+    <ProjectReference Include="..\Ahbab\Asawer.csproj">
+      <Name>Asawer</Name>
       <Project>{6CC4B264-78A1-48C5-BF1F-2B7A8F9954F9}</Project>
     </ProjectReference>
   </ItemGroup>
@@ -101,28 +107,76 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ahbab.cs" />
+    <Compile Include="ContactWaysCustomCell.cs" />
+    <Compile Include="ContactWaysCustomCell.designer.cs">
+      <DependentUpon>ContactWaysCustomCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenderSelectionCustomCell.cs" />
     <Compile Include="GenderSelectionCustomCell.designer.cs">
       <DependentUpon>GenderSelectionCustomCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageViewCustomCell.cs" />
+    <Compile Include="ImageViewCustomCell.designer.cs">
+      <DependentUpon>ImageViewCustomCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelCustomCell.cs" />
+    <Compile Include="LabelCustomCell.designer.cs">
+      <DependentUpon>LabelCustomCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="MainPageTabController.cs" />
+    <Compile Include="MainPageTabController.designer.cs">
+      <DependentUpon>MainPageTabController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavigationController.cs" />
+    <Compile Include="NavigationController.designer.cs">
+      <DependentUpon>NavigationController.cs</DependentUpon>
+    </Compile>
     <Compile Include="PickerCustomCell.cs" />
     <Compile Include="PickerCustomCell.designer.cs">
       <DependentUpon>PickerCustomCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterButtonCell.cs" />
+    <Compile Include="RegisterButtonCell.designer.cs">
+      <DependentUpon>RegisterButtonCell.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistrationController.cs" />
     <Compile Include="RegistrationController.designer.cs">
       <DependentUpon>RegistrationController.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchController.cs" />
+    <Compile Include="SearchController.designer.cs">
+      <DependentUpon>SearchController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SideMenuController.cs" />
+    <Compile Include="SideMenuController.designer.cs">
+      <DependentUpon>SideMenuController.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextFieldCustomCell.cs" />
     <Compile Include="TextFieldCustomCell.designer.cs">
       <DependentUpon>TextFieldCustomCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UploadimagesCell.cs" />
+    <Compile Include="UploadimagesCell.designer.cs">
+      <DependentUpon>UploadimagesCell.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Drawbles\G0153384.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Drawbles\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Drawbles\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Drawbles\add_img.png" />
   </ItemGroup>
   <Import Project="..\..\SharedCode\SharedCode.projitems" Label="Shared" Condition="Exists('..\..\SharedCode\SharedCode.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

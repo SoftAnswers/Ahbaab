@@ -12,16 +12,16 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Newtonsoft.Json;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
-using Ahbab.Entities;
+using Asawer.Entities;
 using SharedCode;
 using System.Net;
 using System.Collections.Specialized;
-using Ahbab.Droid.Adapters;
+using Asawer.Droid.Adapters;
 using Android.Support.V7.Widget;
-using Ahbab.Droid.Fragments;
+using Asawer.Droid.Fragments;
 using System.Threading;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
 	[Activity(Label = "UserDetailsActivity", Theme = "@style/Theme.Ahbab")]
 	public class UserDetailsActivity : AppCompatActivity
@@ -399,7 +399,7 @@ namespace Ahbab.Droid
 			message.from_account = Ahbab.CurrentUser.ID;
 			message.to_account = user.ID;
 
-			var result = AhbabDatabase.SendMessage(message);
+			var result = AhbabDatabase.SendMessage(message, user.Gender);
 
 			if (result.ToLower().Contains("success"))
 			{

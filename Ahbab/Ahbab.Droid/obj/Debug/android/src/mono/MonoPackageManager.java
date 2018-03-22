@@ -105,8 +105,8 @@ public class MonoPackageManager {
 
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
-		/* We need to ensure that "Ahbab.Droid.dll" comes first in this list. */
-		"Ahbab.Droid.dll",
+		/* We need to ensure that "Asawer.Droid.dll" comes first in this list. */
+		"Asawer.Droid.dll",
 		"Ahbab.dll",
 		"Newtonsoft.Json.dll",
 		"Refractored.Controls.CircleImageView.dll",

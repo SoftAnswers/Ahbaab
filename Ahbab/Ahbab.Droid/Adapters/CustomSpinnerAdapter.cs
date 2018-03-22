@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ahbab.Entities;
+using Asawer.Entities;
 using Android.App;
 using Android.Views;
 using Android.Widget;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
 	public class CustomSpinnerAdapter : ArrayAdapter<SpinnerItem>
 	{

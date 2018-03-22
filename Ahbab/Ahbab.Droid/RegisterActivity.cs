@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Android.App;
@@ -8,7 +8,6 @@ using Android.Views;
 using Android.Widget;
 using Android.Content.PM;
 using System.Threading;
-using Ahbab.Entities;
 using Newtonsoft.Json;
 using Android.Support.V7.App;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
@@ -21,8 +20,9 @@ using System.IO;
 using Android.Graphics;
 using Android.Provider;
 using Uri = Android.Net.Uri;
+using Asawer.Entities;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
     [Activity(Label = "@string/register", Theme = "@style/Theme.Ahbab")]
     public class RegisterActivity : AppCompatActivity
@@ -414,6 +414,7 @@ namespace Ahbab.Droid
             if (validInput)
             {
                 var registrationSuccessfull = false;
+                var errorText = "";
                 ProgressDialog progress = new ProgressDialog(this);
                 progress.Indeterminate = true;
                 progress.SetProgressStyle(ProgressDialogStyle.Spinner);
@@ -428,7 +429,7 @@ namespace Ahbab.Droid
                         try
                         {
                             var resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.RegisterUri, userInput);
-
+                            errorText = resultString;
                             if (!string.IsNullOrEmpty(resultString))
                             {
                                 var result = JsonConvert.DeserializeObject<List<User>>(resultString);
@@ -460,9 +461,7 @@ namespace Ahbab.Droid
                             }
                             else
                             {
-                                Toast.MakeText(this,
-                                                   Constants.UI.ErrorOccured,
-                                                   ToastLength.Short).Show();
+                                Toast.MakeText(this, errorText, ToastLength.Long).Show();
                             }
 
                             //HIDE PROGRESS DIALOG
@@ -630,67 +629,81 @@ namespace Ahbab.Droid
         bool ValidateDataInput()
         {
             var validInput = true;
+            var errorText = "";
 
             if (string.IsNullOrEmpty(mUserNameInputLayout.EditText.Text)) {
-                mUserNameInputLayout.Error = "Can't leave this empty";
+                mUserNameInputLayout.Error = "الرجاء إدخال إسم المستخدم";
                 validInput = false;
             }else {
                 mUserNameInputLayout.Error = null;
             }
 
             if (string.IsNullOrEmpty(mPasswordInputLayout.EditText.Text)){
-                mPasswordInputLayout.Error = "Can't leave this empty";
+                mPasswordInputLayout.Error = "الرجاء إدخال كلمة السر";
                 validInput = false;
             } else {
                 mPasswordInputLayout.Error = null;
             }
 
             if (string.IsNullOrEmpty(mFullNameInputLayout.EditText.Text)) {
-                mFullNameInputLayout.Error = "Can't leave this empty";
+                mFullNameInputLayout.Error = "الرجاء إدخال الإسم الكامل";
                 validInput = false;
             } else {
                 mFullNameInputLayout.Error = null;
             }
 
             if (string.IsNullOrEmpty(mEmailInputLayout.EditText.Text)) {
-                mEmailInputLayout.Error = "Can't leave this empty";
+                mEmailInputLayout.Error = "الرجاء إدخال البريد الإلكتروني";
                 validInput = false;
             } else {
                 mEmailInputLayout.Error = null;
             }
 
             if (string.IsNullOrEmpty(mSelfDescriptionInputLayout.EditText.Text)) {
-                mSelfDescriptionInputLayout.Error = "Can't leave this empty";
+                mSelfDescriptionInputLayout.Error = "الرجاء تعبئة خانة أوصف نفسك";
                 validInput = false;
             } else {
                 mSelfDescriptionInputLayout.Error = null;
             }
 
             if (string.IsNullOrEmpty(mPartnerDescriptionInputLayout.EditText.Text)) {
-                mPartnerDescriptionInputLayout.Error = "Can't leave this empty";
+                mPartnerDescriptionInputLayout.Error = "الرجاء تعبئة خانة أوصف الشريك";
                 validInput = false;
             } else {
                 mPartnerDescriptionInputLayout.Error = null;
             }
 
             if (mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID == -1) {
+                errorText = "الرجاء إختيار الوضع العائلي";
                 validInput = false;
             }
 
             if (mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID == 0) {
+                errorText = "الرجاء إختيار الهدف من الموقع";
                 validInput = false;
             }
 
-            if (mAgeAdapter.GetItemAtPosition(mAgeSpinner.SelectedItemPosition).ID == 0) { 
+            if (mAgeAdapter.GetItemAtPosition(mAgeSpinner.SelectedItemPosition).ID == 0) {
+                errorText = "الرجاء إختيار العمر";
                 validInput = false;
             }
 
             if (mCountriesAdapter.GetItemAtPosition(mOriginCountrySpinner.SelectedItemPosition).ID == 0) {
+                errorText = "الرجاء إختيار بلد الأصل";
                 validInput = false;
             }
 
             if (mCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID == 0) {
+                errorText = "الرجاء إختيار بلد السكن";
                 validInput = false;
+            }
+
+            if (!errorText.Equals("")) {
+                new Thread(new ThreadStart(() => {
+                    RunOnUiThread(() => {
+                        Toast.MakeText(this, errorText, ToastLength.Long).Show();
+                    });
+                })).Start();
             }
             return validInput;
         }

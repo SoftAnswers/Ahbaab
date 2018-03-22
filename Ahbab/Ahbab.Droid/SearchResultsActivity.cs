@@ -12,12 +12,12 @@ using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using SupportActionBar = Android.Support.V7.App.ActionBar;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
-using Ahbab.Droid.Helpers;
-using Ahbab.Entities;
+using Asawer.Droid.Helpers;
+using Asawer.Entities;
 using Android.Graphics;
 using SharedCode;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
 	[Activity(Label = "@string/searchResult",Theme="@style/Theme.Ahbab")]
 	public class SearchResultsActivity : AppCompatActivity

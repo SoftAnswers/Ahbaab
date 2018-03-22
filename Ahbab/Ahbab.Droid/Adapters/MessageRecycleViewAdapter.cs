@@ -8,7 +8,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
 	public class MessageRecycleViewAdapter : RecyclerView.Adapter
 	{

@@ -8,7 +8,7 @@ using Android.Widget;
 using SharedCode;
 using SupportFragment = Android.Support.V4.App.Fragment;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
 	public class SearchFragment : SupportFragment
 	{

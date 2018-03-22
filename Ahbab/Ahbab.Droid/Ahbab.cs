@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ahbab.Entities;
 using Android.App;
-using Android.Content;
 using Android.Runtime;
-using SharedCode;
+using Asawer.Entities;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
     [Application]
     public class Ahbab : Application

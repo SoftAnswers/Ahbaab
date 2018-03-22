@@ -4,7 +4,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.Media;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
 	public static class BitmapHelpers
 	{

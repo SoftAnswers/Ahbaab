@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
 using Android.Views;
@@ -12,9 +11,9 @@ using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using SupportActionBar = Android.Support.V7.App.ActionBar;
 using Android.Support.V4.Widget;
 using Android.Support.Design.Widget;
-using Ahbab.Entities;
+using Asawer.Entities;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
     [Activity(Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/logo", Theme = "@style/Theme.Ahbab")]
     public class MainActivity : AppCompatActivity

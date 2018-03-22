@@ -3,7 +3,7 @@
 	<string name="menu_settings">Settings</string>
 	<string name="welcome">أهلاً بكم في تطبيق أحباب</string>
 	<string name="searchResult">نتيجة البحث</string>
-	<string name="app_name">أحباب</string>
+	<string name="app_name">أساور</string>
 	<string name="search">البحث</string>
 	<string name="login">تسجيل الدخول</string>
   <string name="logout">خروج</string>
@@ -59,9 +59,9 @@
   <string name="nextBtnLabel">التالي</string>
   <string name="prevBtnLabel">السابق</string>
 	<string name="whoAreWeBody">
-    موقع أحباب هو موقع متخصص للتعارف والتواصل والزواج كما هو متخصص أيضا في زواج المسيار والتعارف على أصدقاء جدد وثقافات جديدة
+    موقع أحباب هو موقع متخصص للتعارف والتواصل والزواج كما هو متخصص أيضا في زواج المسيار والتعارف على أصدقاء جدد وثقافات جديدة.
 
-    عبر يمكنك التعارف على اصدقاء من بلدك كما في بلدان اخرى عبر العالم
+    .يمكنك التعارف على اصدقاء من بلدك كما في بلدان اخرى عبر العالم
   </string>
 	<string name="termsAndConditionTitle">شروط الإستخدام</string>
 	<string name="termsAndConditionsBody">

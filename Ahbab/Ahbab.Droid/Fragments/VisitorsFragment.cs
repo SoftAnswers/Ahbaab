@@ -1,9 +1,8 @@
-﻿using Ahbab.Droid.Helpers;
-using Ahbab.Entities;
+﻿using Asawer.Droid.Helpers;
+using Asawer.Entities;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -11,7 +10,7 @@ using Newtonsoft.Json;
 using SharedCode;
 using System.Collections.Generic;
 
-namespace Ahbab.Droid.Fragments {
+namespace Asawer.Droid.Fragments {
     public class VisitorsFragment : Fragment {
 
         private List<User> results;

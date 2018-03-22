@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Ahbab.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Asawer.Droid.Resource", IsApplication=true)]
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
 	
 	
@@ -26,7 +26,7 @@ namespace Ahbab.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.InAppBilling.Resource.String.library_name = global::Ahbab.Droid.Resource.String.library_name;
+			global::Xamarin.InAppBilling.Resource.String.library_name = global::Asawer.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation

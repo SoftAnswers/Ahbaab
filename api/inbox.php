@@ -8,7 +8,7 @@
 		$stmtinbox->bindParam(':account',$acc);
 		$stmtinbox->bindParam(':msgstat',$msgstat);
 		$acc = $_POST['userId'];
-		$msgstat = 'D';
+		$msgstat = 'A';
 		
 		if($stmtinbox->execute())
 		{

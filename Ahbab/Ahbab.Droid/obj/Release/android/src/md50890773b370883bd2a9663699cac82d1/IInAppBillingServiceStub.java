@@ -18,7 +18,7 @@ public abstract class IInAppBillingServiceStub
 	}
 
 
-	public IInAppBillingServiceStub () throws java.lang.Throwable
+	public IInAppBillingServiceStub ()
 	{
 		super ();
 		if (getClass () == IInAppBillingServiceStub.class)

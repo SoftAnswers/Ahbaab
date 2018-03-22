@@ -1,4 +1,4 @@
-﻿using Ahbab.Entities;
+﻿using Asawer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
-using Ahbab;
+using Asawer;
 
 namespace SharedCode
 {
@@ -146,22 +146,17 @@ namespace SharedCode
             return messages;
         }
 
-        internal static string SendMessage(Message message)
+        internal static string SendMessage(Message message, string sex)
         {
             try
             {
                 var mClient = new WebClient();
-
                 NameValueCollection parameters = new NameValueCollection();
-
                 parameters.Add("from", message.Sender.ToString());
-
                 parameters.Add("to", message.Receiver.ToString());
-
                 parameters.Add("subject", message.Subject);
-
                 parameters.Add("body", message.Body);
-
+                parameters.Add("gender", sex);
                 var result = mClient.UploadValues(Constants.FunctionsUri.SendMessageUri, parameters);
 
                 return Encoding.UTF8.GetString(result);

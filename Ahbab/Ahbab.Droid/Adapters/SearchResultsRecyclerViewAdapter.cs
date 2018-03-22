@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ahbab.Entities;
+using Asawer.Entities;
 using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
@@ -9,7 +9,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
-namespace Ahbab.Droid
+namespace Asawer.Droid
 {
     public class SearchResultsRecyclerViewAdapter : RecyclerView.Adapter
     {

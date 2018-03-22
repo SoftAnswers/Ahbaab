@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ahbab.Entities
+namespace Asawer.Entities
 {
     public class User
     {

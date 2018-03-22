@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ahbab.Entities;
+using Asawer.Entities;
 
-namespace Ahbab.Droid.Helpers {
+namespace Asawer.Droid.Helpers {
     class Paginator {
         public static int TOTAL_NUM_ITEMS;
         public static int ITEMS_PER_PAGE = 5;

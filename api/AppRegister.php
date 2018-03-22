@@ -7,6 +7,7 @@
 			if($_POST['user'] == "")
 			{
 				echo "الرجاء إدخال إسم المستخدم";
+				return;
 			}
 			mb_regex_encoding('UTF-8');
 			$text = $_POST['user'];
@@ -16,6 +17,7 @@
 				if (strlen($_POST['user']) <10)
 				{
 					echo "يجب على إسم المستخدم أن يكون أكثر من خمسة أحرف";
+					return;
 				}
 					
 				}
@@ -24,67 +26,79 @@
 				if (strlen($_POST['user']) <5)
 				{
 					echo "يجب على إسم المستخدم أن يكون أكثر من خمسة أحرف";
+					return;
 				}
 			}
 			if($_POST['pass'] == "")
 			{
 				echo "الرجاء إدخال كلمة السر";
+				return;
 			}
 			$pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i";
 			$email = $_POST['mail'];
 			if (!preg_match($pattern,$email))
 			{
 				echo "الرجاء إدخال البريد الإلكتروني بشكل صحيح";
+				return;
 			}
 			if(!isset($_POST['gender']))
 			{
 				echo "الرجاء إختيار الجنس";
+				return;
 			}
 			if($_POST['describeyou'] == "")
 			{
 				echo "الرجاء تعبئة خانة أوصف نفسك";
+				return;
 			}
 			if($_POST['describeother'] == "")
 			{
 				echo "الرجاء تعبئة خانة أوصف الشريك";
+				return;
 			}
 			if($_POST['name'] == "")
 			{
 				echo "الرجاء كتابة الإسم الكامل";
+				return;
 			}
 			if($_POST['status'] == "0")
 			{
 				echo "الرجاء إختيار الوضع العائلي";
+				return;
 			}
 			if($_POST['usagepurpose'] == "0")
 			{
 				echo "الرجاء إختيار الهدف من الموقع";
+				return;
 			}
 			if($_POST['age'] == "0")
 			{
-				echo "الرجاء إختيار الهدف من الموقع";
+				echo "الرجاء إختيار العمر";
+				return;
 			}
 			if($_POST['origin'] == "0")
 			{
 				echo "الرجاء إختيار بلد الأصل";
+				return;
 			}
 			if($_POST['current'] == "0")
 			{
 				echo "الرجاء إختيار بلد السكن";
+				return;
 			}
 			if(!isset($_POST['accept']))
 			{
 				echo "عليك أن توافق على سياسة الإستخدام وشروط الخصوصية المنصوصة في هذا الموقع";
+				return;
 			}
 			$stmtcheck = $dbh->prepare("select account_id from accounts where email=:mail");
 			$stmtcheck->bindParam(':mail',$mail);
 			$mail = $_POST['mail'];
 			if ($stmtcheck->execute()) 
 				{
-					$count = 0;//$stmtcheck->dataCount();
-					if($count != 0)
-					{
+					if($stmtcheck->rowCount() > 0) {
 						echo " إن هذا البريد مستعمل ، الرجاء إدخال بريد إلكتروني آخر";
+						return;
 					}
 				}
 			$stmtcheckuser = $dbh->prepare("select account_id from accounts where username=:username");
@@ -92,10 +106,10 @@
 			$user = $_POST['user'];
 			if ($stmtcheckuser->execute()) 
 			{
-				$countuser =0;// $stmtcheckuser->dataCount();
-				if($countuser != 0)
+				if($stmtcheckuser->rowCount() > 0)
 				{
 					echo " إن هذا الإسم للمستخدم مستعمل ، الرجاء إدخال إسم آخر";
+					return;
 				}
 			}
 			$stmt = $dbh->prepare("INSERT INTO accounts (username,password,email,name,gender,status_id,IP,last_active_date,created_on,eye_color_id,hair_color_id,height_id,weight_id,usage_purpose_id,age_id,educ_level_id,origin_ctry_id,current_ctry_id,job_id,describe_you,describe_others,phone_number,paid,visit_count_to,visit_count_from,interests_to,interests_from,blocks_to,blocks_from,logins,active,time_frame_id,paid_begin,paid_end,account_status,timezone_id) VALUES (:user,:pass,:mail,:name,:gender,:status,:IP,:lastactive,:createdon,:eyecolor,:haircolor,:height,:weight,:usagepurpose,:age,:educlevel,:origin,:current,:job,:describeyou,:describeother,:phone,:paid,:visitto,:visitfrom,:interestto,:interestfrom,:blocksto,:blocksfrom,:logins,:active,:timeframe,:paidbegin,:paidend,:accountstatus,:timezone)");
