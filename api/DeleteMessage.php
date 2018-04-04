@@ -2,7 +2,7 @@
 
 require_once("conn.conf.php");
 	
-	if(isset($_POST["userid"]))
+	if(isset($_POST["messageId"]))
 	{
 		$stmtDelete = $dbh->prepare("DELETE FROM `messages` WHERE `messages`.`message_id` = :messageId");
 		$stmtDelete->bindParam(':messageId',$messageId);

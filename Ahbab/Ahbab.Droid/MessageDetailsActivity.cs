@@ -46,30 +46,26 @@ namespace Asawer.Droid
 			var subject = FindViewById<TextView>(Resource.Id.txtSubject);
 			var body = FindViewById<TextView>(Resource.Id.txtBody);
 
-			sender.Text = message.Sender.ToString();
+			sender.Text = message.Username;
 			subject.Text = message.Subject;
 			body.Text = message.Body;
 
 			LoadBackDrop();
 		}
 
-		public override bool OnOptionsItemSelected(IMenuItem item)
-		{
+		public override bool OnOptionsItemSelected(IMenuItem item) {
 			var mClient = new WebClient();
-
-			NameValueCollection parameters = new NameValueCollection();
-
-			switch (item.ItemId)
-			{
+			NameValueCollection parameters = new NameValueCollection(); 
+			switch (item.ItemId) {
 				case Resource.Id.deleteMessage:
-					parameters.Add("messageId", message.ID.ToString());
-
+					parameters.Add("messageId", message.ID.ToString()); 
 					mClient.UploadValuesCompleted += MClient_UploadValuesCompleted;
-
 					mClient.UploadValuesAsync(new Uri(Constants.FunctionsUri.DeleteMessageUri), parameters);
-
 					return true;
-			}
+                case Android.Resource.Id.Home:
+                    Finish();
+                    break;
+            }
 
 			return base.OnOptionsItemSelected(item);
 		}

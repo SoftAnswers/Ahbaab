@@ -296,6 +296,22 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Ahb
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Asawer.Droid.dll.mdb
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\android\assets\Ahbab.dll.mdb
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\android\assets\Asawer.Droid.dll.mdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.CurrentActivity.dll
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.Abstractions.dll
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.dll
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.VendingLibrary.dll
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.CurrentActivity.xml
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.pdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.xml
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.dll.mdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.Abstractions.pdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.Abstractions.xml
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.VendingLibrary.pdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.VendingLibrary.xml
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Plugin.InAppBilling.VendingLibrary.dll.mdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\res\layout\subscription.xml
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\android\assets\Plugin.InAppBilling.dll.mdb
+C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\android\assets\Plugin.InAppBilling.VendingLibrary.dll.mdb
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\bin\Release\Asawer.Droid.dll
 bin\Release\Ahbab.dll.mdb
 bin\Release\Mono.Android.pdb
@@ -312,8 +328,11 @@ bin\Release\Mono.Security.pdb
 bin\Release\System.ComponentModel.Composition.pdb
 obj\Release\linksrc\Asawer.Droid.dll.mdb
 obj\Release\linksrc\Ahbab.dll.mdb
+obj\Release\linksrc\Plugin.InAppBilling.dll.mdb
+obj\Release\linksrc\Plugin.InAppBilling.VendingLibrary.dll.mdb
 obj\Release\linksrc\Mono.Android.pdb
 obj\Release\linksrc\mscorlib.pdb
+obj\Release\linksrc\Plugin.InAppBilling.Abstractions.pdb
 obj\Release\linksrc\System.Core.pdb
 obj\Release\linksrc\System.pdb
 obj\Release\linksrc\System.Xml.pdb

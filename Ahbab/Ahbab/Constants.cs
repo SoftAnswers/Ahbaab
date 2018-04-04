@@ -60,6 +60,7 @@ namespace Asawer
             public const string LogMessage = "http://192.168.2.236/ahbab/api/AppLogging.php";
             public const string VisitsUri = "http://192.168.2.236/ahbab/api/visit.php";
             public const string GetActions = "http://192.168.2.236/ahbab/api/GetActions.php";
+            public const string Subscribe = "http://192.168.2.236/ahbab/api/Subscribe.php";
 
             /*private const string HostIP = "http://www.ahbaab.com/app";
             public const string GetSpinnerItemsUri = "http://www.ahbaab.com/app/GetsAllItemsFromTable.php";

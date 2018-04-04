@@ -19,7 +19,6 @@ using System.Collections.Specialized;
 using Asawer.Droid.Adapters;
 using Android.Support.V7.Widget;
 using Asawer.Droid.Fragments;
-using System.Threading;
 
 namespace Asawer.Droid
 {
@@ -234,8 +233,10 @@ namespace Asawer.Droid
                 Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
                 alert.SetTitle(Constants.UI.Subscription);
                 alert.SetMessage(Constants.UI.Upgrade);
-                alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
-                { //TODO: Set up payment 
+                alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) => {
+                    Intent subscribeActivity = new Intent(this, typeof(SubscriptionActivity));
+                    subscribeActivity.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+                    this.StartActivity(subscribeActivity);
                 });
                 alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => {});
                 Android.Support.V7.App.AlertDialog dialog = alert.Create();
@@ -368,10 +369,11 @@ namespace Asawer.Droid
 				Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
 				alert.SetTitle(Constants.UI.Subscription);
 				alert.SetMessage(Constants.UI.Upgrade);
-				alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
-				{
-					//TODO: Set up payment
-				});
+				alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) => {
+                    Intent subscribeActivity = new Intent(this, typeof(SubscriptionActivity));
+                    subscribeActivity.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+                    this.StartActivity(subscribeActivity);
+                });
 
 				alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => {});
 
@@ -433,9 +435,10 @@ namespace Asawer.Droid
                 Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
                 alert.SetTitle(Constants.UI.Subscription);
                 alert.SetMessage(Constants.UI.Upgrade);
-                alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
-                {
-                    //TODO: Set up payment
+                alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) => {
+                    Intent subscribeActivity = new Intent(this, typeof(SubscriptionActivity));
+                    subscribeActivity.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+                    this.StartActivity(subscribeActivity);
                 });
                 alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
                 Android.Support.V7.App.AlertDialog dialog = alert.Create();

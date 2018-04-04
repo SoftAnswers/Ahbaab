@@ -58,7 +58,8 @@
   <string name="InterestsFrom">عدد الإعجابات</string>
   <string name="nextBtnLabel">التالي</string>
   <string name="prevBtnLabel">السابق</string>
-	<string name="whoAreWeBody">
+  <string name="subscribe">إشترك</string>
+  <string name="whoAreWeBody">
     موقع أحباب هو موقع متخصص للتعارف والتواصل والزواج كما هو متخصص أيضا في زواج المسيار والتعارف على أصدقاء جدد وثقافات جديدة.
 
     .يمكنك التعارف على اصدقاء من بلدك كما في بلدان اخرى عبر العالم

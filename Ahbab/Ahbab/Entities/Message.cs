@@ -98,13 +98,25 @@ namespace Asawer
 			}
 		}
 
-		public int message_id { private get; set;}
+        public string Username {
+            get
+            {
+                return this.username;
+            }
+            set
+            {
+                this.username = value;
+            }
+        }
+
+        public int message_id { private get; set;}
 		public int from_account { private get; set;}
 		public string subject { private get; set;}
 		public DateTime message_date { private get; set;}
 		public string message_read { private get; set;}
 		public string body { private get; set;}
 		public int to_account { private get; set; }
+        public string username { private get; set; }
 	}
 }
 

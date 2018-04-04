@@ -2440,9 +2440,6 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a0043
 			public const int action_mode_close_button = 2131361859;
 			
-			// aapt resource value: 0x7f0a0113
-			public const int action_settings = 2131362067;
-			
 			// aapt resource value: 0x7f0a009a
 			public const int action_text = 2131361946;
 			
@@ -2485,17 +2482,17 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a0115
 			public const int block = 2131362069;
 			
-			// aapt resource value: 0x7f0a00ff
-			public const int blocksFrom = 2131362047;
+			// aapt resource value: 0x7f0a0100
+			public const int blocksFrom = 2131362048;
 			
-			// aapt resource value: 0x7f0a00fe
-			public const int blocksFromCardView = 2131362046;
+			// aapt resource value: 0x7f0a00ff
+			public const int blocksFromCardView = 2131362047;
+			
+			// aapt resource value: 0x7f0a0102
+			public const int blocksTo = 2131362050;
 			
 			// aapt resource value: 0x7f0a0101
-			public const int blocksTo = 2131362049;
-			
-			// aapt resource value: 0x7f0a0100
-			public const int blocksToCardView = 2131362048;
+			public const int blocksToCardView = 2131362049;
 			
 			// aapt resource value: 0x7f0a0015
 			public const int bottom = 2131361813;
@@ -2515,8 +2512,11 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a00e4
 			public const int btnSearch = 2131362020;
 			
-			// aapt resource value: 0x7f0a0106
-			public const int btnSendMessage = 2131362054;
+			// aapt resource value: 0x7f0a0107
+			public const int btnSendMessage = 2131362055;
+			
+			// aapt resource value: 0x7f0a00f0
+			public const int btnSubscribe = 2131362032;
 			
 			// aapt resource value: 0x7f0a00d4
 			public const int btnUpdate = 2131362004;
@@ -2557,8 +2557,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a00cd
 			public const int contactTimeSpinner = 2131361997;
 			
-			// aapt resource value: 0x7f0a010d
-			public const int contactUs = 2131362061;
+			// aapt resource value: 0x7f0a010e
+			public const int contactUs = 2131362062;
 			
 			// aapt resource value: 0x7f0a00cf
 			public const int contactWays = 2131361999;
@@ -2650,8 +2650,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a0029
 			public const int @fixed = 2131361833;
 			
-			// aapt resource value: 0x7f0a0107
-			public const int fragment_container = 2131362055;
+			// aapt resource value: 0x7f0a0108
+			public const int fragment_container = 2131362056;
 			
 			// aapt resource value: 0x7f0a00d1
 			public const int gallery = 2131362001;
@@ -2698,20 +2698,20 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a0116
 			public const int interest = 2131362070;
 			
-			// aapt resource value: 0x7f0a0103
-			public const int interestsFrom = 2131362051;
+			// aapt resource value: 0x7f0a0104
+			public const int interestsFrom = 2131362052;
 			
-			// aapt resource value: 0x7f0a0102
-			public const int interestsFromCardView = 2131362050;
+			// aapt resource value: 0x7f0a0103
+			public const int interestsFromCardView = 2131362051;
+			
+			// aapt resource value: 0x7f0a0106
+			public const int interestsTo = 2131362054;
 			
 			// aapt resource value: 0x7f0a0105
-			public const int interestsTo = 2131362053;
+			public const int interestsToCardView = 2131362053;
 			
-			// aapt resource value: 0x7f0a0104
-			public const int interestsToCardView = 2131362052;
-			
-			// aapt resource value: 0x7f0a010b
-			public const int item_id = 2131362059;
+			// aapt resource value: 0x7f0a010c
+			public const int item_id = 2131362060;
 			
 			// aapt resource value: 0x7f0a00af
 			public const int item_subtitle = 2131361967;
@@ -2722,8 +2722,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a000c
 			public const int item_touch_helper_previous_elevation = 2131361804;
 			
-			// aapt resource value: 0x7f0a010a
-			public const int item_value = 2131362058;
+			// aapt resource value: 0x7f0a010b
+			public const int item_value = 2131362059;
 			
 			// aapt resource value: 0x7f0a00c7
 			public const int jobSpinner = 2131361991;
@@ -2746,20 +2746,20 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a0048
 			public const int list_item = 2131361864;
 			
-			// aapt resource value: 0x7f0a0111
-			public const int logout = 2131362065;
+			// aapt resource value: 0x7f0a0112
+			public const int logout = 2131362066;
 			
 			// aapt resource value: 0x7f0a0090
 			public const int main_content = 2131361936;
 			
-			// aapt resource value: 0x7f0a0109
-			public const int masked = 2131362057;
+			// aapt resource value: 0x7f0a010a
+			public const int masked = 2131362058;
 			
 			// aapt resource value: 0x7f0a009e
 			public const int media_actions = 2131361950;
 			
-			// aapt resource value: 0x7f0a010c
-			public const int menu = 2131362060;
+			// aapt resource value: 0x7f0a010d
+			public const int menu = 2131362061;
 			
 			// aapt resource value: 0x7f0a003b
 			public const int middle = 2131361851;
@@ -2812,8 +2812,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a00e6
 			public const int prevBtn = 2131362022;
 			
-			// aapt resource value: 0x7f0a010f
-			public const int privacyPolicy = 2131362063;
+			// aapt resource value: 0x7f0a0110
+			public const int privacyPolicy = 2131362064;
 			
 			// aapt resource value: 0x7f0a008e
 			public const int progressBar = 2131361934;
@@ -2920,8 +2920,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a0071
 			public const int search_voice_btn = 2131361905;
 			
-			// aapt resource value: 0x7f0a0112
-			public const int securityPolicy = 2131362066;
+			// aapt resource value: 0x7f0a0113
+			public const int securityPolicy = 2131362067;
 			
 			// aapt resource value: 0x7f0a0072
 			public const int select_dialog_listview = 2131361906;
@@ -2989,8 +2989,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a0082
 			public const int tabs = 2131361922;
 			
-			// aapt resource value: 0x7f0a0110
-			public const int termsAndConditions = 2131362064;
+			// aapt resource value: 0x7f0a0111
+			public const int termsAndConditions = 2131362065;
 			
 			// aapt resource value: 0x7f0a00ad
 			public const int text = 2131361965;
@@ -3052,8 +3052,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a000e
 			public const int transition_scene_layoutid_cache = 2131361806;
 			
-			// aapt resource value: 0x7f0a00f6
-			public const int txtAge = 2131362038;
+			// aapt resource value: 0x7f0a00f7
+			public const int txtAge = 2131362039;
 			
 			// aapt resource value: 0x7f0a0096
 			public const int txtBody = 2131361942;
@@ -3073,29 +3073,29 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a00ec
 			public const int txtDialogUserName = 2131362028;
 			
-			// aapt resource value: 0x7f0a00f7
-			public const int txtEducationLevel = 2131362039;
+			// aapt resource value: 0x7f0a00f8
+			public const int txtEducationLevel = 2131362040;
 			
 			// aapt resource value: 0x7f0a00b6
 			public const int txtEmail = 2131361974;
 			
-			// aapt resource value: 0x7f0a00f0
-			public const int txtEyesColor = 2131362032;
+			// aapt resource value: 0x7f0a00f1
+			public const int txtEyesColor = 2131362033;
 			
-			// aapt resource value: 0x7f0a00f2
-			public const int txtFamilyStatus = 2131362034;
+			// aapt resource value: 0x7f0a00f3
+			public const int txtFamilyStatus = 2131362035;
 			
 			// aapt resource value: 0x7f0a00b8
 			public const int txtFullname = 2131361976;
 			
-			// aapt resource value: 0x7f0a00f5
-			public const int txtGoalFromSite = 2131362037;
+			// aapt resource value: 0x7f0a00f6
+			public const int txtGoalFromSite = 2131362038;
 			
-			// aapt resource value: 0x7f0a00f1
-			public const int txtHairColor = 2131362033;
+			// aapt resource value: 0x7f0a00f2
+			public const int txtHairColor = 2131362034;
 			
-			// aapt resource value: 0x7f0a00f3
-			public const int txtHeight = 2131362035;
+			// aapt resource value: 0x7f0a00f4
+			public const int txtHeight = 2131362036;
 			
 			// aapt resource value: 0x7f0a00e9
 			public const int txtInputLayoutBody = 2131362025;
@@ -3124,11 +3124,11 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a00b1
 			public const int txtInputLayoutUserName = 2131361969;
 			
-			// aapt resource value: 0x7f0a00fa
-			public const int txtJob = 2131362042;
-			
 			// aapt resource value: 0x7f0a00fb
-			public const int txtLastOnline = 2131362043;
+			public const int txtJob = 2131362043;
+			
+			// aapt resource value: 0x7f0a00fc
+			public const int txtLastOnline = 2131362044;
 			
 			// aapt resource value: 0x7f0a0086
 			public const int txtLegalBody = 2131361926;
@@ -3136,8 +3136,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a008c
 			public const int txtOr = 2131361932;
 			
-			// aapt resource value: 0x7f0a00f8
-			public const int txtOriginCountry = 2131362040;
+			// aapt resource value: 0x7f0a00f9
+			public const int txtOriginCountry = 2131362041;
 			
 			// aapt resource value: 0x7f0a00cb
 			public const int txtPartnerDescription = 2131361995;
@@ -3148,8 +3148,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a00d0
 			public const int txtPhotos = 2131362000;
 			
-			// aapt resource value: 0x7f0a00f9
-			public const int txtResidenceCountry = 2131362041;
+			// aapt resource value: 0x7f0a00fa
+			public const int txtResidenceCountry = 2131362042;
 			
 			// aapt resource value: 0x7f0a00e2
 			public const int txtSearchAge = 2131362018;
@@ -3190,8 +3190,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a008a
 			public const int txtViewCreateAccount = 2131361930;
 			
-			// aapt resource value: 0x7f0a00f4
-			public const int txtWeight = 2131362036;
+			// aapt resource value: 0x7f0a00f5
+			public const int txtWeight = 2131362037;
 			
 			// aapt resource value: 0x7f0a000b
 			public const int up = 2131361803;
@@ -3205,20 +3205,20 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a0083
 			public const int viewpager = 2131361923;
 			
-			// aapt resource value: 0x7f0a0108
-			public const int visible = 2131362056;
+			// aapt resource value: 0x7f0a0109
+			public const int visible = 2131362057;
+			
+			// aapt resource value: 0x7f0a00fe
+			public const int visitCountTo = 2131362046;
 			
 			// aapt resource value: 0x7f0a00fd
-			public const int visitCountTo = 2131362045;
-			
-			// aapt resource value: 0x7f0a00fc
-			public const int visitCountToCardView = 2131362044;
+			public const int visitCountToCardView = 2131362045;
 			
 			// aapt resource value: 0x7f0a00c1
 			public const int weightSpinner = 2131361985;
 			
-			// aapt resource value: 0x7f0a010e
-			public const int whoAreWe = 2131362062;
+			// aapt resource value: 0x7f0a010f
+			public const int whoAreWe = 2131362063;
 			
 			// aapt resource value: 0x7f0a0040
 			public const int withText = 2131361856;
@@ -3505,13 +3505,16 @@ namespace Asawer.Droid
 			public const int SlidingTabFragment = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int support_simple_spinner_dropdown_item = 2130903115;
+			public const int Subscription = 2130903115;
 			
 			// aapt resource value: 0x7f03004c
-			public const int UserDetailsActivity = 2130903116;
+			public const int support_simple_spinner_dropdown_item = 2130903116;
 			
 			// aapt resource value: 0x7f03004d
-			public const int Visitors_List = 2130903117;
+			public const int UserDetailsActivity = 2130903117;
+			
+			// aapt resource value: 0x7f03004e
+			public const int Visitors_List = 2130903118;
 			
 			static Layout()
 			{
@@ -3797,11 +3800,11 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0b0063
 			public const int prevBtnLabel = 2131427427;
 			
-			// aapt resource value: 0x7f0b006a
-			public const int privacyPolicyBody = 2131427434;
+			// aapt resource value: 0x7f0b006b
+			public const int privacyPolicyBody = 2131427435;
 			
-			// aapt resource value: 0x7f0b0069
-			public const int privacyPolicyTitle = 2131427433;
+			// aapt resource value: 0x7f0b006a
+			public const int privacyPolicyTitle = 2131427434;
 			
 			// aapt resource value: 0x7f0b0031
 			public const int register = 2131427377;
@@ -3818,11 +3821,11 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0b001b
 			public const int search_menu_title = 2131427355;
 			
-			// aapt resource value: 0x7f0b0068
-			public const int securityPolicyBody = 2131427432;
+			// aapt resource value: 0x7f0b0069
+			public const int securityPolicyBody = 2131427433;
 			
-			// aapt resource value: 0x7f0b0067
-			public const int securityPolicyTitle = 2131427431;
+			// aapt resource value: 0x7f0b0068
+			public const int securityPolicyTitle = 2131427432;
 			
 			// aapt resource value: 0x7f0b0046
 			public const int selfDescription = 2131427398;
@@ -3845,14 +3848,17 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0b0052
 			public const int subject = 2131427410;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int termsAndConditionTitle = 2131427429;
+			// aapt resource value: 0x7f0b0064
+			public const int subscribe = 2131427428;
+			
+			// aapt resource value: 0x7f0b0066
+			public const int termsAndConditionTitle = 2131427430;
 			
 			// aapt resource value: 0x7f0b004d
 			public const int termsAndConditions = 2131427405;
 			
-			// aapt resource value: 0x7f0b0066
-			public const int termsAndConditionsBody = 2131427430;
+			// aapt resource value: 0x7f0b0067
+			public const int termsAndConditionsBody = 2131427431;
 			
 			// aapt resource value: 0x7f0b0048
 			public const int timeZone = 2131427400;
@@ -3872,8 +3878,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0b002b
 			public const int welcome = 2131427371;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int whoAreWeBody = 2131427428;
+			// aapt resource value: 0x7f0b0065
+			public const int whoAreWeBody = 2131427429;
 			
 			// aapt resource value: 0x7f0b004e
 			public const int whoAreWeTitle = 2131427406;

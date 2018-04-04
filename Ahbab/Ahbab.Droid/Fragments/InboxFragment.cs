@@ -30,10 +30,12 @@ namespace Asawer.Droid
 					Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(recyclerView.Context);
 					alert.SetTitle(Constants.UI.Subscription);
 					alert.SetMessage(Constants.UI.Upgrade);
-					alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
-					{
-						//TODO: Set up payment
-					});
+					alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) => {
+                        Context context = view.Context;
+                        Intent subscribeActivity = new Intent(context, typeof(SubscriptionActivity));
+                        subscribeActivity.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+                        context.StartActivity(subscribeActivity);
+                    });
 					alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
 					Android.Support.V7.App.AlertDialog dialog = alert.Create();
 					dialog.SetCanceledOnTouchOutside(false);

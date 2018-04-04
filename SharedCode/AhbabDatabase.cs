@@ -216,5 +216,19 @@ namespace SharedCode
                 return new List<User>();
             }
         }
+
+        internal static User subscribe(int userId) {
+            try {
+                var mClient = new WebClient();
+                NameValueCollection parameters = new NameValueCollection();
+                parameters.Add("userId", userId.ToString());
+                var result = mClient.UploadValues(Constants.FunctionsUri.Subscribe, parameters);
+                var resultString = Encoding.UTF8.GetString(result);
+                var user = JsonConvert.DeserializeObject<List<User>>(resultString).FirstOrDefault();
+                return user;
+            } catch (Exception ex) {
+                return new User();
+            }
+        }
     }
 }
