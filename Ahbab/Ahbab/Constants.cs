@@ -62,20 +62,23 @@ namespace Asawer
             public const string GetActions = "http://192.168.2.236/ahbab/api/GetActions.php";
             public const string Subscribe = "http://192.168.2.236/ahbab/api/Subscribe.php";
 
-            /*private const string HostIP = "http://www.ahbaab.com/app";
-            public const string GetSpinnerItemsUri = "http://www.ahbaab.com/app/GetsAllItemsFromTable.php";
-            public const string GetTwoColumnsSpinnersItemUri = "http://www.ahbaab.com/app/GetItemsFromTableWithTwoColumns.php";
-            public const string LoginUri = "http://www.ahbaab.com/app/Login.php";
-            public const string RegisterUri = "http://www.ahbaab.com/app/AppRegister.php";
-            public const string SearchUri = "http://www.ahbaab.com/app/AppSearch.php";
-            public const string InboxUri = "http://www.ahbaab.com/app/inbox.php";
-            public const string OutboxUri = "http://www.ahbaab.com/app/outbox.php";
-            public const string UpdateUri = "http://www.ahbaab.com/app/update.php";
-            public const string SendMessageUri = "http://www.ahbaab.com/app/SendMessage.php";
-            public const string BlockUri = "http://www.ahbaab.com/app/block.php";
-            public const string InterestUri = "http://www.ahbaab.com/app/interest.php";
-            public const string DeleteMessageUri = "http://www.ahbaab.com/app/DeleteMessage.php";
-            public const string LogMessage = "http://www.ahbaab.com/app/AppLogging.php";*/
+            /*private const string HostIP = "http://www.asawer.net/api";
+            public const string GetSpinnerItemsUri = "http://www.asawer.net/api/GetsAllItemsFromTable.php";
+            public const string GetTwoColumnsSpinnersItemUri = "http://www.asawer.net/api/GetItemsFromTableWithTwoColumns.php";
+            public const string LoginUri = "http://www.asawer.net/api/Login.php";
+            public const string RegisterUri = "http://www.asawer.net/api/AppRegister.php";
+            public const string SearchUri = "http://www.asawer.net/api/AppSearch.php";
+            public const string InboxUri = "http://www.asawer.net/api/inbox.php";
+            public const string OutboxUri = "http://www.asawer.net/api/outbox.php";
+            public const string UpdateUri = "http://www.asawer.net/api/update.php";
+            public const string SendMessageUri = "http://www.asawer.net/api/SendMessage.php";
+            public const string BlockUri = "http://www.asawer.net/api/block.php";
+            public const string InterestUri = "http://www.asawer.net/api/interest.php";
+            public const string DeleteMessageUri = "http://www.asawer.net/api/DeleteMessage.php";
+            public const string LogMessage = "http://www.asawer.net/api/AppLogging.php";
+            public const string VisitsUri = "http://www.asawer.net/api/visit.php";
+            public const string GetActions = "http://www.asawer.net/api/GetActions.php";
+            public const string Subscribe = "http://www.asawer.net/api/Subscribe.php";*/
         }
 
         public struct TabsNames

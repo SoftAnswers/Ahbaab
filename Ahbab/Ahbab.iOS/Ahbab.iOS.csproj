@@ -62,7 +62,8 @@
     <MtouchNoSymbolStrip>false</MtouchNoSymbolStrip>
     <MtouchFastDev>false</MtouchFastDev>
     <CodesignKey>iPhone Developer: jad.abinader18@gmail.com (PS4HCHQ538)</CodesignKey>
-    <CodesignProvision>iOS Team Provisioning Profile: comSoftAnswers.Ahbab.iOS</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: comSoftAnswers.Asawer</CodesignProvision>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -107,20 +108,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ahbab.cs" />
-    <Compile Include="ContactWaysCustomCell.cs" />
-    <Compile Include="ContactWaysCustomCell.designer.cs">
+    <Compile Include="Prototype Cells\ContactWaysCustomCell.cs" />
+    <Compile Include="Prototype Cells\ContactWaysCustomCell.designer.cs">
       <DependentUpon>ContactWaysCustomCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="GenderSelectionCustomCell.cs" />
-    <Compile Include="GenderSelectionCustomCell.designer.cs">
+    <Compile Include="Prototype Cells\GenderSelectionCustomCell.cs" />
+    <Compile Include="Prototype Cells\GenderSelectionCustomCell.designer.cs">
       <DependentUpon>GenderSelectionCustomCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageViewCustomCell.cs" />
-    <Compile Include="ImageViewCustomCell.designer.cs">
+    <Compile Include="Prototype Cells\ImageViewCustomCell.cs" />
+    <Compile Include="Prototype Cells\ImageViewCustomCell.designer.cs">
       <DependentUpon>ImageViewCustomCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="LabelCustomCell.cs" />
-    <Compile Include="LabelCustomCell.designer.cs">
+    <Compile Include="Prototype Cells\LabelCustomCell.cs" />
+    <Compile Include="Prototype Cells\LabelCustomCell.designer.cs">
       <DependentUpon>LabelCustomCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs" />
@@ -133,12 +134,12 @@
     <Compile Include="NavigationController.designer.cs">
       <DependentUpon>NavigationController.cs</DependentUpon>
     </Compile>
-    <Compile Include="PickerCustomCell.cs" />
-    <Compile Include="PickerCustomCell.designer.cs">
+    <Compile Include="Prototype Cells\PickerCustomCell.cs" />
+    <Compile Include="Prototype Cells\PickerCustomCell.designer.cs">
       <DependentUpon>PickerCustomCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegisterButtonCell.cs" />
-    <Compile Include="RegisterButtonCell.designer.cs">
+    <Compile Include="Prototype Cells\RegisterButtonCell.cs" />
+    <Compile Include="Prototype Cells\RegisterButtonCell.designer.cs">
       <DependentUpon>RegisterButtonCell.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistrationController.cs" />
@@ -153,12 +154,12 @@
     <Compile Include="SideMenuController.designer.cs">
       <DependentUpon>SideMenuController.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextFieldCustomCell.cs" />
-    <Compile Include="TextFieldCustomCell.designer.cs">
+    <Compile Include="Prototype Cells\TextFieldCustomCell.cs" />
+    <Compile Include="Prototype Cells\TextFieldCustomCell.designer.cs">
       <DependentUpon>TextFieldCustomCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="UploadimagesCell.cs" />
-    <Compile Include="UploadimagesCell.designer.cs">
+    <Compile Include="Prototype Cells\UploadimagesCell.cs" />
+    <Compile Include="Prototype Cells\UploadimagesCell.designer.cs">
       <DependentUpon>UploadimagesCell.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewController.cs" />
