@@ -15,7 +15,6 @@ namespace Asawer.Droid
         private EditText mUserName;
         private EditText mPassword;
         private Button mSignIn;
-        //private SupportToolbar mActionBar;
         public EventHandler<OnSignInEventArgs> mOnSignInComplete;
         private Context context;
 
@@ -54,7 +53,7 @@ namespace Asawer.Droid
         // Function used to display the keyboard when the sign in popup is displayed
         void ShowKeyboard(View view) {
             view.RequestFocus();
-            InputMethodManager inputMethodManager = context.GetSystemService(Context.InputMethodService) as InputMethodManager;
+            var inputMethodManager = context.GetSystemService(Context.InputMethodService) as InputMethodManager;
             inputMethodManager.ShowSoftInput(view, ShowFlags.Forced);
             inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
         }

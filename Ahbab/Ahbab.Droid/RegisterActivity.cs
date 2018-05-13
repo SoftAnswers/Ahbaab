@@ -25,7 +25,7 @@ using Asawer.Entities;
 namespace Asawer.Droid
 {
     [Activity(Label = "@string/register", Theme = "@style/Theme.Ahbab")]
-    public class RegisterActivity : AppCompatActivity
+    public class RegisterActivity : AsawerAppCompatActivity
     {
         private static readonly int REQUEST_CAMERA = 0;
         private static readonly int SELECT_FILE = 1;
@@ -52,7 +52,6 @@ namespace Asawer.Droid
         private TextInputLayout mPartnerDescriptionInputLayout;
         private RadioGroup mSex;
         private ImageView mUploadImage;
-        private DrawerLayout mDrawerLayout;
         private CustomSpinnerAdapter mStatusAdapter;
         private CustomSpinnerAdapter mAgeAdapter;
         private CustomSpinnerAdapter mContactTimeAdapter;
@@ -79,23 +78,6 @@ namespace Asawer.Droid
 
             this.SetContentView(Resource.Layout.Register);
 
-            SupportToolbar toolbar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
-
-            SetSupportActionBar(toolbar);
-            SupportActionBar ab = SupportActionBar;
-
-            ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
-            ab.SetDisplayHomeAsUpEnabled(true);
-
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-
-            NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
-
-            if (navigationView != null)
-            {
-                SetUpDrawerContent(navigationView);
-            }
-
             InitiateComponents();
 
             BindValues();
@@ -104,8 +86,16 @@ namespace Asawer.Droid
             {
                 CreateDirectoryForPictures();
             }
+        }
 
-            if (Ahbab.CurrentUser != null) {
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+            var headerView = base.NavigationView.GetHeaderView(0);
+
+            if (Ahbab.CurrentUser != null)
+            {
                 SetCurrentUserData();
                 this.mRegisterButton.Visibility = ViewStates.Gone;
                 this.mUpdateButton.Visibility = ViewStates.Visible;
@@ -113,12 +103,16 @@ namespace Asawer.Droid
                 this.mSex.Visibility = ViewStates.Gone;
                 var sexText = FindViewById<TextView>(Resource.Id.txtSex);
                 sexText.Visibility = ViewStates.Gone;
-                var hView = navigationView.GetHeaderView(0);
-                var editAccount = hView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
-                if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0) {
+                var editAccount = headerView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
+                if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
+                {
                     var bitmap = BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[0], 0, Ahbab.CurrentUser.ImageBytes[0].Length);
                     editAccount.SetImageBitmap(bitmap);
                 }
+            }
+            else
+            {
+                base.NavigationView.Menu.FindItem(Resource.Id.logout).SetVisible(false);
             }
         }
 
@@ -186,26 +180,33 @@ namespace Asawer.Droid
             }
 
             // Adding the picture when found
-            if (Ahbab.CurrentUser.ImageBytes != null) {
+            if (Ahbab.CurrentUser.ImageBytes != null)
+            {
                 if (Ahbab.CurrentUser.ImageBytes.Count >= 5)
                     this.mUploadImage.Visibility = ViewStates.Gone;
-                for (int i = 0; i < Ahbab.CurrentUser.ImageBytes.Count; i++) {
-                    var imageView = new ImageView(this);
-                    imageView.Id = i;
+                for (int i = 0; i < Ahbab.CurrentUser.ImageBytes.Count; i++)
+                {
+                    var imageView = new ImageView(this)
+                    {
+                        Id = i
+                    };
                     LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(mUploadImage.Width, 300, 25f);
                     imageView.LayoutParameters = parame;
                     imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
                     imageView.SetAdjustViewBounds(true);
                     imageView.SetImageBitmap(BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[i], 0, Ahbab.CurrentUser.ImageBytes[i].Length));
                     this.mGalleryLayout.AddView(imageView);
-                    imageView.Click += imageView_Click;
+                    imageView.Click += ImageView_Click;
                 }
             }
 
-            for (int i = 0; i < Ahbab.CurrentUser.ContactWays.Count; i++) {
-                for (int j = 0; j < mContactWaysLayout.ChildCount; j++) {
+            for (int i = 0; i < Ahbab.CurrentUser.ContactWays.Count; i++)
+            {
+                for (int j = 0; j < mContactWaysLayout.ChildCount; j++)
+                {
                     var currentItem = mContactWaysLayout.GetChildAt(j);
-                    if (currentItem is CheckBox && currentItem.Id == Ahbab.CurrentUser.ContactWays[i].way_id) {
+                    if (currentItem is CheckBox && currentItem.Id == Ahbab.CurrentUser.ContactWays[i].way_id)
+                    {
                         var check = (CheckBox)mContactWaysLayout.GetChildAt(j);
                         check.Checked = true;
                     }
@@ -219,74 +220,20 @@ namespace Asawer.Droid
             this.mPartnerDescriptionInputLayout.EditText.Text = Ahbab.CurrentUser.OthersDescription;
         }
         // Function used to remove the image from the view and add it to the List to be deleted
-        void imageView_Click(object sender, EventArgs e) {
+        void ImageView_Click(object sender, EventArgs e)
+        {
             var imageView = sender as ImageView;
             var image = this.UserImages.Find(userImage => userImage.FileName.Equals(imageView.TransitionName));
-            if (image != null) {
+            if (image != null)
+            {
                 this.UserImages.RemoveAt(imageView.Id);
-            } else {
+            }
+            else
+            {
                 var imageName = Ahbab.CurrentUser.ImageNames[imageView.Id];
                 this.UserImagesToDelete.Add(new UserImage(null, imageName, "jpg"));
             }
             this.mGalleryLayout.RemoveView(imageView);
-        }
-
-        void SetUpDrawerContent(NavigationView navigationView)
-        {
-            navigationView.NavigationItemSelected += (sender, e) =>
-            {
-                if (e.MenuItem.ItemId != Resource.Id.contactUs)
-                {
-                    // If the user clicks on logout we display the logout popup
-                    if (e.MenuItem.ItemId == Resource.Id.logout)
-                    {
-                        this.logout();
-                    }
-                    else
-                    {
-                        OpenLegalNotesFragment(e.MenuItem);
-                        mDrawerLayout.CloseDrawers();
-                    }
-                }
-                else
-                {
-                    var email = new Intent(Intent.ActionSend);
-                    email.PutExtra(Intent.ExtraEmail, new string[] { "info@ahbaab.com" });
-                    email.SetType("message/rfc822");
-                    StartActivity(email);
-                }
-            };
-        }
-
-        // Function used to redirect the user to the login activity after clicking in logout
-        public void logout() {
-            Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
-            alert.SetTitle(Constants.UI.LogoutHeader);
-            alert.SetMessage(Constants.UI.LogoutMessage);
-            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
-                Ahbab.CurrentUser = null;
-                Intent loginPageIntent = new Intent(this, typeof(MainActivity));
-                loginPageIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
-                this.StartActivity(loginPageIntent);
-                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
-            });
-            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
-            Android.Support.V7.App.AlertDialog dialog = alert.Create();
-            dialog.SetCanceledOnTouchOutside(false);
-            dialog.SetCancelable(false);
-            dialog.Show();
-        }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            switch (item.ItemId)
-            {
-                case Android.Resource.Id.Home:
-                    mDrawerLayout.OpenDrawer((int)GravityFlags.Right);
-                    return true;
-                default:
-                    return base.OnOptionsItemSelected(item);
-            }
         }
 
         private void InitiateComponents()
@@ -340,18 +287,23 @@ namespace Asawer.Droid
             this.mPartnerDescriptionInputLayout = FindViewById<TextInputLayout>(Resource.Id.txtInputLayoutPartnerDescription);
 
             this.mUploadImage = FindViewById<ImageView>(Resource.Id.imgPic);
-
-
+            
             for (int i = 0; i < Ahbab.mContactWays.Count; i++)
             {
-                check = new CheckBox(this);
-                check.Id = Ahbab.mContactWays[i].ID;
-                check.Text = Ahbab.mContactWays[i].DescriptionAR;
+                check = new CheckBox(this)
+                {
+                    Id = Ahbab.mContactWays[i].ID,
+                    Text = Ahbab.mContactWays[i].DescriptionAR
+                };
+
                 check.CheckedChange += Check_CheckedChange;
-                ContactWay = new EditText(this);
-                ContactWay.Id = Ahbab.mContactWays[i].ID;
-                ContactWay.Hint = Ahbab.mContactWays[i].DescriptionAR;
-                ContactWay.Visibility = ViewStates.Gone; ;
+                ContactWay = new EditText(this)
+                {
+                    Id = Ahbab.mContactWays[i].ID,
+                    Hint = Ahbab.mContactWays[i].DescriptionAR,
+                    Visibility = ViewStates.Gone
+                };
+
                 mContactWaysLayout.AddView(check);
                 mContactWaysLayout.AddView(ContactWay);
             }
@@ -415,8 +367,10 @@ namespace Asawer.Droid
             {
                 var registrationSuccessfull = false;
                 var errorText = "";
-                ProgressDialog progress = new ProgressDialog(this);
-                progress.Indeterminate = true;
+                ProgressDialog progress = new ProgressDialog(this)
+                {
+                    Indeterminate = true
+                };
                 progress.SetProgressStyle(ProgressDialogStyle.Spinner);
                 progress.SetMessage(Constants.UI.RegistrationLoader);
                 progress.SetCancelable(false);
@@ -446,7 +400,7 @@ namespace Asawer.Droid
                                 registrationSuccessfull = true;
                             }
                         }
-                        catch (Exception ex)
+                        catch
                         {
                             registrationSuccessfull = false;
                         }
@@ -479,8 +433,10 @@ namespace Asawer.Droid
 
             if (validInput)
             {
-                ProgressDialog progress = new ProgressDialog(this);
-                progress.Indeterminate = true;
+                ProgressDialog progress = new ProgressDialog(this)
+                {
+                    Indeterminate = true
+                };
                 progress.SetProgressStyle(ProgressDialogStyle.Spinner);
                 progress.SetMessage(Constants.UI.UpdateLoader);
                 progress.SetCancelable(false);
@@ -490,16 +446,18 @@ namespace Asawer.Droid
 
                 //var valueToUpload = JsonConvert.SerializeObject(userInput);
 
-                new Thread(new ThreadStart(() => {
+                new Thread(new ThreadStart(() =>
+                {
                     try
                     {
                         string resultString = null;
                         if (this.UserImagesToDelete.Count > 0)
-                            resultString  = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput, this.UserImagesToDelete);
+                            resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput, this.UserImagesToDelete);
                         else
                             resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput);
 
-                        if (!string.IsNullOrEmpty(resultString)) {
+                        if (!string.IsNullOrEmpty(resultString))
+                        {
                             var result = JsonConvert.DeserializeObject<List<User>>(resultString);
                             Ahbab.CurrentUser = result.FirstOrDefault();
                             Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
@@ -507,7 +465,9 @@ namespace Asawer.Droid
                             this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
                             updateSuccessfull = true;
                         }
-                    } catch (Exception ex) {
+                    }
+                    catch
+                    {
                         updateSuccessfull = false;
                     }
 
@@ -532,7 +492,8 @@ namespace Asawer.Droid
         {
             var currentUser = new User();
 
-            if (Ahbab.CurrentUser != null) {
+            if (Ahbab.CurrentUser != null)
+            {
                 currentUser.ID = Ahbab.CurrentUser.ID;
             }
             currentUser.UserName = mUserNameInputLayout.EditText.Text;
@@ -631,76 +592,102 @@ namespace Asawer.Droid
             var validInput = true;
             var errorText = "";
 
-            if (string.IsNullOrEmpty(mUserNameInputLayout.EditText.Text)) {
+            if (string.IsNullOrEmpty(mUserNameInputLayout.EditText.Text))
+            {
                 mUserNameInputLayout.Error = "الرجاء إدخال إسم المستخدم";
                 validInput = false;
-            }else {
+            }
+            else
+            {
                 mUserNameInputLayout.Error = null;
             }
 
-            if (string.IsNullOrEmpty(mPasswordInputLayout.EditText.Text)){
+            if (string.IsNullOrEmpty(mPasswordInputLayout.EditText.Text))
+            {
                 mPasswordInputLayout.Error = "الرجاء إدخال كلمة السر";
                 validInput = false;
-            } else {
+            }
+            else
+            {
                 mPasswordInputLayout.Error = null;
             }
 
-            if (string.IsNullOrEmpty(mFullNameInputLayout.EditText.Text)) {
+            if (string.IsNullOrEmpty(mFullNameInputLayout.EditText.Text))
+            {
                 mFullNameInputLayout.Error = "الرجاء إدخال الإسم الكامل";
                 validInput = false;
-            } else {
+            }
+            else
+            {
                 mFullNameInputLayout.Error = null;
             }
 
-            if (string.IsNullOrEmpty(mEmailInputLayout.EditText.Text)) {
+            if (string.IsNullOrEmpty(mEmailInputLayout.EditText.Text))
+            {
                 mEmailInputLayout.Error = "الرجاء إدخال البريد الإلكتروني";
                 validInput = false;
-            } else {
+            }
+            else
+            {
                 mEmailInputLayout.Error = null;
             }
 
-            if (string.IsNullOrEmpty(mSelfDescriptionInputLayout.EditText.Text)) {
+            if (string.IsNullOrEmpty(mSelfDescriptionInputLayout.EditText.Text))
+            {
                 mSelfDescriptionInputLayout.Error = "الرجاء تعبئة خانة أوصف نفسك";
                 validInput = false;
-            } else {
+            }
+            else
+            {
                 mSelfDescriptionInputLayout.Error = null;
             }
 
-            if (string.IsNullOrEmpty(mPartnerDescriptionInputLayout.EditText.Text)) {
+            if (string.IsNullOrEmpty(mPartnerDescriptionInputLayout.EditText.Text))
+            {
                 mPartnerDescriptionInputLayout.Error = "الرجاء تعبئة خانة أوصف الشريك";
                 validInput = false;
-            } else {
+            }
+            else
+            {
                 mPartnerDescriptionInputLayout.Error = null;
             }
 
-            if (mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID == -1) {
+            if (mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID == -1)
+            {
                 errorText = "الرجاء إختيار الوضع العائلي";
                 validInput = false;
             }
 
-            if (mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID == 0) {
+            if (mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID == 0)
+            {
                 errorText = "الرجاء إختيار الهدف من الموقع";
                 validInput = false;
             }
 
-            if (mAgeAdapter.GetItemAtPosition(mAgeSpinner.SelectedItemPosition).ID == 0) {
+            if (mAgeAdapter.GetItemAtPosition(mAgeSpinner.SelectedItemPosition).ID == 0)
+            {
                 errorText = "الرجاء إختيار العمر";
                 validInput = false;
             }
 
-            if (mCountriesAdapter.GetItemAtPosition(mOriginCountrySpinner.SelectedItemPosition).ID == 0) {
+            if (mCountriesAdapter.GetItemAtPosition(mOriginCountrySpinner.SelectedItemPosition).ID == 0)
+            {
                 errorText = "الرجاء إختيار بلد الأصل";
                 validInput = false;
             }
 
-            if (mCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID == 0) {
+            if (mCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID == 0)
+            {
                 errorText = "الرجاء إختيار بلد السكن";
                 validInput = false;
             }
 
-            if (!errorText.Equals("")) {
-                new Thread(new ThreadStart(() => {
-                    RunOnUiThread(() => {
+            if (!errorText.Equals(""))
+            {
+                new Thread(new ThreadStart(() =>
+                {
+                    RunOnUiThread(() =>
+                    {
                         Toast.MakeText(this, errorText, ToastLength.Long).Show();
                     });
                 })).Start();
@@ -753,7 +740,8 @@ namespace Asawer.Droid
 
             var width = mUploadImage.Width;
 
-            if (resultCode == Result.Ok) {
+            if (resultCode == Result.Ok)
+            {
                 if (this.mGalleryLayout.ChildCount >= 5)
                     this.mUploadImage.Visibility = ViewStates.Gone;
 
@@ -789,7 +777,7 @@ namespace Asawer.Droid
                         this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
                         // Using transition name just to hold the image name in case we want to delete it
                         imageView.TransitionName = fileName;
-                        imageView.Click += imageView_Click;
+                        imageView.Click += ImageView_Click;
                         App.bitmap = null;
                     }
 
@@ -834,7 +822,7 @@ namespace Asawer.Droid
                             this.mGalleryLayout.AddView(imageView);
                             // Using transition name just to hold the image name in case we want to delete it
                             imageView.TransitionName = fileName;
-                            imageView.Click += imageView_Click;
+                            imageView.Click += ImageView_Click;
                         }
                     }
                     else
@@ -858,7 +846,7 @@ namespace Asawer.Droid
                             this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
                             // Using transition name just to hold the image name in case we want to delete it
                             imageView.TransitionName = fileName;
-                            imageView.Click += imageView_Click;
+                            imageView.Click += ImageView_Click;
                         }
                     }
                 }
@@ -918,23 +906,6 @@ namespace Asawer.Droid
             mWeightSpinner.Adapter = mWeightAdapter;
         }
 
-        public void OpenLegalNotesFragment(IMenuItem item)
-        {
-            var mybundle = new Bundle();
-
-            mybundle.PutInt("ItemId", item.ItemId);
-
-            var transaction = SupportFragmentManager.BeginTransaction();
-
-            LegalNotesFragment legalNotesFragment = new LegalNotesFragment();
-
-            legalNotesFragment.Arguments = mybundle;
-
-            legalNotesFragment.Show(transaction, "dialog_fragment");
-
-            item.SetChecked(false);
-        }
-
         private void CreateDirectoryForPictures()
         {
             App._dir = new Java.IO.File(Android.OS.Environment.GetExternalStoragePublicDirectory(
@@ -951,6 +922,11 @@ namespace Asawer.Droid
             IList<ResolveInfo> availableActivities =
                 PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
             return availableActivities != null && availableActivities.Count > 0;
+        }
+
+        protected override void Logout()
+        {
+            throw new NotImplementedException();
         }
 
         public static class App

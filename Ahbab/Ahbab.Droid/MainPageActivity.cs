@@ -14,6 +14,7 @@ using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using SupportActionBar = Android.Support.V7.App.ActionBar;
 using SupportFragment = Android.Support.V4.App.Fragment;
 using SupportFragmentManager = Android.Support.V4.App.FragmentManager;
+using AlerDialog = Android.Support.V7.App.AlertDialog;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Widget;
@@ -24,36 +25,16 @@ using Asawer.Entities;
 namespace Asawer.Droid
 {
     [Activity(Label = "@string/app_name", Theme = "@style/Theme.Ahbab")]
-    public class MainPageActivity : AppCompatActivity
+    public class MainPageActivity : AsawerAppCompatActivity
     {
         public List<SpinnerItem> StatusItems { get; set; }
-        private DrawerLayout mDrawerLayout;
-        private NavigationView mNavigationView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.MainPage);
-
-            SupportToolbar toolbar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
-
-            SetSupportActionBar(toolbar);
-
-            SupportActionBar ab = SupportActionBar;
-
-            ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
-            ab.SetDisplayHomeAsUpEnabled(true);
-
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-
-            mNavigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
-
-            if (mNavigationView != null)
-            {
-                SetUpDrawerContent(mNavigationView);
-            }
-
+            
             TabLayout tabs = FindViewById<TabLayout>(Resource.Id.tabs);
 
             ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
@@ -65,12 +46,17 @@ namespace Asawer.Droid
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
 
             fab.Visibility = ViewStates.Invisible;
+        }
 
-            var hView = mNavigationView.GetHeaderView(0);
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+            var hView = base.NavigationView.GetHeaderView(0);
 
             var editAccount = hView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
 
-            if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
+            if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes.Count > 0 && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
             {
                 var bitmap = BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[0], 0, Ahbab.CurrentUser.ImageBytes[0].Length);
                 editAccount.SetImageBitmap(bitmap);
@@ -89,35 +75,10 @@ namespace Asawer.Droid
 
             viewPager.Adapter = adapter;
         }
-
-        void SetUpDrawerContent(NavigationView navigationView)
-        {
-            navigationView.NavigationItemSelected += (sender, e) =>
-            {   
-                // If the user click on contact us we open directly the email screen
-                if (e.MenuItem.ItemId != Resource.Id.contactUs)
-                {   
-                    // If the user clicks on logout we display the logout popup
-                    if (e.MenuItem.ItemId == Resource.Id.logout) {
-                        this.logout();
-                    } else{
-                        OpenLegalNotesFragment(e.MenuItem);
-                        mDrawerLayout.CloseDrawers();
-                    }
-                }
-                else
-                {
-                    var email = new Intent(Intent.ActionSend);
-                    email.PutExtra(Intent.ExtraEmail, new string[] { "info@ahbaab.com" });
-                    email.SetType("message/rfc822");
-                    StartActivity(email);
-                }
-            };
-        }
-
+        
         // Function used to redirect the user to the login activity after clicking in logout
-        public void logout() {
-            Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+        protected override void Logout() {
+            var alert = new AlerDialog.Builder(this);
             alert.SetTitle(Constants.UI.LogoutHeader);
             alert.SetMessage(Constants.UI.LogoutMessage);
             alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
@@ -128,43 +89,12 @@ namespace Asawer.Droid
                 this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
             });
             alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) =>{});
-            Android.Support.V7.App.AlertDialog dialog = alert.Create();
+            var dialog = alert.Create();
             dialog.SetCanceledOnTouchOutside(false);
             dialog.SetCancelable(false);
             dialog.Show();
         }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            item.SetChecked(false);
-            switch (item.ItemId)
-            {
-                case Android.Resource.Id.Home:
-                    mDrawerLayout.OpenDrawer((int)GravityFlags.Right);
-                    return true;
-
-                default:
-                    return true;//base.OnOptionsItemSelected(item);
-            }
-        }
-
-        public void OpenLegalNotesFragment(IMenuItem item)
-        {
-            Bundle mybundle = new Bundle();
-
-            mybundle.PutInt("ItemId", item.ItemId);
-
-            var transaction = SupportFragmentManager.BeginTransaction();
-
-            LegalNotesFragment legalNotesFragment = new LegalNotesFragment();
-
-            legalNotesFragment.Arguments = mybundle;
-
-            legalNotesFragment.Show(transaction, "dialog_fragment");
-
-            item.SetChecked(false);
-        }
-
+        
         void EditAccount_Click(object sender, EventArgs e)
         {
             Intent userDetailsActivity = new Intent(this, typeof(UserDetailsActivity));
@@ -179,9 +109,10 @@ namespace Asawer.Droid
 
             var mClient = new WebClient();
 
-            NameValueCollection parameters = new NameValueCollection();
-
-            parameters.Add("TableName", tableName);
+            NameValueCollection parameters = new NameValueCollection
+            {
+                { "TableName", tableName }
+            };
 
             var values = mClient.UploadValues(functionUri, parameters);
 
@@ -194,7 +125,7 @@ namespace Asawer.Droid
 
         public override void OnBackPressed()
         {
-            Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+            var alert = new AlerDialog.Builder(this);
             alert.SetTitle(Constants.UI.LogoutHeader);
             alert.SetMessage(Constants.UI.LogoutMessage);
             alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
@@ -203,7 +134,7 @@ namespace Asawer.Droid
             });
             alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => {});
 
-            Android.Support.V7.App.AlertDialog dialog = alert.Create();
+            var dialog = alert.Create();
             dialog.SetCanceledOnTouchOutside(false);
             dialog.SetCancelable(false);
             dialog.Show();

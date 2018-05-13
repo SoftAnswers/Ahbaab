@@ -1,57 +1,62 @@
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Asawer.Droid.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Ahbab.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Java.Interop.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Mono.Android.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\mscorlib.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Newtonsoft.Json.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.CurrentActivity.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.InAppBilling.Abstractions.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.InAppBilling.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.InAppBilling.VendingLibrary.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Refractored.Controls.CircleImageView.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Core.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.InAppBilling.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Compat.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Core.UI.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Core.Utils.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Media.Compat.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Fragment.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Transition.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.AppCompat.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Design.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.CardView.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Diagnostics.Debug.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Collections.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Extensions.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Threading.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Collections.Concurrent.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Reflection.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Linq.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.InteropServices.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Reflection.Extensions.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Net.Http.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Serialization.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.IO.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.XDocument.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.Linq.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Globalization.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Linq.Expressions.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Dynamic.Runtime.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ObjectModel.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Text.RegularExpressions.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Text.Encoding.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Mono.Security.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Asawer.Droid.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Ahbab.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Java.Interop.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Mono.Android.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\mscorlib.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Newtonsoft.Json.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.CurrentActivity.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.InAppBilling.Abstractions.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.InAppBilling.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.InAppBilling.VendingLibrary.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Refractored.Controls.CircleImageView.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Core.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Arch.Core.Common.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Arch.Lifecycle.Common.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Arch.Lifecycle.Runtime.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Annotations.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Compat.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Core.UI.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Core.Utils.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Design.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Fragment.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Media.Compat.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Transition.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.AppCompat.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.CardView.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Xamarin.InAppBilling.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ComponentModel.Composition.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Diagnostics.Debug.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Collections.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Extensions.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Threading.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Collections.Concurrent.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Reflection.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Linq.Expressions.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Reflection.Primitives.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Dynamic.Runtime.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ObjectModel.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Linq.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.InteropServices.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Reflection.Extensions.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Net.Http.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Serialization.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.IO.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.XDocument.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.Linq.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Globalization.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Text.RegularExpressions.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Text.Encoding.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Mono.Security.dll

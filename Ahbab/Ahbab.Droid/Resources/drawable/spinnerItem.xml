@@ -9,8 +9,8 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:layout_width="match_parent"
     android:ellipsize="marquee"
-    android:textSize="10sp"
-	android:singleLine="true"
+    android:textSize="15dp"
+	  android:singleLine="true"
     android:textColor="#000"
     android:layoutDirection="rtl"
     android:text="@string/pickOne"/>

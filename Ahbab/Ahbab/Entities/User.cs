@@ -98,13 +98,16 @@ namespace Asawer.Entities
         public string[] ImageBase64 { get; set; }
         public List<byte[]> ImageBytes {
             get {
-                List<Byte[]> userImages = new List<byte[]>();
+
+                var userImages = new List<byte[]>();
+
                 for (int i = 0; i < ImageBase64.Length; i++) {
                     if (!string.IsNullOrEmpty(this.ImageBase64[i])) {
                         byte[] image = Convert.FromBase64String(this.ImageBase64[i]);
                         userImages.Add(image);
                     }
                 }
+
                 if (userImages.Count > 0)
                     return userImages;
                 return null;

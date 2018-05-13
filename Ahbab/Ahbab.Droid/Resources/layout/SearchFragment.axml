@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,55 +13,44 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
             android:id="@+id/txtInputLayoutUser">
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtUser"
                 android:hint="@string/userName"
                 android:background="@drawable/edit_text_style"
-                android:textColor="#000"
-                android:textColorHint="#000"
                 android:inputType="textPersonName"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="50dp"
-                android:gravity="right" />
+                android:layout_marginRight="15dp" />
         </android.support.design.widget.TextInputLayout>
         <TextView
-            android:layout_weight="1"
-            android:layout_height="0dp"
+            android:layout_height="20dp"
             android:layout_width="match_parent"
             android:text="@string/sex"
             android:id="@+id/txtSearchSex"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="5dp"
-            android:gravity="right"
             android:textColor="#000"
             android:layoutDirection="rtl"
-            android:textSize="10dp" />
+            android:textSize="15dp" />
         <RadioGroup
-            android:layout_weight="1"
-            android:layout_height="0dp"
+            android:layout_height="40dp"
             android:layout_width="match_parent"
             android:id="@+id/rdgSearchSex"
-            android:gravity="right"
             android:orientation="horizontal">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/male"
                 android:id="@+id/rdbSearchMale"
-                android:textColor="#000"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
-                android:gravity="right"
                 android:layoutDirection="rtl"
-                android:layout_gravity="right"
-                android:textSize="10dp" />
+                android:textSize="15dp" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,28 +59,11 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
-                android:gravity="right"
                 android:layoutDirection="rtl"
-                android:layout_gravity="right"
-                android:textSize="10dp"
-                android:textColor="#000" />
+                android:textSize="15dp" />
         </RadioGroup>
-        <TextView
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:text="@string/goalFromSite"
-            android:id="@+id/txtSearchGoalFromSite"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="5dp"
-            android:gravity="right"
-            android:layoutDirection="rtl"
-            android:textSize="10dp"
-            android:textColor="#000"
-            android:drawableTop="#000" />
         <Spinner
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_width="match_parent"
             android:id="@+id/goalFromSiteSpinner"
             android:layout_marginLeft="15dp"
@@ -100,114 +73,62 @@
             style="@style/spinner_style"
             android:layoutDirection="rtl"
             android:textDirection="rtl" />
-        <TextView
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:text="@string/originCountry"
-            android:id="@+id/txtSearchOriginCountry"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            android:gravity="right"
-            android:textColor="#000"
-            android:layoutDirection="rtl"
-            android:textSize="10dp" />
         <Spinner
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_width="match_parent"
             android:id="@+id/searchOriginCountrySpinner"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:gravity="right"
             android:prompt="@string/originCountry"
             style="@style/spinner_style"
             android:layoutDirection="rtl"
             android:textDirection="rtl" />
-        <TextView
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:text="@string/residenceCountry"
-            android:id="@+id/txtSearchResidenceCountry"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            android:gravity="right"
-            android:textColor="#000"
-            android:layoutDirection="rtl"
-            android:textSize="10dp" />
         <Spinner
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_width="match_parent"
             android:id="@+id/searchResidentCountrySpinner"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:gravity="right"
             android:prompt="@string/residenceCountry"
             style="@style/spinner_style"
             android:textDirection="rtl"
             android:layoutDirection="rtl" />
-        <TextView
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:text="@string/familyStatus"
-            android:id="@+id/txtSearchStatus"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            android:gravity="right"
-            android:textColor="#000"
-            android:layoutDirection="rtl"
-            android:textSize="10dp" />
         <Spinner
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_width="match_parent"
             android:id="@+id/searchStatusSpinner"
             android:prompt="@string/familyStatus"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:layoutDirection="rtl"
             style="@style/spinner_style" />
-        <TextView
-            android:layout_weight="1"
-            android:layout_height="0dp"
-            android:layout_width="match_parent"
-            android:text="@string/age"
-            android:id="@+id/txtSearchAge"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="10dp"
-            android:gravity="right"
-            android:textColor="#000"
-            android:layoutDirection="rtl"
-            android:textSize="10dp"
-            android:layout_marginBottom="0dp" />
         <Spinner
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_width="match_parent"
             android:id="@+id/searchAgeSpinner"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:gravity="right"
             android:prompt="@string/age"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             style="@style/spinner_style"
             android:textDirection="rtl"
             android:layoutDirection="rtl" />
         <Button
-            android:layout_weight="1"
-            android:layout_height="0dp"
+            android:layout_height="35dp"
             android:layout_width="match_parent"
             android:text="@string/search"
             android:id="@+id/btnSearch"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:background="@drawable/DialogButtonSignInStyle"
+            android:textColor="@drawable/signindialogbuttontextcolor" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

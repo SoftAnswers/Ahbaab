@@ -99,11 +99,12 @@ namespace Asawer.Droid
 
 			var current = mCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID;
 
-			var parameters = new NameValueCollection();
+            var parameters = new NameValueCollection
+            {
+                { "userId", Ahbab.CurrentUser.ID.ToString() }
+            };
 
-            parameters.Add("userId", Ahbab.CurrentUser.ID.ToString());
-
-			if (!string.IsNullOrEmpty(userName))
+            if (!string.IsNullOrEmpty(userName))
 			{
 				parameters.Add("user", userName);
 			}

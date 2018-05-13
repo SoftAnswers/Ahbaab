@@ -19,20 +19,20 @@ using SharedCode;
 
 namespace Asawer.Droid
 {
-	[Activity(Label = "@string/searchResult",Theme="@style/Theme.Ahbab")]
-	public class SearchResultsActivity : AppCompatActivity
-	{
+    [Activity(Label = "@string/searchResult", Theme = "@style/Theme.Ahbab")]
+    public class SearchResultsActivity : AppCompatActivity
+    {
         private List<User> results;
         private RecyclerView mRecyclerView;
-		private DrawerLayout mDrawerLayout;
+        private DrawerLayout mDrawerLayout;
         Button nextBtn, prevBtn;
         Paginator paginator;
         private int totalPages;
         private int currentPage = 0;
 
         protected override void OnCreate(Bundle savedInstanceState)
-		{
-			base.OnCreate(savedInstanceState);
+        {
+            base.OnCreate(savedInstanceState);
 
             results = Ahbab.SearchResults;
 
@@ -41,27 +41,28 @@ namespace Asawer.Droid
 
             SetContentView(Resource.Layout.SearchResultsActivity);
 
-			SupportToolbar toolbar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
-			SetSupportActionBar(toolbar);
-			SupportActionBar ab = SupportActionBar;
+            SupportToolbar toolbar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar ab = SupportActionBar;
 
-			ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
-			ab.SetDisplayHomeAsUpEnabled(true);
+            ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
+            ab.SetDisplayHomeAsUpEnabled(true);
 
-			mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 
-			NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+            NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
-			if (navigationView != null)
-			{
-				SetUpDrawerContent(navigationView);
-			}
+            if (navigationView != null)
+            {
+                SetUpDrawerContent(navigationView);
+            }
 
             var hView = navigationView.GetHeaderView(0);
 
             var editAccount = hView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
 
-            if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0) {
+            if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes.Count > 0 && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
+            {
                 var bitmap = BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[0], 0, Ahbab.CurrentUser.ImageBytes[0].Length);
                 editAccount.SetImageBitmap(bitmap);
             }
@@ -72,34 +73,44 @@ namespace Asawer.Droid
             toggleButtons();
 
             SetUpRecyclerView();
-		}
+        }
 
-		void SetUpDrawerContent(NavigationView navigationView) {
-			navigationView.NavigationItemSelected += (sender, e) => {
+        void SetUpDrawerContent(NavigationView navigationView)
+        {
+            navigationView.NavigationItemSelected += (sender, e) =>
+            {
                 // If the user click on contact us we open directly the email screen
-                if (e.MenuItem.ItemId != Resource.Id.contactUs) {
+                if (e.MenuItem.ItemId != Resource.Id.contactUs)
+                {
                     // If the user clicks on logout we display the logout popup
-                    if (e.MenuItem.ItemId == Resource.Id.logout) {
+                    if (e.MenuItem.ItemId == Resource.Id.logout)
+                    {
                         this.logout();
-                    } else {
+                    }
+                    else
+                    {
                         OpenLegalNotesFragment(e.MenuItem);
                         mDrawerLayout.CloseDrawers();
                     }
-                } else {
+                }
+                else
+                {
                     var email = new Intent(Intent.ActionSend);
                     email.PutExtra(Intent.ExtraEmail, new string[] { "info@ahbaab.com" });
                     email.SetType("message/rfc822");
                     StartActivity(email);
                 }
             };
-		}
+        }
 
         // Function used to redirect the user to the login activity after clicking in logout
-        public void logout() {
+        public void logout()
+        {
             Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
             alert.SetTitle(Constants.UI.LogoutHeader);
             alert.SetMessage(Constants.UI.LogoutMessage);
-            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
+            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) =>
+            {
                 Ahbab.CurrentUser = null;
                 Intent loginPageIntent = new Intent(this, typeof(MainActivity));
                 loginPageIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
@@ -113,7 +124,8 @@ namespace Asawer.Droid
             dialog.Show();
         }
 
-        public void OpenLegalNotesFragment(IMenuItem item) {
+        public void OpenLegalNotesFragment(IMenuItem item)
+        {
             Bundle mybundle = new Bundle();
             mybundle.PutInt("ItemId", item.ItemId);
             var transaction = SupportFragmentManager.BeginTransaction();
@@ -124,22 +136,23 @@ namespace Asawer.Droid
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
-		{
-			switch (item.ItemId)
-			{
-				case Android.Resource.Id.Home:
-					mDrawerLayout.OpenDrawer((int)GravityFlags.Right);
-					return true;
-				default:
-					return base.OnOptionsItemSelected(item);
-			}
-		}
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    mDrawerLayout.OpenDrawer((int)GravityFlags.Right);
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
 
-		void SetUpRecyclerView()
-		{
+        void SetUpRecyclerView()
+        {
             mRecyclerView.SetLayoutManager(new LinearLayoutManager(mRecyclerView.Context));
             mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.generatePage(currentPage), this.Resources));
-            mRecyclerView.SetItemClickListener((rv, position, view) => {
+            mRecyclerView.SetItemClickListener((rv, position, view) =>
+            {
                 var userPosition = this.currentPage * Paginator.ITEMS_PER_PAGE + position;
                 var result = AhbabDatabase.updateVisits(Ahbab.CurrentUser.ID, results[userPosition].ID);
                 //An item has been clicked
@@ -152,24 +165,25 @@ namespace Asawer.Droid
             prevBtn.Click += PreviousButton_Click;
         }
 
-		private List<Message> GetRandomSubList(List<Message> items, int amount)
-		{
-			List<Message> list = new List<Message>();
+        private List<Message> GetRandomSubList(List<Message> items, int amount)
+        {
+            List<Message> list = new List<Message>();
 
-			Random random = new Random();
+            Random random = new Random();
 
-			while (list.Count < amount)
-			{
-				list.Add(items[random.Next(items.Count)]);
-			}
+            while (list.Count < amount)
+            {
+                list.Add(items[random.Next(items.Count)]);
+            }
 
-			return list;
-		}
+            return list;
+        }
 
         /**
          * Function used to handle the next button click 
          */
-        private void NextButton_Click(object sender, System.EventArgs e) {
+        private void NextButton_Click(object sender, System.EventArgs e)
+        {
             currentPage++;
             mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.generatePage(currentPage), this.Resources));
             toggleButtons();
@@ -178,7 +192,8 @@ namespace Asawer.Droid
         /**
          * Function used to handle the previous button click 
          */
-        private void PreviousButton_Click(object sender, System.EventArgs e) {
+        private void PreviousButton_Click(object sender, System.EventArgs e)
+        {
             currentPage--;
             mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.generatePage(currentPage), this.Resources));
             toggleButtons();
@@ -188,17 +203,25 @@ namespace Asawer.Droid
          * Function used to enable/disable the previous and next
          * buttons based on the page index
          */
-        private void toggleButtons() {
-            if (totalPages == 1) {
+        private void toggleButtons()
+        {
+            if (totalPages == 1)
+            {
                 nextBtn.Enabled = false;
                 prevBtn.Enabled = false;
-            } else if (currentPage == totalPages - 1) {
+            }
+            else if (currentPage == totalPages - 1)
+            {
                 nextBtn.Enabled = false;
                 prevBtn.Enabled = true;
-            } else if (currentPage == 0) {
+            }
+            else if (currentPage == 0)
+            {
                 prevBtn.Enabled = false;
                 nextBtn.Enabled = true;
-            } else if (currentPage >= 1 && currentPage <= totalPages - 2) {
+            }
+            else if (currentPage >= 1 && currentPage <= totalPages - 2)
+            {
                 nextBtn.Enabled = true;
                 prevBtn.Enabled = true;
             }

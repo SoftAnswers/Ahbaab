@@ -20,3 +20,7 @@ Plugin.CurrentActivity
 Plugin.InAppBilling.Abstractions
 Plugin.InAppBilling
 Plugin.InAppBilling.VendingLibrary
+Xamarin.Android.Arch.Core.Common
+Xamarin.Android.Arch.Lifecycle.Common
+Xamarin.Android.Arch.Lifecycle.Runtime
+Xamarin.Android.Support.Annotations

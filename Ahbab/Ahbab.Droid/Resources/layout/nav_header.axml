@@ -3,11 +3,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="192dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:theme="@style/Theme.Ahbab.AppBarOverlay">
     <ImageView
         android:id="@+id/imgViewHeader"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/logo"
-        android:scaleType="centerCrop" />
+        android:scaleType="fitCenter" />
 </FrameLayout>

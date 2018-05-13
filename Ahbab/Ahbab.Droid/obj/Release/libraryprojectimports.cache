@@ -1,30 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
   <Jars>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\10\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\11\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\12\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\13\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\14\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\15\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\16\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\17\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\2\jl\bin\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\5\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\6\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\7\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\8\jl\classes.jar</Jar>
-    <Jar>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\9\jl\classes.jar</Jar>
+    <Jar>obj\Release\lp\22\jl\arch-core-common.jar</Jar>
+    <Jar>obj\Release\lp\23\jl\arch-lifecycle-common.jar</Jar>
+    <Jar>obj\Release\lp\25\jl\support-annotations.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\10\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\11\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\12\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\13\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\14\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\15\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\16\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\17\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\2\jl\bin\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\22\jl\arch-core-common.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\23\jl\arch-lifecycle-common.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\24\jl\bin\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\25\jl\support-annotations.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\5\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\6\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\7\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\8\jl\classes.jar</Jar>
+    <Jar>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\9\jl\classes.jar</Jar>
   </Jars>
   <ResolvedResourceDirectories>
-    <ResolvedResourceDirectory>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\18\jl\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\2\jl\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\4\jl\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\10\jl\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\11\jl\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\14\jl\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\15\jl\res</ResolvedResourceDirectory>
-    <ResolvedResourceDirectory>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\17\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\18\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\2\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\15\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\10\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\14\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\17\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\11\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\4\jl\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Release\lp\18\jl\assets</ResolvedAssetDirectory>
@@ -33,13 +40,13 @@
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
-    <ResolvedResourceDirectoryStamp>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\18.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\2.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\4.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\10.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\11.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\14.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\15.stamp</ResolvedResourceDirectoryStamp>
-    <ResolvedResourceDirectoryStamp>C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Release\lp\17.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\18.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\2.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\15.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\10.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\14.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\17.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\11.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\lp\4.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

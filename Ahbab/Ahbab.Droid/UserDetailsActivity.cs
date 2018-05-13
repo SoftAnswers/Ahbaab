@@ -40,7 +40,7 @@ namespace Asawer.Droid
 
 			SetContentView(Resource.Layout.UserDetailsActivity);
 
-            SupportToolbar toolBar = FindViewById<SupportToolbar>(Resource.Id.toolbar);
+            SupportToolbar toolBar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
 			SetSupportActionBar(toolBar);
 			SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
@@ -414,7 +414,8 @@ namespace Asawer.Droid
 		}
 
 		public override bool OnOptionsItemSelected(IMenuItem item) {
-			switch (item.ItemId) {
+
+            switch (item.ItemId) {
 				case Resource.Id.block:
                     CheckForUserValidity(Constants.FunctionsUri.BlockUri);
 					return this.BlockSent;

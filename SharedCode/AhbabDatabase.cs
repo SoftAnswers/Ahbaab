@@ -7,22 +7,25 @@ using System.Text;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
 using Asawer;
+using System.Threading.Tasks;
 
 namespace SharedCode
 {
     public static class AhbabDatabase
     {
-        public static User Login(string userName, string password)
+        public static async Task<User> Login(string userName, string password)
         {
             var mClient = new WebClient();
 
             User user = null;
 
-            NameValueCollection parameters = new NameValueCollection();
-            parameters.Add("UserName", userName.Trim());
-            parameters.Add("Password", password.Trim());
+            NameValueCollection parameters = new NameValueCollection
+            {
+                { "UserName", userName.Trim() },
+                { "Password", password.Trim() }
+            };
 
-            var result = mClient.UploadValues(Constants.FunctionsUri.LoginUri, parameters);
+            var result = await mClient.UploadValuesTaskAsync(Constants.FunctionsUri.LoginUri, parameters);
 
             var resultString = Encoding.UTF8.GetString(result);
 
@@ -34,17 +37,18 @@ namespace SharedCode
             return user;
         }
 
-        public static List<SpinnerItem> GetSpinnerItems(Uri functionUri, string tableName)
+        public static async Task<List<SpinnerItem>> GetSpinnerItems(Uri functionUri, string tableName)
         {
             var retVal = new List<SpinnerItem>();
 
             var mClient = new WebClient();
 
-            NameValueCollection parameters = new NameValueCollection();
+            NameValueCollection parameters = new NameValueCollection
+            {
+                { "TableName", tableName }
+            };
 
-            parameters.Add("TableName", tableName);
-
-            var result = mClient.UploadValues(functionUri, parameters);
+            var result = await mClient.UploadValuesTaskAsync(functionUri, parameters);
 
             var items = Encoding.UTF8.GetString(result);
 
