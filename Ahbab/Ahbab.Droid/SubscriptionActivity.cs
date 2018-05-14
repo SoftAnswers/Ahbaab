@@ -108,7 +108,7 @@ namespace Asawer.Droid {
                     return false;
                 } else {
                     try {
-                        var result = AhbabDatabase.subscribe(Ahbab.CurrentUser.ID);
+                        var result = AhbabDatabase.Subscribe(Ahbab.CurrentUser.ID);
                         if (result != null) {
                             Ahbab.CurrentUser = result;
                         }

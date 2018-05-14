@@ -35,8 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/userName"
-                    android:background="@drawable/edit_text_style"
-                    android:gravity="right" />
+                    android:background="@drawable/edit_text_style" />
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -51,8 +50,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txtDialogPassword"
                     android:background="@drawable/edit_text_style"
-                    android:hint="@string/password"
-                    android:textColorHint="#000" />
+                    android:hint="@string/password" />
             </android.support.design.widget.TextInputLayout>
             <Button
                 android:layout_below="@id/txtInputLayoutPassword"

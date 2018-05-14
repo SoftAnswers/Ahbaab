@@ -154,7 +154,7 @@ namespace Asawer.Droid
             mRecyclerView.SetItemClickListener((rv, position, view) =>
             {
                 var userPosition = this.currentPage * Paginator.ITEMS_PER_PAGE + position;
-                var result = AhbabDatabase.updateVisits(Ahbab.CurrentUser.ID, results[userPosition].ID);
+                var result = AhbabDatabase.UpdateVisits(Ahbab.CurrentUser.ID, results[userPosition].ID);
                 //An item has been clicked
                 Context context = view.Context;
                 Intent intent = new Intent(context, typeof(UserDetailsActivity));

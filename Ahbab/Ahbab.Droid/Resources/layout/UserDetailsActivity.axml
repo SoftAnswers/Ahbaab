@@ -40,7 +40,7 @@
                 android:fitsSystemWindows="true"
                 app:layout_collapseMode="parallax" />
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/toolBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -570,9 +570,10 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/ic_discuss"
+        app:layout_anchorGravity="bottom|left|end"
+        android:src="@drawable/msgicon"
         android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="?attr/colorPrimary"
         android:clickable="true"
         android:id="@+id/btnSendMessage" />
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"

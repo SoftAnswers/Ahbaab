@@ -61,38 +61,44 @@ namespace SharedCode
         {
             var mClient = new WebClient();
 
-            NameValueCollection parameters = new NameValueCollection();
+            NameValueCollection parameters = new NameValueCollection
+            {
+                { "userid", valueToUpload.ID.ToString() },
+                { "user", valueToUpload.UserName },
+                { "pass", valueToUpload.Password },
+                { "mail", valueToUpload.Email },
+                { "name", valueToUpload.Name },
+                { "gender", valueToUpload.Gender },
+                { "status", valueToUpload.Status.ToString() },
+                { "eyecolor", valueToUpload.EyesColorId.ToString() },
+                { "haircolor", valueToUpload.HairColorId.ToString() },
+                { "height", valueToUpload.HeightId.ToString() },
+                { "weight", valueToUpload.WeightId.ToString() },
+                { "usagepurpose", valueToUpload.UsagePurposeId.ToString() },
+                { "age", valueToUpload.Age.ToString() },
+                { "educlevel", valueToUpload.EducationLevelID.ToString() },
+                { "origin", valueToUpload.OriginCountryId.ToString() },
+                { "current", valueToUpload.CurrentCountryId.ToString() },
+                { "job", valueToUpload.JobId.ToString() },
+                { "describeyou", valueToUpload.SelfDescription },
+                { "describeother", valueToUpload.OthersDescription },
+                { "available", valueToUpload.TimeFrameId.ToString() },
+                { "timezone", valueToUpload.TimeZoneId.ToString() },
+                { "way", JsonConvert.SerializeObject(valueToUpload.ContactWays) },
+                //parameters.Add("wayval", string.Empty);
+                { "accept", "Y" }
+            };
 
-            parameters.Add("userid", valueToUpload.ID.ToString());
-            parameters.Add("user", valueToUpload.UserName);
-            parameters.Add("pass", valueToUpload.Password);
-            parameters.Add("mail", valueToUpload.Email);
-            parameters.Add("name", valueToUpload.Name);
-            parameters.Add("gender", valueToUpload.Gender);
-            parameters.Add("status", valueToUpload.Status.ToString());
-            parameters.Add("eyecolor", valueToUpload.EyesColorId.ToString());
-            parameters.Add("haircolor", valueToUpload.HairColorId.ToString());
-            parameters.Add("height", valueToUpload.HeightId.ToString());
-            parameters.Add("weight", valueToUpload.WeightId.ToString());
-            parameters.Add("usagepurpose", valueToUpload.UsagePurposeId.ToString());
-            parameters.Add("age", valueToUpload.Age.ToString());
-            parameters.Add("educlevel", valueToUpload.EducationLevelID.ToString());
-            parameters.Add("origin", valueToUpload.OriginCountryId.ToString());
-            parameters.Add("current", valueToUpload.CurrentCountryId.ToString());
-            parameters.Add("job", valueToUpload.JobId.ToString());
-            parameters.Add("describeyou", valueToUpload.SelfDescription);
-            parameters.Add("describeother", valueToUpload.OthersDescription);
-            parameters.Add("available", valueToUpload.TimeFrameId.ToString());
-            parameters.Add("timezone", valueToUpload.TimeZoneId.ToString());
-            parameters.Add("way", JsonConvert.SerializeObject(valueToUpload.ContactWays));
-            //parameters.Add("wayval", string.Empty);
-            parameters.Add("accept", "Y");
-            if (valueToUpload.Images.Count > 0) {
+            if (valueToUpload.Images.Count > 0)
+            {
                 parameters.Add("Images", JsonConvert.SerializeObject(valueToUpload.Images));
-            } else {
+            }
+            else
+            {
                 parameters.Add("Images", string.Empty);
             }
-            if (imgToDelete != null) {
+            if (imgToDelete != null)
+            {
                 parameters.Add("ImagesToDelete", JsonConvert.SerializeObject(imgToDelete));
             }
 
@@ -131,9 +137,10 @@ namespace SharedCode
             {
                 var mClient = new WebClient();
 
-                NameValueCollection parameters = new NameValueCollection();
-
-                parameters.Add("userId", userID.ToString());
+                NameValueCollection parameters = new NameValueCollection
+                {
+                    { "userId", userID.ToString() }
+                };
 
                 var result = mClient.UploadValues(functionUri, parameters);
 
@@ -155,12 +162,14 @@ namespace SharedCode
             try
             {
                 var mClient = new WebClient();
-                NameValueCollection parameters = new NameValueCollection();
-                parameters.Add("from", message.Sender.ToString());
-                parameters.Add("to", message.Receiver.ToString());
-                parameters.Add("subject", message.Subject);
-                parameters.Add("body", message.Body);
-                parameters.Add("gender", sex);
+                NameValueCollection parameters = new NameValueCollection
+                {
+                    { "from", message.Sender.ToString() },
+                    { "to", message.Receiver.ToString() },
+                    { "subject", message.Subject },
+                    { "body", message.Body },
+                    { "gender", sex }
+                };
                 var result = mClient.UploadValues(Constants.FunctionsUri.SendMessageUri, parameters);
 
                 return Encoding.UTF8.GetString(result);
@@ -172,8 +181,10 @@ namespace SharedCode
             }
         }
 
-        internal static string LogMessage(String message, String level) {
-            try {
+        internal static string LogMessage(String message, String level)
+        {
+            try
+            {
                 var mClient = new WebClient();
 
                 NameValueCollection parameters = new NameValueCollection();
@@ -187,13 +198,16 @@ namespace SharedCode
                 return Encoding.UTF8.GetString(result);
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return "Logging Failed";
             }
         }
 
-        internal static string updateVisits(int from, int to) {
-            try {
+        internal static string UpdateVisits(int from, int to)
+        {
+            try
+            {
                 var mClient = new WebClient();
                 NameValueCollection parameters = new NameValueCollection();
                 parameters.Add("from", from.ToString());
@@ -201,13 +215,17 @@ namespace SharedCode
                 var result = mClient.UploadValues(Constants.FunctionsUri.VisitsUri, parameters);
                 var resultString = Encoding.UTF8.GetString(result);
                 return resultString;
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 return "Update Visits failed";
             }
         }
 
-        internal static List<User> getActions(int userId, string tableName, string destination) {
-            try {
+        internal static List<User> GetActions(int userId, string tableName, string destination)
+        {
+            try
+            {
                 var mClient = new WebClient();
                 NameValueCollection parameters = new NameValueCollection();
                 parameters.Add(destination, userId.ToString());
@@ -216,13 +234,17 @@ namespace SharedCode
                 var resultString = Encoding.UTF8.GetString(result);
                 var users = JsonConvert.DeserializeObject<List<User>>(resultString);
                 return users;
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 return new List<User>();
             }
         }
 
-        internal static User subscribe(int userId) {
-            try {
+        internal static User Subscribe(int userId)
+        {
+            try
+            {
                 var mClient = new WebClient();
                 NameValueCollection parameters = new NameValueCollection();
                 parameters.Add("userId", userId.ToString());
@@ -230,7 +252,9 @@ namespace SharedCode
                 var resultString = Encoding.UTF8.GetString(result);
                 var user = JsonConvert.DeserializeObject<List<User>>(resultString).FirstOrDefault();
                 return user;
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 return new User();
             }
         }

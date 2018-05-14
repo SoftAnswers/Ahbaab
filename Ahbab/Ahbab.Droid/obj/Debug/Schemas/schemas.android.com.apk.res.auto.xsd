@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v26</xs:documentation>
-    <xs:documentation>5/13/2018 7:15:39 AM</xs:documentation>
+    <xs:documentation>5/14/2018 8:14:08 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -140,6 +140,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -557,6 +561,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -1441,6 +1449,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -1873,6 +1885,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -5544,6 +5560,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -15078,6 +15098,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -16362,6 +16386,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -17103,6 +17131,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -21142,6 +21174,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -22302,6 +22338,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -24557,6 +24597,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -25866,6 +25910,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -28349,6 +28397,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -30189,6 +30241,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -30930,6 +30986,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -31320,6 +31380,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -33364,6 +33428,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
@@ -34661,6 +34729,10 @@
             <xs:enumeration value="@color/primary_text_default_material_light" />
             <xs:enumeration value="@color/primary_text_disabled_material_dark" />
             <xs:enumeration value="@color/primary_text_disabled_material_light" />
+            <xs:enumeration value="@color/primaryColor" />
+            <xs:enumeration value="@color/primaryDarkColor" />
+            <xs:enumeration value="@color/primaryLightColor" />
+            <xs:enumeration value="@color/primaryTextColor" />
             <xs:enumeration value="@color/ripple_material_dark" />
             <xs:enumeration value="@color/ripple_material_light" />
             <xs:enumeration value="@color/secondary_text_default_material_dark" />
