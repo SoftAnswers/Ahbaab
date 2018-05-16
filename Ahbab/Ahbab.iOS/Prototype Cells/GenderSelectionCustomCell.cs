@@ -11,7 +11,7 @@ namespace Ahbab.iOS {
         public void PopulateData(string gender, RegistrationController.RegistrationDataSource parent) {
             this.parent = parent;
             cellLabel.TextAlignment = UITextAlignment.Right;
-            cellLabel.Text = Constants.UI.sex;
+            cellLabel.Text = Constants.UI.Sex;
             if(String.IsNullOrEmpty(gender) || gender.Equals("M")) {
                 cellSegmentedControl.SelectedSegment = 0;
                 this.parent.user.Gender = "M";

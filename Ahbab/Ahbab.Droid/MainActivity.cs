@@ -62,27 +62,25 @@ namespace Asawer.Droid
             progress.SetCancelable(false);
             progress.Show();
 
-            new Thread(new ThreadStart(async () =>
+            new Thread(new ThreadStart(() =>
             {
-                try
+                RunOnUiThread(async () =>
                 {
-                    var result = await Task.Run(() => AhbabDatabase.Login(e.UserName, e.Password));
-
-                    if (result != null)
+                    try
                     {
-                        Ahbab.CurrentUser = result;
+                        var result = await Task.Run(() => AhbabDatabase.Login(e.UserName, e.Password));
 
-                        Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
-
-                        this.StartActivity(mainPageIntent);
-
-                        this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
-                                                       Android.Resource.Animation.SlideOutRight);
-                    }
-                    RunOnUiThread(() =>
-                    {
                         if (result != null)
                         {
+                            Ahbab.CurrentUser = result;
+
+                            Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
+
+                            this.StartActivity(mainPageIntent);
+
+                            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
+                                                               Android.Resource.Animation.SlideOutRight);
+
                             Toast.MakeText(this, "Login Successfull.", ToastLength.Short).Show();
                         }
                         else
@@ -90,13 +88,14 @@ namespace Asawer.Droid
                             Toast.MakeText(this, "Login Failed.", ToastLength.Short).Show();
                         }
 
-                        progress.Hide();
-                    });
-                }
-                catch (Exception ex)
-                {
-                    var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
-                }
+                    }
+                    catch (Exception ex)
+                    {
+                        var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                    }
+
+                    progress.Hide();
+                });
             })).Start();
         }
 

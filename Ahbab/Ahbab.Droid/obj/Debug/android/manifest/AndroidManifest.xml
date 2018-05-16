@@ -8,6 +8,7 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="com.android.vending.BILLING" />
+  <uses-permission android:name="android.permission.CAMERA" />
   <application android:supportsRtl="true" android:icon="@drawable/logo" android:label="Asawer" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.Ahbab" android:allowBackup="true" android:debuggable="true">
     <activity android:label="@string/subscribe" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.SubscriptionActivity" />
     <activity android:icon="@drawable/logo" android:label="@string/app_name" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.MainActivity">

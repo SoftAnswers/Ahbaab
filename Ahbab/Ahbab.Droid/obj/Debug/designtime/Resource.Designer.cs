@@ -2392,6 +2392,66 @@ namespace Asawer.Droid
 			public static int avd_show_password = 2131296341;
 			
 			// aapt resource value: 0
+			public static int baseline_chevron_left_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_left_white_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_left_white_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_left_white_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_left_white_48 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_right_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_right_white_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_right_white_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_right_white_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_chevron_right_white_48 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_first_page_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_first_page_white_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_first_page_white_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_first_page_white_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_first_page_white_48 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_last_page_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_last_page_white_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_last_page_white_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_last_page_white_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_last_page_white_48 = 0;
+			
+			// aapt resource value: 0
 			public static int bg = 0;
 			
 			// aapt resource value: 0
@@ -2685,6 +2745,9 @@ namespace Asawer.Droid
 			public static int blocksFromCardView = 0;
 			
 			// aapt resource value: 0
+			public static int blocksLayout = 0;
+			
+			// aapt resource value: 0
 			public static int blocksTo = 0;
 			
 			// aapt resource value: 0
@@ -2816,6 +2879,9 @@ namespace Asawer.Droid
 			// aapt resource value: 2131492913
 			public static int fill = 2131492913;
 			
+			// aapt resource value: 0
+			public static int firstPage = 0;
+			
 			// aapt resource value: 2131492914
 			public static int @fixed = 2131492914;
 			
@@ -2824,6 +2890,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int fragment_container = 0;
+			
+			// aapt resource value: 0
+			public static int frameTitle = 0;
 			
 			// aapt resource value: 0
 			public static int gallery = 0;
@@ -2902,6 +2971,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 2131492924
 			public static int largeLabel = 2131492924;
+			
+			// aapt resource value: 0
+			public static int lastPage = 0;
 			
 			// aapt resource value: 2131492925
 			public static int left = 2131492925;

@@ -128,7 +128,7 @@ namespace Ahbab.iOS {
                 } else if (indexPath.Row == 16) {
                     TextFieldCustomCell cell = tableView.DequeueReusableCell("reusableTextFieldCell") as TextFieldCustomCell;
                     if (string.IsNullOrEmpty(this.user.SelfDescription)) {
-                        cell.setPlaceholder(Constants.UI.selfDescription, this, indexPath.Row);
+                        cell.setPlaceholder(Constants.UI.SelfDescription, this, indexPath.Row);
                     } else {
                         cell.setTextValue(this.user.SelfDescription);
                     }
@@ -136,7 +136,7 @@ namespace Ahbab.iOS {
                 } else if (indexPath.Row == 17) {
                     TextFieldCustomCell cell = tableView.DequeueReusableCell("reusableTextFieldCell") as TextFieldCustomCell;
                     if (string.IsNullOrEmpty(this.user.OthersDescription)) {
-                        cell.setPlaceholder(Constants.UI.partnerDescription, this, indexPath.Row);
+                        cell.setPlaceholder(Constants.UI.PartnerDescription, this, indexPath.Row);
                     } else {
                         cell.setTextValue(this.user.OthersDescription);
                     }

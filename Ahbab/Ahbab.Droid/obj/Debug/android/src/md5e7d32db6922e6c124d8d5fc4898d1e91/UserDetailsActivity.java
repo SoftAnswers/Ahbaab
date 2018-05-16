@@ -4,7 +4,8 @@ package md5e7d32db6922e6c124d8d5fc4898d1e91;
 public class UserDetailsActivity
 	extends android.support.v7.app.AppCompatActivity
 	implements
-		mono.android.IGCUserPeer
+		mono.android.IGCUserPeer,
+		android.view.View.OnTouchListener
 {
 /** @hide */
 	public static final String __md_methods;
@@ -14,6 +15,7 @@ public class UserDetailsActivity
 			"n_onOptionsItemSelected:(Landroid/view/MenuItem;)Z:GetOnOptionsItemSelected_Landroid_view_MenuItem_Handler\n" +
 			"n_onCreateOptionsMenu:(Landroid/view/Menu;)Z:GetOnCreateOptionsMenu_Landroid_view_Menu_Handler\n" +
 			"n_onBackPressed:()V:GetOnBackPressedHandler\n" +
+			"n_onTouch:(Landroid/view/View;Landroid/view/MotionEvent;)Z:GetOnTouch_Landroid_view_View_Landroid_view_MotionEvent_Handler:Android.Views.View/IOnTouchListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"";
 		mono.android.Runtime.register ("Asawer.Droid.UserDetailsActivity, Asawer.Droid", UserDetailsActivity.class, __md_methods);
 	}
@@ -57,6 +59,14 @@ public class UserDetailsActivity
 	}
 
 	private native void n_onBackPressed ();
+
+
+	public boolean onTouch (android.view.View p0, android.view.MotionEvent p1)
+	{
+		return n_onTouch (p0, p1);
+	}
+
+	private native boolean n_onTouch (android.view.View p0, android.view.MotionEvent p1);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

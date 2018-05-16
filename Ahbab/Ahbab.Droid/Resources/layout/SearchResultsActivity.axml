@@ -44,20 +44,34 @@
                     android:textDirection="rtl"
                     android:layoutDirection="rtl" />
                 <LinearLayout
-                  android:orientation="horizontal"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center_horizontal">
-                  <Button
-                      android:text="Next"
-                      android:id="@+id/nextBtn"
-                      android:layout_width="wrap_content"
-                      android:layout_height="40dp"/>
-                  <Button
-                      android:text="Previous"
-                      android:id="@+id/prevBtn"
-                      android:layout_width="wrap_content"
-                      android:layout_height="40dp"/>
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <ImageButton
+                        android:src="@drawable/baseline_last_page_white_24"
+                        app:backgroundTint="?attr/colorPrimary"
+                        android:id="@+id/lastPage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp" />
+                    <ImageButton
+                        android:src="@drawable/baseline_chevron_right_white_24"
+                        app:backgroundTint="?attr/colorPrimary"
+                        android:id="@+id/nextBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp" />
+                    <ImageButton
+                        android:src="@drawable/baseline_chevron_left_white_24"
+                        android:id="@+id/prevBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        app:backgroundTint="?attr/colorPrimary" />
+                    <ImageButton
+                        android:src="@drawable/baseline_first_page_white_24"
+                        android:id="@+id/firstPage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        app:backgroundTint="?attr/colorPrimary" />
                 </LinearLayout>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>

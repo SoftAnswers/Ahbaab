@@ -19,11 +19,12 @@ using System.Collections.Specialized;
 using Asawer.Droid.Adapters;
 using Android.Support.V7.Widget;
 using Asawer.Droid.Fragments;
+using System.Collections.Generic;
 
 namespace Asawer.Droid
 {
     [Activity(Label = "UserDetailsActivity", Theme = "@style/Theme.Ahbab")]
-    public class UserDetailsActivity : AppCompatActivity
+    public class UserDetailsActivity : AppCompatActivity, View.IOnTouchListener
     {
         public const string EXTRA_MESSAGE = "message";
         private User user;
@@ -31,8 +32,11 @@ namespace Asawer.Droid
         private bool BlockSent = false;
         private bool InterestSent = false;
         private ProgressBar mProgressBar;
-        public AppBarLayout appBarLayout;
+        private AppBarLayout appBarLayout;
+        private CollapsingToolbarLayout collapsingToolbar;
+        private FrameLayout visitorsFragmentLayout;
         private Boolean isFragmentOpen = false;
+        private float mLastPosY;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,8 +50,8 @@ namespace Asawer.Droid
 
             user = JsonConvert.DeserializeObject<User>(Intent.GetStringExtra(EXTRA_MESSAGE));
 
-            CollapsingToolbarLayout collapsingToolBar = FindViewById<CollapsingToolbarLayout>(Resource.Id.collapsing_toolbar);
-            collapsingToolBar.Title = !string.IsNullOrEmpty(user.Name) ? user.Name : user.UserName;
+            this.collapsingToolbar = FindViewById<CollapsingToolbarLayout>(Resource.Id.collapsing_toolbar);
+            this.collapsingToolbar.Title = !string.IsNullOrEmpty(user.Name) ? user.Name : user.UserName;
             mSendMessageButton = this.FindViewById<FloatingActionButton>(Resource.Id.btnSendMessage);
 
             appBarLayout = FindViewById<AppBarLayout>(Resource.Id.appbar);
@@ -79,118 +83,66 @@ namespace Asawer.Droid
             var interestsToCardView = FindViewById<CardView>(Resource.Id.interestsToCardView);
             var interestsFrom = FindViewById<TextView>(Resource.Id.interestsFrom);
             var interestsFromCardView = FindViewById<CardView>(Resource.Id.interestsFromCardView);
+            var blocksLayout = FindViewById<LinearLayout>(Resource.Id.blocksLayout);
 
             mProgressBar = this.FindViewById<ProgressBar>(Resource.Id.progressBar);
 
             lastOnline.Text = user.LastActiveDate != null ? user.LastActiveDate.ToString("dd-MM-yyyy") : string.Empty;
 
-            sex.Text = user.Gender;
+            sex.Text = user.Gender.Equals("M") ? Constants.UI.Male : Constants.UI.Female;
 
             selfDescription.Text = user.SelfDescription;
 
             partnerDescription.Text = user.OthersDescription;
 
-            if (user.JobId != 0)
-            {
-                job.Text = Ahbab.mJobItems.FirstOrDefault(i => i.ID == user.JobId).DescriptionAR;
-            }
-            else
-            {
-                job.Text = Constants.DefaultValues.NA;
-            }
-
-            if (user.OriginCountryId != 0)
-            {
-                originCountry.Text = Ahbab.mCountries.FirstOrDefault(i => i.ID == user.OriginCountryId).DescriptionAR;
-            }
-            else
-            {
-                originCountry.Text = Constants.DefaultValues.NA;
-            }
-
-            if (user.CurrentCountryId != 0)
-            {
-                residenceCountry.Text = Ahbab.mCountries.FirstOrDefault(i => i.ID == user.CurrentCountryId).DescriptionAR;
-            }
-            else
-            {
-                residenceCountry.Text = Constants.DefaultValues.NA;
-            }
-
-            if (user.EducationLevelID != 0)
-            {
-                educationLevel.Text = Ahbab.mEducationItems.FirstOrDefault(i => i.ID == user.EducationLevelID).DescriptionAR;
-            }
-            else
-            {
-                educationLevel.Text = Constants.DefaultValues.NA;
-            }
-
-            if (user.Status != 0)
-            {
-                familyStatus.Text = Ahbab.statusItems.FirstOrDefault(i => i.ID == user.Status).DescriptionAR;
-            }
-            else
-            {
-                familyStatus.Text = Constants.DefaultValues.NA;
-            }
-
-            if (user.Age != 0)
-            {
-                age.Text = Ahbab.mAgeItems.FirstOrDefault(i => i.ID == user.Age).DescriptionEN;
-            }
-            else
-            {
-                age.Text = Constants.DefaultValues.NA;
-            }
-
-            if (user.HeightId != 0)
-            {
-                height.Text = Ahbab.mHeightItems.FirstOrDefault(i => i.ID == user.HeightId).DescriptionAR;
-            }
-            else
-            {
-                height.Text = Constants.DefaultValues.NA;
-            }
-
-            if (user.WeightId != 0)
-            {
-                weight.Text = Ahbab.mWeightItems.FirstOrDefault(i => i.ID == user.WeightId).DescriptionAR;
-            }
-            else
-            {
-                weight.Text = Constants.DefaultValues.NA;
-            }
+            job.Text = user.JobId > 0 ?
+                Ahbab.mJobItems.FirstOrDefault(i => i.ID == user.JobId).DescriptionAR :
+                Constants.DefaultValues.NA;
 
 
-            if (user.UsagePurposeId != 0)
-            {
-                goalFromSite.Text = Ahbab.mGoalFromSiteItems.FirstOrDefault(i => i.ID == user.UsagePurposeId).DescriptionAR;
-            }
-            else
-            {
-                goalFromSite.Text = Constants.DefaultValues.NA;
-            }
+            originCountry.Text = user.OriginCountryId > 0 ?
+                Ahbab.mCountries.FirstOrDefault(i => i.ID == user.OriginCountryId).DescriptionAR
+                : Constants.DefaultValues.NA;
+
+            residenceCountry.Text = user.CurrentCountryId > 0
+                ? Ahbab.mCountries.FirstOrDefault(i => i.ID == user.CurrentCountryId).DescriptionAR
+                : Constants.DefaultValues.NA;
+
+            educationLevel.Text = user.EducationLevelID > 0
+                ? Ahbab.mEducationItems.FirstOrDefault(i => i.ID == user.EducationLevelID).DescriptionAR
+                : Constants.DefaultValues.NA;
+
+
+            familyStatus.Text = user.Status > 0
+                ? Ahbab.statusItems.FirstOrDefault(i => i.ID == user.Status).DescriptionAR
+                : Constants.DefaultValues.NA;
+
+            age.Text = user.Age > 0
+                ? Ahbab.mAgeItems.FirstOrDefault(i => i.ID == user.Age).DescriptionEN
+                : Constants.DefaultValues.NA;
+
+
+            height.Text = user.HeightId > 0
+                ? Ahbab.mHeightItems.FirstOrDefault(i => i.ID == user.HeightId).DescriptionAR
+                : Constants.DefaultValues.NA;
+
+            weight.Text = user.WeightId != 0
+                ? Ahbab.mWeightItems.FirstOrDefault(i => i.ID == user.WeightId).DescriptionAR
+                : Constants.DefaultValues.NA;
+
+            goalFromSite.Text = user.UsagePurposeId != 0
+                ? Ahbab.mGoalFromSiteItems.FirstOrDefault(i => i.ID == user.UsagePurposeId).DescriptionAR
+                : Constants.DefaultValues.NA;
 
             sender.Text = user.UserName;
 
-            if (user.EyesColorId != 0)
-            {
-                eyesColor.Text = Ahbab.mEyesColorItems.FirstOrDefault(i => i.ID == user.EyesColorId).DescriptionAR;
-            }
-            else
-            {
-                eyesColor.Text = Constants.DefaultValues.NA;
-            }
+            eyesColor.Text = user.EyesColorId != 0
+                ? Ahbab.mEyesColorItems.FirstOrDefault(i => i.ID == user.EyesColorId).DescriptionAR
+                : Constants.DefaultValues.NA;
 
-            if (user.HairColorId != 0)
-            {
-                hairColor.Text = Ahbab.mHairColorItems.FirstOrDefault(i => i.ID == user.HairColorId).DescriptionAR;
-            }
-            else
-            {
-                hairColor.Text = Constants.DefaultValues.NA;
-            }
+            hairColor.Text = user.HairColorId != 0
+                ? Ahbab.mHairColorItems.FirstOrDefault(i => i.ID == user.HairColorId).DescriptionAR
+                : Constants.DefaultValues.NA;
 
             visitCountTo.Text = Ahbab.CurrentUser.VisitCountTo.ToString();
             blocksFrom.Text = Ahbab.CurrentUser.BlocksFrom.ToString();
@@ -201,6 +153,7 @@ namespace Asawer.Droid
             if (user.UserName.Equals(Ahbab.CurrentUser.UserName))
             {
                 updateBtn.Visibility = ViewStates.Visible;
+                mSendMessageButton.Visibility = ViewStates.Gone;
                 updateBtn.Click += UpdateBtn_Click;
                 visitCountToCardView.Click += VisitCountToCardView_Click;
                 interestsFromCardView.Click += InterestsFromCardView_Click;
@@ -210,10 +163,8 @@ namespace Asawer.Droid
             }
             else
             {
-                blocksFromCardView.Visibility = ViewStates.Gone;
-                blocksToCardView.Visibility = ViewStates.Gone;
+                blocksLayout.Visibility = ViewStates.Gone;
                 interestsToCardView.Visibility = ViewStates.Gone;
-                mSendMessageButton.Visibility = ViewStates.Gone;
             }
 
             if (user.ContactWays != null && user.ContactWays.Count > 0)
@@ -276,17 +227,11 @@ namespace Asawer.Droid
             try
             {
                 var result = AhbabDatabase.GetActions(user.ID, "visits", "to");
+
                 if (result != null)
                 {
-                    //HideElements();
-                    VisitorsFragment visitors = new VisitorsFragment(result);
-                    var ft = FragmentManager.BeginTransaction();
-                    ft.Replace(Resource.Id.fragment_container, visitors);
-                    ft.AddToBackStack(null);
-                    ft.Show(visitors);
-                    ft.Commit();
+                    this.OpenVisitorsFragment(result, Constants.UI.VisitCountTo);
                 }
-                this.isFragmentOpen = true;
             }
             catch (Exception ex)
             {
@@ -305,14 +250,7 @@ namespace Asawer.Droid
                 var result = AhbabDatabase.GetActions(user.ID, "interests", "from");
                 if (result != null)
                 {
-                    //HideElements();
-                    VisitorsFragment visitors = new VisitorsFragment(result);
-                    var ft = FragmentManager.BeginTransaction();
-                    ft.Replace(Resource.Id.fragment_container, visitors);
-                    ft.AddToBackStack(null);
-                    ft.Show(visitors);
-                    ft.Commit();
-                    this.isFragmentOpen = true;
+                    this.OpenVisitorsFragment(result, Constants.UI.InterestsFrom);
                 }
             }
             catch (Exception ex)
@@ -331,14 +269,7 @@ namespace Asawer.Droid
                 var result = AhbabDatabase.GetActions(user.ID, "interests", "to");
                 if (result != null)
                 {
-                    //HideElements();
-                    VisitorsFragment visitors = new VisitorsFragment(result);
-                    var ft = FragmentManager.BeginTransaction();
-                    ft.Replace(Resource.Id.fragment_container, visitors);
-                    ft.AddToBackStack(null);
-                    ft.Show(visitors);
-                    ft.Commit();
-                    this.isFragmentOpen = true;
+                    this.OpenVisitorsFragment(result, Constants.UI.InterestsTo);
                 }
             }
             catch (Exception ex)
@@ -355,16 +286,10 @@ namespace Asawer.Droid
             try
             {
                 var result = AhbabDatabase.GetActions(user.ID, "blocks", "from");
+
                 if (result != null)
                 {
-                    //HideElements();
-                    VisitorsFragment visitors = new VisitorsFragment(result);
-                    var ft = FragmentManager.BeginTransaction();
-                    ft.Replace(Resource.Id.fragment_container, visitors);
-                    ft.AddToBackStack(null);
-                    ft.Show(visitors);
-                    ft.Commit();
-                    this.isFragmentOpen = true;
+                    this.OpenVisitorsFragment(result, Constants.UI.BlocksFrom);
                 }
             }
             catch (Exception ex)
@@ -383,14 +308,7 @@ namespace Asawer.Droid
                 var result = AhbabDatabase.GetActions(user.ID, "blocks", "to");
                 if (result != null)
                 {
-                    //HideElements();
-                    VisitorsFragment visitors = new VisitorsFragment(result);
-                    var ft = FragmentManager.BeginTransaction();
-                    ft.Replace(Resource.Id.fragment_container, visitors);
-                    ft.AddToBackStack(null);
-                    ft.Show(visitors);
-                    ft.Commit();
-                    this.isFragmentOpen = true;
+                    this.OpenVisitorsFragment(result, Constants.UI.BlocksTo);
                 }
             }
             catch (Exception ex)
@@ -399,12 +317,39 @@ namespace Asawer.Droid
             }
         }
 
-        /**
-         * Function used to hide the app bar when displaying the visitors fragment
-         **/
-        void HideElements()
+        private void OpenVisitorsFragment(List<User> result, string frameTitle)
         {
-            appBarLayout.Visibility = ViewStates.Gone;
+            this.visitorsFragmentLayout = this.FindViewById<FrameLayout>(Resource.Id.fragment_container);
+
+            var height = Resources.DisplayMetrics.HeightPixels - this.collapsingToolbar.Height;
+
+            var fragLayoutParams = this.visitorsFragmentLayout.LayoutParameters;
+
+            fragLayoutParams.Height = height;
+
+            this.visitorsFragmentLayout.LayoutParameters = fragLayoutParams;
+
+            var visitors = new VisitorsFragment(result, frameTitle);
+
+            var fragmentTransaction = FragmentManager.BeginTransaction();
+
+            fragmentTransaction.Add(this.visitorsFragmentLayout.Id, visitors, "Fragment Pull Up");
+
+            fragmentTransaction.AddToBackStack(null);
+
+            fragmentTransaction.Commit();
+            
+            if (this.visitorsFragmentLayout.TranslationY + 2 >= this.visitorsFragmentLayout.Height)
+            {
+                var interpolator = new Android.Views.Animations.OvershootInterpolator(5);
+                this.visitorsFragmentLayout.Animate().SetInterpolator(interpolator)
+                    .TranslationYBy(-200)
+                    .SetDuration(500);
+            }
+
+            this.visitorsFragmentLayout.SetOnTouchListener(this);
+
+            this.isFragmentOpen = true;
         }
 
         void MSendMessageButton_Click(object sender, EventArgs e)
@@ -559,12 +504,47 @@ namespace Asawer.Droid
 
         public override void OnBackPressed()
         {
-            //if (this.isFragmentOpen)
-            //{
-            //    this.appBarLayout.Visibility = ViewStates.Visible;
-            //    this.isFragmentOpen = false;
-            //}
+            if (this.isFragmentOpen)
+            {
+                var interpolator = new Android.Views.Animations.OvershootInterpolator(5);
+                this.visitorsFragmentLayout.Animate().SetInterpolator(interpolator)
+                    .TranslationY(this.visitorsFragmentLayout.Height)
+                    .SetDuration(500);
+                this.isFragmentOpen = false;
+            }
             base.OnBackPressed();
+        }
+
+        public bool OnTouch(View v, MotionEvent e)
+        {
+            switch (e.Action)
+            {
+                case MotionEventActions.Down:
+
+                    mLastPosY = e.GetY();
+                    return true;
+
+                case MotionEventActions.Move:
+
+                    var currentPosition = e.GetY();
+                    var deltaY = mLastPosY - currentPosition;
+
+                    var transY = v.TranslationY;
+
+                    transY -= deltaY;
+
+                    if (transY < 0)
+                    {
+                        transY = 0;
+                    }
+
+                    v.TranslationY = transY;
+
+                    return true;
+
+                default:
+                    return v.OnTouchEvent(e);
+            }
         }
     }
 }

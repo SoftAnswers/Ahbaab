@@ -16,6 +16,7 @@ C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Newtonsoft.Json.dll
 C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Mono.Android.pdb
 C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Mono.Android.xml
 C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Newtonsoft.Json.xml
+C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Asawer.csprojAssemblyReference.cache
 C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Asawer.csproj.CoreCompileInputs.cache
 C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Asawer.csproj.CopyComplete
 C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Ahbab.dll
