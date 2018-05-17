@@ -4,6 +4,8 @@ using Asawer.Entities;
 using Android.App;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
+using Android.Graphics.Drawables;
 
 namespace Asawer.Droid
 {
@@ -64,19 +66,34 @@ namespace Asawer.Droid
 			if (item != null)
 			{
 				// Parse the data from each object and set it.
-				TextView ItemId = (TextView)view.FindViewById(Resource.Id.item_id);
+				var itemId = (TextView)view.FindViewById(Resource.Id.item_id);
 
-				TextView ItemName = (TextView)view.FindViewById(Resource.Id.item_value);
+				var itemName = (TextView)view.FindViewById(Resource.Id.item_value);
 
-				if (ItemId != null)
+				if (itemId != null)
 				{
-					ItemId.Text = item.ID.ToString();
+					itemId.Text = item.ID.ToString();
 				}
-				if (ItemName != null)
+				if (itemName != null)
 				{
-					ItemName.Text = !string.IsNullOrEmpty(item.DescriptionAR) ?
+					itemName.Text = !string.IsNullOrEmpty(item.DescriptionAR) ?
 						item.DescriptionAR : item.DescriptionEN;
 				}
+
+                if (position == 0)
+                {
+                    var firstItemDrawable = new GradientDrawable();
+                    
+                    firstItemDrawable.SetStroke(1, Color.Black);
+
+                    firstItemDrawable.SetSize(view.Width, 35);
+
+                    view.SetPadding(0, 0, 0, 0);
+
+                    itemName.Background = firstItemDrawable;
+
+                    itemName.SetTextColor(Color.Gray);
+                }
 			}
 
 			if (!_views.Contains(view))
@@ -99,6 +116,11 @@ namespace Asawer.Droid
 			ClearViews();
 			base.Dispose(disposing);
 		}
-	}
+
+        public override bool IsEnabled(int position)
+        {
+            return position != 0;
+        }
+    }
 }
 

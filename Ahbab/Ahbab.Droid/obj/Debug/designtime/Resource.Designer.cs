@@ -2578,6 +2578,18 @@ namespace Asawer.Droid
 			public static int notify_panel_notification_icon_bg = 2131296268;
 			
 			// aapt resource value: 0
+			public static int pagination_first_page = 0;
+			
+			// aapt resource value: 0
+			public static int pagination_last_page = 0;
+			
+			// aapt resource value: 0
+			public static int pagination_next_page = 0;
+			
+			// aapt resource value: 0
+			public static int pagination_previous_page = 0;
+			
+			// aapt resource value: 0
 			public static int ProgressBarStyle = 0;
 			
 			// aapt resource value: 0

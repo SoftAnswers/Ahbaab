@@ -47,31 +47,31 @@
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp">
                     <ImageButton
-                        android:src="@drawable/baseline_last_page_white_24"
-                        app:backgroundTint="?attr/colorPrimary"
                         android:id="@+id/lastPage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp" />
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/pagination_last_page" />
                     <ImageButton
-                        android:src="@drawable/baseline_chevron_right_white_24"
-                        app:backgroundTint="?attr/colorPrimary"
                         android:id="@+id/nextBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp" />
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/pagination_next_page" />
                     <ImageButton
-                        android:src="@drawable/baseline_chevron_left_white_24"
                         android:id="@+id/prevBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        app:backgroundTint="?attr/colorPrimary" />
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/pagination_previous_page" />
                     <ImageButton
-                        android:src="@drawable/baseline_first_page_white_24"
                         android:id="@+id/firstPage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        app:backgroundTint="?attr/colorPrimary" />
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/pagination_first_page" />
                 </LinearLayout>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>

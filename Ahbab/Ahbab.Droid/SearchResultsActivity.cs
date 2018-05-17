@@ -23,33 +23,48 @@ namespace Asawer.Droid
     public class SearchResultsActivity : AppCompatActivity
     {
         private List<User> results;
-        private RecyclerView mRecyclerView;
-        private DrawerLayout mDrawerLayout;
-        ImageButton nextBtn, prevBtn,firstPage,lastPage;
-        Paginator paginator;
+        private RecyclerView recyclerView;
+        private DrawerLayout drawerLayout;
+        private ImageButton nextBtn;
+        private ImageButton prevBtn;
+        private ImageButton firstPage;
+        private ImageButton lastPage;
+        private Paginator paginator;
         private int totalPages;
-        private int currentPage = 0;
+        private int currentPage;
+
+        public RecyclerView RecyclerView { get => this.recyclerView; set => this.recyclerView = value; }
+        public DrawerLayout DrawerLayout { get => this.drawerLayout; set => this.drawerLayout = value; }
+        public ImageButton NextBtn { get => this.nextBtn; set => this.nextBtn = value; }
+        public ImageButton PrevBtn { get => this.prevBtn; set => this.prevBtn = value; }
+        public ImageButton FirstPage { get => this.firstPage; set => this.firstPage = value; }
+        public ImageButton LastPage { get => this.lastPage; set => this.lastPage = value; }
+        internal Paginator Paginator { get => this.paginator; set => this.paginator = value; }
+        public int TotalPages { get => this.totalPages; set => this.totalPages = value; }
+        public int CurrentPage { get => this.currentPage; set => this.currentPage = value; }
+        public List<User> Results { get => this.results; set => this.results = value; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            this.results = Ahbab.SearchResults;
-            this.paginator = new Paginator(results);
-            this.totalPages = Paginator.LAST_PAGE;
+            this.Results = Ahbab.SearchResults;
+            this.Paginator = new Paginator(Results);
+            this.TotalPages = Paginator.LAST_PAGE;
 
             SetContentView(Resource.Layout.SearchResultsActivity);
 
-            SupportToolbar toolbar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
-            SetSupportActionBar(toolbar);
-            SupportActionBar ab = SupportActionBar;
+            var toolbar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
 
-            //ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
+            this.SetSupportActionBar(toolbar);
+
             this.SupportActionBar.SetHomeButtonEnabled(true);
+
             this.SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+
             this.SupportActionBar.SetDisplayShowHomeEnabled(true);
 
-            mDrawerLayout = this.FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            this.DrawerLayout = this.FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
@@ -68,11 +83,11 @@ namespace Asawer.Droid
                 editAccount.SetImageBitmap(bitmap);
             }
 
-            this.mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerview);
-            this.nextBtn = FindViewById<ImageButton>(Resource.Id.nextBtn);
-            this.prevBtn = FindViewById<ImageButton>(Resource.Id.prevBtn);
-            this.firstPage = FindViewById<ImageButton>(Resource.Id.firstPage);
-            this.lastPage = FindViewById<ImageButton>(Resource.Id.lastPage);
+            this.RecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerview);
+            this.NextBtn = FindViewById<ImageButton>(Resource.Id.nextBtn);
+            this.PrevBtn = FindViewById<ImageButton>(Resource.Id.prevBtn);
+            this.FirstPage = FindViewById<ImageButton>(Resource.Id.firstPage);
+            this.LastPage = FindViewById<ImageButton>(Resource.Id.lastPage);
             this.ToggleButtons();
 
             SetUpRecyclerView();
@@ -93,7 +108,7 @@ namespace Asawer.Droid
                     else
                     {
                         OpenLegalNotesFragment(e.MenuItem);
-                        mDrawerLayout.CloseDrawers();
+                        this.DrawerLayout.CloseDrawers();
                     }
                 }
                 else
@@ -105,7 +120,7 @@ namespace Asawer.Droid
                 }
             };
         }
-        
+
         // Function used to redirect the user to the login activity after clicking in logout
         public void Logout()
         {
@@ -153,29 +168,29 @@ namespace Asawer.Droid
             }
             else
             {
-                mDrawerLayout.OpenDrawer((int)GravityFlags.Right);
+                this.DrawerLayout.OpenDrawer((int)GravityFlags.Right);
             }
             return true;
         }
 
         void SetUpRecyclerView()
         {
-            mRecyclerView.SetLayoutManager(new LinearLayoutManager(mRecyclerView.Context));
-            mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
-            mRecyclerView.SetItemClickListener((rv, position, view) =>
+            RecyclerView.SetLayoutManager(new LinearLayoutManager(RecyclerView.Context));
+            RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, Paginator.GeneratePage(CurrentPage), this.Resources));
+            RecyclerView.SetItemClickListener((rv, position, view) =>
             {
-                var userPosition = this.currentPage * Paginator.ITEMS_PER_PAGE + position;
-                var result = AhbabDatabase.UpdateVisits(Ahbab.CurrentUser.ID, results[userPosition].ID);
+                var userPosition = this.CurrentPage * Paginator.ITEMS_PER_PAGE + position;
+                var result = AhbabDatabase.UpdateVisits(Ahbab.CurrentUser.ID, Results[userPosition].ID);
                 //An item has been clicked
                 Context context = view.Context;
                 Intent intent = new Intent(context, typeof(UserDetailsActivity));
-                intent.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(results[userPosition]));
+                intent.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(Results[userPosition]));
                 context.StartActivity(intent);
             });
-            nextBtn.Click += NextButton_Click;
-            prevBtn.Click += PreviousButton_Click;
-            firstPage.Click += OnFirstPageButtonClick;
-            lastPage.Click += OnLastPageButtonClick;
+            this.NextBtn.Click += NextButton_Click;
+            this.PrevBtn.Click += PreviousButton_Click;
+            this.FirstPage.Click += OnFirstPageButtonClick;
+            this.LastPage.Click += OnLastPageButtonClick;
         }
 
         private List<Message> GetRandomSubList(List<Message> items, int amount)
@@ -197,8 +212,8 @@ namespace Asawer.Droid
          */
         private void NextButton_Click(object sender, System.EventArgs e)
         {
-            currentPage++;
-            mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
+            CurrentPage++;
+            RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, Paginator.GeneratePage(CurrentPage), this.Resources));
             ToggleButtons();
         }
 
@@ -207,22 +222,22 @@ namespace Asawer.Droid
          */
         private void PreviousButton_Click(object sender, System.EventArgs e)
         {
-            currentPage--;
-            mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
+            CurrentPage--;
+            RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, Paginator.GeneratePage(CurrentPage), this.Resources));
             ToggleButtons();
         }
 
         private void OnLastPageButtonClick(object sender, EventArgs args)
         {
-            this.currentPage = this.totalPages-1;
-            mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
+            this.CurrentPage = this.TotalPages - 1;
+            RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, Paginator.GeneratePage(CurrentPage), this.Resources));
             ToggleButtons();
         }
 
         private void OnFirstPageButtonClick(object sender, EventArgs args)
         {
-            this.currentPage = 0;
-            mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
+            this.CurrentPage = 0;
+            RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, Paginator.GeneratePage(CurrentPage), this.Resources));
             ToggleButtons();
         }
 
@@ -232,33 +247,33 @@ namespace Asawer.Droid
          */
         private void ToggleButtons()
         {
-            if (totalPages == 1)
+            if (TotalPages == 1)
             {
-                this.nextBtn.Enabled = false;
-                this.prevBtn.Enabled = false;
-                this.firstPage.Enabled = false;
-                this.lastPage.Enabled = false;
+                this.NextBtn.Enabled = false;
+                this.PrevBtn.Enabled = false;
+                this.FirstPage.Enabled = false;
+                this.LastPage.Enabled = false;
             }
-            else if (currentPage == totalPages - 1)
+            else if (CurrentPage == TotalPages - 1)
             {
-                this.nextBtn.Enabled = false;
-                this.lastPage.Enabled = false;
-                this.prevBtn.Enabled = true;
-                this.firstPage.Enabled = true;
+                this.NextBtn.Enabled = false;
+                this.LastPage.Enabled = false;
+                this.PrevBtn.Enabled = true;
+                this.FirstPage.Enabled = true;
             }
-            else if (currentPage == 0)
+            else if (CurrentPage == 0)
             {
-                this.prevBtn.Enabled = false;
-                this.firstPage.Enabled = false;
-                this.nextBtn.Enabled = true;
-                this.lastPage.Enabled = true;
+                this.PrevBtn.Enabled = false;
+                this.FirstPage.Enabled = false;
+                this.NextBtn.Enabled = true;
+                this.LastPage.Enabled = true;
             }
-            else if (currentPage >= 1 && currentPage <= totalPages - 2)
+            else if (CurrentPage >= 1 && CurrentPage <= TotalPages - 2)
             {
-                this.nextBtn.Enabled = true;
-                this.prevBtn.Enabled = true;
-                this.firstPage.Enabled = true;
-                this.lastPage.Enabled = true;
+                this.NextBtn.Enabled = true;
+                this.PrevBtn.Enabled = true;
+                this.FirstPage.Enabled = true;
+                this.LastPage.Enabled = true;
             }
         }
     }

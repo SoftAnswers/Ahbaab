@@ -86,7 +86,7 @@ namespace Asawer.Droid
             {
                 gender = "M";
             }
-            else
+            else if (mSexRadioGroup.CheckedRadioButtonId == Resource.Id.rdbSearchFemale)
             {
                 gender = "F";
             }
@@ -151,28 +151,31 @@ namespace Asawer.Droid
                try
                {
                    var results = AhbabDatabase.Search(parameters);
-
-                   if (results != null && results.Count > 0)
+                   this.Activity.RunOnUiThread(() =>
                    {
-                       Ahbab.SearchResults = results;
+                       if (results != null && results.Count > 0)
+                       {
+                           Ahbab.SearchResults = results;
 
-                       Intent searchResultIntent = new Intent(this.Activity, typeof(SearchResultsActivity));
+                           Intent searchResultIntent = new Intent(this.Activity, typeof(SearchResultsActivity));
 
-                       this.Activity.StartActivity(searchResultIntent);
+                           this.Activity.StartActivity(searchResultIntent);
 
-                       this.Activity.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
-                   }
-                   else
-                   {
-                       Toast.MakeText(this.Activity, "No Results Found", ToastLength.Long).Show();
-                   }
+                           this.Activity.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+                       }
+                       else
+                       {
+                           Toast.MakeText(this.Activity, "No Results Found", ToastLength.Long).Show();
+                       }
+                       progress.Hide();
+                   });
                }
                catch (Exception ex)
                {
                    var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
                }
 
-               this.Activity.RunOnUiThread(() => { progress.Hide(); });
+
            })).Start();
         }
     }

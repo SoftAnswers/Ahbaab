@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using SharedCode;
 using System.Collections.Generic;
 using Android.Support.Design.Widget;
+using System;
 
 namespace Asawer.Droid.Fragments
 {
@@ -17,36 +18,53 @@ namespace Asawer.Droid.Fragments
     {
 
         private List<User> results;
-        private RecyclerView mRecyclerView;
-        ImageButton nextBtn;
-        ImageButton prevBtn;
-        Paginator paginator;
+        private RecyclerView recyclerView;
+        private ImageButton nextBtn;
+        private ImageButton prevBtn;
+        private ImageButton firstPage;
+        private ImageButton lastPage;
+        private Paginator paginator;
         private int totalPages;
-        private int currentPage = 0;
+        private int currentPage;
         private string title;
+
+        public ImageButton NextBtn { get => nextBtn; set => nextBtn = value; }
+        public ImageButton PrevBtn { get => prevBtn; set => prevBtn = value; }
+        public ImageButton FirstPage { get => firstPage; set => firstPage = value; }
+        public ImageButton LastPage { get => lastPage; set => lastPage = value; }
+        internal Paginator Paginator { get => paginator; set => paginator = value; }
+        public int TotalPages { get => totalPages; set => totalPages = value; }
+        public int CurrentPage { get => currentPage; set => currentPage = value; }
+        public string Title { get => this.title; set => this.title = value; }
+        public RecyclerView RecyclerView { get => recyclerView; set => recyclerView = value; }
+        public List<User> Results { get => results; set => results = value; }
 
         public VisitorsFragment(List<User> data, string frameTitle)
         {
-            this.results = data;
+            this.Results = data;
             this.title = frameTitle;
-            this.paginator = new Paginator(results);
+            this.paginator = new Paginator(Results);
             this.totalPages = Paginator.LAST_PAGE;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var mView = inflater.Inflate(Resource.Layout.Visitors_List, container, false);
-            this.nextBtn = mView.FindViewById<ImageButton>(Resource.Id.nextBtn);
-            this.prevBtn = mView.FindViewById<ImageButton>(Resource.Id.prevBtn);
-            this.mRecyclerView = mView.FindViewById<RecyclerView>(Resource.Id.recyclerview);
+            this.NextBtn = mView.FindViewById<ImageButton>(Resource.Id.nextBtn);
+            this.PrevBtn = mView.FindViewById<ImageButton>(Resource.Id.prevBtn);
+            this.FirstPage = mView.FindViewById<ImageButton>(Resource.Id.firstPage);
+            this.LastPage = mView.FindViewById<ImageButton>(Resource.Id.lastPage);
+            this.RecyclerView = mView.FindViewById<RecyclerView>(Resource.Id.recyclerview);
             var titleTextView = mView.FindViewById<TextView>(Resource.Id.frameTitle);
             titleTextView.Text = this.title;
 
-            if (results.Count > 0)
+            if (Results.Count > 0)
             {
                 this.SetUpRecyclerView();
-                this.nextBtn.Click += NextButton_Click;
-                this.prevBtn.Click += PreviousButton_Click;
+                this.NextBtn.Click += NextButton_Click;
+                this.PrevBtn.Click += PreviousButton_Click;
+                this.FirstPage.Click += OnFirstPageButtonClick;
+                this.LastPage.Click += OnLastPageButtonClick;
                 this.ToggleButtons();
             }
             else
@@ -59,16 +77,16 @@ namespace Asawer.Droid.Fragments
 
         void SetUpRecyclerView()
         {
-            this.mRecyclerView.SetLayoutManager(new LinearLayoutManager(mRecyclerView.Context));
-            this.mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
-            this.mRecyclerView.SetItemClickListener((rv, position, view) =>
+            this.RecyclerView.SetLayoutManager(new LinearLayoutManager(RecyclerView.Context));
+            this.RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
+            this.RecyclerView.SetItemClickListener((rv, position, view) =>
             {
                 var userPosition = this.currentPage * Paginator.ITEMS_PER_PAGE + position;
-                var result = AhbabDatabase.UpdateVisits(Ahbab.CurrentUser.ID, results[userPosition].ID);
+                var result = AhbabDatabase.UpdateVisits(Ahbab.CurrentUser.ID, Results[userPosition].ID);
                 //An item has been clicked
                 Context context = view.Context;
                 Intent intent = new Intent(context, typeof(UserDetailsActivity));
-                intent.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(results[userPosition]));
+                intent.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(Results[userPosition]));
                 context.StartActivity(intent);
             });
         }
@@ -76,20 +94,34 @@ namespace Asawer.Droid.Fragments
         /**
          * Function used to handle the next button click 
          */
-        private void NextButton_Click(object sender, System.EventArgs e)
+        private void NextButton_Click(object sender, EventArgs e)
         {
             this.currentPage++;
-            this.mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
+            this.RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
             this.ToggleButtons();
         }
 
         /**
          * Function used to handle the previous button click 
          */
-        private void PreviousButton_Click(object sender, System.EventArgs e)
+        private void PreviousButton_Click(object sender, EventArgs e)
         {
             this.currentPage--;
-            this.mRecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(mRecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
+            this.RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, paginator.GeneratePage(currentPage), this.Resources));
+            this.ToggleButtons();
+        }
+
+        private void OnLastPageButtonClick(object sender, EventArgs args)
+        {
+            this.CurrentPage = this.TotalPages - 1;
+            this.RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(this.RecyclerView.Context, Paginator.GeneratePage(CurrentPage), this.Resources));
+            this.ToggleButtons();
+        }
+
+        private void OnFirstPageButtonClick(object sender, EventArgs args)
+        {
+            this.CurrentPage = 0;
+            this.RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(this.RecyclerView.Context, Paginator.GeneratePage(CurrentPage), this.Resources));
             this.ToggleButtons();
         }
 
@@ -99,25 +131,33 @@ namespace Asawer.Droid.Fragments
          */
         private void ToggleButtons()
         {
-            if (totalPages == 1)
+            if (TotalPages == 1)
             {
-                this.nextBtn.Enabled = false;
-                this.prevBtn.Enabled = false;
+                this.NextBtn.Enabled = false;
+                this.PrevBtn.Enabled = false;
+                this.FirstPage.Enabled = false;
+                this.LastPage.Enabled = false;
             }
-            else if (currentPage == totalPages - 1)
+            else if (CurrentPage == TotalPages - 1)
             {
-                this.nextBtn.Enabled = false;
-                this.prevBtn.Enabled = true;
+                this.NextBtn.Enabled = false;
+                this.LastPage.Enabled = false;
+                this.PrevBtn.Enabled = true;
+                this.FirstPage.Enabled = true;
             }
-            else if (currentPage == 0)
+            else if (CurrentPage == 0)
             {
-                this.prevBtn.Enabled = false;
-                this.nextBtn.Enabled = true;
+                this.PrevBtn.Enabled = false;
+                this.FirstPage.Enabled = false;
+                this.NextBtn.Enabled = true;
+                this.LastPage.Enabled = true;
             }
-            else if (currentPage >= 1 && currentPage <= totalPages - 2)
+            else if (CurrentPage >= 1 && CurrentPage <= TotalPages - 2)
             {
-                this.nextBtn.Enabled = true;
-                this.prevBtn.Enabled = true;
+                this.NextBtn.Enabled = true;
+                this.PrevBtn.Enabled = true;
+                this.FirstPage.Enabled = true;
+                this.LastPage.Enabled = true;
             }
         }
     }

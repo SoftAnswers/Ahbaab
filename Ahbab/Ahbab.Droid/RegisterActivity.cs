@@ -21,14 +21,18 @@ using Android.Graphics;
 using Android.Provider;
 using Uri = Android.Net.Uri;
 using Asawer.Entities;
+using Android;
+using Android.Runtime;
+using Android.Support.V4.Content;
 
 namespace Asawer.Droid
 {
     [Activity(Label = "@string/register", Theme = "@style/Theme.Ahbab")]
     public class RegisterActivity : AsawerAppCompatActivity
     {
-        private static readonly int REQUEST_CAMERA = 0;
-        private static readonly int SELECT_FILE = 1;
+        private const int REQUEST_CAMERA = 0;
+        private const int SELECT_FILE = 1;
+        private const string cameraPermission = Manifest.Permission.Camera;
         private Spinner mStatusSpinner;
         private Spinner mAgeSpinner;
         private Spinner mContactTimeSpinner;
@@ -71,6 +75,8 @@ namespace Asawer.Droid
         private LinearLayout mGalleryLayout;
         private List<UserImage> UserImages = new List<UserImage>();
         private List<UserImage> UserImagesToDelete = new List<UserImage>();
+        private string mCurrentPhotoPath;
+        private string mCurrentFileName;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -82,10 +88,10 @@ namespace Asawer.Droid
 
             BindValues();
 
-            if (IsThereAnAppToTakePictures())
-            {
-                CreateDirectoryForPictures();
-            }
+            //if (IsThereAnAppToTakePictures())
+            //{
+            //    CreateDirectoryForPictures();
+            //}
         }
 
         protected override void OnStart()
@@ -219,22 +225,6 @@ namespace Asawer.Droid
             this.mSelfDescriptionInputLayout.EditText.Text = Ahbab.CurrentUser.SelfDescription;
             this.mPartnerDescriptionInputLayout.EditText.Text = Ahbab.CurrentUser.OthersDescription;
         }
-        // Function used to remove the image from the view and add it to the List to be deleted
-        void ImageView_Click(object sender, EventArgs e)
-        {
-            var imageView = sender as ImageView;
-            var image = this.UserImages.Find(userImage => userImage.FileName.Equals(imageView.TransitionName));
-            if (image != null)
-            {
-                this.UserImages.RemoveAt(imageView.Id);
-            }
-            else
-            {
-                var imageName = Ahbab.CurrentUser.ImageNames[imageView.Id];
-                this.UserImagesToDelete.Add(new UserImage(null, imageName, "jpg"));
-            }
-            this.mGalleryLayout.RemoveView(imageView);
-        }
 
         private void InitiateComponents()
         {
@@ -287,7 +277,7 @@ namespace Asawer.Droid
             this.mPartnerDescriptionInputLayout = FindViewById<TextInputLayout>(Resource.Id.txtInputLayoutPartnerDescription);
 
             this.mUploadImage = FindViewById<ImageView>(Resource.Id.imgPic);
-            
+
             for (int i = 0; i < Ahbab.mContactWays.Count; i++)
             {
                 check = new CheckBox(this)
@@ -379,49 +369,49 @@ namespace Asawer.Droid
                 var userInput = GetUserInput();
 
                 new Thread(new ThreadStart(() =>
+                {
+                    try
                     {
-                        try
+                        var resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.RegisterUri, userInput);
+                        errorText = resultString;
+                        if (!string.IsNullOrEmpty(resultString))
                         {
-                            var resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.RegisterUri, userInput);
-                            errorText = resultString;
-                            if (!string.IsNullOrEmpty(resultString))
-                            {
-                                var result = JsonConvert.DeserializeObject<List<User>>(resultString);
+                            var result = JsonConvert.DeserializeObject<List<User>>(resultString);
 
-                                Ahbab.CurrentUser = result.FirstOrDefault();
+                            Ahbab.CurrentUser = result.FirstOrDefault();
 
-                                Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
+                            Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
 
-                                this.StartActivity(mainPageIntent);
+                            this.StartActivity(mainPageIntent);
 
-                                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
-                                                               Android.Resource.Animation.SlideOutRight);
+                            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
+                                                           Android.Resource.Animation.SlideOutRight);
 
-                                registrationSuccessfull = true;
-                            }
+                            registrationSuccessfull = true;
                         }
-                        catch
+                    }
+                    catch
+                    {
+                        registrationSuccessfull = false;
+                    }
+
+                    RunOnUiThread(() =>
+                    {
+                        if (registrationSuccessfull)
                         {
-                            registrationSuccessfull = false;
+                            Toast.MakeText(this,
+                                           Constants.UI.SuccessfullRegistration,
+                                           ToastLength.Short).Show();
+                        }
+                        else
+                        {
+                            Toast.MakeText(this, errorText, ToastLength.Long).Show();
                         }
 
-                        RunOnUiThread(() =>
-                        {
-                            if (registrationSuccessfull)
-                            {
-                                Toast.MakeText(this,
-                                               Constants.UI.SuccessfullRegistration,
-                                               ToastLength.Short).Show();
-                            }
-                            else
-                            {
-                                Toast.MakeText(this, errorText, ToastLength.Long).Show();
-                            }
-
-                            //HIDE PROGRESS DIALOG
-                            progress.Hide();
-                        });
-                    })).Start();
+                        //HIDE PROGRESS DIALOG
+                        progress.Hide();
+                    });
+                })).Start();
             }
         }
 
@@ -712,10 +702,10 @@ namespace Asawer.Droid
                     //Take photo
                     if (args.Which == 0)
                     {
-                        Intent intent = new Intent(MediaStore.ActionImageCapture);
-                        App._file = new Java.IO.File(App._dir, string.Format("Ahbab_{0}.jpg", Guid.NewGuid()));
-                        intent.PutExtra(MediaStore.ExtraOutput, Uri.FromFile(App._file));
-                        StartActivityForResult(intent, 0);
+                        if (this.EnsureCameraPermission())
+                        {
+                            this.DispatchTakeImageIntent();
+                        }
                     }
                     //Choose from gallery
                     else if (args.Which == 1)
@@ -732,6 +722,77 @@ namespace Asawer.Droid
             }
         }
 
+        private bool EnsureCameraPermission()
+        {
+            if ((int)Build.VERSION.SdkInt < 23)
+            {
+                return true;
+            }
+
+            if (CheckSelfPermission(cameraPermission) == (int)Permission.Granted)
+            {
+                return true;
+            }
+
+            RequestPermissions(new string[] { cameraPermission }, 0);
+
+            return false;
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            switch (requestCode)
+            {
+                case 0:
+                    {
+                        if (grantResults[0] == Permission.Granted)
+                        {
+                            //Permission granted
+                            Toast.MakeText(this,
+                                            "Camera permission is available.",
+                                            ToastLength.Short).Show();
+
+                            this.DispatchTakeImageIntent();
+                        }
+                        else
+                        {
+                            //Permission Denied :(
+                            //Disabling location functionality
+                            Toast.MakeText(this,
+                                            "Camera permission denied.",
+                                            ToastLength.Short).Show();
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void DispatchTakeImageIntent()
+        {
+            var intent = new Intent(MediaStore.ActionImageCapture);
+
+            Java.IO.File file = null;
+
+            try
+            {
+                file = this.CreateImageFile();
+            }
+            catch
+            {
+            }
+
+            if (file != null)
+            {
+                Uri photoURI = FileProvider.GetUriForFile(this,
+                                  "com.SoftAnswers.Asawer.fileprovider",
+                                  file);
+
+                intent.PutExtra(MediaStore.ExtraOutput, photoURI);
+
+                this.StartActivityForResult(intent, REQUEST_CAMERA);
+            }
+        }
+
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -745,112 +806,147 @@ namespace Asawer.Droid
                 if (this.mGalleryLayout.ChildCount >= 5)
                     this.mUploadImage.Visibility = ViewStates.Gone;
 
-                if (requestCode == REQUEST_CAMERA)
+                switch (requestCode)
                 {
-                    // Handle the newly captured image
-                    var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+                    case REQUEST_CAMERA:
+                        //Get the result image from the camera
+                        this.ReadImageFromCamera(width, height);
 
-                    var contentUri = Uri.FromFile(App._file);
-
-                    mediaScanIntent.SetData(contentUri);
-
-                    SendBroadcast(mediaScanIntent);
-
-                    App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
-
-                    if (App.bitmap != null)
-                    {
-                        var img = App.bitmap;
-                        var fileName = App._file.Name;
-                        var fileExtension = "jpg";
-                        var imageView = new ImageView(this);
-                        LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(width, 300, 25f);
-                        imageView.LayoutParameters = parame;
-                        imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
-                        imageView.SetAdjustViewBounds(true);
-                        imageView.SetImageBitmap(img);
-                        this.mGalleryLayout.AddView(imageView);
-                        MemoryStream memStream = new MemoryStream();
-                        img.Compress(Bitmap.CompressFormat.Jpeg, 100, memStream);
-                        byte[] picData = memStream.ToArray();
-
-                        this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
-                        // Using transition name just to hold the image name in case we want to delete it
-                        imageView.TransitionName = fileName;
-                        imageView.Click += ImageView_Click;
-                        App.bitmap = null;
-                    }
-
-                    // Dispose of the Java side bitmap.
-                    GC.Collect();
-                }
-                else if (requestCode == SELECT_FILE)
-                {
-                    var clipData = data.ClipData;
-
-                    if (clipData != null)
-                    {
-                        for (int i = 0; i < clipData.ItemCount; i++)
-                        {
-
-                            if (i > 5)
-                            {
-                                break;
-                            }
-
-                            ClipData.Item item = clipData.GetItemAt(i);
-                            global::Android.Net.Uri uri = item.Uri;
-
-                            //In case you need image's absolute path
-                            var fileName = System.IO.Path.GetFileName(GetFilePath(uri));
-                            var fileExtension = System.IO.Path.GetExtension(uri.ToString());
-
-                            var currentImage = BitmapHelpers.DecodeBitmapFromStream(this, uri, width, height);
-
-                            MemoryStream memStream = new MemoryStream();
-                            currentImage.Compress(Bitmap.CompressFormat.Jpeg, 100, memStream);
-                            byte[] picData = memStream.ToArray();
-
-                            this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
-
-                            var imageView = new ImageView(this);
-                            LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(width, 300, 25f);
-                            imageView.LayoutParameters = parame;
-                            imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
-                            imageView.SetAdjustViewBounds(true);
-                            imageView.SetImageBitmap(currentImage);
-                            this.mGalleryLayout.AddView(imageView);
-                            // Using transition name just to hold the image name in case we want to delete it
-                            imageView.TransitionName = fileName;
-                            imageView.Click += ImageView_Click;
-                        }
-                    }
-                    else
-                    {
-                        var img = BitmapHelpers.DecodeBitmapFromStream(this, data.Data, width, height);
-                        var fileName = System.IO.Path.GetFileName(data.Data.ToString());
-                        var fileExtension = System.IO.Path.GetExtension(data.Data.ToString());
-                        if (img != null)
-                        {
-                            var imageView = new ImageView(this);
-                            LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(width, 300, 25f);
-                            imageView.LayoutParameters = parame;
-                            imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
-                            imageView.SetAdjustViewBounds(true);
-                            imageView.SetImageBitmap(img);
-                            this.mGalleryLayout.AddView(imageView);
-                            MemoryStream memStream = new MemoryStream();
-                            img.Compress(Bitmap.CompressFormat.Jpeg, 100, memStream);
-                            byte[] picData = memStream.ToArray();
-
-                            this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
-                            // Using transition name just to hold the image name in case we want to delete it
-                            imageView.TransitionName = fileName;
-                            imageView.Click += ImageView_Click;
-                        }
-                    }
+                        // Dispose of the Java side bitmap.
+                        GC.Collect();
+                        break;
+                    case SELECT_FILE:
+                        //Get the images from the gallery
+                        this.ReadImagesFromGallery(data, width, height);
+                        break;
+                    default:
+                        break;
                 }
             }
+        }
+
+        //Method to be executed after taking the image from the camera
+        private void ReadImageFromCamera(int width, int height)
+        {
+            var mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+
+            var currentFile = new Java.IO.File(this.mCurrentPhotoPath);
+
+            var contentUri = Uri.FromFile(currentFile);
+
+            mediaScanIntent.SetData(contentUri);
+
+            this.SendBroadcast(mediaScanIntent);
+
+            var bitmap = this.mCurrentPhotoPath.LoadAndResizeBitmap(width, height);
+
+            if (bitmap != null)
+            {
+                this.AddImageToView(bitmap, this.mCurrentFileName, "jpg", width);
+
+                this.mCurrentFileName = string.Empty;
+
+                this.mCurrentPhotoPath = string.Empty;
+            }
+        }
+
+        //Method to be executed after the user chooses images from gallery
+        private void ReadImagesFromGallery(Intent data, int width, int height)
+        {
+            var clipData = data.ClipData;
+
+            if (clipData != null)
+            {
+                for (int i = 0; i < clipData.ItemCount; i++)
+                {
+                    if (i > 5)
+                    {
+                        break;
+                    }
+
+                    var item = clipData.GetItemAt(i);
+
+                    var uri = item.Uri;
+
+                    var fileName = System.IO.Path.GetFileName(GetFilePath(uri));
+
+                    var fileExtension = System.IO.Path.GetExtension(uri.ToString());
+
+                    var currentImage = BitmapHelpers.DecodeBitmapFromStream(this, uri, width, height);
+
+                    this.AddImageToView(currentImage, fileName, fileExtension, width);
+                }
+            }
+            else
+            {
+                var currentImage = BitmapHelpers.DecodeBitmapFromStream(this, data.Data, width, height);
+
+                var fileName = System.IO.Path.GetFileName(data.Data.ToString());
+
+                var fileExtension = System.IO.Path.GetExtension(data.Data.ToString());
+
+                if (currentImage != null)
+                {
+                    this.AddImageToView(currentImage, fileName, fileExtension, width);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Calling this method adds the passed bitmap to the linear layout
+        /// </summary>
+        /// <param name="currentImage"></param>
+        /// <param name="fileName"></param>
+        /// <param name="fileExtension"></param>
+        /// <param name="width"></param>
+        private void AddImageToView(Bitmap currentImage, string fileName, string fileExtension, int width)
+        {
+            using (var memStream = new MemoryStream())
+            {
+                currentImage.Compress(Bitmap.CompressFormat.Jpeg, 100, memStream);
+
+                var picData = memStream.ToArray();
+
+                this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
+            }
+
+            var imageView = new ImageView(this)
+            {
+                LayoutParameters = new LinearLayout.LayoutParams(width, 300, 25f)
+            };
+
+            imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
+
+            imageView.SetAdjustViewBounds(true);
+
+            imageView.SetImageBitmap(currentImage);
+
+            this.mGalleryLayout.AddView(imageView);
+
+            // Using transition name just to hold the image name in case we want to delete it
+            imageView.TransitionName = fileName;
+
+            imageView.Click += ImageView_Click;
+        }
+
+        // Method used to remove the image from the view and add it to the List to be deleted
+        private void ImageView_Click(object sender, EventArgs e)
+        {
+            var imageView = sender as ImageView;
+
+            var image = this.UserImages.FirstOrDefault(userImage => userImage.FileName.Equals(imageView.TransitionName));
+
+            if (image != null)
+            {
+                this.UserImages.Remove(image);
+            }
+            else
+            {
+                var imageName = Ahbab.CurrentUser.ImageNames[imageView.Id];
+                this.UserImagesToDelete.Add(new UserImage(null, imageName, "jpg"));
+            }
+
+            this.mGalleryLayout.RemoveView(imageView);
         }
 
         private string GetFilePath(Android.Net.Uri uri)
@@ -906,10 +1002,32 @@ namespace Asawer.Droid
             mWeightSpinner.Adapter = mWeightAdapter;
         }
 
-        private void CreateDirectoryForPictures()
+        private Java.IO.File CreateImageFile()
+        {
+            // Create an image file name
+            var timeStamp = DateTime.Today.ToString("yyyyMMdd_HHmmss");
+
+            this.mCurrentFileName = "Asawer_" + timeStamp;
+
+            var storageDir = GetExternalFilesDir(Android.OS.Environment.DirectoryPictures);
+
+            Java.IO.File image = Java.IO.File.CreateTempFile(
+                this.mCurrentFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+            );
+
+            // Save a file: path for use with ACTION_VIEW intents
+            this.mCurrentPhotoPath = image.AbsolutePath;
+
+            return image;
+        }
+
+        /*private void CreateDirectoryForPictures()
         {
             App._dir = new Java.IO.File(Android.OS.Environment.GetExternalStoragePublicDirectory(
-                    Android.OS.Environment.DirectoryPictures), "AhbabImages");
+                    Android.OS.Environment.DirectoryPictures), "AsawerImages");
+
             if (!App._dir.Exists())
             {
                 App._dir.Mkdirs();
@@ -922,18 +1040,13 @@ namespace Asawer.Droid
             IList<ResolveInfo> availableActivities =
                 PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
             return availableActivities != null && availableActivities.Count > 0;
-        }
+        }*/
 
         protected override void Logout()
         {
             throw new NotImplementedException();
         }
 
-        public static class App
-        {
-            public static Java.IO.File _file;
-            public static Java.IO.File _dir;
-            public static Bitmap bitmap;
-        }
+
     }
 }

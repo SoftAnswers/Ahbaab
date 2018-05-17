@@ -30,11 +30,12 @@ namespace Asawer.Droid
             // Now we will load the image and have BitmapFactory resize it for us.
             options.InSampleSize = inSampleSize;
             options.InJustDecodeBounds = false;
+            options.InPurgeable = true;    
             Bitmap resizedBitmap = BitmapFactory.DecodeFile(fileName, options);
 
             return resizedBitmap;
         }
-
+        
         public static Bitmap DecodeBitmapFromStream(Context context, Android.Net.Uri data,
                                                      int requestedWidth, int requestedHeight)
         {

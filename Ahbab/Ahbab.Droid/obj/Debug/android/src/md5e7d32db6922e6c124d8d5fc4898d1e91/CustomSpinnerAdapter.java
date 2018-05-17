@@ -15,6 +15,7 @@ public class CustomSpinnerAdapter
 			"n_getCount:()I:GetGetCountHandler\n" +
 			"n_getDropDownView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetDropDownView_ILandroid_view_View_Landroid_view_ViewGroup_Handler\n" +
 			"n_getView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetView_ILandroid_view_View_Landroid_view_ViewGroup_Handler\n" +
+			"n_isEnabled:(I)Z:GetIsEnabled_IHandler\n" +
 			"";
 		mono.android.Runtime.register ("Asawer.Droid.CustomSpinnerAdapter, Asawer.Droid", CustomSpinnerAdapter.class, __md_methods);
 	}
@@ -106,6 +107,14 @@ public class CustomSpinnerAdapter
 	}
 
 	private native android.view.View n_getView (int p0, android.view.View p1, android.view.ViewGroup p2);
+
+
+	public boolean isEnabled (int p0)
+	{
+		return n_isEnabled (p0);
+	}
+
+	private native boolean n_isEnabled (int p0);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

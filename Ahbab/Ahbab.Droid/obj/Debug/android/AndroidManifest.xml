@@ -9,7 +9,10 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="com.android.vending.BILLING" />
   <uses-permission android:name="android.permission.CAMERA" />
-  <application android:supportsRtl="true" android:icon="@drawable/logo" android:label="Asawer" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.Ahbab" android:allowBackup="true" android:debuggable="true">
+  <application android:supportsRtl="true" android:icon="@drawable/logo" android:label="Asawer" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.Ahbab" android:allowBackup="true" android:debuggable="true">
+    <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.SoftAnswers.Asawer.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+    </provider>
     <activity android:label="@string/subscribe" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.SubscriptionActivity" />
     <activity android:icon="@drawable/logo" android:label="@string/app_name" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.MainActivity">
       <intent-filter>
