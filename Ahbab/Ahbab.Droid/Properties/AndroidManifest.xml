@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.SoftAnswers.Asawer" android:versionName="1.1" android:installLocation="preferExternal" android:versionCode="4">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.SoftAnswers.dating.Asawer" android:versionName="1.2.1" android:installLocation="preferExternal" android:versionCode="6">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -9,15 +9,9 @@
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="com.android.vending.BILLING" />
 	<uses-permission android:name="android.permission.CAMERA" />
-	<application android:supportsRtl="true" android:icon="@drawable/logo" android:label="Asawer" android:theme="@style/Theme.Ahbab">
-    <provider
-        android:name="android.support.v4.content.FileProvider"
-        android:authorities="com.SoftAnswers.Asawer.fileprovider"
-        android:exported="false"
-        android:grantUriPermissions="true">
-      <meta-data
-          android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/file_paths"/>
-    </provider>
-  </application>
+	<application android:supportsRtl="true" android:icon="@drawable/logo" android:label="Asawer" android:theme="@android:style/Theme.Material.Light.DarkActionBar">
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.SoftAnswers.dating.Asawer.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+		</provider>
+	</application>
 </manifest>

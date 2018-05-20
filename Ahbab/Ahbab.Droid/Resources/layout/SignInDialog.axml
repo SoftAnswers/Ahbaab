@@ -6,27 +6,25 @@
     android:minWidth="300dp"
     android:minHeight="400dp"
     android:layout_height="400dp"
+    android:layout_width="300dp"
     android:textDirection="rtl"
     android:layoutDirection="rtl">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_centerInParent="true">
+            android:padding="20dp">
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:src="@drawable/logo"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp" />
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:id="@+id/txtInputLayoutUserName"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
                 android:layout_marginTop="20dp">
@@ -39,7 +37,8 @@
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:id="@+id/txtInputLayoutPassword"
                 android:layout_below="@id/txtInputLayoutUserName"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
@@ -53,17 +52,16 @@
                     android:hint="@string/password" />
             </android.support.design.widget.TextInputLayout>
             <Button
-                android:layout_below="@id/txtInputLayoutPassword"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:id="@+id/btnDialogRegister"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:paddingTop="2dp"
                 android:background="@drawable/DialogButtonSignInStyle"
-                android:textColor="@drawable/signindialogbuttontextcolor" />
+                android:textColor="@drawable/SignInDialogButtonTextColor" />
         </LinearLayout>
-    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

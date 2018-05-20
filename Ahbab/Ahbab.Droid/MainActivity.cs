@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Util;
 using Android.Widget;
 using Asawer.Entities;
 using SharedCode;
@@ -25,7 +26,7 @@ namespace Asawer.Droid
             mButtonSignUp = FindViewById<Button>(Resource.Id.btnRegister);
 
             mButtonSignIn = this.FindViewById<Button>(Resource.Id.btnLogin);
-
+            
             mButtonSignUp.Click += (object sender, EventArgs args) =>
             {
                 Intent registerIntent = new Intent(this, typeof(RegisterActivity));
@@ -39,7 +40,7 @@ namespace Asawer.Droid
             {
                 var transaction = SupportFragmentManager.BeginTransaction();
 
-                SignInDialog singInDialog = new SignInDialog(this);
+                var singInDialog = new SignInDialog(this);
 
                 singInDialog.Show(transaction, "dialog_fragment");
 

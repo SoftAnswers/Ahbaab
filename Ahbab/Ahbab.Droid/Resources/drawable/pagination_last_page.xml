@@ -5,6 +5,7 @@
       <item>
         <shape>
           <solid android:color="#808080" />
+          <corners android:radius="50dp" />
         </shape>
       </item>
       <item android:drawable="@drawable/baseline_last_page_white_24" />
@@ -16,6 +17,7 @@
       <item>
         <shape>
           <solid android:color="#6c2288" />
+            <corners android:radius="50dp" />
         </shape>
       </item>
       <item android:drawable="@drawable/baseline_last_page_white_24" />
@@ -27,6 +29,7 @@
       <item>
         <shape>
           <solid android:color="#6c2288" />
+            <corners android:radius="50dp" />
         </shape>
       </item>
       <item android:drawable="@drawable/baseline_last_page_white_24" />

@@ -27,6 +27,8 @@ namespace Asawer.Droid
         public static List<SpinnerItem> mContactWays;
         public static User CurrentUser;
         public static List<User> SearchResults;
+        private static Task getSpinnersFromDatabaseTask;
+        public static Task GetSpinnersFromDatabaseTask { get => getSpinnersFromDatabaseTask; set => getSpinnersFromDatabaseTask = value; }
 
         public Ahbab(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer)
@@ -38,7 +40,8 @@ namespace Asawer.Droid
             base.OnCreate();
             try
             {
-                Task.Run(() => GetSpinnersItems());
+                GetSpinnersFromDatabaseTask =  Task.Run(() => GetSpinnersItems());
+                GetSpinnersFromDatabaseTask.Start();
             }
             catch (Exception ex)
             {

@@ -84,14 +84,33 @@ namespace Asawer.Droid
 
             this.SetContentView(Resource.Layout.Register);
 
-            InitiateComponents();
+            if (Ahbab.GetSpinnersFromDatabaseTask.IsCompleted)
+            {
+                InitiateComponents();
 
-            BindValues();
+                BindValues(); 
+            }
+            else
+            {
+                var progress = new ProgressDialog(this)
+                {
+                    Indeterminate = true
+                };
+                progress.SetProgressStyle(ProgressDialogStyle.Spinner);
+                progress.SetMessage(Constants.UI.RegistrationLoader);
+                progress.SetCancelable(false);
+                progress.Show();
 
-            //if (IsThereAnAppToTakePictures())
-            //{
-            //    CreateDirectoryForPictures();
-            //}
+                new Thread(new ThreadStart(() =>
+                {
+                    RunOnUiThread(() =>
+                    {
+                        Ahbab.GetSpinnersFromDatabaseTask.Wait();
+
+                        progress.Hide();
+                    });
+                })).Start();
+            }
         }
 
         protected override void OnStart()
@@ -784,7 +803,7 @@ namespace Asawer.Droid
             if (file != null)
             {
                 Uri photoURI = FileProvider.GetUriForFile(this,
-                                  "com.SoftAnswers.Asawer.fileprovider",
+                                  "com.SoftAnswers.dating.Asawer.fileprovider",
                                   file);
 
                 intent.PutExtra(MediaStore.ExtraOutput, photoURI);
@@ -949,7 +968,7 @@ namespace Asawer.Droid
             this.mGalleryLayout.RemoveView(imageView);
         }
 
-        private string GetFilePath(Android.Net.Uri uri)
+        private string GetFilePath(Uri uri)
         {
             string[] proj = { MediaStore.Images.ImageColumns.Data };
             //Deprecated
@@ -1046,7 +1065,5 @@ namespace Asawer.Droid
         {
             throw new NotImplementedException();
         }
-
-
     }
 }
