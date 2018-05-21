@@ -120,6 +120,7 @@ namespace Asawer
             public const string LoginLoader = "الرجاء الانتظار، يتم تسجيل الدخول";
             public const string SearchLoader = "الرجاء الانتظار، جاري البحث";
             public const string SuccessfullRegistration = "تم التسجيل بنجاح";
+            public const string FetchDataLoader = "الرجاء الانتظار، يتم تنزيل المعلومات";
             public const string UpdateLoader = "الرجاء الانتظار، يتم تحديث المعلومات";
             public const string SuccessfullUpdate = "تم التحديث بنجاح";
             public const string ErrorOccured = "حصل خطأ";

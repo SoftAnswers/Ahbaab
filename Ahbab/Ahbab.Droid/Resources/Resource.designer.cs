@@ -1294,44 +1294,44 @@ namespace Asawer.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b0051
-			public const int abc_background_cache_hint_selector_material_dark = 2131427409;
-			
-			// aapt resource value: 0x7f0b0052
-			public const int abc_background_cache_hint_selector_material_light = 2131427410;
-			
 			// aapt resource value: 0x7f0b0053
-			public const int abc_btn_colored_borderless_text_material = 2131427411;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427411;
 			
 			// aapt resource value: 0x7f0b0054
-			public const int abc_btn_colored_text_material = 2131427412;
+			public const int abc_background_cache_hint_selector_material_light = 2131427412;
 			
 			// aapt resource value: 0x7f0b0055
-			public const int abc_color_highlight_material = 2131427413;
+			public const int abc_btn_colored_borderless_text_material = 2131427413;
 			
 			// aapt resource value: 0x7f0b0056
-			public const int abc_hint_foreground_material_dark = 2131427414;
+			public const int abc_btn_colored_text_material = 2131427414;
 			
 			// aapt resource value: 0x7f0b0057
-			public const int abc_hint_foreground_material_light = 2131427415;
+			public const int abc_color_highlight_material = 2131427415;
+			
+			// aapt resource value: 0x7f0b0058
+			public const int abc_hint_foreground_material_dark = 2131427416;
+			
+			// aapt resource value: 0x7f0b0059
+			public const int abc_hint_foreground_material_light = 2131427417;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int abc_input_method_navigation_guard = 2131427332;
 			
-			// aapt resource value: 0x7f0b0058
-			public const int abc_primary_text_disable_only_material_dark = 2131427416;
-			
-			// aapt resource value: 0x7f0b0059
-			public const int abc_primary_text_disable_only_material_light = 2131427417;
-			
 			// aapt resource value: 0x7f0b005a
-			public const int abc_primary_text_material_dark = 2131427418;
+			public const int abc_primary_text_disable_only_material_dark = 2131427418;
 			
 			// aapt resource value: 0x7f0b005b
-			public const int abc_primary_text_material_light = 2131427419;
+			public const int abc_primary_text_disable_only_material_light = 2131427419;
 			
 			// aapt resource value: 0x7f0b005c
-			public const int abc_search_url_text = 2131427420;
+			public const int abc_primary_text_material_dark = 2131427420;
+			
+			// aapt resource value: 0x7f0b005d
+			public const int abc_primary_text_material_light = 2131427421;
+			
+			// aapt resource value: 0x7f0b005e
+			public const int abc_search_url_text = 2131427422;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int abc_search_url_text_normal = 2131427333;
@@ -1342,29 +1342,32 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0b0007
 			public const int abc_search_url_text_selected = 2131427335;
 			
-			// aapt resource value: 0x7f0b005d
-			public const int abc_secondary_text_material_dark = 2131427421;
-			
-			// aapt resource value: 0x7f0b005e
-			public const int abc_secondary_text_material_light = 2131427422;
-			
 			// aapt resource value: 0x7f0b005f
-			public const int abc_tint_btn_checkable = 2131427423;
+			public const int abc_secondary_text_material_dark = 2131427423;
 			
 			// aapt resource value: 0x7f0b0060
-			public const int abc_tint_default = 2131427424;
+			public const int abc_secondary_text_material_light = 2131427424;
 			
 			// aapt resource value: 0x7f0b0061
-			public const int abc_tint_edittext = 2131427425;
+			public const int abc_tint_btn_checkable = 2131427425;
 			
 			// aapt resource value: 0x7f0b0062
-			public const int abc_tint_seek_thumb = 2131427426;
+			public const int abc_tint_default = 2131427426;
 			
 			// aapt resource value: 0x7f0b0063
-			public const int abc_tint_spinner = 2131427427;
+			public const int abc_tint_edittext = 2131427427;
 			
 			// aapt resource value: 0x7f0b0064
-			public const int abc_tint_switch_track = 2131427428;
+			public const int abc_tint_seek_thumb = 2131427428;
+			
+			// aapt resource value: 0x7f0b0065
+			public const int abc_tint_spinner = 2131427429;
+			
+			// aapt resource value: 0x7f0b0066
+			public const int abc_tint_switch_track = 2131427430;
+			
+			// aapt resource value: 0x7f0b0052
+			public const int accent = 2131427410;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int accent_material_dark = 2131427336;
@@ -1423,8 +1426,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0b0040
 			public const int design_bottom_navigation_shadow_color = 2131427392;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int design_error = 2131427429;
+			// aapt resource value: 0x7f0b0067
+			public const int design_error = 2131427431;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int design_fab_shadow_end_color = 2131427393;
@@ -1450,8 +1453,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0b0048
 			public const int design_snackbar_background_color = 2131427400;
 			
-			// aapt resource value: 0x7f0b0066
-			public const int design_tint_password_toggle = 2131427430;
+			// aapt resource value: 0x7f0b0068
+			public const int design_tint_password_toggle = 2131427432;
 			
 			// aapt resource value: 0x7f0b0016
 			public const int dim_foreground_disabled_material_dark = 2131427350;
@@ -1582,17 +1585,20 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0b0038
 			public const int secondary_text_disabled_material_light = 2131427384;
 			
+			// aapt resource value: 0x7f0b0051
+			public const int splash_background = 2131427409;
+			
 			// aapt resource value: 0x7f0b0039
 			public const int switch_thumb_disabled_material_dark = 2131427385;
 			
 			// aapt resource value: 0x7f0b003a
 			public const int switch_thumb_disabled_material_light = 2131427386;
 			
-			// aapt resource value: 0x7f0b0067
-			public const int switch_thumb_material_dark = 2131427431;
+			// aapt resource value: 0x7f0b0069
+			public const int switch_thumb_material_dark = 2131427433;
 			
-			// aapt resource value: 0x7f0b0068
-			public const int switch_thumb_material_light = 2131427432;
+			// aapt resource value: 0x7f0b006a
+			public const int switch_thumb_material_light = 2131427434;
 			
 			// aapt resource value: 0x7f0b003b
 			public const int switch_thumb_normal_material_dark = 2131427387;
@@ -2385,26 +2391,26 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f020054
 			public const int avd_hide_password = 2130837588;
 			
-			// aapt resource value: 0x7f0200a0
-			public const int avd_hide_password_1 = 2130837664;
+			// aapt resource value: 0x7f0200a3
+			public const int avd_hide_password_1 = 2130837667;
 			
-			// aapt resource value: 0x7f0200a1
-			public const int avd_hide_password_2 = 2130837665;
+			// aapt resource value: 0x7f0200a4
+			public const int avd_hide_password_2 = 2130837668;
 			
-			// aapt resource value: 0x7f0200a2
-			public const int avd_hide_password_3 = 2130837666;
+			// aapt resource value: 0x7f0200a5
+			public const int avd_hide_password_3 = 2130837669;
 			
 			// aapt resource value: 0x7f020055
 			public const int avd_show_password = 2130837589;
 			
-			// aapt resource value: 0x7f0200a3
-			public const int avd_show_password_1 = 2130837667;
+			// aapt resource value: 0x7f0200a6
+			public const int avd_show_password_1 = 2130837670;
 			
-			// aapt resource value: 0x7f0200a4
-			public const int avd_show_password_2 = 2130837668;
+			// aapt resource value: 0x7f0200a7
+			public const int avd_show_password_2 = 2130837671;
 			
-			// aapt resource value: 0x7f0200a5
-			public const int avd_show_password_3 = 2130837669;
+			// aapt resource value: 0x7f0200a8
+			public const int avd_show_password_3 = 2130837672;
 			
 			// aapt resource value: 0x7f020056
 			public const int baseline_chevron_left_24 = 2130837590;
@@ -2539,94 +2545,103 @@ namespace Asawer.Droid
 			public const int Icon = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int logo = 2130837634;
+			public const int loader = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int logohd = 2130837635;
+			public const int logo = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int maleOff = 2130837636;
+			public const int logohd = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int maleOn = 2130837637;
+			public const int main_signin_button_text = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int msgicon = 2130837638;
+			public const int maleOff = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int navigation_empty_icon = 2130837639;
+			public const int maleOn = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int notification_action_background = 2130837640;
+			public const int msgicon = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int notification_bg = 2130837641;
+			public const int navigation_empty_icon = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int notification_bg_low = 2130837642;
+			public const int notification_action_background = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int notification_bg_low_normal = 2130837643;
+			public const int notification_bg = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int notification_bg_low_pressed = 2130837644;
+			public const int notification_bg_low = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int notification_bg_normal = 2130837645;
+			public const int notification_bg_low_normal = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int notification_bg_normal_pressed = 2130837646;
+			public const int notification_bg_low_pressed = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int notification_icon_background = 2130837647;
-			
-			// aapt resource value: 0x7f02009e
-			public const int notification_template_icon_bg = 2130837662;
-			
-			// aapt resource value: 0x7f02009f
-			public const int notification_template_icon_low_bg = 2130837663;
+			public const int notification_bg_normal = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int notification_tile_bg = 2130837648;
+			public const int notification_bg_normal_pressed = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int notify_panel_notification_icon_bg = 2130837649;
+			public const int notification_icon_background = 2130837649;
+			
+			// aapt resource value: 0x7f0200a1
+			public const int notification_template_icon_bg = 2130837665;
+			
+			// aapt resource value: 0x7f0200a2
+			public const int notification_template_icon_low_bg = 2130837666;
 			
 			// aapt resource value: 0x7f020092
-			public const int pagination_first_page = 2130837650;
+			public const int notification_tile_bg = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int pagination_last_page = 2130837651;
+			public const int notify_panel_notification_icon_bg = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int pagination_next_page = 2130837652;
+			public const int pagination_first_page = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int pagination_previous_page = 2130837653;
+			public const int pagination_last_page = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int ProgressBarStyle = 2130837654;
+			public const int pagination_next_page = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int select = 2130837655;
+			public const int pagination_previous_page = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int SignInDialogButtonTextColor = 2130837656;
+			public const int ProgressBarStyle = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int spinnerDropDownItemStyle = 2130837657;
+			public const int select = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int spinnerItem = 2130837658;
+			public const int SignInDialogButtonTextColor = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int tooltip_frame_dark = 2130837659;
+			public const int spinnerDropDownItemStyle = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int tooltip_frame_light = 2130837660;
+			public const int spinnerItem = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int xs = 2130837661;
+			public const int splash_screen = 2130837661;
+			
+			// aapt resource value: 0x7f02009e
+			public const int tooltip_frame_dark = 2130837662;
+			
+			// aapt resource value: 0x7f02009f
+			public const int tooltip_frame_light = 2130837663;
+			
+			// aapt resource value: 0x7f0200a0
+			public const int xs = 2130837664;
 			
 			static Drawable()
 			{
@@ -2752,26 +2767,26 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f09002f
 			public const int beginning = 2131296303;
 			
-			// aapt resource value: 0x7f090129
-			public const int block = 2131296553;
+			// aapt resource value: 0x7f09012a
+			public const int block = 2131296554;
 			
 			// aapt resource value: 0x7f090057
 			public const int blocking = 2131296343;
 			
+			// aapt resource value: 0x7f090118
+			public const int blocksFrom = 2131296536;
+			
 			// aapt resource value: 0x7f090117
-			public const int blocksFrom = 2131296535;
-			
-			// aapt resource value: 0x7f090116
-			public const int blocksFromCardView = 2131296534;
-			
-			// aapt resource value: 0x7f090113
-			public const int blocksLayout = 2131296531;
-			
-			// aapt resource value: 0x7f090115
-			public const int blocksTo = 2131296533;
+			public const int blocksFromCardView = 2131296535;
 			
 			// aapt resource value: 0x7f090114
-			public const int blocksToCardView = 2131296532;
+			public const int blocksLayout = 2131296532;
+			
+			// aapt resource value: 0x7f090116
+			public const int blocksTo = 2131296534;
+			
+			// aapt resource value: 0x7f090115
+			public const int blocksToCardView = 2131296533;
 			
 			// aapt resource value: 0x7f09003d
 			public const int bottom = 2131296317;
@@ -2791,11 +2806,11 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0900f2
 			public const int btnSearch = 2131296498;
 			
-			// aapt resource value: 0x7f09011a
-			public const int btnSendMessage = 2131296538;
+			// aapt resource value: 0x7f09011b
+			public const int btnSendMessage = 2131296539;
 			
-			// aapt resource value: 0x7f090100
-			public const int btnSubscribe = 2131296512;
+			// aapt resource value: 0x7f090101
+			public const int btnSubscribe = 2131296513;
 			
 			// aapt resource value: 0x7f0900e7
 			public const int btnUpdate = 2131296487;
@@ -2836,8 +2851,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0900e0
 			public const int contactTimeSpinner = 2131296480;
 			
-			// aapt resource value: 0x7f090122
-			public const int contactUs = 2131296546;
+			// aapt resource value: 0x7f090123
+			public const int contactUs = 2131296547;
 			
 			// aapt resource value: 0x7f0900e2
 			public const int contactWays = 2131296482;
@@ -2863,8 +2878,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f090060
 			public const int default_activity_button = 2131296352;
 			
-			// aapt resource value: 0x7f090128
-			public const int deleteMessage = 2131296552;
+			// aapt resource value: 0x7f090129
+			public const int deleteMessage = 2131296553;
 			
 			// aapt resource value: 0x7f090090
 			public const int design_bottom_sheet = 2131296400;
@@ -2941,11 +2956,11 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f090058
 			public const int forever = 2131296344;
 			
-			// aapt resource value: 0x7f09011b
-			public const int fragment_container = 2131296539;
-			
 			// aapt resource value: 0x7f09011c
-			public const int frameTitle = 2131296540;
+			public const int fragment_container = 2131296540;
+			
+			// aapt resource value: 0x7f09011d
+			public const int frameTitle = 2131296541;
 			
 			// aapt resource value: 0x7f0900e4
 			public const int gallery = 2131296484;
@@ -2992,26 +3007,26 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0900bc
 			public const int info = 2131296444;
 			
-			// aapt resource value: 0x7f09012a
-			public const int interest = 2131296554;
+			// aapt resource value: 0x7f09012b
+			public const int interest = 2131296555;
+			
+			// aapt resource value: 0x7f090113
+			public const int interestsFrom = 2131296531;
 			
 			// aapt resource value: 0x7f090112
-			public const int interestsFrom = 2131296530;
+			public const int interestsFromCardView = 2131296530;
 			
-			// aapt resource value: 0x7f090111
-			public const int interestsFromCardView = 2131296529;
+			// aapt resource value: 0x7f09011a
+			public const int interestsTo = 2131296538;
 			
 			// aapt resource value: 0x7f090119
-			public const int interestsTo = 2131296537;
-			
-			// aapt resource value: 0x7f090118
-			public const int interestsToCardView = 2131296536;
+			public const int interestsToCardView = 2131296537;
 			
 			// aapt resource value: 0x7f090059
 			public const int italic = 2131296345;
 			
-			// aapt resource value: 0x7f090120
-			public const int item_id = 2131296544;
+			// aapt resource value: 0x7f090121
+			public const int item_id = 2131296545;
 			
 			// aapt resource value: 0x7f0900c2
 			public const int item_subtitle = 2131296450;
@@ -3022,8 +3037,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f090000
 			public const int item_touch_helper_previous_elevation = 2131296256;
 			
-			// aapt resource value: 0x7f09011f
-			public const int item_value = 2131296543;
+			// aapt resource value: 0x7f090120
+			public const int item_value = 2131296544;
 			
 			// aapt resource value: 0x7f0900da
 			public const int jobSpinner = 2131296474;
@@ -3049,23 +3064,23 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f090061
 			public const int list_item = 2131296353;
 			
-			// aapt resource value: 0x7f090126
-			public const int logout = 2131296550;
+			// aapt resource value: 0x7f090127
+			public const int logout = 2131296551;
 			
 			// aapt resource value: 0x7f0900a7
 			public const int main_content = 2131296423;
 			
-			// aapt resource value: 0x7f09011e
-			public const int masked = 2131296542;
+			// aapt resource value: 0x7f09011f
+			public const int masked = 2131296543;
 			
 			// aapt resource value: 0x7f0900b5
 			public const int media_actions = 2131296437;
 			
-			// aapt resource value: 0x7f090121
-			public const int menu = 2131296545;
+			// aapt resource value: 0x7f090122
+			public const int menu = 2131296546;
 			
-			// aapt resource value: 0x7f090102
-			public const int message = 2131296514;
+			// aapt resource value: 0x7f090103
+			public const int message = 2131296515;
 			
 			// aapt resource value: 0x7f090031
 			public const int middle = 2131296305;
@@ -3121,11 +3136,11 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0900f5
 			public const int prevBtn = 2131296501;
 			
-			// aapt resource value: 0x7f090124
-			public const int privacyPolicy = 2131296548;
+			// aapt resource value: 0x7f090125
+			public const int privacyPolicy = 2131296549;
 			
-			// aapt resource value: 0x7f090101
-			public const int progressBar = 2131296513;
+			// aapt resource value: 0x7f090102
+			public const int progressBar = 2131296514;
 			
 			// aapt resource value: 0x7f090006
 			public const int progress_circular = 2131296262;
@@ -3238,8 +3253,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f090089
 			public const int search_voice_btn = 2131296393;
 			
-			// aapt resource value: 0x7f090127
-			public const int securityPolicy = 2131296551;
+			// aapt resource value: 0x7f090128
+			public const int securityPolicy = 2131296552;
 			
 			// aapt resource value: 0x7f09008a
 			public const int select_dialog_listview = 2131296394;
@@ -3273,6 +3288,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0x7f090064
 			public const int spacer = 2131296356;
+			
+			// aapt resource value: 0x7f090100
+			public const int splashImage = 2131296512;
 			
 			// aapt resource value: 0x7f090008
 			public const int split_action_bar = 2131296264;
@@ -3310,8 +3328,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f090019
 			public const int tag_transition_group = 2131296281;
 			
-			// aapt resource value: 0x7f090125
-			public const int termsAndConditions = 2131296549;
+			// aapt resource value: 0x7f090126
+			public const int termsAndConditions = 2131296550;
 			
 			// aapt resource value: 0x7f09001a
 			public const int text = 2131296282;
@@ -3382,8 +3400,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f090013
 			public const int transition_transform = 2131296275;
 			
-			// aapt resource value: 0x7f090109
-			public const int txtAge = 2131296521;
+			// aapt resource value: 0x7f09010a
+			public const int txtAge = 2131296522;
 			
 			// aapt resource value: 0x7f0900ad
 			public const int txtBody = 2131296429;
@@ -3403,29 +3421,29 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0900fc
 			public const int txtDialogUserName = 2131296508;
 			
-			// aapt resource value: 0x7f09010a
-			public const int txtEducationLevel = 2131296522;
+			// aapt resource value: 0x7f09010b
+			public const int txtEducationLevel = 2131296523;
 			
 			// aapt resource value: 0x7f0900c9
 			public const int txtEmail = 2131296457;
 			
-			// aapt resource value: 0x7f090103
-			public const int txtEyesColor = 2131296515;
+			// aapt resource value: 0x7f090104
+			public const int txtEyesColor = 2131296516;
 			
-			// aapt resource value: 0x7f090105
-			public const int txtFamilyStatus = 2131296517;
+			// aapt resource value: 0x7f090106
+			public const int txtFamilyStatus = 2131296518;
 			
 			// aapt resource value: 0x7f0900cb
 			public const int txtFullname = 2131296459;
 			
-			// aapt resource value: 0x7f090108
-			public const int txtGoalFromSite = 2131296520;
+			// aapt resource value: 0x7f090109
+			public const int txtGoalFromSite = 2131296521;
 			
-			// aapt resource value: 0x7f090104
-			public const int txtHairColor = 2131296516;
+			// aapt resource value: 0x7f090105
+			public const int txtHairColor = 2131296517;
 			
-			// aapt resource value: 0x7f090106
-			public const int txtHeight = 2131296518;
+			// aapt resource value: 0x7f090107
+			public const int txtHeight = 2131296519;
 			
 			// aapt resource value: 0x7f0900f9
 			public const int txtInputLayoutBody = 2131296505;
@@ -3454,17 +3472,17 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0900c4
 			public const int txtInputLayoutUserName = 2131296452;
 			
-			// aapt resource value: 0x7f09010d
-			public const int txtJob = 2131296525;
-			
 			// aapt resource value: 0x7f09010e
-			public const int txtLastOnline = 2131296526;
+			public const int txtJob = 2131296526;
+			
+			// aapt resource value: 0x7f09010f
+			public const int txtLastOnline = 2131296527;
 			
 			// aapt resource value: 0x7f0900a0
 			public const int txtLegalBody = 2131296416;
 			
-			// aapt resource value: 0x7f09010b
-			public const int txtOriginCountry = 2131296523;
+			// aapt resource value: 0x7f09010c
+			public const int txtOriginCountry = 2131296524;
 			
 			// aapt resource value: 0x7f0900de
 			public const int txtPartnerDescription = 2131296478;
@@ -3475,8 +3493,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0900e3
 			public const int txtPhotos = 2131296483;
 			
-			// aapt resource value: 0x7f09010c
-			public const int txtResidenceCountry = 2131296524;
+			// aapt resource value: 0x7f09010d
+			public const int txtResidenceCountry = 2131296525;
 			
 			// aapt resource value: 0x7f0900ea
 			public const int txtSearchSex = 2131296490;
@@ -3499,8 +3517,8 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0900c5
 			public const int txtUserName = 2131296453;
 			
-			// aapt resource value: 0x7f090107
-			public const int txtWeight = 2131296519;
+			// aapt resource value: 0x7f090108
+			public const int txtWeight = 2131296520;
 			
 			// aapt resource value: 0x7f09002d
 			public const int uniform = 2131296301;
@@ -3517,20 +3535,20 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f09009d
 			public const int viewpager = 2131296413;
 			
-			// aapt resource value: 0x7f09011d
-			public const int visible = 2131296541;
+			// aapt resource value: 0x7f09011e
+			public const int visible = 2131296542;
+			
+			// aapt resource value: 0x7f090111
+			public const int visitCountTo = 2131296529;
 			
 			// aapt resource value: 0x7f090110
-			public const int visitCountTo = 2131296528;
-			
-			// aapt resource value: 0x7f09010f
-			public const int visitCountToCardView = 2131296527;
+			public const int visitCountToCardView = 2131296528;
 			
 			// aapt resource value: 0x7f0900d4
 			public const int weightSpinner = 2131296468;
 			
-			// aapt resource value: 0x7f090123
-			public const int whoAreWe = 2131296547;
+			// aapt resource value: 0x7f090124
+			public const int whoAreWe = 2131296548;
 			
 			// aapt resource value: 0x7f09003c
 			public const int withText = 2131296316;
@@ -3817,19 +3835,22 @@ namespace Asawer.Droid
 			public const int SlidingTabFragment = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int Subscription = 2130903114;
+			public const int splash_activity = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int support_simple_spinner_dropdown_item = 2130903115;
+			public const int Subscription = 2130903115;
 			
 			// aapt resource value: 0x7f03004c
-			public const int tooltip = 2130903116;
+			public const int support_simple_spinner_dropdown_item = 2130903116;
 			
 			// aapt resource value: 0x7f03004d
-			public const int UserDetailsActivity = 2130903117;
+			public const int tooltip = 2130903117;
 			
 			// aapt resource value: 0x7f03004e
-			public const int Visitors_List = 2130903118;
+			public const int UserDetailsActivity = 2130903118;
+			
+			// aapt resource value: 0x7f03004f
+			public const int Visitors_List = 2130903119;
 			
 			static Layout()
 			{
@@ -4812,6 +4833,12 @@ namespace Asawer.Droid
 			// aapt resource value: 0x7f0a003c
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131361852;
 			
+			// aapt resource value: 0x7f0a018d
+			public const int SplashTheme = 2131362189;
+			
+			// aapt resource value: 0x7f0a018e
+			public const int SplashTheme_Base = 2131362190;
+			
 			// aapt resource value: 0x7f0a018c
 			public const int TextAppearance_App_TextInputLayout = 2131362188;
 			
@@ -5027,6 +5054,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0x7f0a018a
 			public const int Theme_Ahbab_PopupOverlay = 2131362186;
+			
+			// aapt resource value: 0x7f0a018f
+			public const int Theme_Ahbab_WhiteAccent = 2131362191;
 			
 			// aapt resource value: 0x7f0a0186
 			public const int Theme_AhbabAlt = 2131362182;

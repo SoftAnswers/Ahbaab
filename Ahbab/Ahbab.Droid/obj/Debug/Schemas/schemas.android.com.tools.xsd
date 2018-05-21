@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v26</xs:documentation>
-    <xs:documentation>5/20/2018 8:01:24 AM</xs:documentation>
+    <xs:documentation>5/20/2018 10:35:44 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -12,25 +12,6 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="@layout/inboxfragment" />
-            <xs:enumeration value="@layout/include_list_viewpager" />
-            <xs:enumeration value="@layout/legalnotesfragment" />
-            <xs:enumeration value="@layout/list_item" />
-            <xs:enumeration value="@layout/main" />
-            <xs:enumeration value="@layout/mainpage" />
-            <xs:enumeration value="@layout/messagedetailsactivity" />
-            <xs:enumeration value="@layout/nav_header" />
-            <xs:enumeration value="@layout/outboxfragment" />
-            <xs:enumeration value="@layout/pager_item" />
-            <xs:enumeration value="@layout/register" />
-            <xs:enumeration value="@layout/searchfragment" />
-            <xs:enumeration value="@layout/searchresultsactivity" />
-            <xs:enumeration value="@layout/sendmessagefragment" />
-            <xs:enumeration value="@layout/signindialog" />
-            <xs:enumeration value="@layout/slidingtabfragment" />
-            <xs:enumeration value="@layout/subscription" />
-            <xs:enumeration value="@layout/userdetailsactivity" />
-            <xs:enumeration value="@layout/visitors_list" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -68,25 +49,6 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="@layout/inboxfragment" />
-            <xs:enumeration value="@layout/include_list_viewpager" />
-            <xs:enumeration value="@layout/legalnotesfragment" />
-            <xs:enumeration value="@layout/list_item" />
-            <xs:enumeration value="@layout/main" />
-            <xs:enumeration value="@layout/mainpage" />
-            <xs:enumeration value="@layout/messagedetailsactivity" />
-            <xs:enumeration value="@layout/nav_header" />
-            <xs:enumeration value="@layout/outboxfragment" />
-            <xs:enumeration value="@layout/pager_item" />
-            <xs:enumeration value="@layout/register" />
-            <xs:enumeration value="@layout/searchfragment" />
-            <xs:enumeration value="@layout/searchresultsactivity" />
-            <xs:enumeration value="@layout/sendmessagefragment" />
-            <xs:enumeration value="@layout/signindialog" />
-            <xs:enumeration value="@layout/slidingtabfragment" />
-            <xs:enumeration value="@layout/subscription" />
-            <xs:enumeration value="@layout/userdetailsactivity" />
-            <xs:enumeration value="@layout/visitors_list" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -124,25 +86,6 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="@layout/inboxfragment" />
-            <xs:enumeration value="@layout/include_list_viewpager" />
-            <xs:enumeration value="@layout/legalnotesfragment" />
-            <xs:enumeration value="@layout/list_item" />
-            <xs:enumeration value="@layout/main" />
-            <xs:enumeration value="@layout/mainpage" />
-            <xs:enumeration value="@layout/messagedetailsactivity" />
-            <xs:enumeration value="@layout/nav_header" />
-            <xs:enumeration value="@layout/outboxfragment" />
-            <xs:enumeration value="@layout/pager_item" />
-            <xs:enumeration value="@layout/register" />
-            <xs:enumeration value="@layout/searchfragment" />
-            <xs:enumeration value="@layout/searchresultsactivity" />
-            <xs:enumeration value="@layout/sendmessagefragment" />
-            <xs:enumeration value="@layout/signindialog" />
-            <xs:enumeration value="@layout/slidingtabfragment" />
-            <xs:enumeration value="@layout/subscription" />
-            <xs:enumeration value="@layout/userdetailsactivity" />
-            <xs:enumeration value="@layout/visitors_list" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -180,25 +123,6 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="@layout/inboxfragment" />
-            <xs:enumeration value="@layout/include_list_viewpager" />
-            <xs:enumeration value="@layout/legalnotesfragment" />
-            <xs:enumeration value="@layout/list_item" />
-            <xs:enumeration value="@layout/main" />
-            <xs:enumeration value="@layout/mainpage" />
-            <xs:enumeration value="@layout/messagedetailsactivity" />
-            <xs:enumeration value="@layout/nav_header" />
-            <xs:enumeration value="@layout/outboxfragment" />
-            <xs:enumeration value="@layout/pager_item" />
-            <xs:enumeration value="@layout/register" />
-            <xs:enumeration value="@layout/searchfragment" />
-            <xs:enumeration value="@layout/searchresultsactivity" />
-            <xs:enumeration value="@layout/sendmessagefragment" />
-            <xs:enumeration value="@layout/signindialog" />
-            <xs:enumeration value="@layout/slidingtabfragment" />
-            <xs:enumeration value="@layout/subscription" />
-            <xs:enumeration value="@layout/userdetailsactivity" />
-            <xs:enumeration value="@layout/visitors_list" />
             <xs:enumeration value="@android:layout/activity_list_item" />
             <xs:enumeration value="@android:layout/browser_link_context_header" />
             <xs:enumeration value="@android:layout/expandable_list_content" />
@@ -236,70 +160,6 @@
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="@string/age" />
-            <xs:enumeration value="@string/app_name" />
-            <xs:enumeration value="@string/block" />
-            <xs:enumeration value="@string/BlocksFrom" />
-            <xs:enumeration value="@string/BlocksTo" />
-            <xs:enumeration value="@string/body" />
-            <xs:enumeration value="@string/contactTime" />
-            <xs:enumeration value="@string/contactUs" />
-            <xs:enumeration value="@string/contactWays" />
-            <xs:enumeration value="@string/delete" />
-            <xs:enumeration value="@string/educationLevel" />
-            <xs:enumeration value="@string/email" />
-            <xs:enumeration value="@string/eyesColor" />
-            <xs:enumeration value="@string/familyStatus" />
-            <xs:enumeration value="@string/female" />
-            <xs:enumeration value="@string/fullName" />
-            <xs:enumeration value="@string/goalFromSite" />
-            <xs:enumeration value="@string/hairColor" />
-            <xs:enumeration value="@string/height" />
-            <xs:enumeration value="@string/inbox" />
-            <xs:enumeration value="@string/InterestsFrom" />
-            <xs:enumeration value="@string/InterestsTo" />
-            <xs:enumeration value="@string/job" />
-            <xs:enumeration value="@string/lastOnline" />
-            <xs:enumeration value="@string/logout" />
-            <xs:enumeration value="@string/male" />
-            <xs:enumeration value="@string/menu_settings" />
-            <xs:enumeration value="@string/message" />
-            <xs:enumeration value="@string/nextBtnLabel" />
-            <xs:enumeration value="@string/or" />
-            <xs:enumeration value="@string/originCountry" />
-            <xs:enumeration value="@string/outbox" />
-            <xs:enumeration value="@string/partnerDescription" />
-            <xs:enumeration value="@string/password" />
-            <xs:enumeration value="@string/phoneNumber" />
-            <xs:enumeration value="@string/pickOne" />
-            <xs:enumeration value="@string/pressHere" />
-            <xs:enumeration value="@string/prevBtnLabel" />
-            <xs:enumeration value="@string/privacyPolicyBody" />
-            <xs:enumeration value="@string/privacyPolicyTitle" />
-            <xs:enumeration value="@string/residenceCountry" />
-            <xs:enumeration value="@string/search" />
-            <xs:enumeration value="@string/searchResult" />
-            <xs:enumeration value="@string/securityPolicyBody" />
-            <xs:enumeration value="@string/securityPolicyTitle" />
-            <xs:enumeration value="@string/selfDescription" />
-            <xs:enumeration value="@string/send" />
-            <xs:enumeration value="@string/sender" />
-            <xs:enumeration value="@string/sendInterest" />
-            <xs:enumeration value="@string/sex" />
-            <xs:enumeration value="@string/subject" />
-            <xs:enumeration value="@string/subscribe" />
-            <xs:enumeration value="@string/termsAndConditions" />
-            <xs:enumeration value="@string/termsAndConditionsBody" />
-            <xs:enumeration value="@string/termsAndConditionTitle" />
-            <xs:enumeration value="@string/timeZone" />
-            <xs:enumeration value="@string/update" />
-            <xs:enumeration value="@string/uploadPhotos" />
-            <xs:enumeration value="@string/userName" />
-            <xs:enumeration value="@string/VisitCountTo" />
-            <xs:enumeration value="@string/weight" />
-            <xs:enumeration value="@string/welcome" />
-            <xs:enumeration value="@string/whoAreWeBody" />
-            <xs:enumeration value="@string/whoAreWeTitle" />
             <xs:enumeration value="@android:string/cancel" />
             <xs:enumeration value="@android:string/copy" />
             <xs:enumeration value="@android:string/copyUrl" />

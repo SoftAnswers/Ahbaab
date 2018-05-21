@@ -84,11 +84,11 @@ namespace Asawer.Droid
 
             this.SetContentView(Resource.Layout.Register);
 
-            if (Ahbab.GetSpinnersFromDatabaseTask.IsCompleted)
+            if (Ahbab.GetSpinnersFromDatabasrCompleted)
             {
-                InitiateComponents();
+                this.InitiateComponents();
 
-                BindValues(); 
+                this.BindValues();
             }
             else
             {
@@ -97,15 +97,19 @@ namespace Asawer.Droid
                     Indeterminate = true
                 };
                 progress.SetProgressStyle(ProgressDialogStyle.Spinner);
-                progress.SetMessage(Constants.UI.RegistrationLoader);
+                progress.SetMessage(Constants.UI.FetchDataLoader);
                 progress.SetCancelable(false);
                 progress.Show();
 
                 new Thread(new ThreadStart(() =>
                 {
+                    Ahbab.GetSpinnersFromDatabaseTask.Wait();
+
                     RunOnUiThread(() =>
                     {
-                        Ahbab.GetSpinnersFromDatabaseTask.Wait();
+                        this.InitiateComponents();
+
+                        this.BindValues();
 
                         progress.Hide();
                     });
@@ -302,7 +306,8 @@ namespace Asawer.Droid
                 check = new CheckBox(this)
                 {
                     Id = Ahbab.mContactWays[i].ID,
-                    Text = Ahbab.mContactWays[i].DescriptionAR
+                    Text = Ahbab.mContactWays[i].DescriptionAR,
+                    TextSize = 22
                 };
 
                 check.CheckedChange += Check_CheckedChange;

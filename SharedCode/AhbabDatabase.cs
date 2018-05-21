@@ -37,7 +37,7 @@ namespace SharedCode
             return user;
         }
 
-        public static async Task<List<SpinnerItem>> GetSpinnerItems(Uri functionUri, string tableName)
+        public static List<SpinnerItem> GetSpinnerItems(Uri functionUri, string tableName)
         {
             var retVal = new List<SpinnerItem>();
 
@@ -48,7 +48,7 @@ namespace SharedCode
                 { "TableName", tableName }
             };
 
-            var result = await mClient.UploadValuesTaskAsync(functionUri, parameters);
+            var result = mClient.UploadValues(functionUri, parameters);
 
             var items = Encoding.UTF8.GetString(result);
 

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Asawer.Droid
 {
-    [Activity(Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/logo", Theme = "@style/Theme.Ahbab")]
+    [Activity(Label = "@string/app_name", Icon = "@drawable/logo", Theme = "@style/Theme.Ahbab")]
     public class MainActivity : AsawerAppCompatActivity
     {
         private Button mButtonSignUp;

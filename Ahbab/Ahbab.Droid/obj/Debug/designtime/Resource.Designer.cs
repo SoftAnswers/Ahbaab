@@ -1366,6 +1366,9 @@ namespace Asawer.Droid
 			// aapt resource value: 2131099672
 			public static int abc_tint_switch_track = 2131099672;
 			
+			// aapt resource value: 0
+			public static int accent = 0;
+			
 			// aapt resource value: 2131099673
 			public static int accent_material_dark = 2131099673;
 			
@@ -1581,6 +1584,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 2131099735
 			public static int secondary_text_disabled_material_light = 2131099735;
+			
+			// aapt resource value: 0
+			public static int splash_background = 0;
 			
 			// aapt resource value: 2131099736
 			public static int switch_thumb_disabled_material_dark = 2131099736;
@@ -2113,7 +2119,7 @@ namespace Asawer.Droid
 			public static int ._ = 0;
 			
 			// aapt resource value: 0
-			public static int ._Icon = 0;
+			public static int ._icon = 0;
 			
 			// aapt resource value: 0
 			public static int ._ic_action_overflow = 0;
@@ -2458,7 +2464,7 @@ namespace Asawer.Droid
 			public static int ButtonSignInStyle = 0;
 			
 			// aapt resource value: 0
-			public static int ButtonSignUpStyle = 0;
+			public static int buttonsignupstyle = 0;
 			
 			// aapt resource value: 2131296342
 			public static int design_bottom_navigation_item_background = 2131296342;
@@ -2479,22 +2485,22 @@ namespace Asawer.Droid
 			public static int design_snackbar_background = 2131296347;
 			
 			// aapt resource value: 0
-			public static int DialogButtonSignInStyle = 0;
+			public static int dialogbuttonsigninstyle = 0;
 			
 			// aapt resource value: 0
 			public static int edit_text_style = 0;
 			
 			// aapt resource value: 0
-			public static int femaleOn = 0;
+			public static int femaleon = 0;
 			
 			// aapt resource value: 0
-			public static int femaleUsers = 0;
+			public static int femaleusers = 0;
 			
 			// aapt resource value: 0
 			public static int gradient_spinner = 0;
 			
 			// aapt resource value: 0
-			public static int Icon = 0;
+			public static int icon = 0;
 			
 			// aapt resource value: 0
 			public static int ic_action_overflow = 0;
@@ -2524,16 +2530,22 @@ namespace Asawer.Droid
 			public static int ic_menu = 0;
 			
 			// aapt resource value: 0
+			public static int loader = 0;
+			
+			// aapt resource value: 0
 			public static int logo = 0;
 			
 			// aapt resource value: 0
 			public static int logohd = 0;
 			
 			// aapt resource value: 0
-			public static int maleOff = 0;
+			public static int main_signin_button_text = 0;
 			
 			// aapt resource value: 0
-			public static int maleOn = 0;
+			public static int maleoff = 0;
+			
+			// aapt resource value: 0
+			public static int maleon = 0;
 			
 			// aapt resource value: 0
 			public static int msgicon = 0;
@@ -2590,19 +2602,25 @@ namespace Asawer.Droid
 			public static int pagination_previous_page = 0;
 			
 			// aapt resource value: 0
-			public static int ProgressBarStyle = 0;
+			public static int progressbarstyle = 0;
 			
 			// aapt resource value: 0
 			public static int select = 0;
 			
 			// aapt resource value: 0
-			public static int SignInDialogButtonTextColor = 0;
+			public static int signindialogbuttontextcolor = 0;
+			
+			// aapt resource value: 0
+			public static int spinner-item = 0;
 			
 			// aapt resource value: 0
 			public static int spinnerDropDownItemStyle = 0;
 			
 			// aapt resource value: 0
 			public static int spinnerItem = 0;
+			
+			// aapt resource value: 0
+			public static int splash_screen = 0;
 			
 			// aapt resource value: 2131296361
 			public static int tooltip_frame_dark = 2131296361;
@@ -3206,6 +3224,9 @@ namespace Asawer.Droid
 			// aapt resource value: 2131492974
 			public static int spacer = 2131492974;
 			
+			// aapt resource value: 0
+			public static int splashImage = 0;
+			
 			// aapt resource value: 2131492975
 			public static int split_action_bar = 2131492975;
 			
@@ -3738,6 +3759,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int SlidingTabFragment = 0;
+			
+			// aapt resource value: 0
+			public static int splash_activity = 0;
 			
 			// aapt resource value: 0
 			public static int Subscription = 0;
@@ -4741,6 +4765,12 @@ namespace Asawer.Droid
 			// aapt resource value: 0
 			public static int spinner_style = 0;
 			
+			// aapt resource value: 0
+			public static int SplashTheme = 0;
+			
+			// aapt resource value: 0
+			public static int SplashTheme_Base = 0;
+			
 			// aapt resource value: 2132148422
 			public static int TextAppearance_AppCompat = 2132148422;
 			
@@ -4980,6 +5010,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int Theme_Ahbab_PopupOverlay = 0;
+			
+			// aapt resource value: 0
+			public static int Theme_Ahbab_WhiteAccent = 0;
 			
 			// aapt resource value: 2132148497
 			public static int Theme_AppCompat = 2132148497;

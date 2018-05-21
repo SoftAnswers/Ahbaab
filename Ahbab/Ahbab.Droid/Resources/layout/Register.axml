@@ -51,7 +51,8 @@
                         android:background="@drawable/edit_text_style"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp" />
+                        android:layout_marginBottom="20dp"
+                        android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -68,7 +69,8 @@
                         android:password="true"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp" />
+                        android:layout_marginBottom="20dp"
+                        android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/txtInputLayoutEmail"
@@ -84,7 +86,8 @@
                         android:background="@drawable/edit_text_style"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp" />
+                        android:layout_marginBottom="20dp"
+                        android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/txtInputLayoutFullName"
@@ -100,7 +103,8 @@
                         android:background="@drawable/edit_text_style"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp" />
+                        android:layout_marginBottom="20dp"
+                        android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
                 <TextView
                     android:layout_weight="2"
@@ -114,7 +118,7 @@
                     android:gravity="start"
                     android:textColor="#000"
                     android:layoutDirection="rtl"
-                    android:textSize="20sp" />
+                    android:textSize="22sp" />
 
                 <RadioGroup
                     android:id="@+id/rdgSex"
@@ -137,7 +141,8 @@
                         android:layoutDirection="rtl"
                         android:text="@string/male"
                         android:textColor="#000"
-                        android:textDirection="rtl" />
+                        android:textDirection="rtl"
+                        android:textSize="22sp" />
 
                     <RadioButton
                         android:id="@+id/rdbFemale"
@@ -149,12 +154,13 @@
                         android:layoutDirection="rtl"
                         android:text="@string/female"
                         android:textColor="#000"
-                        android:textDirection="rtl" />
+                        android:textDirection="rtl"
+                        android:textSize="22sp" />
                 </RadioGroup>
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/statusSpinner"
                     android:prompt="@string/familyStatus"
                     android:layout_marginLeft="15dp"
@@ -164,7 +170,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/eyesColorSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -173,7 +179,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/hairColorSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -182,7 +188,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/heightSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -193,7 +199,7 @@
                     android:id="@+id/weightSpinner"
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="20dp"
@@ -201,7 +207,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/goalFromSiteSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -210,7 +216,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/ageSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -219,7 +225,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/educationSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -228,7 +234,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/originCountrySpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -237,7 +243,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="40dp"
                     android:id="@+id/residentCountrySpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -246,7 +252,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="40dp"
                     android:id="@+id/jobSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -266,7 +272,8 @@
                         android:hint="@string/selfDescription"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp"/>
+                        android:layout_marginTop="20dp"
+                        android:textSize="22sp"/>
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/txtInputLayoutPartnerDescription"
@@ -282,12 +289,13 @@
                         android:hint="@string/partnerDescription"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp"/>
+                        android:layout_marginTop="20dp"
+                        android:textSize="22sp"/>
                 </android.support.design.widget.TextInputLayout>
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/timeSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -297,7 +305,7 @@
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="40dp"
                     android:id="@+id/contactTimeSpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -316,7 +324,7 @@
                     android:gravity="right"
                     android:textColor="#000"
                     android:layoutDirection="rtl"
-                    android:textSize="20dp" />
+                    android:textSize="22sp" />
                 <LinearLayout
                     android:id="@+id/contactWays"
                     android:layout_width="match_parent"
@@ -334,7 +342,7 @@
                     android:gravity="right"
                     android:textColor="#000"
                     android:layoutDirection="rtl"
-                    android:textSize="20dp" />
+                    android:textSize="22sp" />
                 <HorizontalScrollView
                     android:id="@+id/gallery"
                     android:layout_width="match_parent"
@@ -366,7 +374,8 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/DialogButtonSignInStyle"
-                    android:textColor="@drawable/SignInDialogButtonTextColor" />
+                    android:textColor="@drawable/SignInDialogButtonTextColor"
+                    android:textSize="22sp" />
                 <Button
                     android:layout_weight="4"
                     android:layout_height="0dp"
@@ -379,7 +388,8 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/DialogButtonSignInStyle"
-                    android:textColor="@drawable/SignInDialogButtonTextColor" />
+                    android:textColor="@drawable/SignInDialogButtonTextColor"
+                    android:textSize="22sp" />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>
