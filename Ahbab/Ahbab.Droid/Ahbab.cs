@@ -30,7 +30,7 @@ namespace Asawer.Droid
         private static Task getSpinnersFromDatabaseTask;
         private static bool? getSpinnersFromDatabasrCompleted;
         public static Task GetSpinnersFromDatabaseTask { get => getSpinnersFromDatabaseTask; set => getSpinnersFromDatabaseTask = value; }
-        public static bool GetSpinnersFromDatabasrCompleted
+        public static bool GetSpinnersFromDatabaseCompleted
         {
             get
             {
@@ -63,7 +63,7 @@ namespace Asawer.Droid
                 GetSpinnersFromDatabaseTask.ContinueWith(t =>
                 {
 
-                    GetSpinnersFromDatabasrCompleted = true;
+                    GetSpinnersFromDatabaseCompleted = true;
                 });
             }
             catch (Exception ex)

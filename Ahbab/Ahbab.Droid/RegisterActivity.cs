@@ -84,7 +84,7 @@ namespace Asawer.Droid
 
             this.SetContentView(Resource.Layout.Register);
 
-            if (Ahbab.GetSpinnersFromDatabasrCompleted)
+            if (Ahbab.GetSpinnersFromDatabaseCompleted)
             {
                 this.InitiateComponents();
 

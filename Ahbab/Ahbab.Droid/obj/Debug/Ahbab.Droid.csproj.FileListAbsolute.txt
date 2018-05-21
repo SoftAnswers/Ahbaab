@@ -796,3 +796,8 @@ C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.ServiceModel.In
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.Linq.pdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\System.Xml.pdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\loader.xml
+C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Asawer.Droid.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\linksrc\Asawer.Droid.dll.mdb
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\linksrc\Ahbab.dll.mdb
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\linksrc\Plugin.InAppBilling.dll.mdb
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\linksrc\Plugin.InAppBilling.VendingLibrary.dll.mdb

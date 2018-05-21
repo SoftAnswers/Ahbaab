@@ -601,6 +601,10 @@ C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\System.pdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\System.Runtime.Serialization.pdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\System.Xml.Linq.pdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\System.Xml.pdb
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\res\drawable\main_signin_button_text.xml
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\res\drawable\splash_screen.xml
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\res\layout\splash_activity.xml
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\res\drawable\loader.xml
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Release\Asawer.Droid.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\linksrc\Asawer.Droid.dll.mdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\linksrc\Ahbab.dll.mdb

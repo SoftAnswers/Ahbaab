@@ -20,3 +20,4 @@ C:\ws\repo\git\Ahbab\Ahbab\obj\Release\Asawer.csproj.CoreCompileInputs.cache
 C:\ws\repo\git\Ahbab\Ahbab\obj\Release\Asawer.csproj.CopyComplete
 C:\ws\repo\git\Ahbab\Ahbab\obj\Release\Ahbab.dll
 C:\ws\repo\git\Ahbab\Ahbab\obj\Release\Ahbab.pdb
+C:\ws\repo\git\Ahbab\Ahbab\obj\Release\Asawer.csprojAssemblyReference.cache

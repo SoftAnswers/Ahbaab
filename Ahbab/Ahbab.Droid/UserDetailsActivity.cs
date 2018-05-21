@@ -20,6 +20,10 @@ using Asawer.Droid.Adapters;
 using Android.Support.V7.Widget;
 using Asawer.Droid.Fragments;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Plugin.InAppBilling;
+using Plugin.InAppBilling.Abstractions;
 
 namespace Asawer.Droid
 {
@@ -44,6 +48,37 @@ namespace Asawer.Droid
 
             SetContentView(Resource.Layout.UserDetailsActivity);
 
+            if (Ahbab.GetSpinnersFromDatabaseCompleted)
+            {
+                this.InitializeView();
+            }
+            else
+            {
+                var progress = new ProgressDialog(this)
+                {
+                    Indeterminate = true
+                };
+                progress.SetProgressStyle(ProgressDialogStyle.Spinner);
+                progress.SetMessage(Constants.UI.FetchDataLoader);
+                progress.SetCancelable(false);
+                progress.Show();
+
+                new Thread(new ThreadStart(() =>
+                {
+                    Ahbab.GetSpinnersFromDatabaseTask.Wait();
+
+                    RunOnUiThread(() =>
+                    {
+                        this.InitializeView();
+
+                        progress.Hide();
+                    });
+                })).Start();
+            }
+        }
+
+        private void InitializeView()
+        {
             SupportToolbar toolBar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
             SetSupportActionBar(toolBar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -189,6 +224,7 @@ namespace Asawer.Droid
 
             LoadUserImages();
             mSendMessageButton.Click += MSendMessageButton_Click;
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
         }
 
         void UpdateBtn_Click(object sender, EventArgs e)
@@ -200,9 +236,7 @@ namespace Asawer.Droid
                 alert.SetMessage(Constants.UI.Upgrade);
                 alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
                 {
-                    Intent subscribeActivity = new Intent(this, typeof(SubscriptionActivity));
-                    subscribeActivity.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
-                    this.StartActivity(subscribeActivity);
+                    this.PerformPurchase();
                 });
                 alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
                 Android.Support.V7.App.AlertDialog dialog = alert.Create();
@@ -361,9 +395,7 @@ namespace Asawer.Droid
                 alert.SetMessage(Constants.UI.Upgrade);
                 alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
                 {
-                    Intent subscribeActivity = new Intent(this, typeof(SubscriptionActivity));
-                    subscribeActivity.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
-                    this.StartActivity(subscribeActivity);
+                    this.PerformPurchase();
                 });
 
                 alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
@@ -443,9 +475,7 @@ namespace Asawer.Droid
                 alert.SetMessage(Constants.UI.Upgrade);
                 alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
                 {
-                    Intent subscribeActivity = new Intent(this, typeof(SubscriptionActivity));
-                    subscribeActivity.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
-                    this.StartActivity(subscribeActivity);
+                    this.PerformPurchase();
                 });
                 alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
                 Android.Support.V7.App.AlertDialog dialog = alert.Create();
@@ -544,6 +574,71 @@ namespace Asawer.Droid
 
                 default:
                     return v.OnTouchEvent(e);
+            }
+        }
+
+        private async void PerformPurchase()
+        {
+            var succeeded = await this.PurchaseItem("asawer_subscription.2018", "AsawerPayload");
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            InAppBillingImplementation.HandleActivityResult(requestCode, resultCode, data);
+        }
+
+        public async Task<bool> PurchaseItem(string productId, string payload)
+        {
+            var billing = CrossInAppBilling.Current;
+            try
+            {
+                var connected = await billing.ConnectAsync();
+                if (!connected)
+                {
+                    //we are offline or can't connect, don't try to purchase
+                    return false;
+                }
+
+                //check purchases
+                var purchase = await billing.PurchaseAsync(productId, ItemType.Subscription, payload);
+
+                //possibility that a null came through.
+                if (purchase == null)
+                {
+                    //did not purchase
+                    return false;
+                }
+                else
+                {
+                    try
+                    {
+                        var result = AhbabDatabase.Subscribe(Ahbab.CurrentUser.ID);
+                        if (result != null)
+                        {
+                            Ahbab.CurrentUser = result;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                    }
+                    return false;
+                }
+            }
+            catch (InAppBillingPurchaseException purchaseEx)
+            {
+                //Billing Exception handle this based on the type
+                return false;
+            }
+            catch (Exception ex)
+            {
+                //Something else has gone wrong, log it
+                return false;
+            }
+            finally
+            {
+                await billing.DisconnectAsync();
             }
         }
     }
