@@ -41,7 +41,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="OnSendMessageEventArgs.cs" />
-    <Compile Include="Entities\UserImage.cs" />
+    <Compile Include="Entities\UserFile.cs" />
     <Compile Include="Entities\ContactWay.cs" />
   </ItemGroup>
   <ItemGroup>

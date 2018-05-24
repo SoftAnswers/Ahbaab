@@ -5,7 +5,7 @@ using Asawer.Entities;
 namespace Asawer.Droid.Helpers {
     class Paginator {
         public static int TOTAL_NUM_ITEMS;
-        public static int ITEMS_PER_PAGE = 5;
+        public static int ITEMS_PER_PAGE = 10;
         public static int ITEMS_REMAINING;
         public static int LAST_PAGE;
         private List<User> searchResults;

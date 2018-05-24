@@ -126,7 +126,7 @@
 		$images = json_decode($img);
 		for ($i = 0; $i < count($images); $i++) {
 			
-			$imageContents = $images[$i]->{'ImageBytes'};
+			$imageContents = $images[$i]->{'FileBytes'};
 			
 			$fileName = $images[$i]->{'FileName'};
 			$dir = "../uimg/FullSize/";

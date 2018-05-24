@@ -65,9 +65,9 @@ namespace Ahbab.iOS {
          * Fuction used to perform the actual login. It calls the login service
          * that returns the requested user
          */
-        private void LoginClicked(String username, String password) {
+        private async void LoginClicked(String username, String password) {
             try {
-                var result = AhbabDatabase.Login(username, password);
+                var result = await AhbabDatabase.Login(username, password);
                 if (result != null) {
                     Ahbab.CurrentUser = result;
                     MainPageTabController mainPage = this.Storyboard.InstantiateViewController("MainPageTabController") as MainPageTabController;

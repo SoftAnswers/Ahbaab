@@ -92,8 +92,8 @@ namespace Asawer.Entities
         public DateTime PaidEndDate { get; set; }
         public string AccountStatus { get; set; }
         public int TimeZoneId { get; set; }
-        public UserImage Image { get; set; }
-        public List<UserImage> Images { get; set; }
+        public UserFile Image { get; set; }
+        public List<UserFile> Images { get; set; }
         public string[] ImageNames { get; set; }
         public string[] ImageBase64 { get; set; }
         public List<byte[]> ImageBytes {

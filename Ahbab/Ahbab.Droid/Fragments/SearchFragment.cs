@@ -18,7 +18,6 @@ namespace Asawer.Droid
         private Spinner mStatusSpinner;
         private Spinner mAgeSpinner;
         private Spinner mGoalFromSiteSpinner;
-        private Spinner mOriginCountrySpinner;
         private Spinner mResidentCountrySpinner;
         private RadioGroup mSexRadioGroup;
         private Button mSearchButton;
@@ -55,9 +54,7 @@ namespace Asawer.Droid
             mGoalFromSiteSpinner.Adapter = mGoalFromSiteAdapter;
 
             mCountriesAdapter = new CustomSpinnerAdapter(this.Activity, Resource.Drawable.spinnerItem,
-                                                                     Resource.Id.item_value, Ahbab.mCountries);
-
-            mOriginCountrySpinner.Adapter = mCountriesAdapter;
+                                                                     Resource.Id.item_value, Ahbab.mResidenceCountries);
 
             mResidentCountrySpinner.Adapter = mCountriesAdapter;
         }
@@ -68,7 +65,6 @@ namespace Asawer.Droid
             this.mStatusSpinner = view.FindViewById<Spinner>(Resource.Id.searchStatusSpinner);
             this.mAgeSpinner = view.FindViewById<Spinner>(Resource.Id.searchAgeSpinner);
             this.mGoalFromSiteSpinner = view.FindViewById<Spinner>(Resource.Id.goalFromSiteSpinner);
-            this.mOriginCountrySpinner = view.FindViewById<Spinner>(Resource.Id.searchOriginCountrySpinner);
             this.mResidentCountrySpinner = view.FindViewById<Spinner>(Resource.Id.searchResidentCountrySpinner);
             this.mSexRadioGroup = view.FindViewById<RadioGroup>(Resource.Id.rdgSearchSex);
             this.mSearchButton = view.FindViewById<Button>(Resource.Id.btnSearch);
@@ -97,8 +93,6 @@ namespace Asawer.Droid
 
             var usagePurpose = mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID;
 
-            var origin = mCountriesAdapter.GetItemAtPosition(mOriginCountrySpinner.SelectedItemPosition).ID;
-
             var current = mCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID;
 
             var parameters = new NameValueCollection
@@ -114,7 +108,7 @@ namespace Asawer.Droid
             {
                 parameters.Add("gender", gender);
             }
-            if (age != 0)
+            if (age > 0)
             {
                 parameters.Add("age", age.ToString());
             }
@@ -122,15 +116,11 @@ namespace Asawer.Droid
             {
                 parameters.Add("status", status.ToString());
             }
-            if (usagePurpose != 0)
+            if (usagePurpose > 0)
             {
                 parameters.Add("usagepurpose", usagePurpose.ToString());
             }
-            if (origin != 0)
-            {
-                parameters.Add("origin", origin.ToString());
-            }
-            if (current != 0)
+            if (current > 0)
             {
                 parameters.Add("current", current.ToString());
             }

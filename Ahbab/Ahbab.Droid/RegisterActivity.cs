@@ -42,9 +42,7 @@ namespace Asawer.Droid
         private Spinner mHairColorSpinner;
         private Spinner mHeightSpinner;
         private Spinner mJobSpinner;
-        private Spinner mOriginCountrySpinner;
         private Spinner mResidentCountrySpinner;
-        private Spinner mTimeSpinner;
         private Spinner mWeightSpinner;
         private Button mRegisterButton;
         private Button mUpdateButton;
@@ -65,18 +63,19 @@ namespace Asawer.Droid
         private CustomSpinnerAdapter mHairColorAdapter;
         private CustomSpinnerAdapter mHeightAdapter;
         private CustomSpinnerAdapter mJobAdapter;
-        private CustomSpinnerAdapter mCountriesAdapter;
         private CustomSpinnerAdapter mResidenceCountriesAdapter;
-        private CustomSpinnerAdapter mTimeAdapter;
         private CustomSpinnerAdapter mWeightAdapter;
         private CheckBox check;
         private EditText ContactWay;
         private LinearLayout mContactWaysLayout;
         private LinearLayout mGalleryLayout;
-        private List<UserImage> UserImages = new List<UserImage>();
-        private List<UserImage> UserImagesToDelete = new List<UserImage>();
+        private List<UserFile> userImages = new List<UserFile>();
+        private List<UserFile> userImagesToDelete = new List<UserFile>();
         private string mCurrentPhotoPath;
         private string mCurrentFileName;
+
+        public List<UserFile> UserImagesToDelete { get => userImagesToDelete; set => userImagesToDelete = value; }
+        public List<UserFile> UserImages { get => userImages; set => userImages = value; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -182,17 +181,9 @@ namespace Asawer.Droid
             this.mJobSpinner.SetSelection(this.mJobAdapter.GetPosition(Ahbab.mJobItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.JobId
             )));
-
-            this.mOriginCountrySpinner.SetSelection(this.mCountriesAdapter.GetPosition(Ahbab.mCountries.FirstOrDefault(
-                        i => i.ID == Ahbab.CurrentUser.OriginCountryId
-            )));
-
-            this.mResidentCountrySpinner.SetSelection(this.mCountriesAdapter.GetPosition(Ahbab.mCountries.FirstOrDefault(
+            
+            this.mResidentCountrySpinner.SetSelection(this.mResidenceCountriesAdapter.GetPosition(Ahbab.mCountries.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.CurrentCountryId
-            )));
-
-            this.mTimeSpinner.SetSelection(this.mTimeAdapter.GetPosition(Ahbab.mTimeItems.FirstOrDefault(
-                        i => i.ID == Ahbab.CurrentUser.TimeZoneId
             )));
 
             this.mWeightSpinner.SetSelection(this.mWeightAdapter.GetPosition(Ahbab.mWeightItems.FirstOrDefault(
@@ -271,11 +262,7 @@ namespace Asawer.Droid
 
             this.mJobSpinner = this.FindViewById<Spinner>(Resource.Id.jobSpinner);
 
-            this.mOriginCountrySpinner = this.FindViewById<Spinner>(Resource.Id.originCountrySpinner);
-
             this.mResidentCountrySpinner = this.FindViewById<Spinner>(Resource.Id.residentCountrySpinner);
-
-            this.mTimeSpinner = this.FindViewById<Spinner>(Resource.Id.timeSpinner);
 
             this.mWeightSpinner = this.FindViewById<Spinner>(Resource.Id.weightSpinner);
 
@@ -329,7 +316,7 @@ namespace Asawer.Droid
             mUpdateButton.Click += MUpdateButton_Click;
         }
 
-        void Check_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
+        private void Check_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
         {
             var currentCheckBox = sender as CheckBox;
             var id = currentCheckBox.Id;
@@ -373,7 +360,7 @@ namespace Asawer.Droid
             }
         }
 
-        void MRegisterButton_Click(object sender, EventArgs e)
+        private void MRegisterButton_Click(object sender, EventArgs e)
         {
             var validInput = ValidateDataInput();
 
@@ -439,7 +426,7 @@ namespace Asawer.Droid
             }
         }
 
-        void MUpdateButton_Click(object sender, EventArgs e)
+        private void MUpdateButton_Click(object sender, EventArgs e)
         {
             var validInput = ValidateDataInput();
 
@@ -502,7 +489,7 @@ namespace Asawer.Droid
             }
         }
 
-        User GetUserInput()
+        private User GetUserInput()
         {
             var currentUser = new User();
 
@@ -521,27 +508,25 @@ namespace Asawer.Droid
             currentUser.BlocksTo = 0;
             currentUser.CreatedOn = DateTime.Today;
             currentUser.LastActiveDate = DateTime.Today;
-            currentUser.CurrentCountryId = mCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID;
+            currentUser.CurrentCountryId = mResidenceCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID;
             currentUser.EducationLevelID = mEducationAdapter.GetItemAtPosition(mEducationSpinner.SelectedItemPosition).ID;
             currentUser.EyesColorId = mEyesColorAdapter.GetItemAtPosition(mEyesColorSpinner.SelectedItemPosition).ID;
             currentUser.HairColorId = mHairColorAdapter.GetItemAtPosition(mHairColorSpinner.SelectedItemPosition).ID;
             currentUser.HeightId = mHeightAdapter.GetItemAtPosition(mHeightSpinner.SelectedItemPosition).ID;
             currentUser.InterestsFrom = 0;
             currentUser.InterestsTo = 0;
-            WifiManager wifiManager = (WifiManager)this.GetSystemService(WifiService);
-            int ip = wifiManager.ConnectionInfo.IpAddress;
+            var wifiManager = (WifiManager)this.GetSystemService(WifiService);
+            var ip = wifiManager.ConnectionInfo.IpAddress;
             currentUser.IP = ip.ToString();
             currentUser.JobId = mJobAdapter.GetItemAtPosition(mJobSpinner.SelectedItemPosition).ID;
             currentUser.LastActiveDate = DateTime.Today;
             currentUser.NumberOfLogins = 1;
-            currentUser.OriginCountryId = mCountriesAdapter.GetItemAtPosition(mOriginCountrySpinner.SelectedItemPosition).ID;
             currentUser.Status = mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID;
             currentUser.Paid = "N";
             currentUser.PaidEndDate = DateTime.Today;
             currentUser.PaidStartDate = DateTime.Today;
             currentUser.SelfDescription = mSelfDescriptionInputLayout.EditText.Text;
             currentUser.TimeFrameId = mContactTimeAdapter.GetItemAtPosition(mContactTimeSpinner.SelectedItemPosition).ID;
-            currentUser.TimeZoneId = mTimeAdapter.GetItemAtPosition(mTimeSpinner.SelectedItemPosition).ID;
             currentUser.UsagePurposeId = mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID;
             currentUser.WeightId = mWeightAdapter.GetItemAtPosition(mWeightSpinner.SelectedItemPosition).ID;
             currentUser.VisitCountFrom = 0;
@@ -582,7 +567,7 @@ namespace Asawer.Droid
             return currentUser;
         }
 
-        string GetWayValue(int id)
+        private string GetWayValue(int id)
         {
             var retVal = string.Empty;
 
@@ -601,7 +586,7 @@ namespace Asawer.Droid
             return retVal;
         }
 
-        bool ValidateDataInput()
+        private bool ValidateDataInput()
         {
             var validInput = true;
             var errorText = "";
@@ -684,13 +669,7 @@ namespace Asawer.Droid
                 validInput = false;
             }
 
-            if (mCountriesAdapter.GetItemAtPosition(mOriginCountrySpinner.SelectedItemPosition).ID == 0)
-            {
-                errorText = "الرجاء إختيار بلد الأصل";
-                validInput = false;
-            }
-
-            if (mCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID == 0)
+            if (mResidenceCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID == 0)
             {
                 errorText = "الرجاء إختيار بلد السكن";
                 validInput = false;
@@ -706,6 +685,7 @@ namespace Asawer.Droid
                     });
                 })).Start();
             }
+
             return validInput;
         }
 
@@ -931,7 +911,7 @@ namespace Asawer.Droid
 
                 var picData = memStream.ToArray();
 
-                this.UserImages.Add(new UserImage(picData, fileName, fileExtension));
+                this.UserImages.Add(new UserFile(picData, fileName, fileExtension));
             }
 
             var imageView = new ImageView(this)
@@ -967,7 +947,7 @@ namespace Asawer.Droid
             else
             {
                 var imageName = Ahbab.CurrentUser.ImageNames[imageView.Id];
-                this.UserImagesToDelete.Add(new UserImage(null, imageName, "jpg"));
+                this.UserImagesToDelete.Add(new UserFile(null, imageName, "jpg"));
             }
 
             this.mGalleryLayout.RemoveView(imageView);
@@ -1013,15 +993,9 @@ namespace Asawer.Droid
             mJobAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mJobItems);
             mJobSpinner.Adapter = mJobAdapter;
 
-            mCountriesAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mCountries);
-            mOriginCountrySpinner.Adapter = mCountriesAdapter;
-
             mResidenceCountriesAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mResidenceCountries);
             mResidentCountrySpinner.Adapter = mResidenceCountriesAdapter;
-
-            mTimeAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mTimeItems);
-            mTimeSpinner.Adapter = mTimeAdapter;
-
+            
             mWeightAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mWeightItems);
             mWeightSpinner.Adapter = mWeightAdapter;
         }

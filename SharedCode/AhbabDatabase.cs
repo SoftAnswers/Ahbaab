@@ -57,7 +57,7 @@ namespace SharedCode
             return retVal;
         }
 
-        internal static string RegisterOrUpdate(string functionUri, User valueToUpload, List<UserImage> imgToDelete = null)
+        internal static string RegisterOrUpdate(string functionUri, User valueToUpload, List<UserFile> imgToDelete = null)
         {
             var mClient = new WebClient();
 
@@ -168,14 +168,21 @@ namespace SharedCode
                     { "to", message.Receiver.ToString() },
                     { "subject", message.Subject },
                     { "body", message.Body },
-                    { "gender", sex }
+                    { "gender", sex },
+                    {"audioMessage",
+                        !string.IsNullOrEmpty(message.AudioMessage.FileName) 
+                        ? JsonConvert.SerializeObject(message.AudioMessage)
+                        : null
+                    }
                 };
+
                 var result = mClient.UploadValues(Constants.FunctionsUri.SendMessageUri, parameters);
 
-                return Encoding.UTF8.GetString(result);
+                var resultAsString = Encoding.UTF8.GetString(result);
 
+                return resultAsString;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "Send Failed";
             }
@@ -187,18 +194,19 @@ namespace SharedCode
             {
                 var mClient = new WebClient();
 
-                NameValueCollection parameters = new NameValueCollection();
+                NameValueCollection parameters = new NameValueCollection
+                {
+                    { "message", message },
 
-                parameters.Add("message", message);
-
-                parameters.Add("level", level);
+                    { "level", level }
+                };
 
                 var result = mClient.UploadValues(Constants.FunctionsUri.LogMessage, parameters);
 
                 return Encoding.UTF8.GetString(result);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "Logging Failed";
             }
@@ -209,14 +217,16 @@ namespace SharedCode
             try
             {
                 var mClient = new WebClient();
-                NameValueCollection parameters = new NameValueCollection();
-                parameters.Add("from", from.ToString());
-                parameters.Add("to", to.ToString());
+                NameValueCollection parameters = new NameValueCollection
+                {
+                    { "from", from.ToString() },
+                    { "to", to.ToString() }
+                };
                 var result = mClient.UploadValues(Constants.FunctionsUri.VisitsUri, parameters);
                 var resultString = Encoding.UTF8.GetString(result);
                 return resultString;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "Update Visits failed";
             }
@@ -227,15 +237,17 @@ namespace SharedCode
             try
             {
                 var mClient = new WebClient();
-                NameValueCollection parameters = new NameValueCollection();
-                parameters.Add(destination, userId.ToString());
-                parameters.Add("TableName", tableName);
+                NameValueCollection parameters = new NameValueCollection
+                {
+                    { destination, userId.ToString() },
+                    { "TableName", tableName }
+                };
                 var result = mClient.UploadValues(Constants.FunctionsUri.GetActions, parameters);
                 var resultString = Encoding.UTF8.GetString(result);
                 var users = JsonConvert.DeserializeObject<List<User>>(resultString);
                 return users;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<User>();
             }
@@ -246,14 +258,16 @@ namespace SharedCode
             try
             {
                 var mClient = new WebClient();
-                NameValueCollection parameters = new NameValueCollection();
-                parameters.Add("userId", userId.ToString());
+                NameValueCollection parameters = new NameValueCollection
+                {
+                    { "userId", userId.ToString() }
+                };
                 var result = mClient.UploadValues(Constants.FunctionsUri.Subscribe, parameters);
                 var resultString = Encoding.UTF8.GetString(result);
                 var user = JsonConvert.DeserializeObject<List<User>>(resultString).FirstOrDefault();
                 return user;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new User();
             }

@@ -79,18 +79,6 @@
         <Spinner
             android:layout_height="40dp"
             android:layout_width="match_parent"
-            android:id="@+id/searchOriginCountrySpinner"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp"
-            android:gravity="right"
-            android:prompt="@string/originCountry"
-            style="@style/spinner_style"
-            android:layoutDirection="rtl"
-            android:textDirection="rtl" />
-        <Spinner
-            android:layout_height="40dp"
-            android:layout_width="match_parent"
             android:id="@+id/searchResidentCountrySpinner"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"

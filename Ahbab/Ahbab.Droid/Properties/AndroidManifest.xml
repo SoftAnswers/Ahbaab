@@ -9,6 +9,9 @@
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="com.android.vending.BILLING" />
 	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
+	<uses-permission android:name="android.permission.READ_SOCIAL_STREAM" />
 	<application android:supportsRtl="true" android:icon="@drawable/logo" android:label="Asawer" android:theme="@android:style/Theme.Material.Light.DarkActionBar">
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.SoftAnswers.dating.Asawer.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />

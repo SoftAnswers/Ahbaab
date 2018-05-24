@@ -1546,6 +1546,8 @@ namespace Asawer.Droid
 
                 this.navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
+                navigationView.NavigationItemSelected -= OnNavigationViewNavigationItemSelected;
+
                 if (navigationView != null)
                 {
                     this.SetUpDrawerContent(navigationView);
@@ -1555,32 +1557,35 @@ namespace Asawer.Droid
 
         protected void SetUpDrawerContent(NavigationView navigationView)
         {
-            navigationView.NavigationItemSelected += (sender, e) =>
-            {
-                if (e.MenuItem.ItemId != Resource.Id.contactUs)
-                {
-                    if (e.MenuItem.ItemId == Resource.Id.logout)
-                    {
-                        this.Logout();
-                    }
-                    else
-                    {
-                        this.OpenLegalNotesFragment(e.MenuItem);
+            navigationView.NavigationItemSelected += OnNavigationViewNavigationItemSelected;
+        }
 
-                        drawerLayout.CloseDrawers();
-                    }
+        private void OnNavigationViewNavigationItemSelected(object sender,
+            NavigationView.NavigationItemSelectedEventArgs args)
+        {
+            if (args.MenuItem.ItemId != Resource.Id.contactUs)
+            {
+                if (args.MenuItem.ItemId == Resource.Id.logout)
+                {
+                    this.Logout();
                 }
                 else
                 {
-                    var email = new Intent(Intent.ActionSend);
+                    this.OpenLegalNotesFragment(args.MenuItem);
 
-                    email.PutExtra(Intent.ExtraEmail,
-                                   new string[] { "e-info@asawer.com" });
-
-                    email.SetType("message/rfc822");
-                    StartActivity(email);
+                    drawerLayout.CloseDrawers();
                 }
-            };
+            }
+            else
+            {
+                var email = new Intent(Intent.ActionSend);
+
+                email.PutExtra(Intent.ExtraEmail,
+                               new string[] { "e-info@asawer.com" });
+
+                email.SetType("message/rfc822");
+                StartActivity(email);
+            }
         }
 
         protected abstract void Logout();

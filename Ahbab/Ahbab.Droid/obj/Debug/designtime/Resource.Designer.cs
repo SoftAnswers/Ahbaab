@@ -2458,6 +2458,90 @@ namespace Asawer.Droid
 			public static int baseline_last_page_white_48 = 0;
 			
 			// aapt resource value: 0
+			public static int baseline_mic_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_off_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_off_white_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_off_white_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_off_white_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_off_white_48 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_white_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_white_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_white_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_mic_white_48 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_black_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_black_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_black_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_black_48 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_white_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_white_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_white_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_pause_white_48 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_black_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_black_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_black_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_black_48 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_white_18 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_white_24 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_white_36 = 0;
+			
+			// aapt resource value: 0
+			public static int baseline_play_arrow_white_48 = 0;
+			
+			// aapt resource value: 0
 			public static int bg = 0;
 			
 			// aapt resource value: 0
@@ -2603,6 +2687,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int progressbarstyle = 0;
+			
+			// aapt resource value: 0
+			public static int record_button_animation = 0;
 			
 			// aapt resource value: 0
 			public static int select = 0;
@@ -2753,6 +2840,9 @@ namespace Asawer.Droid
 			// aapt resource value: 2131492870
 			public static int async = 2131492870;
 			
+			// aapt resource value: 0
+			public static int audioCard = 0;
+			
 			// aapt resource value: 2131492888
 			public static int auto = 2131492888;
 			
@@ -2787,6 +2877,9 @@ namespace Asawer.Droid
 			public static int bottom = 2131492890;
 			
 			// aapt resource value: 0
+			public static int btnDialogRecord = 0;
+			
+			// aapt resource value: 0
 			public static int btnDialogRegister = 0;
 			
 			// aapt resource value: 0
@@ -2796,10 +2889,16 @@ namespace Asawer.Droid
 			public static int btnLogin = 0;
 			
 			// aapt resource value: 0
+			public static int btnRecord = 0;
+			
+			// aapt resource value: 0
 			public static int btnRegister = 0;
 			
 			// aapt resource value: 0
 			public static int btnSearch = 0;
+			
+			// aapt resource value: 0
+			public static int btnSend = 0;
 			
 			// aapt resource value: 0
 			public static int btnSendMessage = 0;
@@ -2824,6 +2923,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 2131492872
 			public static int chronometer = 2131492872;
+			
+			// aapt resource value: 0
+			public static int chronometerTimer = 0;
 			
 			// aapt resource value: 0
 			public static int collapsing_toolbar = 0;
@@ -2955,6 +3057,9 @@ namespace Asawer.Droid
 			public static int image = 2131492920;
 			
 			// aapt resource value: 0
+			public static int imageViewPlay = 0;
+			
+			// aapt resource value: 0
 			public static int imgPic = 0;
 			
 			// aapt resource value: 0
@@ -3014,6 +3119,9 @@ namespace Asawer.Droid
 			// aapt resource value: 2131492879
 			public static int line3 = 2131492879;
 			
+			// aapt resource value: 0
+			public static int linearLayoutPlay = 0;
+			
 			// aapt resource value: 2131492928
 			public static int listMode = 2131492928;
 			
@@ -3069,7 +3177,7 @@ namespace Asawer.Droid
 			public static int notification_main_column_container = 2131492883;
 			
 			// aapt resource value: 0
-			public static int originCountrySpinner = 0;
+			public static int pageNumber = 0;
 			
 			// aapt resource value: 2131492941
 			public static int parallax = 2131492941;
@@ -3125,6 +3233,9 @@ namespace Asawer.Droid
 			// aapt resource value: 0
 			public static int residentCountrySpinner = 0;
 			
+			// aapt resource value: 0
+			public static int resultsNumber = 0;
+			
 			// aapt resource value: 2131492948
 			public static int right = 2131492948;
 			
@@ -3133,6 +3244,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 2131492885
 			public static int right_side = 2131492885;
+			
+			// aapt resource value: 0
+			public static int root_layout = 0;
 			
 			// aapt resource value: 2131492951
 			public static int save_image_matrix = 2131492951;
@@ -3160,9 +3274,6 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int searchAgeSpinner = 0;
-			
-			// aapt resource value: 0
-			public static int searchOriginCountrySpinner = 0;
 			
 			// aapt resource value: 0
 			public static int searchResidentCountrySpinner = 0;
@@ -3202,6 +3313,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int securityPolicy = 0;
+			
+			// aapt resource value: 0
+			public static int seekBar = 0;
 			
 			// aapt resource value: 2131492969
 			public static int select_dialog_listview = 2131492969;
@@ -3292,9 +3406,6 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 2131492889
 			public static int time = 2131492889;
-			
-			// aapt resource value: 0
-			public static int timeSpinner = 0;
 			
 			// aapt resource value: 2131492890
 			public static int title = 2131492890;
@@ -3678,6 +3789,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int MessageDetailsActivity = 0;
+			
+			// aapt resource value: 0
+			public static int messaging_activity = 0;
 			
 			// aapt resource value: 0
 			public static int nav_header = 0;
@@ -5010,6 +5124,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int Theme_Ahbab_PopupOverlay = 0;
+			
+			// aapt resource value: 0
+			public static int Theme_Ahbab_Transparent = 0;
 			
 			// aapt resource value: 0
 			public static int Theme_Ahbab_WhiteAccent = 0;

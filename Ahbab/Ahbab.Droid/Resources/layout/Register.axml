@@ -41,8 +41,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
-                    android:id="@+id/txtInputLayoutUserName">
-                    <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtInputLayoutUserName"
+                    android:layout_marginBottom="20dp">
+                    <EditText
                         android:inputType="textPersonName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -51,15 +52,15 @@
                         android:background="@drawable/edit_text_style"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp"
                         android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
-                    android:id="@+id/txtInputLayoutPassword">
-                    <android.support.design.widget.TextInputEditText
+                    android:id="@+id/txtInputLayoutPassword"
+                    android:layout_marginBottom="20dp">
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtPassword"
@@ -69,15 +70,15 @@
                         android:password="true"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp"
                         android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/txtInputLayoutEmail"
                     android:layout_width="match_parent"
                     app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
-                    android:layout_height="wrap_content">
-                    <android.support.design.widget.TextInputEditText
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtEmail"
@@ -86,15 +87,15 @@
                         android:background="@drawable/edit_text_style"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp"
                         android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/txtInputLayoutFullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
-                    <android.support.design.widget.TextInputEditText
+                    app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+                    android:layout_marginBottom="20dp">
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtFullname"
@@ -103,7 +104,6 @@
                         android:background="@drawable/edit_text_style"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:layout_marginBottom="20dp"
                         android:textSize="22sp" />
                 </android.support.design.widget.TextInputLayout>
                 <TextView
@@ -235,15 +235,6 @@
                     style="@style/spinner_style"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:id="@+id/originCountrySpinner"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="20dp"
-                    android:prompt="@string/originCountry" />
-                <Spinner
-                    style="@style/spinner_style"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
                     android:id="@+id/residentCountrySpinner"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -292,16 +283,6 @@
                         android:layout_marginTop="20dp"
                         android:textSize="22sp"/>
                 </android.support.design.widget.TextInputLayout>
-                <Spinner
-                    style="@style/spinner_style"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/timeSpinner"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="20dp"
-                    android:prompt="@string/timeZone"
-                    android:gravity="right" />
                 <Spinner
                     style="@style/spinner_style"
                     android:layout_width="match_parent"

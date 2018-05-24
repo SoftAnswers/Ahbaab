@@ -7,6 +7,11 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Android.Views.InputMethods;
+using Android.Media;
+using Java.IO;
+using Android.Content.PM;
+using Android.Runtime;
+using Android;
 
 namespace Asawer.Droid
 {
@@ -44,17 +49,26 @@ namespace Asawer.Droid
             mSignIn = view.FindViewById<Button>(Resource.Id.btnDialogRegister);
 
             mSignIn.Click += MSignIn_Click;
-
-            ShowKeyboard(view);
-
+            
             return view;
+        }
+
+        public override void OnStart()
+        {
+            base.OnStart();
+
+            ShowKeyboard(this.View);
         }
 
         // Function used to display the keyboard when the sign in popup is displayed
         void ShowKeyboard(View view) {
+
             view.RequestFocus();
+
             var inputMethodManager = context.GetSystemService(Context.InputMethodService) as InputMethodManager;
+
             inputMethodManager.ShowSoftInput(view, ShowFlags.Forced);
+
             inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
         }
 

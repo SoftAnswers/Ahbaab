@@ -24,6 +24,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Plugin.InAppBilling;
 using Plugin.InAppBilling.Abstractions;
+using Android.Support.V4.App;
 
 namespace Asawer.Droid
 {
@@ -372,7 +373,7 @@ namespace Asawer.Droid
             fragmentTransaction.AddToBackStack(null);
 
             fragmentTransaction.Commit();
-            
+
             if (this.visitorsFragmentLayout.TranslationY + 2 >= this.visitorsFragmentLayout.Height)
             {
                 var interpolator = new Android.Views.Animations.OvershootInterpolator(5);
@@ -388,6 +389,10 @@ namespace Asawer.Droid
 
         void MSendMessageButton_Click(object sender, EventArgs e)
         {
+#if DEBUG
+            
+            this.PresentMessageActivity(mSendMessageButton);
+#else
             if (Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N")
             {
                 Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
@@ -407,21 +412,9 @@ namespace Asawer.Droid
             }
             else
             {
-                var mybundle = new Bundle();
-
-                mybundle.PutString("User", user.UserName);
-
-                var transaction = FragmentManager.BeginTransaction();
-
-                var sendMessageFragment = new SendMessageFragment
-                {
-                    Arguments = mybundle
-                };
-
-                sendMessageFragment.Show(transaction, "dialog_fragment");
-
-                sendMessageFragment.mOnSendMessageComplete += SendMessageFragment_MOnSendMessageComplete;
+                this.PresentMessageActivity(mSendMessageButton);
             }
+#endif
         }
 
         void SendMessageFragment_MOnSendMessageComplete(object sender, OnSendMessageEventArgs e)
@@ -505,6 +498,25 @@ namespace Asawer.Droid
                 this.InterestSent = true;
                 Toast.MakeText(this, "Interest Sent.", ToastLength.Short).Show();
             }
+        }
+
+        private void PresentMessageActivity(View view)
+        {
+            var options = ActivityOptionsCompat.MakeSceneTransitionAnimation(this, view, "transition");
+
+            var revealX = (int)(view.GetX() + view.Width / 2);
+
+            var revealY = (int)(view.GetY() + view.Height / 2);
+
+            var intent = new Intent(this, typeof(MessagingActivity));
+
+            intent.PutExtra(MessagingActivity.EXTRA_CIRCULAR_REVEAL_X, revealX);
+
+            intent.PutExtra(MessagingActivity.EXTRA_CIRCULAR_REVEAL_Y, revealY);
+
+            intent.PutExtra(MessagingActivity.EXTRA_USER, JsonConvert.SerializeObject(user));
+
+            ActivityCompat.StartActivity(this, intent, options.ToBundle());
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

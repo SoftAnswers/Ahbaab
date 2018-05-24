@@ -29,6 +29,8 @@ namespace Asawer.Droid
         private ImageButton prevBtn;
         private ImageButton firstPage;
         private ImageButton lastPage;
+        private TextView pageNumber;
+        private TextView resultsString;
         private Paginator paginator;
         private int totalPages;
         private int currentPage;
@@ -43,6 +45,8 @@ namespace Asawer.Droid
         public int TotalPages { get => this.totalPages; set => this.totalPages = value; }
         public int CurrentPage { get => this.currentPage; set => this.currentPage = value; }
         public List<User> Results { get => this.results; set => this.results = value; }
+        public TextView PageNumber { get => pageNumber; set => pageNumber = value; }
+        public TextView ResultsString { get => resultsString; set => resultsString = value; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -88,8 +92,10 @@ namespace Asawer.Droid
             this.PrevBtn = FindViewById<ImageButton>(Resource.Id.prevBtn);
             this.FirstPage = FindViewById<ImageButton>(Resource.Id.firstPage);
             this.LastPage = FindViewById<ImageButton>(Resource.Id.lastPage);
+            this.ResultsString = this.FindViewById<TextView>(Resource.Id.resultsNumber);
+            this.PageNumber = this.FindViewById<TextView>(Resource.Id.pageNumber);
             this.ToggleButtons();
-
+            this.ResultsString.Text = Constants.UI.SearchResults + this.Results.Count;
             SetUpRecyclerView();
         }
 
@@ -176,7 +182,7 @@ namespace Asawer.Droid
         void SetUpRecyclerView()
         {
             RecyclerView.SetLayoutManager(new LinearLayoutManager(RecyclerView.Context));
-            RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, Paginator.GeneratePage(CurrentPage), this.Resources));
+            RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, Paginator.GeneratePage(this.CurrentPage), this.Resources));
             RecyclerView.SetItemClickListener((rv, position, view) =>
             {
                 var userPosition = this.CurrentPage * Paginator.ITEMS_PER_PAGE + position;
@@ -275,6 +281,8 @@ namespace Asawer.Droid
                 this.FirstPage.Enabled = true;
                 this.LastPage.Enabled = true;
             }
+
+            this.PageNumber.Text = (this.CurrentPage + 1).ToString();
         }
     }
 }
