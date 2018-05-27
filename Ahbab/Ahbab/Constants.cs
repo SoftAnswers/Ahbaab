@@ -99,6 +99,7 @@ namespace Asawer
 
         public struct DefaultValues
         {
+            public const string Choose = "Choose";
             public const string NA = "غير متاح";
             public const string FamilyStatus = "الوضع العائلي";
             public const string EyesColor = "لون العين";
@@ -123,6 +124,7 @@ namespace Asawer
             public const string RegistrationLoader = "الرجاء الانتظار، يتم التسجيل";
             public const string LoginLoader = "الرجاء الانتظار، يتم تسجيل الدخول";
             public const string SearchLoader = "الرجاء الانتظار، جاري البحث";
+            public const string ConfiguringLoader = "الرجاء الانتظار، يتم تهيئة التطبيق";
             public const string SuccessfullRegistration = "تم التسجيل بنجاح";
             public const string FetchDataLoader = "الرجاء الانتظار، يتم تنزيل المعلومات";
             public const string UpdateLoader = "الرجاء الانتظار، يتم تحديث المعلومات";
@@ -166,6 +168,24 @@ namespace Asawer
         {
             public const string UsernamePreferenceName = "Username";
             public const string PasswordPreferenceName = "Password";
+            public const string FirstVisitPreferenceName = "FirstVisit";
+        }
+
+        public struct ItemTypes
+        {
+            public const string StatusType = "Status";
+            public const string AgeType = "Age";
+            public const string ContactTimeType = "ContactTime";
+            public const string EducationType = "Education";
+            public const string EyesColorType = "EyesColor";
+            public const string GoalFromSiteType = "GoalFromSite";
+            public const string HairColorType = "HairColor";
+            public const string HeightType = "Height";
+            public const string JobType = "Job";
+            public const string CountryType = "Country";
+            public const string ContactWaysType = "ContactWays";
+            public const string TimeType = "Time";
+            public const string WeightType = "Weight";
         }
     }
 }

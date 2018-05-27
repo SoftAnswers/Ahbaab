@@ -49,33 +49,7 @@ namespace Asawer.Droid
 
             SetContentView(Resource.Layout.UserDetailsActivity);
 
-            if (Ahbab.GetSpinnersFromDatabaseCompleted)
-            {
-                this.InitializeView();
-            }
-            else
-            {
-                var progress = new ProgressDialog(this)
-                {
-                    Indeterminate = true
-                };
-                progress.SetProgressStyle(ProgressDialogStyle.Spinner);
-                progress.SetMessage(Constants.UI.FetchDataLoader);
-                progress.SetCancelable(false);
-                progress.Show();
-
-                new Thread(new ThreadStart(() =>
-                {
-                    Ahbab.GetSpinnersFromDatabaseTask.Wait();
-
-                    RunOnUiThread(() =>
-                    {
-                        this.InitializeView();
-
-                        progress.Hide();
-                    });
-                })).Start();
-            }
+            this.InitializeView();
         }
 
         private void InitializeView()

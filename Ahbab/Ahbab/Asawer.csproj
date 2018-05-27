@@ -35,10 +35,12 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\DbObject.cs" />
     <Compile Include="Entities\SpinnerItem.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="LocalDatabaseAccess.cs" />
     <Compile Include="OnSignInEventArgs.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Entities\Message.cs" />

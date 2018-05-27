@@ -1,16 +1,28 @@
-﻿namespace Asawer.Entities
+﻿using Newtonsoft.Json;
+using SQLite;
+
+namespace Asawer.Entities
 {
-    public class SpinnerItem
+    [Table("SpinnerItems")]
+    public class SpinnerItem : DbObject
     {
-        public SpinnerItem(int id, string itemDescriptionEn, string itemDescriptionAr)
+        public SpinnerItem()
+            :base()
         {
-            this.ID = id;
-			this.DescriptionEN = itemDescriptionEn;
+        }
+
+        public SpinnerItem(int id, string itemDescriptionEn, string itemDescriptionAr)
+            :base(id)
+        {
+            this.DescriptionEN = itemDescriptionEn;
             this.DescriptionAR = itemDescriptionAr;
         }
 
-        public int ID { get; set; }
-		public string DescriptionEN { get; set; }
-		public string DescriptionAR { get; set; }
-	}
+        public string DescriptionEN { get; set; }
+
+        public string DescriptionAR { get; set; }
+
+        [JsonIgnore]
+        public string Type { get; set; }
+    }
 }

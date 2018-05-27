@@ -28,24 +28,9 @@ namespace Asawer.Droid
         public static List<SpinnerItem> mContactWays;
         public static User CurrentUser;
         public static List<User> SearchResults;
-        private static Task getSpinnersFromDatabaseTask;
-        private static bool? getSpinnersFromDatabasrCompleted;
-        public static Task GetSpinnersFromDatabaseTask { get => getSpinnersFromDatabaseTask; set => getSpinnersFromDatabaseTask = value; }
-        public static bool GetSpinnersFromDatabaseCompleted
-        {
-            get
-            {
-                if (getSpinnersFromDatabasrCompleted == null)
-                {
-                    getSpinnersFromDatabasrCompleted = false;
-                }
+        private static string localDatabasePath;
 
-                return getSpinnersFromDatabasrCompleted.Value;
-            }
-            set => getSpinnersFromDatabasrCompleted = value;
-        }
-
-
+        public static string LocalDatabasePath { get => localDatabasePath; set => localDatabasePath = value; }
 
         public Ahbab(IntPtr javaReference, JniHandleOwnership transfer)
             : base(javaReference, transfer)
@@ -56,134 +41,9 @@ namespace Asawer.Droid
         {
             base.OnCreate();
 
-            var dbName = FileAccessHelper.GetLocalFilePath(Constants.Database.LocalDatabaseName);
-
-
-
-            try
-            {
-                var tasks = GetSpinnersItems();
-
-                GetSpinnersFromDatabaseTask = Task.WhenAll(tasks);
-
-                GetSpinnersFromDatabaseTask.ContinueWith(t =>
-                {
-
-                    GetSpinnersFromDatabaseCompleted = true;
-                });
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        private static Task[] GetSpinnersItems()
-        {
-            var tasks = new List<Task>();
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.statusItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                                            Constants.Database.Tables.Status);
-                Ahbab.statusItems.Insert(0, new SpinnerItem(-1, "Choose", Constants.DefaultValues.FamilyStatus));
-            }));
-
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mAgeItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri,
-                                          Constants.Database.Tables.Age);
-                Ahbab.mAgeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Age));
-            }));
-
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mContactTimeItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri,
-                                                    Constants.Database.Tables.ContactTime);
-                Ahbab.mContactTimeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.ContactTime));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mEducationItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                                               Constants.Database.Tables.Education);
-                Ahbab.mEducationItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.EducationLevel));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mEyesColorItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                      Constants.Database.Tables.EyesColor);
-                Ahbab.mEyesColorItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.EyesColor));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mGoalFromSiteItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                      Constants.Database.Tables.GoalFromSite);
-
-                Ahbab.mGoalFromSiteItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.GoalFromSite));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mHairColorItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                      Constants.Database.Tables.HairColor);
-                Ahbab.mHairColorItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.HairColor));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mHeightItems =
-                AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                      Constants.Database.Tables.Height);
-                Ahbab.mHeightItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Height));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mJobItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                      Constants.Database.Tables.Job);
-                Ahbab.mJobItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Job));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mCountries = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                          Constants.Database.Tables.Countries);
-                Ahbab.mCountries.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.OriginCountry));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mResidenceCountries = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-             Constants.Database.Tables.Countries);
-                Ahbab.mResidenceCountries.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.ResidenceCountry));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mContactWays = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-               Constants.Database.Tables.ContactWays);
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mTimeItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri,
-                      Constants.Database.Tables.Time);
-                Ahbab.mTimeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.TimeZone));
-            }));
-
-            tasks.Add(Task.Run(() =>
-            {
-                Ahbab.mWeightItems = AhbabDatabase.GetSpinnerItems(Constants.FunctionsUri.GetSpinnerItemsUri,
-                     Constants.Database.Tables.Weight);
-                Ahbab.mWeightItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Weight));
-            }));
-
-            return tasks.ToArray();
+            LocalDatabasePath = FileAccessHelper.GetLocalFilePath(Constants.Database.LocalDatabaseName);
+            
+            LocalDatabaseAccess.CreateTable<SpinnerItem>(LocalDatabasePath);
         }
     }
 }

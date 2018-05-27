@@ -26,9 +26,10 @@ namespace Asawer.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            var test = Settings.FirstVisit;
+
             if (!Settings.DoSettingsContainKey(Constants.Settings.UsernamePreferenceName))
             {
-
                 var intent = new Intent(this, typeof(MainActivity));
 
                 intent.AddFlags(ActivityFlags.ClearTop);

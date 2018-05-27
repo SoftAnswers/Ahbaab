@@ -83,37 +83,41 @@ namespace Asawer.Droid
 
             this.SetContentView(Resource.Layout.Register);
 
-            if (Ahbab.GetSpinnersFromDatabaseCompleted)
-            {
-                this.InitiateComponents();
+            this.InitiateComponents();
 
-                this.BindValues();
-            }
-            else
-            {
-                var progress = new ProgressDialog(this)
-                {
-                    Indeterminate = true
-                };
-                progress.SetProgressStyle(ProgressDialogStyle.Spinner);
-                progress.SetMessage(Constants.UI.FetchDataLoader);
-                progress.SetCancelable(false);
-                progress.Show();
+            this.BindValues();
 
-                new Thread(new ThreadStart(() =>
-                {
-                    Ahbab.GetSpinnersFromDatabaseTask.Wait();
+            //if (Ahbab.GetSpinnersFromDatabaseCompleted)
+            //{
+            //    this.InitiateComponents();
 
-                    RunOnUiThread(() =>
-                    {
-                        this.InitiateComponents();
+            //    this.BindValues();
+            //}
+            //else
+            //{
+            //    var progress = new ProgressDialog(this)
+            //    {
+            //        Indeterminate = true
+            //    };
+            //    progress.SetProgressStyle(ProgressDialogStyle.Spinner);
+            //    progress.SetMessage(Constants.UI.FetchDataLoader);
+            //    progress.SetCancelable(false);
+            //    progress.Show();
 
-                        this.BindValues();
+            //    new Thread(new ThreadStart(() =>
+            //    {
+            //        Ahbab.GetSpinnersFromDatabaseTask.Wait();
 
-                        progress.Hide();
-                    });
-                })).Start();
-            }
+            //        RunOnUiThread(() =>
+            //        {
+            //            this.InitiateComponents();
+
+            //            this.BindValues();
+
+            //            progress.Hide();
+            //        });
+            //    })).Start();
+            //}
         }
 
         protected override void OnStart()

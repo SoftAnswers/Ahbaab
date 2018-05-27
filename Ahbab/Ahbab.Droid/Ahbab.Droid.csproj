@@ -171,7 +171,6 @@
   <ItemGroup>
     <Compile Include="AsaweAppCompatActivity.cs" />
     <Compile Include="Helpers\FileAccessHelper.cs" />
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="messagingActivity.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="SubscriptionActivity.cs" />

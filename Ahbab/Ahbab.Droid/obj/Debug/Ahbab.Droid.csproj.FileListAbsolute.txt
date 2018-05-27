@@ -950,8 +950,6 @@ C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Asawer.dll.mdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.Settings.Abstractions.dll.mdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\assets\Plugin.Settings.dll.mdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Asawer.Droid.dll
-C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Asawer.dll
-C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Asawer.dll.mdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\linksrc\Asawer.Droid.dll.mdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\linksrc\Asawer.dll.mdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\linksrc\Plugin.InAppBilling.dll.mdb

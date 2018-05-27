@@ -33,3 +33,4 @@ SQLitePCLRaw.provider.e_sqlite3
 Asawer
 Plugin.Settings.Abstractions
 Plugin.Settings
+System.Resources.ResourceManager

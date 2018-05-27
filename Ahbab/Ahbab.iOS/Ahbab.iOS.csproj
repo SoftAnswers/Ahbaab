@@ -131,7 +131,6 @@
   <ItemGroup>
     <Compile Include="Ahbab.cs" />
     <Compile Include="Helpers\FileAccessHelper.cs" />
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Prototype Cells\ContactWaysCustomCell.cs" />
     <Compile Include="Prototype Cells\ContactWaysCustomCell.designer.cs">
       <DependentUpon>ContactWaysCustomCell.cs</DependentUpon>
