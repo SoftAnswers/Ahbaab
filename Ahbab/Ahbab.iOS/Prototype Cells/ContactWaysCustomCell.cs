@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UIKit;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class ContactWaysCustomCell : UITableViewCell {
         RegistrationController.RegistrationDataSource parent;
         public ContactWaysCustomCell (IntPtr handle) : base (handle) {}
@@ -29,12 +29,12 @@ namespace Ahbab.iOS {
             var checkbox = sender as SaturdayMP.XPlugins.iOS.BEMCheckBox;
             var cWay = new ContactWay();
             if (checkbox.On) {
-                cWay.way_id = (int)checkbox.Tag;
-                cWay.way_value = "";
+                cWay.ID = (int)checkbox.Tag;
+                cWay.Value = "";
                 this.parent.user.ContactWays.Add(cWay);
             } else {
                 for (int i = 0; i < this.parent.user.ContactWays.Count; i++) {
-                    if (this.parent.user.ContactWays[i].way_id == checkbox.Tag) {
+                    if (this.parent.user.ContactWays[i].ID == checkbox.Tag) {
                         this.parent.user.ContactWays.RemoveAt(i);
                     }
                 }

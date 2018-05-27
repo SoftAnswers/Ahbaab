@@ -23,11 +23,18 @@ namespace Asawer.Droid
 
         void SetUpRecyclerView(RecyclerView recyclerView)
         {
-            var values = AhbabDatabase.GetMessages(new Uri(Constants.FunctionsUri.InboxUri), Ahbab.CurrentUser.ID);
+            var values = AhbabDatabase.GetMessages(Constants.FunctionsUri.InboxUri, Ahbab.CurrentUser.ID);
             recyclerView.SetLayoutManager(new LinearLayoutManager(recyclerView.Context));
             recyclerView.SetAdapter(new MessageRecycleViewAdapter(recyclerView.Context, values, Activity.Resources));
             recyclerView.SetItemClickListener((rv, position, view) =>
             {
+#if DEBUG
+                Context context = view.Context;
+                Intent intent = new Intent(context, typeof(MessageDetailsActivity));
+                intent.PutExtra(MessageDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(values[position]));
+                context.StartActivity(intent);
+#else
+
 
                 if (Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N")
                 {
@@ -55,6 +62,7 @@ namespace Asawer.Droid
                     intent.PutExtra(MessageDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(values[position]));
                     context.StartActivity(intent);
                 }
+#endif
             });
         }
     }

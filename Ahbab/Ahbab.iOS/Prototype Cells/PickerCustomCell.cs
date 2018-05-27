@@ -4,7 +4,7 @@ using UIKit;
 using Asawer.Entities;
 using Asawer;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class PickerCustomCell : UITableViewCell {
         public PickerCustomCell (IntPtr handle) : base (handle) {}
 

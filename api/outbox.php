@@ -32,7 +32,7 @@
 					"username"=> $currentRow["username"],
 					"audio_message"=>"");
 
-					if ($currentRow['message_type'] == 'audio') {
+					if ($currentRow['message_type'] == 'voice') {
 
 						$audioMessage= array("FileBytes"=> "",
 						"FileName"=> "",

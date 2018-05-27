@@ -1,5 +1,5 @@
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Asawer.Droid.dll
-C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Ahbab.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Asawer.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Java.Interop.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Mono.Android.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\mscorlib.dll
@@ -8,7 +8,15 @@ C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Plugin.CurrentActivi
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Plugin.InAppBilling.Abstractions.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Plugin.InAppBilling.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Plugin.InAppBilling.VendingLibrary.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Plugin.Settings.Abstractions.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Plugin.Settings.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\Refractored.Controls.CircleImageView.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\SQLite-net.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\SQLitePCLRaw.batteries_green.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\SQLitePCLRaw.batteries_v2.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\SQLitePCLRaw.core.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\SQLitePCLRaw.provider.e_sqlite3.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\System.Core.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\System.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Release\android\assets\System.Xml.dll

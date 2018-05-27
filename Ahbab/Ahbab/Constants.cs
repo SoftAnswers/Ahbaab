@@ -3,64 +3,68 @@ namespace Asawer
 {
     public struct Constants
     {
-        public struct Tables
+        public struct Database
         {
-            public const string Countries = "countries";
-            public const string Status = "marital_status";
-            public const string Age = "ages";
-            public const string ContactTime = "available_time";
-            public const string Education = "educ_levels";
-            public const string EyesColor = "eye_colors";
-            public const string GoalFromSite = "usage_purpose";
-            public const string HairColor = "hair_color";
-            public const string Height = "heights";
-            public const string Job = "jobs";
-            public const string Time = "timezones";
-            public const string Weight = "weights";
-            public const string About = "about";
-            public const string Accounts = "accounts";
-            public const string Blocks = "blocks";
-            public const string BulkMessages = "bulkmessages";
-            public const string CardCompanies = "card_companies";
-            public const string Categories = "categories";
-            public const string ContactPreferneces = "contact_preferences";
-            public const string ContactWays = "contact_ways";
-            public const string Emails = "emails";
-            public const string Images = "images";
-            public const string Interests = "interests";
-            public const string LastActivity = "lastactivity";
-            public const string MassMessage = "mass_message";
-            public const string Messages = "messages";
-            public const string PendingEmails = "pendingmail";
-            public const string Privacy = "privacy";
-            public const string Scrolling = "scrolling";
-            public const string SecurityWarnings = "securitywarnings";
-            public const string TempMass = "tempmass";
-            public const string Transactions = "transactions";
-            public const string UserColors = "user_colors";
-            public const string Users = "users";
-            public const string Visits = "visits";
-        }
+            public const string LocalDatabaseName = "Asawer.db3";
+
+            public struct Tables
+            {
+                public const string Countries = "countries";
+                public const string Status = "marital_status";
+                public const string Age = "ages";
+                public const string ContactTime = "available_time";
+                public const string Education = "educ_levels";
+                public const string EyesColor = "eye_colors";
+                public const string GoalFromSite = "usage_purpose";
+                public const string HairColor = "hair_color";
+                public const string Height = "heights";
+                public const string Job = "jobs";
+                public const string Time = "timezones";
+                public const string Weight = "weights";
+                public const string About = "about";
+                public const string Accounts = "accounts";
+                public const string Blocks = "blocks";
+                public const string BulkMessages = "bulkmessages";
+                public const string CardCompanies = "card_companies";
+                public const string Categories = "categories";
+                public const string ContactPreferneces = "contact_preferences";
+                public const string ContactWays = "contact_ways";
+                public const string Emails = "emails";
+                public const string Images = "images";
+                public const string Interests = "interests";
+                public const string LastActivity = "lastactivity";
+                public const string MassMessage = "mass_message";
+                public const string Messages = "messages";
+                public const string PendingEmails = "pendingmail";
+                public const string Privacy = "privacy";
+                public const string Scrolling = "scrolling";
+                public const string SecurityWarnings = "securitywarnings";
+                public const string TempMass = "tempmass";
+                public const string Transactions = "transactions";
+                public const string UserColors = "user_colors";
+                public const string Users = "users";
+                public const string Visits = "visits";
+            }
+        }        
 
         public struct FunctionsUri
         {
-            private const string HostIP = "http://192.168.1.112/api";
-            public const string GetSpinnerItemsUri = "http://192.168.1.112/api/GetsAllItemsFromTable.php";
-            public const string GetTwoColumnsSpinnersItemUri = "http://192.168.1.112/api/GetItemsFromTableWithTwoColumns.php";
-            public const string LoginUri = "http://192.168.1.112/api/Login.php";
-            public const string RegisterUri = "http://192.168.1.112/api/AppRegister.php";
-            public const string SearchUri = "http://192.168.1.112/api/AppSearch.php";
-            public const string InboxUri = "http://192.168.1.112/api/inbox.php";
-            public const string OutboxUri = "http://192.168.1.112/api/outbox.php";
-            public const string UpdateUri = "http://192.168.1.112/api/Update.php";
-            public const string SendMessageUri = "http://192.168.1.112/api/SendMessage.php";
-            public const string BlockUri = "http://192.168.1.112/api/block.php";
-            public const string InterestUri = "http://192.168.1.112/api/interest.php";
-            public const string DeleteMessageUri = "http://192.168.1.112/api/DeleteMessage.php";
-            public const string LogMessage = "http://192.168.1.112/api/AppLogging.php";
-            public const string VisitsUri = "http://192.168.1.112/api/visit.php";
-            public const string GetActions = "http://192.168.1.112/api/GetActions.php";
-            public const string Subscribe = "http://192.168.1.112/api/Subscribe.php";
+            public const string GetSpinnerItemsUri = "GetsAllItemsFromTable.php";
+            public const string GetTwoColumnsSpinnersItemUri = "GetItemsFromTableWithTwoColumns.php";
+            public const string LoginUri = "Login.php";
+            public const string RegisterUri = "AppRegister.php";
+            public const string SearchUri = "AppSearch.php";
+            public const string InboxUri = "inbox.php";
+            public const string OutboxUri = "outbox.php";
+            public const string UpdateUri = "Update.php";
+            public const string SendMessageUri = "SendMessage.php";
+            public const string BlockUri = "block.php";
+            public const string InterestUri = "interest.php";
+            public const string DeleteMessageUri = "DeleteMessage.php";
+            public const string LogMessage = "AppLogging.php";
+            public const string VisitsUri = "visit.php";
+            public const string GetActions = "GetActions.php";
+            public const string Subscribe = "Subscribe.php";
 
             //private const string HostIP = "http://www.asawer.net/api";
             //public const string GetSpinnerItemsUri = "http://www.asawer.net/api/GetsAllItemsFromTable.php";
@@ -156,6 +160,12 @@ namespace Asawer
             public const string InterestsTo = "عدد المعجبين";
             public const string InterestsFrom = "عدد الإعجابات";
             public const string SearchResults = "عدد نتائج البحث";
+        }
+
+        public struct Settings
+        {
+            public const string UsernamePreferenceName = "Username";
+            public const string PasswordPreferenceName = "Password";
         }
     }
 }

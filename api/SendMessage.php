@@ -31,7 +31,7 @@
 
 	if($audioMessage!=null && $audioMessage->{'FileName'}!=""){
 
-		$msgtype = 'audio';	
+		$msgtype = 'voice';	
 
 		$uploadsDirectory = "../audiofiles/";
 		
@@ -55,7 +55,7 @@
 	if($stmt->execute())
 	{
 
-		echo "success, and audio is null";
+		echo "success";
 	}
 	else{
 		echo $dbh->errorInfo()[1];

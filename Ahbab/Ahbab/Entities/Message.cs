@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 namespace Asawer
 {
     public class Message
@@ -8,123 +9,75 @@ namespace Asawer
 
         }
 
+        [JsonProperty(PropertyName = "message_id")]
         public int ID
         {
-            get
-            {
-                return this.message_id;
-            }
-            set
-            {
-                this.message_id = value;
-            }
+            get;
+            set;
         }
 
+        [JsonProperty(PropertyName = "from_account")]
         public int Sender
         {
-            get
-            {
-                return this.from_account;
-            }
-            set
-            {
-                this.from_account = value;
-            }
+            get;
+            set;
         }
 
+        [JsonProperty(PropertyName = "to_account")]
         public int Receiver
         {
-            get
-            {
-                return this.to_account;
-            }
-            set
-            {
-                this.to_account = value;
-            }
+            get;
+            set;
         }
 
+        [JsonProperty(PropertyName = "subject")]
         public string Subject
         {
-            get
-            {
-                return this.subject;
-            }
-            set
-            {
-                this.subject = value;
-            }
+            get;
+            set;
         }
 
+        [JsonProperty(PropertyName = "body")]
         public string Body
         {
-            get
-            {
-                return this.body;
-            }
-            set
-            {
-                this.body = value;
-            }
+            get;
+            set;
         }
 
+        [JsonProperty(PropertyName = "message_date")]
         public string MessageDate
         {
-            get
-            {
-                return this.message_date.ToString("dd-MM-yyyy");
-            }
-            set
-            {
-                this.message_date = DateTime.Parse(value);
-            }
+            get;
+            set;
         }
 
+        [JsonProperty(PropertyName = "")]
         public string MessageStatus
         {
             get;
             set;
         }
 
+        [JsonProperty(PropertyName = "message_read")]
         public string MessageRead
         {
-            get
-            {
-                return this.message_read;
-            }
-            set
-            {
-                this.message_read = value;
-            }
+            get;
+            set;
         }
 
+        [JsonProperty(PropertyName = "username")]
         public string Username
         {
-            get
-            {
-                return this.username;
-            }
-            set
-            {
-                this.username = value;
-            }
+            get;
+            set;
         }
 
+        [JsonProperty(PropertyName = "audio_message")]
         public UserFile AudioMessage
         {
-            get { return this.audio_message; }
-            set { this.audio_message = value; }
+            get;
+            set;
         }
-
-        public int message_id { private get; set; }
-        public int from_account { private get; set; }
-        public string subject { private get; set; }
-        public DateTime message_date { private get; set; }
-        public string message_read { private get; set; }
-        public string body { private get; set; }
-        public int to_account { private get; set; }
-        public string username { private get; set; }
-        public UserFile audio_message { private get; set; }
     }
 }
 

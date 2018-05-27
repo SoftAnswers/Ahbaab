@@ -2873,6 +2873,9 @@ namespace Asawer.Droid
 			// aapt resource value: 0
 			public static int blocksToCardView = 0;
 			
+			// aapt resource value: 0
+			public static int bodyCard = 0;
+			
 			// aapt resource value: 2131492890
 			public static int bottom = 2131492890;
 			
@@ -3229,6 +3232,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int recyclerview = 0;
+			
+			// aapt resource value: 0
+			public static int rememberMeCheckBox = 0;
 			
 			// aapt resource value: 0
 			public static int residentCountrySpinner = 0;
@@ -4175,6 +4181,9 @@ namespace Asawer.Droid
 			
 			// aapt resource value: 0
 			public static int register = 0;
+			
+			// aapt resource value: 0
+			public static int remember_me = 0;
 			
 			// aapt resource value: 0
 			public static int residenceCountry = 0;

@@ -5,5 +5,7 @@
     <DefaultDevice>iPad Air 2 iOS 11.2</DefaultDevice>
     <TargetiOSDevice>
     </TargetiOSDevice>
+    <DeveloperId />
+    <DevelopmentTeamId />
   </PropertyGroup>
 </Project>

@@ -12,6 +12,7 @@ using Java.IO;
 using Android.Content.PM;
 using Android.Runtime;
 using Android;
+using Android.Support.V7.Widget;
 
 namespace Asawer.Droid
 {
@@ -19,6 +20,7 @@ namespace Asawer.Droid
     {
         private EditText mUserName;
         private EditText mPassword;
+        private AppCompatCheckBox rememberMeCheckBox;
         private Button mSignIn;
         public EventHandler<OnSignInEventArgs> mOnSignInComplete;
         private Context context;
@@ -48,6 +50,8 @@ namespace Asawer.Droid
 
             mSignIn = view.FindViewById<Button>(Resource.Id.btnDialogRegister);
 
+            this.rememberMeCheckBox = view.FindViewById<AppCompatCheckBox>(Resource.Id.rememberMeCheckBox);
+
             mSignIn.Click += MSignIn_Click;
             
             return view;
@@ -74,7 +78,7 @@ namespace Asawer.Droid
 
         private void MSignIn_Click(object sender, EventArgs e)
         {
-            mOnSignInComplete.Invoke(this, new OnSignInEventArgs(mUserName.Text, mPassword.Text));
+            mOnSignInComplete.Invoke(this, new OnSignInEventArgs(mUserName.Text, mPassword.Text, this.rememberMeCheckBox.Checked));
 
             this.Dismiss();
         }

@@ -2,7 +2,7 @@
 using System;
 using UIKit;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class MainPageTabController : UITabBarController {
         public MainPageTabController (IntPtr handle) : base (handle) {}
 

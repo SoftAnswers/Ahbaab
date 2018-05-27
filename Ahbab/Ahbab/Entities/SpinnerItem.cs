@@ -1,5 +1,4 @@
-﻿
-namespace Asawer.Entities
+﻿namespace Asawer.Entities
 {
     public class SpinnerItem
     {

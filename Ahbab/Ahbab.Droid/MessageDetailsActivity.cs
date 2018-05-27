@@ -17,6 +17,7 @@ using Android.Views;
 using Android.Widget;
 using Java.IO;
 using Newtonsoft.Json;
+using SharedCode;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace Asawer.Droid
@@ -30,6 +31,7 @@ namespace Asawer.Droid
 
         private bool MessageDeleted;
 
+        private CardView bodyCard;
         private CardView audioCard;
         private string fileName;
         private bool startPlaying = false;
@@ -50,6 +52,7 @@ namespace Asawer.Droid
         public Chronometer Chronometer { get => chronometer; set => chronometer = value; }
         public FloatingActionButton PlayAudioButton { get => playAudioButton; set => playAudioButton = value; }
         public int LastProgress { get => lastProgress; set => lastProgress = value; }
+        public CardView BodyCard { get => bodyCard; set => bodyCard = value; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -70,6 +73,7 @@ namespace Asawer.Droid
             var subject = FindViewById<TextView>(Resource.Id.txtSubject);
             var body = FindViewById<TextView>(Resource.Id.txtBody);
             this.AudioCard = this.FindViewById<CardView>(Resource.Id.audioCard);
+            this.BodyCard = this.FindViewById<CardView>(Resource.Id.bodyCard);
             this.Chronometer = this.FindViewById<Chronometer>(Resource.Id.chronometerTimer);
             this.Chronometer.Base = SystemClock.ElapsedRealtime();
             this.SeekBar = this.FindViewById<SeekBar>(Resource.Id.seekBar);
@@ -80,7 +84,15 @@ namespace Asawer.Droid
 
             sender.Text = message.Username;
             subject.Text = message.Subject;
-            body.Text = message.Body;
+
+            if (!string.IsNullOrEmpty(message.Body))
+            {
+                body.Text = message.Body;
+            }
+            else
+            {
+                this.BodyCard.Visibility = ViewStates.Gone;
+            }
 
             if (message.AudioMessage != null)
             {
@@ -98,14 +110,12 @@ namespace Asawer.Droid
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            var mClient = new WebClient();
-            NameValueCollection parameters = new NameValueCollection();
             switch (item.ItemId)
             {
                 case Resource.Id.deleteMessage:
-                    parameters.Add("messageId", message.ID.ToString());
-                    mClient.UploadValuesCompleted += MClient_UploadValuesCompleted;
-                    mClient.UploadValuesAsync(new Uri(Constants.FunctionsUri.DeleteMessageUri), parameters);
+
+                    AhbabDatabase.DeleteMessage(Constants.FunctionsUri.DeleteMessageUri, message.ID, OnDeleteMessageCompleted);
+
                     return true;
                 case Android.Resource.Id.Home:
                     Finish();
@@ -216,7 +226,7 @@ namespace Asawer.Droid
             }
             this.AudioPlayer = null;
             //showing the play button
-            
+
             this.PlayAudioButton.SetBackgroundResource(Resource.Drawable.baseline_play_arrow_24);
 
             this.Chronometer.Stop();
@@ -240,7 +250,7 @@ namespace Asawer.Droid
             mHandler.PostDelayed(runnable, 100);
         }
 
-        void MClient_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
+        void OnDeleteMessageCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
             var result = System.Text.Encoding.UTF8.GetString(e.Result);
 

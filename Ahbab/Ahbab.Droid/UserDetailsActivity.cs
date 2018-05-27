@@ -209,7 +209,7 @@ namespace Asawer.Droid
                 {
                     TextView contactWayValue = new TextView(this)
                     {
-                        Text = Ahbab.mContactWays.FirstOrDefault(j => j.ID == user.ContactWays[i].way_id).DescriptionAR
+                        Text = Ahbab.mContactWays.FirstOrDefault(j => j.ID == user.ContactWays[i].ID).DescriptionAR
                     };
                     contactWays.AddView(contactWayValue);
                 }
@@ -370,7 +370,7 @@ namespace Asawer.Droid
 
             fragmentTransaction.Add(this.visitorsFragmentLayout.Id, visitors, "Fragment Pull Up");
 
-            fragmentTransaction.AddToBackStack(null);
+            //fragmentTransaction.AddToBackStack(null);
 
             fragmentTransaction.Commit();
 
@@ -390,7 +390,7 @@ namespace Asawer.Droid
         void MSendMessageButton_Click(object sender, EventArgs e)
         {
 #if DEBUG
-            
+
             this.PresentMessageActivity(mSendMessageButton);
 #else
             if (Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N")
@@ -421,10 +421,10 @@ namespace Asawer.Droid
         {
             var message = new Message
             {
-                body = e.Body,
-                subject = e.Subject,
-                from_account = Ahbab.CurrentUser.ID,
-                to_account = user.ID
+                Body = e.Body,
+                Subject = e.Subject,
+                Sender = Ahbab.CurrentUser.ID,
+                Receiver = user.ID
             };
 
             var result = AhbabDatabase.SendMessage(message, user.Gender);
@@ -459,8 +459,12 @@ namespace Asawer.Droid
 
         void CheckForUserValidity(string uri)
         {
-            var mClient = new WebClient();
-            NameValueCollection parameters = new NameValueCollection();
+
+#if DEBUG
+
+            AhbabDatabase.SendBlockOrInterest(uri, Ahbab.CurrentUser.ID, user.ID, this.OnSendBlockOrInterestCompleted);
+#else
+
             if (Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N")
             {
                 Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
@@ -478,16 +482,15 @@ namespace Asawer.Droid
             }
             else
             {
-                parameters.Add("from", Ahbab.CurrentUser.ID.ToString());
-                parameters.Add("to", user.ID.ToString());
-                mClient.UploadValuesCompleted += MClient_UploadValuesCompleted;
-                mClient.UploadValuesAsync(new Uri(uri), parameters);
+                AhbabDatabase.SendBlockOrInterest(uri, Ahbab.CurrentUser.ID, user.ID, this.OnSendBlockOrInterestCompleted);
             }
+#endif
         }
 
-        void MClient_UploadValuesCompleted(object sender, UploadValuesCompletedEventArgs e)
+        void OnSendBlockOrInterestCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
             var result = Encoding.UTF8.GetString(e.Result);
+
             if (result.Contains("block success"))
             {
                 this.BlockSent = true;

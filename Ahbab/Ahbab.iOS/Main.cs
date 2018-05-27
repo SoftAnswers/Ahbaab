@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Ahbab.iOS
+namespace Asawer.iOS
 {
 	public class Application
 	{

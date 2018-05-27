@@ -231,11 +231,11 @@ namespace Asawer.Droid
         {
             var message = new Message
             {
-                body = body,
-                subject = subject,
-                from_account = Ahbab.CurrentUser.ID,
-                to_account = user.ID,
-                audio_message = audio
+                Body = body,
+                Subject = subject,
+                Sender = Ahbab.CurrentUser.ID,
+                Receiver = user.ID,
+                AudioMessage = audio
             };
 
             var result = AhbabDatabase.SendMessage(message, user.Gender);

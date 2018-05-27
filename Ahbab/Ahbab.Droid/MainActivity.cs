@@ -75,12 +75,20 @@ namespace Asawer.Droid
                         {
                             Ahbab.CurrentUser = result;
 
-                            Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
+                            if (e.RememberMe)
+                            {
+                                Settings.Username = e.UserName;
+                                Settings.Password = e.Password.Base64Encode();
+                            }
+
+                            var mainPageIntent = new Intent(this, typeof(MainPageActivity));
 
                             this.StartActivity(mainPageIntent);
 
                             this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
                                                                Android.Resource.Animation.SlideOutRight);
+
+                            this.Finish();
 
                             Toast.MakeText(this, "Login Successfull.", ToastLength.Short).Show();
                         }

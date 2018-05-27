@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="remember_me">إحفظ المستخدم</string>
 	<string name="menu_settings">Settings</string>
 	<string name="welcome">أهلاً بكم في تطبيق أساور</string>
 	<string name="searchResult">نتيجة البحث</string>

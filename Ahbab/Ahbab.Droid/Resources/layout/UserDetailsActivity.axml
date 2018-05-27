@@ -770,7 +770,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|end|left"
+        app:layout_anchorGravity="bottom|center"
         android:src="@drawable/msgicon"
         android:layout_margin="@dimen/fab_margin"
         app:backgroundTint="?attr/colorPrimary"

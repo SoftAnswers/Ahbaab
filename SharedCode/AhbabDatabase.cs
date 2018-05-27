@@ -11,8 +11,11 @@ using System.Threading.Tasks;
 
 namespace SharedCode
 {
-    public static class AhbabDatabase
+    public class AhbabDatabase
     {
+        protected static readonly string HostIP = "http://www.asawer.net/api/{0}";
+        //protected static readonly string HostIP = "http://192.168.1.112/api/{0}";
+
         public static async Task<User> Login(string userName, string password)
         {
             var mClient = new WebClient();
@@ -25,7 +28,9 @@ namespace SharedCode
                 { "Password", password.Trim() }
             };
 
-            var result = await mClient.UploadValuesTaskAsync(Constants.FunctionsUri.LoginUri, parameters);
+            var address = string.Format(HostIP, Constants.FunctionsUri.LoginUri);
+
+            var result = await mClient.UploadValuesTaskAsync(address, parameters);
 
             var resultString = Encoding.UTF8.GetString(result);
 
@@ -37,7 +42,7 @@ namespace SharedCode
             return user;
         }
 
-        public static List<SpinnerItem> GetSpinnerItems(Uri functionUri, string tableName)
+        public static List<SpinnerItem> GetSpinnerItems(string functionUri, string tableName)
         {
             var retVal = new List<SpinnerItem>();
 
@@ -48,7 +53,9 @@ namespace SharedCode
                 { "TableName", tableName }
             };
 
-            var result = mClient.UploadValues(functionUri, parameters);
+            var address = string.Format(HostIP, functionUri);
+
+            var result = mClient.UploadValues(address, parameters);
 
             var items = Encoding.UTF8.GetString(result);
 
@@ -102,7 +109,9 @@ namespace SharedCode
                 parameters.Add("ImagesToDelete", JsonConvert.SerializeObject(imgToDelete));
             }
 
-            var result = mClient.UploadValues(functionUri, parameters);
+            var address = string.Format(HostIP, functionUri);
+
+            var result = mClient.UploadValues(address, parameters);
 
             var resultString = Encoding.UTF8.GetString(result);
 
@@ -115,7 +124,9 @@ namespace SharedCode
             {
                 var mClient = new WebClient();
 
-                var result = mClient.UploadValues(Constants.FunctionsUri.SearchUri, parameters);
+                var address = string.Format(HostIP, Constants.FunctionsUri.SearchUri);
+
+                var result = mClient.UploadValues(address, parameters);
 
                 var resultString = Encoding.UTF8.GetString(result);
 
@@ -129,7 +140,7 @@ namespace SharedCode
             }
         }
 
-        internal static List<Message> GetMessages(Uri functionUri, int userID)
+        internal static List<Message> GetMessages(string functionUri, int userID)
         {
             var messages = new List<Message>();
 
@@ -142,7 +153,9 @@ namespace SharedCode
                     { "userId", userID.ToString() }
                 };
 
-                var result = mClient.UploadValues(functionUri, parameters);
+                var address = string.Format(HostIP, functionUri);
+
+                var result = mClient.UploadValues(address, parameters);
 
                 var items = Encoding.UTF8.GetString(result);
 
@@ -170,13 +183,15 @@ namespace SharedCode
                     { "body", message.Body },
                     { "gender", sex },
                     {"audioMessage",
-                        !string.IsNullOrEmpty(message.AudioMessage.FileName) 
+                        !string.IsNullOrEmpty(message.AudioMessage.FileName)
                         ? JsonConvert.SerializeObject(message.AudioMessage)
                         : null
                     }
                 };
 
-                var result = mClient.UploadValues(Constants.FunctionsUri.SendMessageUri, parameters);
+                var address = string.Format(HostIP, Constants.FunctionsUri.SendMessageUri);
+
+                var result = mClient.UploadValues(address, parameters);
 
                 var resultAsString = Encoding.UTF8.GetString(result);
 
@@ -201,7 +216,9 @@ namespace SharedCode
                     { "level", level }
                 };
 
-                var result = mClient.UploadValues(Constants.FunctionsUri.LogMessage, parameters);
+                var address = string.Format(HostIP, Constants.FunctionsUri.LogMessage);
+
+                var result = mClient.UploadValues(address, parameters);
 
                 return Encoding.UTF8.GetString(result);
 
@@ -222,7 +239,10 @@ namespace SharedCode
                     { "from", from.ToString() },
                     { "to", to.ToString() }
                 };
-                var result = mClient.UploadValues(Constants.FunctionsUri.VisitsUri, parameters);
+
+                var address = string.Format(HostIP, Constants.FunctionsUri.VisitsUri);
+
+                var result = mClient.UploadValues(address, parameters);
                 var resultString = Encoding.UTF8.GetString(result);
                 return resultString;
             }
@@ -242,9 +262,15 @@ namespace SharedCode
                     { destination, userId.ToString() },
                     { "TableName", tableName }
                 };
-                var result = mClient.UploadValues(Constants.FunctionsUri.GetActions, parameters);
+
+                var address = string.Format(HostIP, Constants.FunctionsUri.GetActions);
+
+                var result = mClient.UploadValues(address, parameters);
+
                 var resultString = Encoding.UTF8.GetString(result);
+
                 var users = JsonConvert.DeserializeObject<List<User>>(resultString);
+
                 return users;
             }
             catch (Exception)
@@ -262,14 +288,55 @@ namespace SharedCode
                 {
                     { "userId", userId.ToString() }
                 };
-                var result = mClient.UploadValues(Constants.FunctionsUri.Subscribe, parameters);
+
+                var address = string.Format(HostIP, Constants.FunctionsUri.Subscribe);
+
+                var result = mClient.UploadValues(address, parameters);
+
                 var resultString = Encoding.UTF8.GetString(result);
+
                 var user = JsonConvert.DeserializeObject<List<User>>(resultString).FirstOrDefault();
+
                 return user;
             }
             catch (Exception)
             {
                 return new User();
+            }
+        }
+
+        internal static void SendBlockOrInterest(string functionUri, int fromUserId, int toUserId, UploadValuesCompletedEventHandler handler)
+        {
+            var parameters = new NameValueCollection()
+            {
+                { "from", fromUserId.ToString()},
+                { "to", toUserId.ToString()}
+            };
+
+            var address = string.Format(HostIP, functionUri);
+
+            using (var client = new WebClient())
+            {
+                client.UploadValuesCompleted += handler;
+
+                client.UploadValuesAsync(new Uri(address), parameters);
+            }
+        }
+
+        internal static void DeleteMessage(string functionUri, int messageId, UploadValuesCompletedEventHandler handler)
+        {
+            var parameters = new NameValueCollection()
+            {
+                { "messageId", messageId.ToString()}
+            };
+
+            var address = string.Format(HostIP, functionUri);
+
+            using (var client = new WebClient())
+            {
+                client.UploadValuesCompleted += handler;
+
+                client.UploadValuesAsync(new Uri(address), parameters);
             }
         }
     }

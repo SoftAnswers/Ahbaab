@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -25,15 +26,67 @@ namespace Asawer.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            var intent = new Intent(this, typeof(MainActivity));
+            if (!Settings.DoSettingsContainKey(Constants.Settings.UsernamePreferenceName))
+            {
 
-            intent.AddFlags(ActivityFlags.ClearTop);
+                var intent = new Intent(this, typeof(MainActivity));
 
-            intent.AddFlags(ActivityFlags.SingleTop);
+                intent.AddFlags(ActivityFlags.ClearTop);
 
-            this.StartActivity(intent);
+                intent.AddFlags(ActivityFlags.SingleTop);
 
-            this.Finish();
+                this.StartActivity(intent);
+
+                this.Finish();
+            }
+            else
+            {
+                var username = Settings.Username;
+
+                var password = Settings.Password.Base64Decode();
+
+                new Thread(new ThreadStart(() =>
+                {
+                    RunOnUiThread(async () =>
+                    {
+                        try
+                        {
+                            var result = await Task.Run(() => AhbabDatabase.Login(username, password));
+
+                            if (result != null)
+                            {
+                                Ahbab.CurrentUser = result;
+
+                                var mainPageIntent = new Intent(this, typeof(MainPageActivity));
+
+                                this.StartActivity(mainPageIntent);
+
+                                this.Finish();
+
+                                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
+                                                                   Android.Resource.Animation.SlideOutRight);
+
+                                Toast.MakeText(this, "Login Successfull.", ToastLength.Short).Show();
+                            }
+                            else
+                            {
+                                Toast.MakeText(this, "Login Failed.", ToastLength.Short).Show();
+
+                                var intent = new Intent(this, typeof(MainActivity));
+
+                                this.StartActivity(intent);
+
+                                this.Finish();
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                        }
+                    });
+                })).Start();
+            }
         }
     }
 }

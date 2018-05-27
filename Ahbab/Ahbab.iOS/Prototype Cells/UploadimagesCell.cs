@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UIKit;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class UploadimagesCell : UITableViewCell {
         RegistrationController parent;
         RegistrationController.RegistrationDataSource parent2;

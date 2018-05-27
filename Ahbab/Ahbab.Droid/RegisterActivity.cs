@@ -225,7 +225,7 @@ namespace Asawer.Droid
                 for (int j = 0; j < mContactWaysLayout.ChildCount; j++)
                 {
                     var currentItem = mContactWaysLayout.GetChildAt(j);
-                    if (currentItem is CheckBox && currentItem.Id == Ahbab.CurrentUser.ContactWays[i].way_id)
+                    if (currentItem is CheckBox && currentItem.Id == Ahbab.CurrentUser.ContactWays[i].ID)
                     {
                         var check = (CheckBox)mContactWaysLayout.GetChildAt(j);
                         check.Checked = true;
@@ -491,60 +491,15 @@ namespace Asawer.Droid
 
         private User GetUserInput()
         {
-            var currentUser = new User();
-
-            if (Ahbab.CurrentUser != null)
-            {
-                currentUser.ID = Ahbab.CurrentUser.ID;
-            }
-            currentUser.UserName = mUserNameInputLayout.EditText.Text;
-            currentUser.Name = mFullNameInputLayout.EditText.Text;
-            currentUser.Password = mPasswordInputLayout.EditText.Text;
-            currentUser.Email = mEmailInputLayout.EditText.Text;
-            currentUser.SelfDescription = mSelfDescriptionInputLayout.EditText.Text;
-            currentUser.OthersDescription = mPartnerDescriptionInputLayout.EditText.Text;
-            currentUser.Age = mAgeAdapter.GetItemAtPosition(mAgeSpinner.SelectedItemPosition).ID;
-            currentUser.BlocksFrom = 0;
-            currentUser.BlocksTo = 0;
-            currentUser.CreatedOn = DateTime.Today;
-            currentUser.LastActiveDate = DateTime.Today;
-            currentUser.CurrentCountryId = mResidenceCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID;
-            currentUser.EducationLevelID = mEducationAdapter.GetItemAtPosition(mEducationSpinner.SelectedItemPosition).ID;
-            currentUser.EyesColorId = mEyesColorAdapter.GetItemAtPosition(mEyesColorSpinner.SelectedItemPosition).ID;
-            currentUser.HairColorId = mHairColorAdapter.GetItemAtPosition(mHairColorSpinner.SelectedItemPosition).ID;
-            currentUser.HeightId = mHeightAdapter.GetItemAtPosition(mHeightSpinner.SelectedItemPosition).ID;
-            currentUser.InterestsFrom = 0;
-            currentUser.InterestsTo = 0;
             var wifiManager = (WifiManager)this.GetSystemService(WifiService);
+
             var ip = wifiManager.ConnectionInfo.IpAddress;
-            currentUser.IP = ip.ToString();
-            currentUser.JobId = mJobAdapter.GetItemAtPosition(mJobSpinner.SelectedItemPosition).ID;
-            currentUser.LastActiveDate = DateTime.Today;
-            currentUser.NumberOfLogins = 1;
-            currentUser.Status = mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID;
-            currentUser.Paid = "N";
-            currentUser.PaidEndDate = DateTime.Today;
-            currentUser.PaidStartDate = DateTime.Today;
-            currentUser.SelfDescription = mSelfDescriptionInputLayout.EditText.Text;
-            currentUser.TimeFrameId = mContactTimeAdapter.GetItemAtPosition(mContactTimeSpinner.SelectedItemPosition).ID;
-            currentUser.UsagePurposeId = mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID;
-            currentUser.WeightId = mWeightAdapter.GetItemAtPosition(mWeightSpinner.SelectedItemPosition).ID;
-            currentUser.VisitCountFrom = 0;
-            currentUser.VisitCountTo = 0;
-
-            currentUser.Images = this.UserImages;
-
-            if (mSex.CheckedRadioButtonId == Resource.Id.rdbMale)
-            {
-                currentUser.Gender = "M";
-            }
-            else
-            {
-                currentUser.Gender = "F";
-            }
 
             var waysCount = mContactWaysLayout.ChildCount;
+
             var registerContactWays = new List<ContactWay>();
+
+            var gender = string.Empty;
 
             for (int i = 0; i < waysCount; i++)
             {
@@ -557,13 +512,64 @@ namespace Asawer.Droid
 
                     if (currentChecBox.Checked)
                     {
-                        cWay.way_id = currentChecBox.Id;
-                        cWay.way_value = GetWayValue(i);
+                        cWay.ID = currentChecBox.Id;
+                        cWay.Value = GetWayValue(i);
                         registerContactWays.Add(cWay);
                     }
                 }
             }
-            currentUser.ContactWays = registerContactWays;
+            
+            if (mSex.CheckedRadioButtonId == Resource.Id.rdbMale)
+            {
+                gender = "M";
+            }
+            else
+            {
+                gender = "F";
+            }
+
+            var currentUser = new User
+            {
+                UserName = mUserNameInputLayout.EditText.Text,
+                Name = mFullNameInputLayout.EditText.Text,
+                Password = mPasswordInputLayout.EditText.Text,
+                Email = mEmailInputLayout.EditText.Text,
+                SelfDescription = mSelfDescriptionInputLayout.EditText.Text,
+                OthersDescription = mPartnerDescriptionInputLayout.EditText.Text,
+                Age = mAgeAdapter.GetItemAtPosition(mAgeSpinner.SelectedItemPosition).ID,
+                BlocksFrom = 0,
+                BlocksTo = 0,
+                CreatedOn = DateTime.Today,
+                LastActiveDate = DateTime.Today,
+                CurrentCountryId = mResidenceCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID,
+                EducationLevelID = mEducationAdapter.GetItemAtPosition(mEducationSpinner.SelectedItemPosition).ID,
+                EyesColorId = mEyesColorAdapter.GetItemAtPosition(mEyesColorSpinner.SelectedItemPosition).ID,
+                HairColorId = mHairColorAdapter.GetItemAtPosition(mHairColorSpinner.SelectedItemPosition).ID,
+                HeightId = mHeightAdapter.GetItemAtPosition(mHeightSpinner.SelectedItemPosition).ID,
+                InterestsFrom = 0,
+                InterestsTo = 0,
+                IP = ip.ToString(),
+                JobId = mJobAdapter.GetItemAtPosition(mJobSpinner.SelectedItemPosition).ID,
+                NumberOfLogins = 1,
+                Status = mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID,
+                Paid = "N",
+                TimeFrameId = mContactTimeAdapter.GetItemAtPosition(mContactTimeSpinner.SelectedItemPosition).ID,
+                UsagePurposeId = mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID,
+                WeightId = mWeightAdapter.GetItemAtPosition(mWeightSpinner.SelectedItemPosition).ID,
+                VisitCountFrom = 0,
+                VisitCountTo = 0,
+                Images = this.UserImages,
+                Gender = gender,
+                ContactWays = registerContactWays,
+                PaidEndDate = DateTime.Today,
+                PaidStartDate = DateTime.Today
+            };
+
+            if (Ahbab.CurrentUser != null)
+            {
+                currentUser.ID = Ahbab.CurrentUser.ID;
+            }
+
             return currentUser;
         }
 

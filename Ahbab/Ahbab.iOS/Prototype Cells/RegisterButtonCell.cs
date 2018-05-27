@@ -2,7 +2,7 @@
 using System;
 using UIKit;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class RegisterButtonCell : UITableViewCell {
         RegistrationController parent;
         public RegisterButtonCell (IntPtr handle) : base (handle) {}

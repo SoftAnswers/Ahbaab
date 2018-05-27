@@ -9,8 +9,6 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\obj\Debug\Asawer.cspr
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\obj\Debug\Asawer.csproj.CoreCompileInputs.cache
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\obj\Debug\Ahbab.dll
 C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab\obj\Debug\Ahbab.pdb
-C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Ahbab.dll
-C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Ahbab.pdb
 C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Mono.Android.dll
 C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Newtonsoft.Json.dll
 C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Mono.Android.pdb
@@ -19,5 +17,18 @@ C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Newtonsoft.Json.xml
 C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Asawer.csprojAssemblyReference.cache
 C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Asawer.csproj.CoreCompileInputs.cache
 C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Asawer.csproj.CopyComplete
-C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Ahbab.dll
-C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Ahbab.pdb
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\SQLite-net.dll
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\SQLitePCLRaw.batteries_green.dll
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\SQLitePCLRaw.core.dll
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\SQLite-net.pdb
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\SQLite-net.xml
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Asawer.dll
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Asawer.pdb
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Plugin.Settings.Abstractions.dll
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Plugin.Settings.dll
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Plugin.Settings.xml
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Plugin.Settings.Abstractions.pdb
+C:\ws\repo\git\Ahbab\Ahbab\bin\Debug\Plugin.Settings.Abstractions.xml
+C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Asawer.dll
+C:\ws\repo\git\Ahbab\Ahbab\obj\Debug\Asawer.pdb

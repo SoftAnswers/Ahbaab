@@ -22,7 +22,13 @@
   </Jars>
   <ResolvedResourceDirectories>
     <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\2\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\34\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\6\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\27\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\28\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\29\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\30\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\31\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\13\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\16\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\18\jl\res</ResolvedResourceDirectory>
@@ -35,14 +41,26 @@
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\lp\2\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\lp\34\jl\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\lp\6\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\lp\27\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\lp\28\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\lp\29\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\lp\30\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\lp\31\jl\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\lp\20\jl\assets</ResolvedAssetDirectory>
     <ResolvedAssetDirectory>obj\Debug\lp\25\jl\assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
     <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\2.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\34.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\6.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\27.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\28.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\29.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\30.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\31.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\13.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\16.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\lp\18.stamp</ResolvedResourceDirectoryStamp>

@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace Ahbab.iOS
+namespace Asawer.iOS
 {
     [Register ("SearchController")]
     partial class SearchController

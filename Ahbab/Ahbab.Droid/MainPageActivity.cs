@@ -34,7 +34,7 @@ namespace Asawer.Droid
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.MainPage);
-            
+
             TabLayout tabs = FindViewById<TabLayout>(Resource.Id.tabs);
 
             ViewPager viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
@@ -75,26 +75,46 @@ namespace Asawer.Droid
 
             viewPager.Adapter = adapter;
         }
-        
+
         // Function used to redirect the user to the login activity after clicking in logout
-        protected override void Logout() {
+        protected override void Logout()
+        {
             var alert = new AlerDialog.Builder(this);
+
             alert.SetTitle(Constants.UI.LogoutHeader);
+
             alert.SetMessage(Constants.UI.LogoutMessage);
-            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
-                Ahbab.CurrentUser = null;
-                Intent loginPageIntent = new Intent(this, typeof(MainActivity));
-                loginPageIntent.AddFlags(ActivityFlags.ClearTop| ActivityFlags.NewTask);
+
+            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) =>
+            {
+
+                Settings.RemoveKey(Constants.Settings.UsernamePreferenceName);
+                Settings.RemoveKey(Constants.Settings.PasswordPreferenceName);
+
+                var loginPageIntent = new Intent(this, typeof(MainActivity));
+
+                loginPageIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+
                 this.StartActivity(loginPageIntent);
+
                 this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+
+                this.Finish();
+
+                Ahbab.CurrentUser = null;
             });
-            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) =>{});
+
+            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
+
             var dialog = alert.Create();
+
             dialog.SetCanceledOnTouchOutside(false);
+
             dialog.SetCancelable(false);
+
             dialog.Show();
         }
-        
+
         void EditAccount_Click(object sender, EventArgs e)
         {
             Intent userDetailsActivity = new Intent(this, typeof(UserDetailsActivity));
@@ -125,19 +145,37 @@ namespace Asawer.Droid
 
         public override void OnBackPressed()
         {
-            var alert = new AlerDialog.Builder(this);
-            alert.SetTitle(Constants.UI.LogoutHeader);
-            alert.SetMessage(Constants.UI.LogoutMessage);
-            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
-                Ahbab.CurrentUser = null;
-                base.OnBackPressed();
-            });
-            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => {});
 
-            var dialog = alert.Create();
-            dialog.SetCanceledOnTouchOutside(false);
-            dialog.SetCancelable(false);
-            dialog.Show();
+            if (Ahbab.CurrentUser.UserName == Settings.Username)
+            {
+                this.Finish();
+            }
+            else
+            {
+                var alert = new AlerDialog.Builder(this);
+                alert.SetTitle(Constants.UI.LogoutHeader);
+                alert.SetMessage(Constants.UI.LogoutMessage);
+                alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) =>
+                {
+                    var loginPageIntent = new Intent(this, typeof(MainActivity));
+
+                    loginPageIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+
+                    this.StartActivity(loginPageIntent);
+
+                    this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+
+                    Ahbab.CurrentUser = null;
+
+                    base.OnBackPressed();
+                });
+                alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
+
+                var dialog = alert.Create();
+                dialog.SetCanceledOnTouchOutside(false);
+                dialog.SetCancelable(false);
+                dialog.Show();
+            }
         }
 
         public class TabAdapter : FragmentPagerAdapter
@@ -178,4 +216,3 @@ namespace Asawer.Droid
         }
     }
 }
-
