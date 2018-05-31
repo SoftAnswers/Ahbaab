@@ -23,7 +23,7 @@ namespace Asawer.Droid
 
 		void SetupRecyclerView(RecyclerView recyclerView)
 		{
-			var values = AhbabDatabase.GetMessages(Constants.FunctionsUri.OutboxUri,
+			var values = AhbabDatabase.GetMessages(Constants.Database.ApiFiles.OutboxFileName,
 												   Ahbab.CurrentUser.ID);
 
 			recyclerView.SetLayoutManager(new LinearLayoutManager(recyclerView.Context));

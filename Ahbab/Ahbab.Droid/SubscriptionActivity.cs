@@ -47,7 +47,7 @@ namespace Asawer.Droid {
         }
 
         private async void SubscribeButton_Click(object sender, EventArgs e) {
-            var succeeded = await this.PurchaseItem("asawer_subscription.2018", "AsawerPayload");
+            var succeeded = await this.PurchaseItem("asawer_yearly_subscription", "AsawerPayload");
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data) {

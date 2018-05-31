@@ -25,9 +25,7 @@ namespace Asawer.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            var test = Settings.FirstVisit;
-
+            
             if (!Settings.DoSettingsContainKey(Constants.Settings.UsernamePreferenceName))
             {
                 var intent = new Intent(this, typeof(MainActivity));
@@ -58,7 +56,7 @@ namespace Asawer.Droid
                             {
                                 Ahbab.CurrentUser = result;
 
-                                var mainPageIntent = new Intent(this, typeof(MainPageActivity));
+                                var mainPageIntent = new Intent(this, typeof(userProfileActivity));
 
                                 this.StartActivity(mainPageIntent);
 

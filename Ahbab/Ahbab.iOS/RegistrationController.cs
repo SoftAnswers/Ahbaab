@@ -29,7 +29,7 @@ namespace Asawer.iOS {
                 // display loader
                 var userInput = GetUserInput();
                 try {
-                    var resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.RegisterUri, userInput);
+                    var resultString = AhbabDatabase.RegisterOrUpdate(Constants.Database.ApiFiles.RegisterFileName, userInput);
                     if (!string.IsNullOrEmpty(resultString)) {
                         var result = JsonConvert.DeserializeObject<List<User>>(resultString);
                         Ahbab.CurrentUser = result.FirstOrDefault();

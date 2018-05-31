@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.SoftAnswers.dating.Asawer" android:versionName="1.2.4" android:installLocation="preferExternal" android:versionCode="9">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.SoftAnswers.dating.Asawer" android:versionName="1.2.7" android:installLocation="preferExternal" android:versionCode="12">
   <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -12,11 +12,25 @@
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
   <uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
   <uses-permission android:name="android.permission.READ_SOCIAL_STREAM" />
-  <application android:supportsRtl="true" android:icon="@drawable/logo" android:label="Asawer" android:theme="@android:style/Theme.Material.Light.DarkActionBar" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.Ahbab" android:allowBackup="true" android:debuggable="true">
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  <application android:supportsRtl="true" android:icon="@drawable/asawer_icon" android:label="Asawer" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.Ahbab" android:allowBackup="true" android:debuggable="true">
     <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.SoftAnswers.dating.Asawer.fileprovider" android:exported="false" android:grantUriPermissions="true">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
     </provider>
-    <activity android:label="messagingActivity" android:theme="@style/Theme.Ahbab.Transparent" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.MessagingActivity" />
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+        <category android:name="com.SoftAnswers.dating.Asawer" />
+      </intent-filter>
+    </receiver>
+    <activity android:label="messagingActivity" android:noHistory="true" android:theme="@style/Theme.Ahbab.Transparent" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.MessagingActivity" />
+    <service android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.AsawerFirebaseInstanceIdService">
+      <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
     <activity android:label="@string/app_name" android:noHistory="true" android:theme="@style/SplashTheme" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.SplashActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -30,6 +44,7 @@
     <activity android:label="MessageDetailsActivity" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.MessageDetailsActivity" />
     <activity android:label="UserDetailsActivity" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.UserDetailsActivity" />
     <activity android:label="@string/searchResult" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.SearchResultsActivity" />
+    <activity android:label="userProfileActivity" android:theme="@style/Theme.Ahbab" android:name="md5e7d32db6922e6c124d8d5fc4898d1e91.userProfileActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.SoftAnswers.dating.Asawer.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">
@@ -38,5 +53,17 @@
         <category android:name="mono.android.intent.category.SEPPUKU.com.SoftAnswers.dating.Asawer" />
       </intent-filter>
     </receiver>
+    <provider android:authorities="com.SoftAnswers.dating.Asawer.firebaseinitprovider" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:initOrder="100" />
+    <!-- FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true" -->
+    <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
   </application>
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 </manifest>

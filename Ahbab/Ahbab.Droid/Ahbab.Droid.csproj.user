@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <SelectedDevice>Samsung SM-N950F</SelectedDevice>
-    <DefaultDevice>pixel_xl_6</DefaultDevice>
+    <DefaultDevice>android_6</DefaultDevice>
     <AndroidDesignerPreferredTheme>Theme.DeviceDefault</AndroidDesignerPreferredTheme>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>

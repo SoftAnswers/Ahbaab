@@ -6,16 +6,10 @@
     <item name="android:windowExitAnimation">@anim/slide_right</item>
   </style>
 
-  <style name="Theme.Ahbab" parent="Base.Theme.Ahbab">
-  </style>
-
-  <style name="Theme.AhbabAlt" parent="Base.Theme.Ahbab">
-  </style>
-
-  <style name="Base.Theme.Ahbab" parent="Theme.AppCompat.Light.NoActionBar">
-    <item name="colorPrimary">#6B2188</item>
-    <item name="colorPrimaryDark">#512DA8</item>
-    <item name="colorAccent">#FF4081</item>
+  <style name="Theme.Ahbab" parent="Theme.AppCompat">
+    <item name="colorPrimary">@color/primaryColor</item>
+    <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+    <item name="colorAccent">@color/accent</item>
   </style>
 
   <style name="Widget.CardContent" parent="android:Widget">
@@ -40,7 +34,6 @@
   </style>
   
   
-  <!--Splash screen theme, no longer used-->
   <style name="SplashTheme" parent="SplashTheme.Base">
     <item name="colorPrimary">@color/primaryColor</item>
     <item name="colorPrimaryDark">@color/primaryDarkColor</item>

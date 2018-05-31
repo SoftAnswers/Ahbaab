@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "369516829744",
+    "firebase_url": "https://asawer-53e94.firebaseio.com",
+    "project_id": "asawer-53e94",
+    "storage_bucket": "asawer-53e94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369516829744:android:27cab2fafbc3bafd",
+        "android_client_info": {
+          "package_name": "com.SoftAnswers.dating.Asawer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369516829744-8rner08p1gt5smeaf3emged4jf83m282.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "369516829744-8rner08p1gt5smeaf3emged4jf83m282.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU7gna4bSlQtH1WUag8z_usL2mmpkPxp4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

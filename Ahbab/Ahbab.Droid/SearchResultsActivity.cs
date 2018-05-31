@@ -95,7 +95,7 @@ namespace Asawer.Droid
             this.ResultsString = this.FindViewById<TextView>(Resource.Id.resultsNumber);
             this.PageNumber = this.FindViewById<TextView>(Resource.Id.pageNumber);
             this.ToggleButtons();
-            this.ResultsString.Text = Constants.UI.SearchResults + this.Results.Count;
+            this.ResultsString.Text = string.Format("{0} {1}", Constants.UI.SearchResults, this.Results.Count);
             SetUpRecyclerView();
         }
 
@@ -182,7 +182,9 @@ namespace Asawer.Droid
         void SetUpRecyclerView()
         {
             RecyclerView.SetLayoutManager(new LinearLayoutManager(RecyclerView.Context));
+
             RecyclerView.SetAdapter(new SearchResultsRecyclerViewAdapter(RecyclerView.Context, Paginator.GeneratePage(this.CurrentPage), this.Resources));
+
             RecyclerView.SetItemClickListener((rv, position, view) =>
             {
                 var userPosition = this.CurrentPage * Paginator.ITEMS_PER_PAGE + position;

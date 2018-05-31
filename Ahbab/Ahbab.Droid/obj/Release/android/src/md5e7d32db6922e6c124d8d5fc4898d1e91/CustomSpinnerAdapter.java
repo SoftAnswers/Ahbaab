@@ -21,6 +21,46 @@ public class CustomSpinnerAdapter
 	}
 
 
+	public CustomSpinnerAdapter (android.content.Context p0, int p1)
+	{
+		super (p0, p1);
+		if (getClass () == CustomSpinnerAdapter.class)
+			mono.android.TypeManager.Activate ("Asawer.Droid.CustomSpinnerAdapter, Asawer.Droid", "Android.Content.Context, Mono.Android:System.Int32, mscorlib", this, new java.lang.Object[] { p0, p1 });
+	}
+
+
+	public CustomSpinnerAdapter (android.content.Context p0, int p1, int p2)
+	{
+		super (p0, p1, p2);
+		if (getClass () == CustomSpinnerAdapter.class)
+			mono.android.TypeManager.Activate ("Asawer.Droid.CustomSpinnerAdapter, Asawer.Droid", "Android.Content.Context, Mono.Android:System.Int32, mscorlib:System.Int32, mscorlib", this, new java.lang.Object[] { p0, p1, p2 });
+	}
+
+
+	public CustomSpinnerAdapter (android.content.Context p0, int p1, java.lang.Object[] p2)
+	{
+		super (p0, p1, p2);
+		if (getClass () == CustomSpinnerAdapter.class)
+			mono.android.TypeManager.Activate ("Asawer.Droid.CustomSpinnerAdapter, Asawer.Droid", "Android.Content.Context, Mono.Android:System.Int32, mscorlib:T[], Mono.Android", this, new java.lang.Object[] { p0, p1, p2 });
+	}
+
+
+	public CustomSpinnerAdapter (android.content.Context p0, int p1, int p2, java.lang.Object[] p3)
+	{
+		super (p0, p1, p2, p3);
+		if (getClass () == CustomSpinnerAdapter.class)
+			mono.android.TypeManager.Activate ("Asawer.Droid.CustomSpinnerAdapter, Asawer.Droid", "Android.Content.Context, Mono.Android:System.Int32, mscorlib:System.Int32, mscorlib:T[], Mono.Android", this, new java.lang.Object[] { p0, p1, p2, p3 });
+	}
+
+
+	public CustomSpinnerAdapter (android.content.Context p0, int p1, java.util.List p2)
+	{
+		super (p0, p1, p2);
+		if (getClass () == CustomSpinnerAdapter.class)
+			mono.android.TypeManager.Activate ("Asawer.Droid.CustomSpinnerAdapter, Asawer.Droid", "Android.Content.Context, Mono.Android:System.Int32, mscorlib:System.Collections.Generic.IList`1<T>, mscorlib", this, new java.lang.Object[] { p0, p1, p2 });
+	}
+
+
 	public CustomSpinnerAdapter (android.content.Context p0, int p1, int p2, java.util.List p3)
 	{
 		super (p0, p1, p2, p3);

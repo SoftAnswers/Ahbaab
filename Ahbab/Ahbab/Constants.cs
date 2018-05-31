@@ -45,44 +45,32 @@ namespace Asawer
                 public const string Users = "users";
                 public const string Visits = "visits";
             }
-        }        
 
-        public struct FunctionsUri
-        {
-            public const string GetSpinnerItemsUri = "GetsAllItemsFromTable.php";
-            public const string GetTwoColumnsSpinnersItemUri = "GetItemsFromTableWithTwoColumns.php";
-            public const string LoginUri = "Login.php";
-            public const string RegisterUri = "AppRegister.php";
-            public const string SearchUri = "AppSearch.php";
-            public const string InboxUri = "inbox.php";
-            public const string OutboxUri = "outbox.php";
-            public const string UpdateUri = "Update.php";
-            public const string SendMessageUri = "SendMessage.php";
-            public const string BlockUri = "block.php";
-            public const string InterestUri = "interest.php";
-            public const string DeleteMessageUri = "DeleteMessage.php";
-            public const string LogMessage = "AppLogging.php";
-            public const string VisitsUri = "visit.php";
-            public const string GetActions = "GetActions.php";
-            public const string Subscribe = "Subscribe.php";
+            public struct ApiFiles
+            {
+                public const string GetSpinnerItemsFileName = "GetsAllItemsFromTable.php";
+                public const string GetTwoColumnsSpinnersItemFileName = "GetItemsFromTableWithTwoColumns.php";
+                public const string LoginFileName = "Login.php";
+                public const string RegisterFileName = "AppRegister.php";
+                public const string SearchFileName = "AppSearch.php";
+                public const string InboxFileName = "inbox.php";
+                public const string OutboxFileName = "outbox.php";
+                public const string UpdateFileName = "Update.php";
+                public const string SendMessageFileName = "SendMessage.php";
+                public const string BlockFileName = "block.php";
+                public const string InterestFileName = "interest.php";
+                public const string DeleteMessageFileName = "DeleteMessage.php";
+                public const string LogMessageFileName = "AppLogging.php";
+                public const string VisitsFileName = "visit.php";
+                public const string GetActionsFileName = "GetActions.php";
+                public const string SubscribeFileName = "Subscribe.php";
+            }
 
-            //private const string HostIP = "http://www.asawer.net/api";
-            //public const string GetSpinnerItemsUri = "http://www.asawer.net/api/GetsAllItemsFromTable.php";
-            //public const string GetTwoColumnsSpinnersItemUri = "http://www.asawer.net/api/GetItemsFromTableWithTwoColumns.php";
-            //public const string LoginUri = "http://www.asawer.net/api/Login.php";
-            //public const string RegisterUri = "http://www.asawer.net/api/AppRegister.php";
-            //public const string SearchUri = "http://www.asawer.net/api/AppSearch.php";
-            //public const string InboxUri = "http://www.asawer.net/api/inbox.php";
-            //public const string OutboxUri = "http://www.asawer.net/api/outbox.php";
-            //public const string UpdateUri = "http://www.asawer.net/api/update.php";
-            //public const string SendMessageUri = "http://www.asawer.net/api/SendMessage.php";
-            //public const string BlockUri = "http://www.asawer.net/api/block.php";
-            //public const string InterestUri = "http://www.asawer.net/api/interest.php";
-            //public const string DeleteMessageUri = "http://www.asawer.net/api/DeleteMessage.php";
-            //public const string LogMessage = "http://www.asawer.net/api/AppLogging.php";
-            //public const string VisitsUri = "http://www.asawer.net/api/visit.php";
-            //public const string GetActions = "http://www.asawer.net/api/GetActions.php";
-            //public const string Subscribe = "http://www.asawer.net/api/Subscribe.php";
+            public struct ActionOrigin
+            {
+                public const string From = "from";
+                public const string To = "to";
+            }
         }
 
         public struct TabsNames

@@ -5,7 +5,8 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Text;
-
+using System.Threading;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Media;
@@ -17,6 +18,8 @@ using Android.Views;
 using Android.Widget;
 using Java.IO;
 using Newtonsoft.Json;
+using Plugin.InAppBilling;
+using Plugin.InAppBilling.Abstractions;
 using SharedCode;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 
@@ -26,9 +29,10 @@ namespace Asawer.Droid
     public class MessageDetailsActivity : AppCompatActivity
     {
         public const string EXTRA_MESSAGE = "message";
+        public const string EXTRA_HIDE_TEXT = "hideText";
 
         private Message message;
-
+        private bool hideText;
         private bool MessageDeleted;
 
         private CardView bodyCard;
@@ -60,38 +64,67 @@ namespace Asawer.Droid
 
             SetContentView(Resource.Layout.MessageDetailsActivity);
 
-            SupportToolbar toolBar = FindViewById<SupportToolbar>(Resource.Id.toolbar);
+            var toolBar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
             SetSupportActionBar(toolBar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             message = JsonConvert.DeserializeObject<Message>(Intent.GetStringExtra(EXTRA_MESSAGE));
+            hideText = this.Intent.GetBooleanExtra(EXTRA_HIDE_TEXT, false);
 
-            CollapsingToolbarLayout collapsingToolBar = FindViewById<CollapsingToolbarLayout>(Resource.Id.collapsing_toolbar);
+            var collapsingToolBar = FindViewById<CollapsingToolbarLayout>(Resource.Id.collapsing_toolbar);
             collapsingToolBar.Title = message.Subject;
 
             var sender = FindViewById<TextView>(Resource.Id.txtSender);
+
             var subject = FindViewById<TextView>(Resource.Id.txtSubject);
+
             var body = FindViewById<TextView>(Resource.Id.txtBody);
+
             this.AudioCard = this.FindViewById<CardView>(Resource.Id.audioCard);
+
             this.BodyCard = this.FindViewById<CardView>(Resource.Id.bodyCard);
+
             this.Chronometer = this.FindViewById<Chronometer>(Resource.Id.chronometerTimer);
+
             this.Chronometer.Base = SystemClock.ElapsedRealtime();
+
             this.SeekBar = this.FindViewById<SeekBar>(Resource.Id.seekBar);
+
             this.PlayAudioButton = this.FindViewById<FloatingActionButton>(Resource.Id.imageViewPlay);
-            this.PlayAudioButton.SetBackgroundResource(Resource.Drawable.baseline_play_arrow_24);
+
             this.PlayAudioButton.Click += OnPlayAudioButtonClick;
+
             this.SeekBar.ProgressChanged += OnSeekBarProgressChanged;
 
-            sender.Text = message.Username;
-            subject.Text = message.Subject;
-
-            if (!string.IsNullOrEmpty(message.Body))
+            if (!this.hideText)
             {
-                body.Text = message.Body;
+                sender.Text = message.Username;
+                subject.Text = message.Subject;
+
+                if (!string.IsNullOrEmpty(message.Body))
+                {
+                    body.Text = message.Body;
+                }
+                else
+                {
+                    this.BodyCard.Visibility = ViewStates.Gone;
+                } 
             }
             else
             {
-                this.BodyCard.Visibility = ViewStates.Gone;
+                this.Chronometer.ChronometerTick += OnChronometerTick;
+
+                var titleRegisterButton = this.FindViewById<Button>(Resource.Id.titleRegisterButton);
+                var bodyRegisterButton = this.FindViewById<Button>(Resource.Id.bodyRegisterButton);
+
+                bodyRegisterButton.Click += OnRegisterButtonClick;
+                titleRegisterButton.Click += OnRegisterButtonClick;
+
+                bodyRegisterButton.Visibility = ViewStates.Visible;
+                titleRegisterButton.Visibility = ViewStates.Visible;
+
+                subject.Visibility = ViewStates.Gone;
+                body.Visibility = ViewStates.Gone;
             }
 
             if (message.AudioMessage != null)
@@ -102,24 +135,56 @@ namespace Asawer.Droid
                 System.IO.File.WriteAllBytes(this.FileName, message.AudioMessage.FileBytes);
 
                 this.AudioCard.Visibility = ViewStates.Visible;
-
             }
 
-            LoadBackDrop();
+            this.LoadBackDrop();
+
+
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
+        }
+
+        private void OnRegisterButtonClick(object sender, EventArgs e)
+        {
+            this.PerformPurchase();
+        }
+
+        private void OnChronometerTick(object sender, EventArgs e)
+        {
+            var elapsedMillis = SystemClock.ElapsedRealtime() - this.Chronometer.Base;
+
+            if (elapsedMillis >= 2000 && this.hideText)//Ahbab.CurrentUser.Gender.Equals("M") && Ahbab.CurrentUser.Paid == "N" && 
+            {
+                this.StopPlaying();
+
+                Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+                alert.SetTitle(Constants.UI.Subscription);
+                alert.SetMessage(Constants.UI.Upgrade);
+                alert.SetPositiveButton(Constants.UI.Subscribe, (senderAlert, args) =>
+                {
+                    this.PerformPurchase();
+                });
+
+                alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
+
+                Android.Support.V7.App.AlertDialog dialog = alert.Create();
+                dialog.SetCanceledOnTouchOutside(false);
+                dialog.SetCancelable(false);
+                dialog.Show();
+            }
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            switch (item.ItemId)
+            if (item.ItemId == Resource.Id.deleteMessage)
             {
-                case Resource.Id.deleteMessage:
+                AhbabDatabase.DeleteMessage(Constants.Database.ApiFiles.DeleteMessageFileName, message.ID, OnDeleteMessageCompleted);
 
-                    AhbabDatabase.DeleteMessage(Constants.FunctionsUri.DeleteMessageUri, message.ID, OnDeleteMessageCompleted);
-
-                    return true;
-                case Android.Resource.Id.Home:
-                    Finish();
-                    break;
+                return true;
+            }
+            else if (item.ItemId == Android.Resource.Id.Home)
+            {
+                this.Finish();
+                return true;
             }
 
             return base.OnOptionsItemSelected(item);
@@ -145,7 +210,7 @@ namespace Asawer.Droid
 
         private void PlayAudio()
         {
-            this.PlayAudioButton.SetBackgroundResource(Resource.Drawable.baseline_pause_24);
+            this.PlayAudioButton.SetImageDrawable(this.GetDrawable(Resource.Drawable.baseline_pause_24));
 
             this.AudioPlayer = new MediaPlayer();
 
@@ -168,7 +233,7 @@ namespace Asawer.Droid
 
                         this.AudioPlayer.Start();
 
-                        this.SeekBar.SetProgress(this.lastProgress, true);
+                        this.SeekBar.Progress = this.lastProgress;
 
                         this.AudioPlayer.SeekTo(lastProgress);
 
@@ -203,11 +268,11 @@ namespace Asawer.Droid
         {
             if (!this.AudioPlayer.IsPlaying)
             {
-                this.PlayAudioButton.SetBackgroundResource(Resource.Drawable.baseline_play_arrow_24);
+                this.PlayAudioButton.SetImageDrawable(this.GetDrawable(Resource.Drawable.baseline_play_arrow_24));
 
                 this.Chronometer.Stop();
 
-                this.SeekBar.SetProgress(0, true);
+                this.SeekBar.Progress = 0;
 
                 this.IsPlaying = false;
             }
@@ -227,13 +292,13 @@ namespace Asawer.Droid
             this.AudioPlayer = null;
             //showing the play button
 
-            this.PlayAudioButton.SetBackgroundResource(Resource.Drawable.baseline_play_arrow_24);
+            this.PlayAudioButton.SetImageDrawable(this.GetDrawable(Resource.Drawable.baseline_play_arrow_24));
 
             this.Chronometer.Stop();
 
             this.lastProgress = 0;
 
-            this.SeekBar.SetProgress(0, true);
+            this.SeekBar.Progress = 0;
 
             this.IsPlaying = false;
         }
@@ -243,14 +308,14 @@ namespace Asawer.Droid
             if (this.AudioPlayer != null)
             {
                 var mCurrentPosition = this.AudioPlayer.CurrentPosition;
-                this.SeekBar.SetProgress(mCurrentPosition, true);
+                this.SeekBar.Progress = mCurrentPosition;
                 this.lastProgress = mCurrentPosition;
             }
 
             mHandler.PostDelayed(runnable, 100);
         }
 
-        void OnDeleteMessageCompleted(object sender, UploadValuesCompletedEventArgs e)
+        private void OnDeleteMessageCompleted(object sender, UploadValuesCompletedEventArgs e)
         {
             var result = System.Text.Encoding.UTF8.GetString(e.Result);
 
@@ -266,6 +331,84 @@ namespace Asawer.Droid
         {
             ImageView imageView = FindViewById<ImageView>(Resource.Id.backdrop);
             imageView.SetImageResource(Messages.RandomMessagesDrawable);
+        }
+
+        public override void OnBackPressed()
+        {
+            this.StopPlaying();
+            base.OnBackPressed();
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            InAppBillingImplementation.HandleActivityResult(requestCode, resultCode, data);
+        }
+
+        private async void PerformPurchase()
+        {
+            var succeeded = await this.PurchaseItem("asawer_yearly_subscription", "AsawerPayload");
+        }
+
+        public async Task<bool> PurchaseItem(string productId, string payload)
+        {
+
+            var supported = CrossInAppBilling.IsSupported;
+
+            var billing = CrossInAppBilling.Current;
+
+            try
+            {
+                var connected = await billing.ConnectAsync(ItemType.Subscription);
+
+                if (!connected)
+                {
+                    //we are offline or can't connect, don't try to purchase
+                    return false;
+                }
+
+                var product = await billing.GetProductInfoAsync(ItemType.Subscription, productId);
+
+                //check purchases
+                var purchase = await billing.PurchaseAsync(productId, ItemType.Subscription, payload);
+
+                //possibility that a null came through.
+                if (purchase == null)
+                {
+                    //did not purchase
+                    return false;
+                }
+                else
+                {
+                    try
+                    {
+                        var result = AhbabDatabase.Subscribe(Ahbab.CurrentUser.ID);
+                        if (result != null)
+                        {
+                            Ahbab.CurrentUser = result;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                    }
+                    return false;
+                }
+            }
+            catch (InAppBillingPurchaseException purchaseEx)
+            {
+                //Billing Exception handle this based on the type
+                return false;
+            }
+            catch (Exception ex)
+            {
+                //Something else has gone wrong, log it
+                return false;
+            }
+            finally
+            {
+                await billing.DisconnectAsync();
+            }
         }
     }
 }

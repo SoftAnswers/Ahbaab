@@ -3,6 +3,7 @@ using System.IO;
 using Android.Content;
 using Android.Graphics;
 using Android.Media;
+using static Android.Graphics.Bitmap;
 
 namespace Asawer.Droid
 {
@@ -14,28 +15,21 @@ namespace Asawer.Droid
             BitmapFactory.Options options = new BitmapFactory.Options { InJustDecodeBounds = true };
             BitmapFactory.DecodeFile(fileName, options);
 
-            // Next we calculate the ratio that we need to resize the image by
-            // in order to fit the requested dimensions.
-            int outHeight = options.OutHeight;
-            int outWidth = options.OutWidth;
-            int inSampleSize = 1;
+            options.InSampleSize = CalculateInSampleSize(options, width, height);
 
-            if (outHeight > height || outWidth > width)
-            {
-                inSampleSize = outWidth > outHeight
-                                   ? outHeight / height
-                                   : outWidth / width;
-            }
-
-            // Now we will load the image and have BitmapFactory resize it for us.
-            options.InSampleSize = inSampleSize;
             options.InJustDecodeBounds = false;
-            options.InPurgeable = true;    
-            Bitmap resizedBitmap = BitmapFactory.DecodeFile(fileName, options);
+
+            options.InPreferredConfig = Config.Rgb565;
+
+            options.InDither = true;
+
+            options.InPurgeable = true;
+
+            var resizedBitmap = BitmapFactory.DecodeFile(fileName, options);
 
             return resizedBitmap;
         }
-        
+
         public static Bitmap DecodeBitmapFromStream(Context context, Android.Net.Uri data,
                                                      int requestedWidth, int requestedHeight)
         {

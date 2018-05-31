@@ -4,7 +4,7 @@
 	
 	if(isset($_POST["userId"]))
 	{
-		$stmtinbox = $dbh->prepare("select messages.message_id,messages.from_account,messages.subject,messages.message_date,messages.message_read,messages.body,messages.message_type, messages.audio_path,accounts.username from messages inner join accounts where messages.from_account=accounts.account_id and to_account=:account and message_status=:msgstat");
+		$stmtinbox = $dbh->prepare("select messages.message_id,messages.from_account,messages.subject,messages.message_date,messages.message_read,messages.body,messages.message_type, messages.audio_path,accounts.username from messages inner join accounts where messages.from_account=accounts.account_id and to_account=:account and message_status=:msgstat order by message_id DESC");
 		$stmtinbox->bindParam(':account',$acc);
 		$stmtinbox->bindParam(':msgstat',$msgstat);
 		$acc = $_POST['userId'];

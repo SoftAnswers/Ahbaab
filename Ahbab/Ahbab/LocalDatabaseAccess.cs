@@ -11,20 +11,39 @@ namespace Asawer
     public class LocalDatabaseAccess
     {
         public static string StatusMessage = string.Empty;
+        protected SQLiteAsyncConnection connection;
 
-        public static bool InsertItemsToDatabase<T>(string dbPath, IList<T> items)
+        public LocalDatabaseAccess(string dbPath)
         {
-            var retVal = false;
+            this.connection = new SQLiteAsyncConnection(dbPath);
+        }
 
-            using (var connection = new SQLiteConnection(dbPath))
+        public async Task<int> InsertItemsToDatabaseAsync<T>(IList<T> items)
+        {
+            return await this.connection.InsertAllAsync(items);
+        }
+
+        public async Task<int> InsertItemAsync<T>(T item)
+        {
+            if (item == null)
+                throw new NullReferenceException();
+
+            return await this.connection.InsertAsync(item);
+        }
+
+        public static int InsertItemsToDatabase<T>(string dbPath, IList<T> items)
+        {
+            try
             {
-                foreach (T item in items)
+                using (var sqlConnection = new SQLiteConnection(dbPath))
                 {
-                    retVal = InsertItem(connection, item);
+                    return sqlConnection.InsertAll(items);
                 }
             }
-
-            return retVal;
+            catch
+            {
+                return 0;
+            }
         }
 
         public static bool InsertItem<T>(SQLiteConnection connection, T item)
@@ -44,8 +63,6 @@ namespace Asawer
             {
                 try
                 {
-                    var type = typeof(T).GetType();
-
                     return connection.Table<T>().ToList();
                 }
                 catch (Exception ex)

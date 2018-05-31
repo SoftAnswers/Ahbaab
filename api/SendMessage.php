@@ -8,8 +8,8 @@
 	$stmt->bindParam(':to',$to);
 	$stmt->bindParam(':subject', $subject);
 	$stmt->bindParam(':body', $body);
-	$stmt->bindParam(':date', $date);
 	$stmt->bindParam(':messageStatus', $status);
+	$stmt->bindParam(':date', $date);
 	$stmt->bindParam(':msgtype',$msgtype);
 	$stmt->bindParam(':read',$read);
 	$stmt->bindParam(':audioPath',$audioPath);

@@ -25,11 +25,18 @@ public class InAppBillingImplementation_InAppBillingServiceConnection
 			mono.android.TypeManager.Activate ("Plugin.InAppBilling.InAppBillingImplementation+InAppBillingServiceConnection, Plugin.InAppBilling", "", this, new java.lang.Object[] {  });
 	}
 
-	public InAppBillingImplementation_InAppBillingServiceConnection (android.content.Context p0)
+	public InAppBillingImplementation_InAppBillingServiceConnection (int p0)
 	{
 		super ();
 		if (getClass () == InAppBillingImplementation_InAppBillingServiceConnection.class)
-			mono.android.TypeManager.Activate ("Plugin.InAppBilling.InAppBillingImplementation+InAppBillingServiceConnection, Plugin.InAppBilling", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
+			mono.android.TypeManager.Activate ("Plugin.InAppBilling.InAppBillingImplementation+InAppBillingServiceConnection, Plugin.InAppBilling", "Plugin.InAppBilling.Abstractions.ItemType, Plugin.InAppBilling.Abstractions", this, new java.lang.Object[] { p0 });
+	}
+
+	public InAppBillingImplementation_InAppBillingServiceConnection (android.content.Context p0, int p1)
+	{
+		super ();
+		if (getClass () == InAppBillingImplementation_InAppBillingServiceConnection.class)
+			mono.android.TypeManager.Activate ("Plugin.InAppBilling.InAppBillingImplementation+InAppBillingServiceConnection, Plugin.InAppBilling", "Android.Content.Context, Mono.Android:Plugin.InAppBilling.Abstractions.ItemType, Plugin.InAppBilling.Abstractions", this, new java.lang.Object[] { p0, p1 });
 	}
 
 

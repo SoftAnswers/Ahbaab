@@ -49,6 +49,8 @@ namespace Asawer.Droid
 
             SetContentView(Resource.Layout.UserDetailsActivity);
 
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
+
             this.InitializeView();
         }
 
@@ -199,7 +201,6 @@ namespace Asawer.Droid
 
             LoadUserImages();
             mSendMessageButton.Click += MSendMessageButton_Click;
-            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
         }
 
         void UpdateBtn_Click(object sender, EventArgs e)
@@ -235,6 +236,13 @@ namespace Asawer.Droid
         {
             try
             {
+                var card = sender as CardView;
+
+                if (card.Id == Resource.Id.visitCountToCardView)
+                {
+
+                }
+
                 var result = AhbabDatabase.GetActions(user.ID, "visits", "to");
 
                 if (result != null)
@@ -416,18 +424,25 @@ namespace Asawer.Droid
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
 
-            switch (item.ItemId)
+            if (item.ItemId == Resource.Id.block)
             {
-                case Resource.Id.block:
-                    CheckForUserValidity(Constants.FunctionsUri.BlockUri);
-                    return this.BlockSent;
-                case Resource.Id.interest:
-                    CheckForUserValidity(Constants.FunctionsUri.InterestUri);
-                    return this.InterestSent;
-                case Android.Resource.Id.Home:
-                    Finish();
-                    break;
+                this.CheckForUserValidity(Constants.Database.ApiFiles.BlockFileName);
+
+                return this.BlockSent;
             }
+            else if (item.ItemId == Resource.Id.interest)
+            {
+                this.CheckForUserValidity(Constants.Database.ApiFiles.InterestFileName);
+
+                return this.InterestSent;
+            }
+            else if (item.ItemId == Android.Resource.Id.Home)
+            {
+                this.Finish();
+
+                return true;
+            }
+
             return base.OnOptionsItemSelected(item);
         }
 
@@ -494,6 +509,8 @@ namespace Asawer.Droid
             intent.PutExtra(MessagingActivity.EXTRA_USER, JsonConvert.SerializeObject(user));
 
             ActivityCompat.StartActivity(this, intent, options.ToBundle());
+            
+            this.FinishAfterTransition();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -568,7 +585,7 @@ namespace Asawer.Droid
 
         private async void PerformPurchase()
         {
-            var succeeded = await this.PurchaseItem("asawer_subscription.2018", "AsawerPayload");
+            var succeeded = await this.PurchaseItem("asawer_yearly_subscription", "AsawerPayload");
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -579,15 +596,22 @@ namespace Asawer.Droid
 
         public async Task<bool> PurchaseItem(string productId, string payload)
         {
+
+            var supported = CrossInAppBilling.IsSupported;
+
             var billing = CrossInAppBilling.Current;
+
             try
             {
-                var connected = await billing.ConnectAsync();
+                var connected = await billing.ConnectAsync(ItemType.Subscription);
+
                 if (!connected)
                 {
                     //we are offline or can't connect, don't try to purchase
                     return false;
                 }
+
+                var product = await billing.GetProductInfoAsync(ItemType.Subscription, productId);
 
                 //check purchases
                 var purchase = await billing.PurchaseAsync(productId, ItemType.Subscription, payload);

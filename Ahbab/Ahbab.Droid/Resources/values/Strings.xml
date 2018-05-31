@@ -6,6 +6,7 @@
 	<string name="searchResult">نتيجة البحث</string>
 	<string name="app_name">أساور</string>
 	<string name="search">البحث</string>
+  <string name="subscribe">إشترك لترى المحتوى</string>
   <string name="login"><b>تسجيل الدخول</b></string>
   <string name="logout">خروج</string>
 	<string name="register"><b>تسجل الآن</b></string>

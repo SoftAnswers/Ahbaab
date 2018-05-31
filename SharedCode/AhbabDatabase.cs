@@ -18,57 +18,59 @@ namespace SharedCode
 
         public static async Task<User> Login(string userName, string password)
         {
-            var mClient = new WebClient();
-
-            User user = null;
-
-            NameValueCollection parameters = new NameValueCollection
+            using (var mClient = new WebClient())
             {
-                { "UserName", userName.Trim() },
-                { "Password", password.Trim() }
-            };
+                User user = null;
 
-            var address = string.Format(HostIP, Constants.FunctionsUri.LoginUri);
+                var parameters = new NameValueCollection
+                {
+                    { "UserName", userName.Trim() },
+                    { "Password", password.Trim() }
+                };
 
-            var result = await mClient.UploadValuesTaskAsync(address, parameters);
+                var address = string.Format(HostIP, Constants.Database.ApiFiles.LoginFileName);
 
-            var resultString = Encoding.UTF8.GetString(result);
+                var result = await mClient.UploadValuesTaskAsync(address, parameters);
 
-            if (!string.IsNullOrEmpty(resultString) && !resultString.Contains("Invalid") && !resultString.Contains("Empty"))
-            {
-                user = JsonConvert.DeserializeObject<List<User>>(resultString).FirstOrDefault();
+                var resultString = Encoding.UTF8.GetString(result);
+
+                if (!string.IsNullOrEmpty(resultString) && !resultString.Contains("Invalid") && !resultString.Contains("Empty"))
+                {
+                    user = JsonConvert.DeserializeObject<List<User>>(resultString).FirstOrDefault();
+                }
+
+                return user;
             }
-
-            return user;
         }
 
         public static List<SpinnerItem> GetSpinnerItems(string functionUri, string tableName)
         {
             var retVal = new List<SpinnerItem>();
 
-            var mClient = new WebClient();
-
-            NameValueCollection parameters = new NameValueCollection
+            using (var mClient = new WebClient())
             {
-                { "TableName", tableName }
-            };
 
-            var address = string.Format(HostIP, functionUri);
+                var parameters = new NameValueCollection
+                {
+                    { "TableName", tableName }
+                };
 
-            var result = mClient.UploadValues(address, parameters);
+                var address = string.Format(HostIP, functionUri);
 
-            var items = Encoding.UTF8.GetString(result);
+                var result = mClient.UploadValues(address, parameters);
 
-            retVal = JsonConvert.DeserializeObject<List<SpinnerItem>>(items);
+                var items = Encoding.UTF8.GetString(result);
 
+                retVal = JsonConvert.DeserializeObject<List<SpinnerItem>>(items);
+            }
             return retVal;
         }
 
         internal static string RegisterOrUpdate(string functionUri, User valueToUpload, List<UserFile> imgToDelete = null)
         {
-            var mClient = new WebClient();
-
-            NameValueCollection parameters = new NameValueCollection
+            using (var mClient = new WebClient())
+            {
+                NameValueCollection parameters = new NameValueCollection
             {
                 { "userid", valueToUpload.ID.ToString() },
                 { "user", valueToUpload.UserName },
@@ -96,43 +98,45 @@ namespace SharedCode
                 { "accept", "Y" }
             };
 
-            if (valueToUpload.Images.Count > 0)
-            {
-                parameters.Add("Images", JsonConvert.SerializeObject(valueToUpload.Images));
+                if (valueToUpload.Images.Count > 0)
+                {
+                    parameters.Add("Images", JsonConvert.SerializeObject(valueToUpload.Images));
+                }
+                else
+                {
+                    parameters.Add("Images", string.Empty);
+                }
+                if (imgToDelete != null)
+                {
+                    parameters.Add("ImagesToDelete", JsonConvert.SerializeObject(imgToDelete));
+                }
+
+                var address = string.Format(HostIP, functionUri);
+
+                var result = mClient.UploadValues(address, parameters);
+
+                var resultString = Encoding.UTF8.GetString(result);
+
+                return resultString;
             }
-            else
-            {
-                parameters.Add("Images", string.Empty);
-            }
-            if (imgToDelete != null)
-            {
-                parameters.Add("ImagesToDelete", JsonConvert.SerializeObject(imgToDelete));
-            }
-
-            var address = string.Format(HostIP, functionUri);
-
-            var result = mClient.UploadValues(address, parameters);
-
-            var resultString = Encoding.UTF8.GetString(result);
-
-            return resultString;
         }
 
         internal static List<User> Search(NameValueCollection parameters)
         {
             try
             {
-                var mClient = new WebClient();
+                using (var mClient = new WebClient())
+                {
+                    var address = string.Format(HostIP, Constants.Database.ApiFiles.SearchFileName);
 
-                var address = string.Format(HostIP, Constants.FunctionsUri.SearchUri);
+                    var result = mClient.UploadValues(address, parameters);
 
-                var result = mClient.UploadValues(address, parameters);
+                    var resultString = Encoding.UTF8.GetString(result);
 
-                var resultString = Encoding.UTF8.GetString(result);
+                    var users = JsonConvert.DeserializeObject<List<User>>(resultString);
 
-                var users = JsonConvert.DeserializeObject<List<User>>(resultString);
-
-                return users;
+                    return users;
+                }
             }
             catch (Exception)
             {
@@ -146,21 +150,21 @@ namespace SharedCode
 
             try
             {
-                var mClient = new WebClient();
-
-                NameValueCollection parameters = new NameValueCollection
+                using (var mClient = new WebClient())
                 {
-                    { "userId", userID.ToString() }
-                };
+                    var parameters = new NameValueCollection
+                    {
+                        { "userId", userID.ToString() }
+                    };
 
-                var address = string.Format(HostIP, functionUri);
+                    var address = string.Format(HostIP, functionUri);
 
-                var result = mClient.UploadValues(address, parameters);
+                    var result = mClient.UploadValues(address, parameters);
 
-                var items = Encoding.UTF8.GetString(result);
+                    var items = Encoding.UTF8.GetString(result);
 
-                messages = JsonConvert.DeserializeObject<List<Message>>(items);
-
+                    messages = JsonConvert.DeserializeObject<List<Message>>(items);
+                }
             }
             catch (Exception ex)
             {
@@ -174,28 +178,30 @@ namespace SharedCode
         {
             try
             {
-                var mClient = new WebClient();
-                NameValueCollection parameters = new NameValueCollection
+                using (var mClient = new WebClient())
                 {
-                    { "from", message.Sender.ToString() },
-                    { "to", message.Receiver.ToString() },
-                    { "subject", message.Subject },
-                    { "body", message.Body },
-                    { "gender", sex },
-                    {"audioMessage",
-                        !string.IsNullOrEmpty(message.AudioMessage.FileName)
-                        ? JsonConvert.SerializeObject(message.AudioMessage)
-                        : null
-                    }
-                };
+                    var parameters = new NameValueCollection
+                    {
+                        { "from", message.Sender.ToString() },
+                        { "to", message.Receiver.ToString() },
+                        { "subject", message.Subject },
+                        { "body", message.Body },
+                        { "gender", sex },
+                        {"audioMessage",
+                            !string.IsNullOrEmpty(message.AudioMessage.FileName)
+                            ? JsonConvert.SerializeObject(message.AudioMessage)
+                            : null
+                        }
+                    };
 
-                var address = string.Format(HostIP, Constants.FunctionsUri.SendMessageUri);
+                    var address = string.Format(HostIP, Constants.Database.ApiFiles.SendMessageFileName);
 
-                var result = mClient.UploadValues(address, parameters);
+                    var result = mClient.UploadValues(address, parameters);
 
-                var resultAsString = Encoding.UTF8.GetString(result);
+                    var resultAsString = Encoding.UTF8.GetString(result);
 
-                return resultAsString;
+                    return resultAsString;
+                }
             }
             catch (Exception)
             {
@@ -207,20 +213,21 @@ namespace SharedCode
         {
             try
             {
-                var mClient = new WebClient();
-
-                NameValueCollection parameters = new NameValueCollection
+                using (var mClient = new WebClient())
                 {
-                    { "message", message },
+                    var parameters = new NameValueCollection
+                    {
+                        { "message", message },
 
-                    { "level", level }
-                };
+                        { "level", level }
+                    };
 
-                var address = string.Format(HostIP, Constants.FunctionsUri.LogMessage);
+                    var address = string.Format(HostIP, Constants.Database.ApiFiles.LogMessageFileName);
 
-                var result = mClient.UploadValues(address, parameters);
+                    var result = mClient.UploadValues(address, parameters);
 
-                return Encoding.UTF8.GetString(result);
+                    return Encoding.UTF8.GetString(result);
+                }
 
             }
             catch (Exception)
@@ -233,18 +240,21 @@ namespace SharedCode
         {
             try
             {
-                var mClient = new WebClient();
-                NameValueCollection parameters = new NameValueCollection
+
+                using (var mClient = new WebClient())
                 {
-                    { "from", from.ToString() },
-                    { "to", to.ToString() }
-                };
+                    var parameters = new NameValueCollection
+                    {
+                        { "from", from.ToString() },
+                        { "to", to.ToString() }
+                    };
 
-                var address = string.Format(HostIP, Constants.FunctionsUri.VisitsUri);
+                    var address = string.Format(HostIP, Constants.Database.ApiFiles.VisitsFileName);
 
-                var result = mClient.UploadValues(address, parameters);
-                var resultString = Encoding.UTF8.GetString(result);
-                return resultString;
+                    var result = mClient.UploadValues(address, parameters);
+                    var resultString = Encoding.UTF8.GetString(result);
+                    return resultString;
+                }
             }
             catch (Exception)
             {
@@ -256,22 +266,24 @@ namespace SharedCode
         {
             try
             {
-                var mClient = new WebClient();
-                NameValueCollection parameters = new NameValueCollection
+                using (var mClient = new WebClient())
                 {
-                    { destination, userId.ToString() },
-                    { "TableName", tableName }
-                };
+                    var parameters = new NameValueCollection
+                    {
+                        { destination, userId.ToString() },
+                        { "TableName", tableName }
+                    };
 
-                var address = string.Format(HostIP, Constants.FunctionsUri.GetActions);
+                    var address = string.Format(HostIP, Constants.Database.ApiFiles.GetActionsFileName);
 
-                var result = mClient.UploadValues(address, parameters);
+                    var result = mClient.UploadValues(address, parameters);
 
-                var resultString = Encoding.UTF8.GetString(result);
+                    var resultString = Encoding.UTF8.GetString(result);
 
-                var users = JsonConvert.DeserializeObject<List<User>>(resultString);
+                    var users = JsonConvert.DeserializeObject<List<User>>(resultString);
 
-                return users;
+                    return users;
+                }
             }
             catch (Exception)
             {
@@ -283,21 +295,23 @@ namespace SharedCode
         {
             try
             {
-                var mClient = new WebClient();
-                NameValueCollection parameters = new NameValueCollection
+                using (var mClient = new WebClient())
                 {
-                    { "userId", userId.ToString() }
-                };
+                    var parameters = new NameValueCollection
+                    {
+                        { "userId", userId.ToString() }
+                    };
 
-                var address = string.Format(HostIP, Constants.FunctionsUri.Subscribe);
+                    var address = string.Format(HostIP, Constants.Database.ApiFiles.SubscribeFileName);
 
-                var result = mClient.UploadValues(address, parameters);
+                    var result = mClient.UploadValues(address, parameters);
 
-                var resultString = Encoding.UTF8.GetString(result);
+                    var resultString = Encoding.UTF8.GetString(result);
 
-                var user = JsonConvert.DeserializeObject<List<User>>(resultString).FirstOrDefault();
+                    var user = JsonConvert.DeserializeObject<List<User>>(resultString).FirstOrDefault();
 
-                return user;
+                    return user;
+                }
             }
             catch (Exception)
             {

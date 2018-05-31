@@ -14,7 +14,7 @@
             Gets or sets if in testing mode
             </summary>
         </member>
-        <member name="M:Plugin.InAppBilling.Abstractions.BaseInAppBilling.ConnectAsync">
+        <member name="M:Plugin.InAppBilling.Abstractions.BaseInAppBilling.ConnectAsync(Plugin.InAppBilling.Abstractions.ItemType)">
             <summary>
             Connect to billing service
             </summary>
@@ -114,7 +114,7 @@
             Gets or sets if in testing mode
             </summary>
         </member>
-        <member name="M:Plugin.InAppBilling.Abstractions.IInAppBilling.ConnectAsync">
+        <member name="M:Plugin.InAppBilling.Abstractions.IInAppBilling.ConnectAsync(Plugin.InAppBilling.Abstractions.ItemType)">
             <summary>
             Connect to billing service
             </summary>
@@ -180,7 +180,7 @@
         </member>
         <member name="F:Plugin.InAppBilling.Abstractions.PurchaseError.BillingUnavailable">
             <summary>
-            Billing system unavailable
+            Billing API version is not supported for the type requested (Android), client error (iOS)
             </summary>
         </member>
         <member name="F:Plugin.InAppBilling.Abstractions.PurchaseError.DeveloperError">
@@ -313,6 +313,25 @@
             currency. For example, if price is "€7.99", price_amount_micros is "7990000". 
             This value represents the localized, rounded price for a particular currency.
             </summary>
+        </member>
+        <member name="P:Plugin.InAppBilling.Abstractions.InAppBillingProduct.LocalizedIntroductoryPrice">
+            <summary>
+            Gets or sets the localized introductory price.
+            </summary>
+            <value>The localized introductory price.</value>
+        </member>
+        <member name="P:Plugin.InAppBilling.Abstractions.InAppBillingProduct.MicrosIntroductoryPrice">
+            <summary>
+            Introductory price of the product in micor-units
+            </summary>
+            <value>The introductory price.</value>
+        </member>
+        <member name="P:Plugin.InAppBilling.Abstractions.InAppBillingProduct.HasIntroductoryPrice">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Plugin.InAppBilling.Abstractions.InAppBillingProduct"/>
+            has introductory price. This is an optional value in the answer from the server, requires a boolean to check if this exists
+            </summary>
+            <value><c>true</c> if has introductory price; otherwise, <c>false</c>.</value>
         </member>
         <member name="T:Plugin.InAppBilling.Abstractions.InAppBillingPurchase">
             <summary>

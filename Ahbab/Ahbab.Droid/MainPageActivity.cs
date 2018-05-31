@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Text;
-using Android.App;
-using Android.OS;
-using Android.Views;
-using System.Net;
-using Newtonsoft.Json;
-using Android.Support.V4.View;
-using Android.Support.V7.App;
-using Android.Support.V4.Widget;
-using SupportToolbar = Android.Support.V7.Widget.Toolbar;
-using SupportActionBar = Android.Support.V7.App.ActionBar;
-using SupportFragment = Android.Support.V4.App.Fragment;
-using SupportFragmentManager = Android.Support.V4.App.FragmentManager;
-using AlerDialog = Android.Support.V7.App.AlertDialog;
-using Android.Support.Design.Widget;
-using Android.Support.V4.App;
-using Android.Widget;
+﻿using Android.App;
 using Android.Content;
 using Android.Graphics;
+using Android.OS;
+using Android.Support.Design.Widget;
+using Android.Support.V4.View;
+using Android.Views;
+using Android.Widget;
 using Asawer.Entities;
+using Newtonsoft.Json;
+using Plugin.InAppBilling;
+using Plugin.InAppBilling.Abstractions;
+using SharedCode;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using AlerDialog = Android.Support.V7.App.AlertDialog;
 
 namespace Asawer.Droid
 {
@@ -43,9 +37,7 @@ namespace Asawer.Droid
 
             tabs.SetupWithViewPager(viewPager);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-
-            fab.Visibility = ViewStates.Invisible;
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
         }
 
         protected override void OnStart()
@@ -65,9 +57,14 @@ namespace Asawer.Droid
             editAccount.Click += EditAccount_Click;
         }
 
-        void SetUpViewPager(ViewPager viewPager)
+        public async void PerformPurchase()
         {
-            TabAdapter adapter = new TabAdapter(SupportFragmentManager);
+            var succeeded = await this.PurchaseItem("asawer_yearly_subscription", "AsawerPayload");
+        }
+
+        private void SetUpViewPager(ViewPager viewPager)
+        {
+            var adapter = new TabAdapter(SupportFragmentManager);
 
             adapter.AddFragment(new SearchFragment(), Constants.TabsNames.Search);
             adapter.AddFragment(new InboxFragment(), Constants.TabsNames.Inbox);
@@ -115,103 +112,78 @@ namespace Asawer.Droid
             dialog.Show();
         }
 
-        void EditAccount_Click(object sender, EventArgs e)
+        private void EditAccount_Click(object sender, EventArgs e)
         {
-            Intent userDetailsActivity = new Intent(this, typeof(UserDetailsActivity));
+            Intent userDetailsActivity = new Intent(this, typeof(userProfileActivity));
             userDetailsActivity.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(Ahbab.CurrentUser));
             this.StartActivity(userDetailsActivity);
             this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
         }
 
-        public List<SpinnerItem> GetSpinnerItems(Uri functionUri, string tableName)
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            var retVal = new List<SpinnerItem>();
-
-            var mClient = new WebClient();
-
-            NameValueCollection parameters = new NameValueCollection
-            {
-                { "TableName", tableName }
-            };
-
-            var values = mClient.UploadValues(functionUri, parameters);
-
-            var items = Encoding.UTF8.GetString(values);
-
-            retVal = JsonConvert.DeserializeObject<List<SpinnerItem>>(items);
-
-            return retVal;
+            base.OnActivityResult(requestCode, resultCode, data);
+            InAppBillingImplementation.HandleActivityResult(requestCode, resultCode, data);
         }
 
-        public override void OnBackPressed()
+        private async Task<bool> PurchaseItem(string productId, string payload)
         {
 
-            if (Ahbab.CurrentUser.UserName == Settings.Username)
+            var supported = CrossInAppBilling.IsSupported;
+
+            var billing = CrossInAppBilling.Current;
+
+            try
             {
-                this.Finish();
-            }
-            else
-            {
-                var alert = new AlerDialog.Builder(this);
-                alert.SetTitle(Constants.UI.LogoutHeader);
-                alert.SetMessage(Constants.UI.LogoutMessage);
-                alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) =>
+                var connected = await billing.ConnectAsync(ItemType.Subscription);
+
+                if (!connected)
                 {
-                    var loginPageIntent = new Intent(this, typeof(MainActivity));
+                    //we are offline or can't connect, don't try to purchase
+                    return false;
+                }
 
-                    loginPageIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+                var product = await billing.GetProductInfoAsync(ItemType.Subscription, productId);
 
-                    this.StartActivity(loginPageIntent);
+                //check purchases
+                var purchase = await billing.PurchaseAsync(productId, ItemType.Subscription, payload);
 
-                    this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
-
-                    Ahbab.CurrentUser = null;
-
-                    base.OnBackPressed();
-                });
-                alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
-
-                var dialog = alert.Create();
-                dialog.SetCanceledOnTouchOutside(false);
-                dialog.SetCancelable(false);
-                dialog.Show();
-            }
-        }
-
-        public class TabAdapter : FragmentPagerAdapter
-        {
-            public List<SupportFragment> Fragments { get; set; }
-            public List<string> FragmentsNames { get; set; }
-
-            public TabAdapter(SupportFragmentManager sfm)
-                : base(sfm)
-            {
-                Fragments = new List<SupportFragment>();
-                FragmentsNames = new List<string>();
-            }
-
-            public void AddFragment(SupportFragment fragment, string name)
-            {
-                Fragments.Add(fragment);
-                FragmentsNames.Add(name);
-            }
-
-            public override int Count
-            {
-                get
+                //possibility that a null came through.
+                if (purchase == null)
                 {
-                    return Fragments.Count;
+                    //did not purchase
+                    return false;
+                }
+                else
+                {
+                    try
+                    {
+                        var result = AhbabDatabase.Subscribe(Ahbab.CurrentUser.ID);
+                        if (result != null)
+                        {
+                            Ahbab.CurrentUser = result;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                    }
+                    return false;
                 }
             }
-
-            public override SupportFragment GetItem(int position)
+            catch (InAppBillingPurchaseException purchaseEx)
             {
-                return Fragments[position];
+                //Billing Exception handle this based on the type
+                return false;
             }
-
-            public override Java.Lang.ICharSequence GetPageTitleFormatted(int position)
+            catch (Exception ex)
             {
-                return new Java.Lang.String(FragmentsNames[position]);
+                //Something else has gone wrong, log it
+                return false;
+            }
+            finally
+            {
+                await billing.DisconnectAsync();
             }
         }
     }

@@ -72,6 +72,9 @@ namespace Asawer
             set;
         }
 
+        [JsonProperty(PropertyName = "message_type")]
+        public string MessageType { get; set; }
+
         [JsonProperty(PropertyName = "audio_message")]
         public UserFile AudioMessage
         {

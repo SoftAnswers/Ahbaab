@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 
 <resources>
-  <style name="Theme.Ahbab" parent="Base.Theme.Ahbab">
+  <style name="Theme.Ahbab"  parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/primaryColor</item>
+    <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+    <item name="colorAccent">@color/accent</item>
     <item name="android:statusBarColor">@android:color/transparent</item>
     <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     <item name="android:windowTranslucentStatus">true</item>
     <item name="android:windowTranslucentNavigation">true</item>
   </style>
 
-  <style name="Theme.AhbabAlt" parent="Base.Theme.Ahbab">
+  <style name="Theme.AhbabAlt" parent="Theme.AppCompat.Light.NoActionBar">
     <item name="android:statusBarColor">@android:color/transparent</item>
     <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     <item name="android:windowTranslucentStatus">true</item>

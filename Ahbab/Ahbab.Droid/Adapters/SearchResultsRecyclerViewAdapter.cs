@@ -21,8 +21,8 @@ namespace Asawer.Droid
 
         public SearchResultsRecyclerViewAdapter(Context context, List<User> items, Resources res)
         {
-            context.Theme.ResolveAttribute(Resource.Attribute.selectableItemBackground, mTypedValue, true);
-            mBackground = mTypedValue.ResourceId;
+            //context.Theme.ResolveAttribute(Resource.Attribute.selectableItemBackground, mTypedValue, true);
+            //mBackground = mTypedValue.ResourceId;
             mValues = items;
             mResource = res;
 
@@ -82,8 +82,9 @@ namespace Asawer.Droid
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            View view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.List_Item, parent, false);
-            view.SetBackgroundResource(mBackground);
+            var view = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.List_Item, parent, false);
+
+            view.SetBackgroundResource(Resource.Drawable.list_item_style);
 
             return new SearchSimpleViewHolder(view);
         }

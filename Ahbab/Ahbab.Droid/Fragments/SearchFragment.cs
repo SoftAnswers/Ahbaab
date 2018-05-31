@@ -147,7 +147,7 @@ namespace Asawer.Droid
                        {
                            Ahbab.SearchResults = results;
 
-                           Intent searchResultIntent = new Intent(this.Activity, typeof(SearchResultsActivity));
+                           var searchResultIntent = new Intent(this.Activity, typeof(SearchResultsActivity));
 
                            this.Activity.StartActivity(searchResultIntent);
 

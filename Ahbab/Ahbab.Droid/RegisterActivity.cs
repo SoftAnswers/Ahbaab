@@ -86,38 +86,6 @@ namespace Asawer.Droid
             this.InitiateComponents();
 
             this.BindValues();
-
-            //if (Ahbab.GetSpinnersFromDatabaseCompleted)
-            //{
-            //    this.InitiateComponents();
-
-            //    this.BindValues();
-            //}
-            //else
-            //{
-            //    var progress = new ProgressDialog(this)
-            //    {
-            //        Indeterminate = true
-            //    };
-            //    progress.SetProgressStyle(ProgressDialogStyle.Spinner);
-            //    progress.SetMessage(Constants.UI.FetchDataLoader);
-            //    progress.SetCancelable(false);
-            //    progress.Show();
-
-            //    new Thread(new ThreadStart(() =>
-            //    {
-            //        Ahbab.GetSpinnersFromDatabaseTask.Wait();
-
-            //        RunOnUiThread(() =>
-            //        {
-            //            this.InitiateComponents();
-
-            //            this.BindValues();
-
-            //            progress.Hide();
-            //        });
-            //    })).Start();
-            //}
         }
 
         protected override void OnStart()
@@ -387,7 +355,7 @@ namespace Asawer.Droid
                 {
                     try
                     {
-                        var resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.RegisterUri, userInput);
+                        var resultString = AhbabDatabase.RegisterOrUpdate(Constants.Database.ApiFiles.RegisterFileName, userInput);
                         errorText = resultString;
                         if (!string.IsNullOrEmpty(resultString))
                         {
@@ -457,9 +425,9 @@ namespace Asawer.Droid
                     {
                         string resultString = null;
                         if (this.UserImagesToDelete.Count > 0)
-                            resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput, this.UserImagesToDelete);
+                            resultString = AhbabDatabase.RegisterOrUpdate(Constants.Database.ApiFiles.UpdateFileName, userInput, this.UserImagesToDelete);
                         else
-                            resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.UpdateUri, userInput);
+                            resultString = AhbabDatabase.RegisterOrUpdate(Constants.Database.ApiFiles.UpdateFileName, userInput);
 
                         if (!string.IsNullOrEmpty(resultString))
                         {
@@ -811,7 +779,7 @@ namespace Asawer.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
-            var height = Resources.DisplayMetrics.HeightPixels;
+            var height = mUploadImage.Height;
 
             var width = mUploadImage.Width;
 
@@ -941,6 +909,8 @@ namespace Asawer.Droid
             imageView.TransitionName = fileName;
 
             imageView.Click += ImageView_Click;
+
+            GC.Collect();
         }
 
         // Method used to remove the image from the view and add it to the List to be deleted

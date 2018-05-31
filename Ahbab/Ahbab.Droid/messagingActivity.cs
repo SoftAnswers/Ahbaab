@@ -24,7 +24,7 @@ using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace Asawer.Droid
 {
-    [Activity(Label = "messagingActivity", Theme = "@style/Theme.Ahbab.Transparent")]
+    [Activity(Label = "messagingActivity", NoHistory =true, Theme = "@style/Theme.Ahbab.Transparent")]
     public class MessagingActivity : AppCompatActivity
     {
         public static readonly string EXTRA_CIRCULAR_REVEAL_X = "EXTRA_CIRCULAR_REVEAL_X";
@@ -36,7 +36,7 @@ namespace Asawer.Droid
         private TextInputLayout subjectInputLayout;
         private TextInputLayout bodyInputLayout;
         private Button sendMessageButton;
-        private RelativeLayout rootLayout;
+        private CoordinatorLayout rootLayout;
         private int revealX;
         private int revealY;
         private User user;
@@ -59,7 +59,7 @@ namespace Asawer.Droid
         public bool StartRecording { get => startRecording; set => startRecording = value; }
         protected MediaRecorder Recorder { get => recorder; set => recorder = value; }
         protected MediaPlayer AudioPlayer { get => audioPlayer; set => audioPlayer = value; }
-        public RelativeLayout RootLayout { get => rootLayout; set => rootLayout = value; }
+        public CoordinatorLayout RootLayout { get => rootLayout; set => rootLayout = value; }
         public int RevealX { get => revealX; set => revealX = value; }
         public int RevealY { get => revealY; set => revealY = value; }
         public User User { get => user; set => user = value; }
@@ -81,7 +81,7 @@ namespace Asawer.Droid
 
             this.SetContentView(Resource.Layout.messaging_activity);
 
-            this.RootLayout = this.FindViewById<RelativeLayout>(Resource.Id.root_layout);
+            this.RootLayout = this.FindViewById<CoordinatorLayout>(Resource.Id.root_layout);
 
             InitializeActivity(savedInstanceState);
 
@@ -243,6 +243,12 @@ namespace Asawer.Droid
             if (result.ToLower().Contains("success"))
             {
                 Toast.MakeText(this, "Message sent successfully.", ToastLength.Short).Show();
+
+                var searchResultIntent = new Intent(this, typeof(SearchResultsActivity));
+
+                this.StartActivity(searchResultIntent);
+
+                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
             }
             else
             {
@@ -319,21 +325,32 @@ namespace Asawer.Droid
             try
             {
                 this.Recorder = new MediaRecorder(); // Initial state.
+
                 this.Recorder.Reset();
+
                 this.Recorder.SetAudioSource(AudioSource.Mic);
+
                 this.Recorder.SetOutputFormat(OutputFormat.ThreeGpp);
+
                 this.Recorder.SetAudioEncoder(AudioEncoder.AmrNb);
+
                 // Initialized state.
                 this.Recorder.SetOutputFile(this.FileName);
+
                 // DataSourceConfigured state.
+                this.StopPlaying();
+
                 this.Recorder.Prepare(); // Prepared state
+
                 this.Recorder.Start(); // Recording state.
 
                 this.lastProgress = 0;
-                this.SeekBar.SetProgress(0, true);
-                //stopPlaying();
+
+                this.SeekBar.Progress = 0;
+
                 //starting the chronometer
                 this.Chronometer.Base = SystemClock.ElapsedRealtime();
+
                 this.Chronometer.Start();
             }
             catch (Exception ex)
@@ -344,21 +361,30 @@ namespace Asawer.Droid
 
         private void StopRecording()
         {
-            this.RecodButton.SetImageResource(Resource.Drawable.baseline_mic_white_18);
+            if (this.Recorder != null)
+            {
+                this.RecodButton.SetImageResource(Resource.Drawable.baseline_mic_white_18);
 
-            this.Recorder.Stop();
+                try
+                {
+                    this.Recorder.Stop();
 
-            this.Recorder.Release();
+                    this.Recorder.Release();
+                }
+                catch
+                {
+                }
 
-            this.Recorder = null;
+                this.Recorder = null;
 
-            this.Chronometer.Stop();
+                this.Chronometer.Stop();
 
-            this.Chronometer.Base = SystemClock.ElapsedRealtime();
+                this.Chronometer.Base = SystemClock.ElapsedRealtime();
 
-            this.StartRecording = true;
+                this.StartRecording = true;
 
-            this.PlayAudioButton.Visibility = ViewStates.Visible;
+                this.PlayAudioButton.Visibility = ViewStates.Visible;
+            }
         }
 
         private void PlayAudio()
@@ -386,7 +412,7 @@ namespace Asawer.Droid
 
                         this.AudioPlayer.Start();
 
-                        this.SeekBar.SetProgress(this.lastProgress, true);
+                        this.SeekBar.Progress = this.lastProgress;
 
                         this.AudioPlayer.SeekTo(lastProgress);
 
@@ -425,7 +451,7 @@ namespace Asawer.Droid
 
                 this.Chronometer.Stop();
 
-                this.SeekBar.SetProgress(0, true);
+                this.SeekBar.Progress = 0;
 
                 this.IsPlaying = false;
             }
@@ -433,26 +459,29 @@ namespace Asawer.Droid
 
         private void StopPlaying()
         {
-            try
+            if (this.AudioPlayer != null && this.IsPlaying)
             {
-                this.AudioPlayer.Stop();
-                this.AudioPlayer.Release();
+                try
+                {
+                    this.AudioPlayer.Stop();
+                    this.AudioPlayer.Release();
+                }
+                catch (Exception e)
+                {
+
+                }
+                this.AudioPlayer = null;
+                //showing the play button
+                this.PlayAudioButton.SetImageResource(Resource.Drawable.baseline_play_arrow_24);
+
+                this.Chronometer.Stop();
+
+                this.lastProgress = 0;
+
+                this.SeekBar.Progress = 0;
+
+                this.IsPlaying = false;
             }
-            catch (Exception e)
-            {
-
-            }
-            this.AudioPlayer = null;
-            //showing the play button
-            this.PlayAudioButton.SetImageResource(Resource.Drawable.baseline_play_arrow_24);
-
-            this.Chronometer.Stop();
-
-            this.lastProgress = 0;
-
-            this.SeekBar.SetProgress(0, true);
-
-            this.IsPlaying = false;
         }
 
         private void SeekUpdation()
@@ -460,11 +489,22 @@ namespace Asawer.Droid
             if (this.AudioPlayer != null)
             {
                 var mCurrentPosition = this.AudioPlayer.CurrentPosition;
-                this.SeekBar.SetProgress(mCurrentPosition, true);
+
+                this.SeekBar.Progress = mCurrentPosition;
+
                 this.lastProgress = mCurrentPosition;
             }
 
             mHandler.PostDelayed(runnable, 100);
+        }
+
+        public override void OnBackPressed()
+        {
+            this.StopRecording();
+
+            this.StopPlaying();
+
+            base.OnBackPressed();
         }
 
         private class AnimatorAdapter : AnimatorListenerAdapter
