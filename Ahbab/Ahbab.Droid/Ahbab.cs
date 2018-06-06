@@ -30,6 +30,7 @@ namespace Asawer.Droid
         public static List<SpinnerItem> mContactWays;
         public static User CurrentUser;
         public static List<User> SearchResults;
+        public static string FirebaseInstanceIdToken;
         private static string localDatabasePath;
 
         public static string LocalDatabasePath { get => localDatabasePath; set => localDatabasePath = value; }

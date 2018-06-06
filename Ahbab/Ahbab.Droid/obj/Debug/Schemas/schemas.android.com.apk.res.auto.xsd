@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v26</xs:documentation>
-    <xs:documentation>5/31/2018 8:02:58 PM</xs:documentation>
+    <xs:documentation>6/2/2018 9:31:27 AM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -641,6 +641,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -685,10 +687,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -719,6 +723,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -2853,6 +2858,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -2897,10 +2904,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -2931,6 +2940,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -3657,6 +3667,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -3701,10 +3713,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -3735,6 +3749,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -4324,6 +4339,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -4368,10 +4385,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -4402,6 +4421,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -4971,6 +4991,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -5015,10 +5037,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -5049,6 +5073,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -5615,6 +5640,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -5659,10 +5686,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -5693,6 +5722,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -7637,6 +7667,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -7681,10 +7713,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -7715,6 +7749,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -8281,6 +8316,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -8325,10 +8362,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -8359,6 +8398,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -9085,6 +9125,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -9129,10 +9171,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -9163,6 +9207,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -10183,6 +10228,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -10227,10 +10274,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -10261,6 +10310,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -10827,6 +10877,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -10871,10 +10923,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -10905,6 +10959,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -12566,6 +12621,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -12610,10 +12667,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -12644,6 +12703,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -13268,6 +13328,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -13312,10 +13374,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -13346,6 +13410,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -13912,6 +13977,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -13956,10 +14023,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -13990,6 +14059,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -14556,6 +14626,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -14600,10 +14672,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -14634,6 +14708,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -15200,6 +15275,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -15244,10 +15321,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -15278,6 +15357,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -15886,6 +15966,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -15930,10 +16012,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -15964,6 +16048,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -16530,6 +16615,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -16574,10 +16661,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -16608,6 +16697,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -17258,6 +17348,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -17302,10 +17394,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -17336,6 +17430,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -18226,6 +18321,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -18270,10 +18367,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -18304,6 +18403,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:color/background_dark" />
             <xs:enumeration value="@android:color/background_light" />
@@ -18941,6 +19041,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -18985,10 +19087,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -19019,6 +19123,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -19791,6 +19896,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -19835,10 +19942,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -19869,6 +19978,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -20641,6 +20751,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -20685,10 +20797,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -20719,6 +20833,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -21285,6 +21400,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -21329,10 +21446,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -21363,6 +21482,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -22715,6 +22835,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -22759,10 +22881,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -22793,6 +22917,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -23519,6 +23644,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -23563,10 +23690,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -23597,6 +23726,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -24323,6 +24453,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -24367,10 +24499,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -24401,6 +24535,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -25451,6 +25586,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -25495,10 +25632,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -25529,6 +25668,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -26503,6 +26643,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -26547,10 +26689,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -26581,6 +26725,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@string/abc_action_bar_home_description" />
             <xs:enumeration value="@string/abc_action_bar_up_description" />
@@ -27528,6 +27673,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -27572,10 +27719,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -27606,6 +27755,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -28172,6 +28322,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -28216,10 +28368,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -28250,6 +28404,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -28987,6 +29142,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -29031,10 +29188,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -29065,6 +29224,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -29837,6 +29997,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -29881,10 +30043,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -29915,6 +30079,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -30493,6 +30658,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -30537,10 +30704,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -30571,6 +30740,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -31343,6 +31513,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -31387,10 +31559,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -31421,6 +31595,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -32399,6 +32574,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -32443,10 +32620,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -32477,6 +32656,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -33043,6 +33223,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -33087,10 +33269,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -33121,6 +33305,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -35983,6 +36168,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -36027,10 +36214,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -36061,6 +36250,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -38554,6 +38744,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -38598,10 +38790,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -38632,6 +38826,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -39404,6 +39599,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -39448,10 +39645,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -39482,6 +39681,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -40048,6 +40248,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -40092,10 +40294,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -40126,6 +40330,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
@@ -40959,6 +41164,8 @@
             <xs:enumeration value="@drawable/baseline_search_white_36" />
             <xs:enumeration value="@drawable/baseline_search_white_48" />
             <xs:enumeration value="@drawable/bg" />
+            <xs:enumeration value="@drawable/block" />
+            <xs:enumeration value="@drawable/blockfiles" />
             <xs:enumeration value="@drawable/buttonsigninstyle" />
             <xs:enumeration value="@drawable/buttonsignupstyle" />
             <xs:enumeration value="@drawable/common_full_open_on_phone" />
@@ -41003,10 +41210,12 @@
             <xs:enumeration value="@drawable/ic_keyboard_arrow_down_black_24dp" />
             <xs:enumeration value="@drawable/ic_menu" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/likes" />
             <xs:enumeration value="@drawable/list_item_style" />
             <xs:enumeration value="@drawable/loader" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/logohd" />
+            <xs:enumeration value="@drawable/lovers" />
             <xs:enumeration value="@drawable/main_signin_button_text" />
             <xs:enumeration value="@drawable/maleoff" />
             <xs:enumeration value="@drawable/maleon" />
@@ -41037,6 +41246,7 @@
             <xs:enumeration value="@drawable/splash_screen" />
             <xs:enumeration value="@drawable/tooltip_frame_dark" />
             <xs:enumeration value="@drawable/tooltip_frame_light" />
+            <xs:enumeration value="@drawable/views" />
             <xs:enumeration value="@drawable/xs" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />

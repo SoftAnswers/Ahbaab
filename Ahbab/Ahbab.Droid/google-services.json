@@ -1,31 +1,39 @@
 {
   "project_info": {
-    "project_number": "369516829744",
-    "firebase_url": "https://asawer-53e94.firebaseio.com",
-    "project_id": "asawer-53e94",
-    "storage_bucket": "asawer-53e94.appspot.com"
+    "project_number": "275390063795",
+    "firebase_url": "https://asawer-afm.firebaseio.com",
+    "project_id": "asawer-afm",
+    "storage_bucket": "asawer-afm.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:369516829744:android:27cab2fafbc3bafd",
+        "mobilesdk_app_id": "1:275390063795:android:0c02bf7e0cdc2e8d",
         "android_client_info": {
-          "package_name": "com.SoftAnswers.dating.Asawer"
+          "package_name": "com.AFM.Asawer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "369516829744-8rner08p1gt5smeaf3emged4jf83m282.apps.googleusercontent.com",
+          "client_id": "275390063795-qg6stg2omikmpgarqd33igi518genunn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.AFM.Asawer",
+            "certificate_hash": "799838ca5db4250785ebd1430cb036006fe9d6c8"
+          }
+        },
+        {
+          "client_id": "275390063795-mv42ksiqd7qkndf8b2o0ta8uvm033fg3.apps.googleusercontent.com",
           "client_type": 3
         },
         {
-          "client_id": "369516829744-8rner08p1gt5smeaf3emged4jf83m282.apps.googleusercontent.com",
+          "client_id": "275390063795-mv42ksiqd7qkndf8b2o0ta8uvm033fg3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDU7gna4bSlQtH1WUag8z_usL2mmpkPxp4"
+          "current_key": "AIzaSyCXapQLo9MJs-dZ96is8FhExjXwBw5Y53U"
         }
       ],
       "services": {
@@ -33,8 +41,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275390063795-mv42ksiqd7qkndf8b2o0ta8uvm033fg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

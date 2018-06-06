@@ -18,16 +18,12 @@ namespace Asawer.Droid
     [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
     public class AsawerFirebaseInstanceIdService : FirebaseInstanceIdService
     {
-        const string TAG = "MyFirebaseIIDService";
         public override void OnTokenRefresh()
         {
-            var refreshedToken = FirebaseInstanceId.Instance.Token;
-            Log.Debug(TAG, "Refreshed token: " + refreshedToken);
-            SendRegistrationToServer(refreshedToken);
-        }
-        void SendRegistrationToServer(string token)
-        {
-            // Add custom implementation, as needed.
+            base.OnTokenRefresh();
+            Log.Debug("Refreshed Token:", FirebaseInstanceId.Instance.Token);
+
+            Ahbab.FirebaseInstanceIdToken = FirebaseInstanceId.Instance.Token;
         }
     }
 }

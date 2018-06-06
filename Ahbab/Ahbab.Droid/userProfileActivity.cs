@@ -10,11 +10,13 @@ using Android.Widget;
 using Asawer.Droid.Adapters;
 using Asawer.Droid.Fragments;
 using Asawer.Entities;
+using Firebase.Iid;
 using Plugin.InAppBilling;
 using Plugin.InAppBilling.Abstractions;
 using SharedCode;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using AlerDialog = Android.Support.V7.App.AlertDialog;
 
@@ -37,6 +39,22 @@ namespace Asawer.Droid
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
 
             this.InitializeView();
+
+            new Thread(new ThreadStart(async () =>
+            {
+                try
+                {
+                    var instanceId = !string.IsNullOrEmpty(Ahbab.FirebaseInstanceIdToken)
+                                                ? Ahbab.FirebaseInstanceIdToken
+                                                : FirebaseInstanceId.Instance.Token;
+
+                    var result = await AhbabDatabase.RefreshTokenInDatabase(Ahbab.CurrentUser.ID, instanceId);
+
+                }
+                catch
+                {
+                }
+            })).Start();
         }
 
         protected override void OnStart()

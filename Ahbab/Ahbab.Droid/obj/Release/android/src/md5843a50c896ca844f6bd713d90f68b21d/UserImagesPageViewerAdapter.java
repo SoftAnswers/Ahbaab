@@ -11,8 +11,8 @@ public class UserImagesPageViewerAdapter
 	static {
 		__md_methods = 
 			"n_getCount:()I:GetGetCountHandler\n" +
-			"n_instantiateItem:(Landroid/view/View;I)Ljava/lang/Object;:GetInstantiateItem_Landroid_view_View_IHandler\n" +
-			"n_destroyItem:(Landroid/view/View;ILjava/lang/Object;)V:GetDestroyItem_Landroid_view_View_ILjava_lang_Object_Handler\n" +
+			"n_instantiateItem:(Landroid/view/ViewGroup;I)Ljava/lang/Object;:GetInstantiateItem_Landroid_view_ViewGroup_IHandler\n" +
+			"n_destroyItem:(Landroid/view/ViewGroup;ILjava/lang/Object;)V:GetDestroyItem_Landroid_view_ViewGroup_ILjava_lang_Object_Handler\n" +
 			"n_isViewFromObject:(Landroid/view/View;Ljava/lang/Object;)Z:GetIsViewFromObject_Landroid_view_View_Ljava_lang_Object_Handler\n" +
 			"";
 		mono.android.Runtime.register ("Asawer.Droid.Adapters.UserImagesPageViewerAdapter, Asawer.Droid", UserImagesPageViewerAdapter.class, __md_methods);
@@ -35,20 +35,20 @@ public class UserImagesPageViewerAdapter
 	private native int n_getCount ();
 
 
-	public java.lang.Object instantiateItem (android.view.View p0, int p1)
+	public java.lang.Object instantiateItem (android.view.ViewGroup p0, int p1)
 	{
 		return n_instantiateItem (p0, p1);
 	}
 
-	private native java.lang.Object n_instantiateItem (android.view.View p0, int p1);
+	private native java.lang.Object n_instantiateItem (android.view.ViewGroup p0, int p1);
 
 
-	public void destroyItem (android.view.View p0, int p1, java.lang.Object p2)
+	public void destroyItem (android.view.ViewGroup p0, int p1, java.lang.Object p2)
 	{
 		n_destroyItem (p0, p1, p2);
 	}
 
-	private native void n_destroyItem (android.view.View p0, int p1, java.lang.Object p2);
+	private native void n_destroyItem (android.view.ViewGroup p0, int p1, java.lang.Object p2);
 
 
 	public boolean isViewFromObject (android.view.View p0, java.lang.Object p1)

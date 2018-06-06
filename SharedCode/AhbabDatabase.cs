@@ -8,13 +8,14 @@ using System.Collections.Specialized;
 using Newtonsoft.Json;
 using Asawer;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace SharedCode
 {
     public class AhbabDatabase
     {
         protected static readonly string HostIP = "http://www.asawer.net/api/{0}";
-        //protected static readonly string HostIP = "http://192.168.1.112/api/{0}";
+        //protected static readonly string HostIP = "http://192.168.1.120/api/{0}";
 
         public static async Task<User> Login(string userName, string password)
         {
@@ -64,6 +65,36 @@ namespace SharedCode
                 retVal = JsonConvert.DeserializeObject<List<SpinnerItem>>(items);
             }
             return retVal;
+        }
+
+        public static async Task<bool> RefreshTokenInDatabase(int userId, string token)
+        {
+            using (var mClient = new WebClient())
+            {
+                var retval = false;
+                var parameters = new NameValueCollection
+                {
+                    { "user", userId .ToString()},
+                    { "token", token }
+                };
+
+                var address = string.Format(HostIP, Constants.Database.ApiFiles.RefreshAppFirebaseTokenFileName);
+
+                var result = await mClient.UploadValuesTaskAsync(address, parameters);
+
+                var resultString = Encoding.UTF8.GetString(result);
+
+                if (!string.IsNullOrEmpty(resultString) && resultString.ToLower().Contains("success"))
+                {
+                    retval = true;
+                }
+                else
+                {
+                    retval = false;
+                }
+
+                return retval;
+            }
         }
 
         internal static string RegisterOrUpdate(string functionUri, User valueToUpload, List<UserFile> imgToDelete = null)
@@ -316,6 +347,21 @@ namespace SharedCode
             catch (Exception)
             {
                 return new User();
+            }
+        }
+
+        internal static async void UpdateMessageStatus(int messageId)
+        {
+            using (var client = new WebClient())
+            {
+                var parameters = new NameValueCollection()
+                {
+                    { "messageId", messageId.ToString()}
+                };
+
+                var address = string.Format(HostIP, Constants.Database.ApiFiles.UpdateMessageStatusFileName);
+
+                await client.UploadValuesTaskAsync(new Uri(address), parameters);
             }
         }
 

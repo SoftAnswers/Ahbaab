@@ -64,6 +64,8 @@ namespace Asawer
                 public const string VisitsFileName = "visit.php";
                 public const string GetActionsFileName = "GetActions.php";
                 public const string SubscribeFileName = "Subscribe.php";
+                public const string RefreshAppFirebaseTokenFileName = "RefreshAppFirebaseToken.php";
+                public const string UpdateMessageStatusFileName = "UpdateMessageStatus.php";
             }
 
             public struct ActionOrigin
@@ -113,10 +115,10 @@ namespace Asawer
             public const string LoginLoader = "الرجاء الانتظار، يتم تسجيل الدخول";
             public const string SearchLoader = "الرجاء الانتظار، جاري البحث";
             public const string ConfiguringLoader = "الرجاء الانتظار، يتم تهيئة التطبيق";
-            public const string SuccessfullRegistration = "تم التسجيل بنجاح";
+            public const string SuccessfulRegistration = "تم التسجيل بنجاح";
             public const string FetchDataLoader = "الرجاء الانتظار، يتم تنزيل المعلومات";
             public const string UpdateLoader = "الرجاء الانتظار، يتم تحديث المعلومات";
-            public const string SuccessfullUpdate = "تم التحديث بنجاح";
+            public const string SuccessfulUpdate = "تم التحديث بنجاح";
             public const string ErrorOccured = "حصل خطأ";
             public const string Upgrade = "عليك أن تكون مشتركاً لتكمل";
             public const string Cancel = "إلغاء";

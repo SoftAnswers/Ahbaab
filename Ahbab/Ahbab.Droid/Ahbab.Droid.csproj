@@ -193,6 +193,7 @@
     <Compile Include="messagingActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Services\AsawerFirebaseInstanceIdService.cs" />
+    <Compile Include="Services\AsawerFirebaseMessagingService.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="SubscriptionActivity.cs" />
     <Compile Include="Adapters\UserImagesPageViewerAdapter.cs" />
@@ -1148,6 +1149,21 @@
     <AndroidResource Include="Resources\menu\user_profile_menu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\blockfiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\likes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\lovers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\views.png" />
   </ItemGroup>
   <Import Project="..\..\SharedCode\SharedCode.projitems" Label="Shared" Condition="Exists('..\..\SharedCode\SharedCode.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

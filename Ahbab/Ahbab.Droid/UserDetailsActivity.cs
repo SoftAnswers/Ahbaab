@@ -139,7 +139,7 @@ namespace Asawer.Droid
                 : Constants.DefaultValues.NA;
 
             weight.Text = user.WeightId != 0
-                ? Ahbab.mWeightItems.FirstOrDefault(i => i.ID == user.WeightId).DescriptionAR
+                ? Ahbab.mWeightItems.FirstOrDefault(i => i.ID == user.WeightId)?.DescriptionAR
                 : Constants.DefaultValues.NA;
 
             goalFromSite.Text = user.UsagePurposeId != 0
@@ -508,9 +508,13 @@ namespace Asawer.Droid
 
             intent.PutExtra(MessagingActivity.EXTRA_USER, JsonConvert.SerializeObject(user));
 
+            intent.AddFlags(ActivityFlags.ClearTop);
+
+            intent.AddFlags(ActivityFlags.SingleTop);
+
             ActivityCompat.StartActivity(this, intent, options.ToBundle());
             
-            this.FinishAfterTransition();
+            //this.FinishAfterTransition();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

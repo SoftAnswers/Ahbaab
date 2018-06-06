@@ -4,6 +4,7 @@ using Android.Runtime;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
+using System;
 using System.Collections.Generic;
 
 namespace Asawer.Droid.Adapters
@@ -25,8 +26,8 @@ namespace Asawer.Droid.Adapters
         {
             get { return this.userImages != null ? this.userImages.Count : 0; }
         }
-
-        public override Java.Lang.Object InstantiateItem(View container, int position)
+        
+        public override Java.Lang.Object InstantiateItem(ViewGroup container, int position)
         {
             var imageView = new ImageView(context);
             imageView.SetImageBitmap(BitmapFactory.DecodeByteArray(this.userImages[position], 0, this.userImages[position].Length));
@@ -35,7 +36,7 @@ namespace Asawer.Droid.Adapters
             return imageView;
         }
 
-        public override void DestroyItem(View container, int position, Java.Lang.Object view)
+        public override void DestroyItem(ViewGroup container, int position, Java.Lang.Object view)
         {
             var viewPager = container.JavaCast<ViewPager>();
             viewPager.RemoveView(view as View);

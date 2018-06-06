@@ -102,6 +102,19 @@ namespace Asawer.Droid
 			return view;
 		}
 
+        public void SetError(int position, View convertView, ViewGroup parent, string errorText)
+        {
+            var inflater = LayoutInflater.From(_Context);
+
+            var view = convertView ?? inflater.Inflate(Resource.Drawable.spinnerDropDownItemStyle, parent, false);
+
+            var itemName = (TextView)view.FindViewById(Resource.Id.item_value);
+
+            itemName.Text = errorText;
+
+            itemName.SetTextColor(Color.Red);
+        }
+
 		private void ClearViews()
 		{
 			foreach (var view in _views)

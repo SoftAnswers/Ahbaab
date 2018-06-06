@@ -30,6 +30,7 @@ namespace Asawer.Droid
     {
         public const string EXTRA_MESSAGE = "message";
         public const string EXTRA_HIDE_TEXT = "hideText";
+        public const string EXTRA_MESSAGE_ID = "messageId";
 
         private Message message;
         private bool hideText;
@@ -68,7 +69,7 @@ namespace Asawer.Droid
             SetSupportActionBar(toolBar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
-            message = JsonConvert.DeserializeObject<Message>(Intent.GetStringExtra(EXTRA_MESSAGE));
+            message = JsonConvert.DeserializeObject<Message>(this.Intent.GetStringExtra(EXTRA_MESSAGE));
             hideText = this.Intent.GetBooleanExtra(EXTRA_HIDE_TEXT, false);
 
             var collapsingToolBar = FindViewById<CollapsingToolbarLayout>(Resource.Id.collapsing_toolbar);
@@ -108,7 +109,12 @@ namespace Asawer.Droid
                 else
                 {
                     this.BodyCard.Visibility = ViewStates.Gone;
-                } 
+                }
+
+                if (this.message.Sender != Ahbab.CurrentUser.ID)
+                {
+                    AhbabDatabase.UpdateMessageStatus(this.message.ID);
+                }
             }
             else
             {
@@ -138,7 +144,6 @@ namespace Asawer.Droid
             }
 
             this.LoadBackDrop();
-
 
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
         }

@@ -40,9 +40,6 @@
 		if($_POST['age'] == "") {
 			echo "الرجاء إختيار الهدف من الموقع";
 		}
-		if($_POST['origin'] == "") {
-			echo "الرجاء إختيار بلد الأصل";
-		}
 		if($_POST['current'] == "") {
 			echo "الرجاء إختيار بلد السكن";
 		}
@@ -172,6 +169,7 @@
 		
 		//Fetching the images corresponding to the current user
 		$userImage = null;
+		$imageNames = array();
 		$images = array();
 		$stmtgetimage = $dbh->prepare("select * from images where account_id=:id");
 		$stmtgetimage->bindParam(':id',$accountId);
@@ -184,6 +182,7 @@
 					$filename = file_get_contents("../uimg/Thumbs/".$row['image_name'].".jpg");
 					$userImage = base64_encode($filename);
 					array_push($images,$userImage);
+					array_push($imageNames,$imageRow['image_name']);
 				}
 			}
 		}
@@ -207,7 +206,7 @@
 				"InterestsFrom" => $data["interests_from"], "BlocksTo" => $data["blocks_to"], "BlocksFrom" => $data["blocks_from"],
 				"NumberOfLogins" => $data["logins"], "Active" => $data["active"], "TimeFrameId" => $data["time_frame_id"],
 				"PaidStartDate" => $data["paid_begin"], "PaidEndDate" => $data["paid_end"], "AccountStatus" => $data["account_status"],
-				"TimeZoneId" => $data["timezone_id"], "ContactWays" => $contactWays, "ImageBase64" => $images
+				"TimeZoneId" => $data["timezone_id"], "ContactWays" => $contactWays, "ImageBase64" => $images, "ImageNames" => $imageNames
 			);
 			
 			array_push($userArray,$currentUser);

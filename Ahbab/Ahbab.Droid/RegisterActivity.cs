@@ -24,6 +24,7 @@ using Asawer.Entities;
 using Android;
 using Android.Runtime;
 using Android.Support.V4.Content;
+using Android.Database;
 
 namespace Asawer.Droid
 {
@@ -153,7 +154,7 @@ namespace Asawer.Droid
             this.mJobSpinner.SetSelection(this.mJobAdapter.GetPosition(Ahbab.mJobItems.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.JobId
             )));
-            
+
             this.mResidentCountrySpinner.SetSelection(this.mResidenceCountriesAdapter.GetPosition(Ahbab.mCountries.FirstOrDefault(
                         i => i.ID == Ahbab.CurrentUser.CurrentCountryId
             )));
@@ -174,21 +175,18 @@ namespace Asawer.Droid
             // Adding the picture when found
             if (Ahbab.CurrentUser.ImageBytes != null)
             {
-                if (Ahbab.CurrentUser.ImageBytes.Count >= 5)
-                    this.mUploadImage.Visibility = ViewStates.Gone;
-                for (int i = 0; i < Ahbab.CurrentUser.ImageBytes.Count; i++)
+                if (this.mGalleryLayout.ChildCount <= 1)
                 {
-                    var imageView = new ImageView(this)
+                    if (Ahbab.CurrentUser.ImageBytes.Count >= 5)
+                        this.mUploadImage.Visibility = ViewStates.Gone;
+                    for (int i = 0; i < Ahbab.CurrentUser.ImageBytes.Count; i++)
                     {
-                        Id = i
-                    };
-                    LinearLayout.LayoutParams parame = new LinearLayout.LayoutParams(mUploadImage.Width, 300, 25f);
-                    imageView.LayoutParameters = parame;
-                    imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
-                    imageView.SetAdjustViewBounds(true);
-                    imageView.SetImageBitmap(BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[i], 0, Ahbab.CurrentUser.ImageBytes[i].Length));
-                    this.mGalleryLayout.AddView(imageView);
-                    imageView.Click += ImageView_Click;
+                        var currentUserImage = Ahbab.CurrentUser.ImageBytes[i];
+
+                        var imageBitmap = BitmapFactory.DecodeByteArray(currentUserImage, 0, currentUserImage.Length);
+
+                        this.AddImageToView(imageBitmap, Ahbab.CurrentUser.ImageNames[i], "jpg", mUploadImage.Width, false);
+                    }
                 }
             }
 
@@ -338,7 +336,7 @@ namespace Asawer.Droid
 
             if (validInput)
             {
-                var registrationSuccessfull = false;
+                var registrationSuccessful = false;
                 var errorText = "";
                 ProgressDialog progress = new ProgressDialog(this)
                 {
@@ -363,27 +361,27 @@ namespace Asawer.Droid
 
                             Ahbab.CurrentUser = result.FirstOrDefault();
 
-                            Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
+                            Intent mainPageIntent = new Intent(this, typeof(userProfileActivity));
 
                             this.StartActivity(mainPageIntent);
 
                             this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
                                                            Android.Resource.Animation.SlideOutRight);
 
-                            registrationSuccessfull = true;
+                            registrationSuccessful = true;
                         }
                     }
                     catch
                     {
-                        registrationSuccessfull = false;
+                        registrationSuccessful = false;
                     }
 
                     RunOnUiThread(() =>
                     {
-                        if (registrationSuccessfull)
+                        if (registrationSuccessful)
                         {
                             Toast.MakeText(this,
-                                           Constants.UI.SuccessfullRegistration,
+                                           Constants.UI.SuccessfulRegistration,
                                            ToastLength.Short).Show();
                         }
                         else
@@ -402,7 +400,7 @@ namespace Asawer.Droid
         {
             var validInput = ValidateDataInput();
 
-            var updateSuccessfull = false;
+            var updateSuccessful = false;
 
             if (validInput)
             {
@@ -433,22 +431,22 @@ namespace Asawer.Droid
                         {
                             var result = JsonConvert.DeserializeObject<List<User>>(resultString);
                             Ahbab.CurrentUser = result.FirstOrDefault();
-                            Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
+                            Intent mainPageIntent = new Intent(this, typeof(userProfileActivity));
                             this.StartActivity(mainPageIntent);
                             this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
-                            updateSuccessfull = true;
+                            updateSuccessful = true;
                         }
                     }
                     catch
                     {
-                        updateSuccessfull = false;
+                        updateSuccessful = false;
                     }
 
                     RunOnUiThread(() =>
                     {
-                        if (updateSuccessfull)
+                        if (updateSuccessful)
                         {
-                            Toast.MakeText(this, Constants.UI.SuccessfullUpdate, ToastLength.Short).Show();
+                            Toast.MakeText(this, Constants.UI.SuccessfulUpdate, ToastLength.Short).Show();
                         }
                         else
                         {
@@ -490,7 +488,7 @@ namespace Asawer.Droid
                     }
                 }
             }
-            
+
             if (mSex.CheckedRadioButtonId == Resource.Id.rdbMale)
             {
                 gender = "M";
@@ -567,7 +565,6 @@ namespace Asawer.Droid
         private bool ValidateDataInput()
         {
             var validInput = true;
-            var errorText = "";
 
             if (string.IsNullOrEmpty(mUserNameInputLayout.EditText.Text))
             {
@@ -631,37 +628,38 @@ namespace Asawer.Droid
 
             if (mStatusAdapter.GetItemAtPosition(mStatusSpinner.SelectedItemPosition).ID == -1)
             {
-                errorText = "الرجاء إختيار الوضع العائلي";
+                var parentViewGroup = mStatusSpinner.Parent as ViewGroup;
+
+                mStatusAdapter.SetError(mStatusSpinner.SelectedItemPosition, mStatusSpinner, parentViewGroup, "الرجاء إختيار الوضع العائلي");
+
                 validInput = false;
             }
 
             if (mGoalFromSiteAdapter.GetItemAtPosition(mGoalFromSiteSpinner.SelectedItemPosition).ID == 0)
             {
-                errorText = "الرجاء إختيار الهدف من الموقع";
+                var parentViewGroup = mGoalFromSiteSpinner.Parent as ViewGroup;
+
+                mGoalFromSiteAdapter.SetError(mGoalFromSiteSpinner.SelectedItemPosition, mGoalFromSiteSpinner, parentViewGroup, "الرجاء إختيار الهدف من الموقع");
+
                 validInput = false;
             }
 
             if (mAgeAdapter.GetItemAtPosition(mAgeSpinner.SelectedItemPosition).ID == 0)
             {
-                errorText = "الرجاء إختيار العمر";
+                var parentViewGroup = mAgeSpinner.Parent as ViewGroup;
+
+                mAgeAdapter.SetError(mAgeSpinner.SelectedItemPosition, mAgeSpinner, parentViewGroup, "الرجاء إختيار العمر");
+
                 validInput = false;
             }
 
             if (mResidenceCountriesAdapter.GetItemAtPosition(mResidentCountrySpinner.SelectedItemPosition).ID == 0)
             {
-                errorText = "الرجاء إختيار بلد السكن";
-                validInput = false;
-            }
+                var parentViewGroup = mResidentCountrySpinner.Parent as ViewGroup;
 
-            if (!errorText.Equals(""))
-            {
-                new Thread(new ThreadStart(() =>
-                {
-                    RunOnUiThread(() =>
-                    {
-                        Toast.MakeText(this, errorText, ToastLength.Long).Show();
-                    });
-                })).Start();
+                mResidenceCountriesAdapter.SetError(mResidentCountrySpinner.SelectedItemPosition, mResidentCountrySpinner, parentViewGroup, "الرجاء إختيار بلد السكن");
+
+                validInput = false;
             }
 
             return validInput;
@@ -766,7 +764,7 @@ namespace Asawer.Droid
             if (file != null)
             {
                 Uri photoURI = FileProvider.GetUriForFile(this,
-                                  "com.SoftAnswers.dating.Asawer.fileprovider",
+                                  "com.AFM.Asawer.fileprovider",
                                   file);
 
                 intent.PutExtra(MediaStore.ExtraOutput, photoURI);
@@ -800,6 +798,9 @@ namespace Asawer.Droid
                     case SELECT_FILE:
                         //Get the images from the gallery
                         this.ReadImagesFromGallery(data, width, height);
+
+                        // Dispose of the Java side bitmap.
+                        GC.Collect();
                         break;
                     default:
                         break;
@@ -824,7 +825,7 @@ namespace Asawer.Droid
 
             if (bitmap != null)
             {
-                this.AddImageToView(bitmap, this.mCurrentFileName, "jpg", width);
+                this.AddImageToView(bitmap, this.mCurrentFileName, "jpg", width, true);
 
                 this.mCurrentFileName = string.Empty;
 
@@ -835,41 +836,48 @@ namespace Asawer.Droid
         //Method to be executed after the user chooses images from gallery
         private void ReadImagesFromGallery(Intent data, int width, int height)
         {
-            var clipData = data.ClipData;
-
-            if (clipData != null)
+            if (data.ClipData != null)
             {
-                for (int i = 0; i < clipData.ItemCount; i++)
+                using (var clipData = data.ClipData)
                 {
-                    if (i > 5)
+                    for (int i = 0; i < clipData.ItemCount; i++)
                     {
-                        break;
+                        if (i > 5)
+                        {
+                            break;
+                        }
+
+                        var item = clipData.GetItemAt(i);
+
+                        var uri = item.Uri;
+
+                        var filePath = GetActualPathFromFile(uri);
+
+                        var fileName = System.IO.Path.GetFileName(filePath);
+
+                        var fileExtension = System.IO.Path.GetExtension(uri.ToString());
+
+                        var currentImage = BitmapHelpers.DecodeBitmapFromStream(this, uri, width, height);
+
+                        this.AddImageToView(currentImage, fileName, fileExtension, width, true);
                     }
-
-                    var item = clipData.GetItemAt(i);
-
-                    var uri = item.Uri;
-
-                    var fileName = System.IO.Path.GetFileName(GetFilePath(uri));
-
-                    var fileExtension = System.IO.Path.GetExtension(uri.ToString());
-
-                    var currentImage = BitmapHelpers.DecodeBitmapFromStream(this, uri, width, height);
-
-                    this.AddImageToView(currentImage, fileName, fileExtension, width);
                 }
             }
             else
             {
-                var currentImage = BitmapHelpers.DecodeBitmapFromStream(this, data.Data, width, height);
-
-                var fileName = System.IO.Path.GetFileName(data.Data.ToString());
-
-                var fileExtension = System.IO.Path.GetExtension(data.Data.ToString());
-
-                if (currentImage != null)
+                using (var imageData = data.Data)
                 {
-                    this.AddImageToView(currentImage, fileName, fileExtension, width);
+                    using (var currentImage = BitmapHelpers.DecodeBitmapFromStream(this, imageData, width, height))
+                    {
+                        var fileName = System.IO.Path.GetFileName(imageData.ToString());
+
+                        var fileExtension = System.IO.Path.GetExtension(imageData.ToString());
+
+                        if (currentImage != null)
+                        {
+                            this.AddImageToView(currentImage, fileName, fileExtension, width, true);
+                        }
+                    }
                 }
             }
         }
@@ -881,20 +889,24 @@ namespace Asawer.Droid
         /// <param name="fileName"></param>
         /// <param name="fileExtension"></param>
         /// <param name="width"></param>
-        private void AddImageToView(Bitmap currentImage, string fileName, string fileExtension, int width)
+        private void AddImageToView(Bitmap currentImage, string fileName, string fileExtension, int width, bool addToUserImages)
         {
-            using (var memStream = new MemoryStream())
+            if (addToUserImages)
             {
-                currentImage.Compress(Bitmap.CompressFormat.Jpeg, 100, memStream);
+                using (var memStream = new MemoryStream())
+                {
+                    currentImage.Compress(Bitmap.CompressFormat.Jpeg, 100, memStream);
 
-                var picData = memStream.ToArray();
+                    var picData = memStream.ToArray();
 
-                this.UserImages.Add(new UserFile(picData, fileName, fileExtension));
+                    this.UserImages.Add(new UserFile(picData, fileName, fileExtension));
+                }
             }
 
             var imageView = new ImageView(this)
             {
-                LayoutParameters = new LinearLayout.LayoutParams(width, 300, 25f)
+                LayoutParameters = new LinearLayout.LayoutParams(width, 300, 25f),
+                Id = this.mGalleryLayout.ChildCount + 1
             };
 
             imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
@@ -933,17 +945,6 @@ namespace Asawer.Droid
             this.mGalleryLayout.RemoveView(imageView);
         }
 
-        private string GetFilePath(Uri uri)
-        {
-            string[] proj = { MediaStore.Images.ImageColumns.Data };
-            //Deprecated
-            //var cursor = ManagedQuery(uri, proj, null, null, null);
-            var cursor = ContentResolver.Query(uri, proj, null, null, null);
-            var colIndex = cursor.GetColumnIndex(MediaStore.Images.ImageColumns.Data);
-            cursor.MoveToFirst();
-            return cursor.GetString(colIndex);
-        }
-
         private void BindValues()
         {
             mStatusAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.statusItems);
@@ -975,7 +976,7 @@ namespace Asawer.Droid
 
             mResidenceCountriesAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mResidenceCountries);
             mResidentCountrySpinner.Adapter = mResidenceCountriesAdapter;
-            
+
             mWeightAdapter = new CustomSpinnerAdapter(this, Resource.Drawable.spinnerItem, Resource.Id.item_value, Ahbab.mWeightItems);
             mWeightSpinner.Adapter = mWeightAdapter;
         }
@@ -1023,6 +1024,140 @@ namespace Asawer.Droid
         protected override void Logout()
         {
             throw new NotImplementedException();
+        }
+
+        private string GetActualPathFromFile(Uri uri)
+        {
+            bool isKitKat = Build.VERSION.SdkInt >= BuildVersionCodes.Kitkat;
+
+            if (isKitKat && DocumentsContract.IsDocumentUri(this, uri))
+            {
+                // ExternalStorageProvider
+                if (IsExternalStorageDocument(uri))
+                {
+                    string docId = DocumentsContract.GetDocumentId(uri);
+
+                    char[] chars = { ':' };
+                    string[] split = docId.Split(chars);
+                    string type = split[0];
+
+                    if ("primary".Equals(type, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return Android.OS.Environment.ExternalStorageDirectory + "/" + split[1];
+                    }
+                }
+                // DownloadsProvider
+                else if (IsDownloadsDocument(uri))
+                {
+                    string id = DocumentsContract.GetDocumentId(uri);
+
+                    var contentUri = ContentUris.WithAppendedId(
+                                    Uri.Parse("content://downloads/public_downloads"), long.Parse(id));
+
+                    //System.Diagnostics.Debug.WriteLine(contentUri.ToString());
+
+                    return GetDataColumn(this, contentUri, null, null);
+                }
+                // MediaProvider
+                else if (IsMediaDocument(uri))
+                {
+                    String docId = DocumentsContract.GetDocumentId(uri);
+
+                    char[] chars = { ':' };
+                    String[] split = docId.Split(chars);
+
+                    String type = split[0];
+
+                    Android.Net.Uri contentUri = null;
+                    if ("image".Equals(type))
+                    {
+                        contentUri = MediaStore.Images.Media.ExternalContentUri;
+                    }
+                    else if ("video".Equals(type))
+                    {
+                        contentUri = MediaStore.Video.Media.ExternalContentUri;
+                    }
+                    else if ("audio".Equals(type))
+                    {
+                        contentUri = MediaStore.Audio.Media.ExternalContentUri;
+                    }
+
+                    String selection = "_id=?";
+                    String[] selectionArgs = new String[]
+                    {
+                split[1]
+                    };
+
+                    return GetDataColumn(this, contentUri, selection, selectionArgs);
+                }
+            }
+            // MediaStore (and general)
+            else if ("content".Equals(uri.Scheme, StringComparison.OrdinalIgnoreCase))
+            {
+
+                // Return the remote address
+                if (IsGooglePhotosUri(uri))
+                    return uri.LastPathSegment;
+
+                return GetDataColumn(this, uri, null, null);
+            }
+            // File
+            else if ("file".Equals(uri.Scheme, StringComparison.OrdinalIgnoreCase))
+            {
+                return uri.Path;
+            }
+
+            return null;
+        }
+
+        public static String GetDataColumn(Context context, Uri uri, String selection, String[] selectionArgs)
+        {
+            ICursor cursor = null;
+            String column = "_data";
+            String[] projection =
+            {
+                column
+            };
+
+            try
+            {
+                cursor = context.ContentResolver.Query(uri, projection, selection, selectionArgs, null);
+                if (cursor != null && cursor.MoveToFirst())
+                {
+                    int index = cursor.GetColumnIndexOrThrow(column);
+                    return cursor.GetString(index);
+                }
+            }
+            finally
+            {
+                if (cursor != null)
+                    cursor.Close();
+            }
+            return null;
+        }
+
+        //Whether the Uri authority is ExternalStorageProvider.
+        public static bool IsExternalStorageDocument(Uri uri)
+        {
+            return "com.android.externalstorage.documents".Equals(uri.Authority);
+        }
+
+        //Whether the Uri authority is DownloadsProvider.
+        public static bool IsDownloadsDocument(Uri uri)
+        {
+            return "com.android.providers.downloads.documents".Equals(uri.Authority);
+        }
+
+        //Whether the Uri authority is MediaProvider.
+        public static bool IsMediaDocument(Uri uri)
+        {
+            return "com.android.providers.media.documents".Equals(uri.Authority);
+        }
+
+        //Whether the Uri authority is Google Photos.
+        public static bool IsGooglePhotosUri(Uri uri)
+        {
+            return "com.google.android.apps.photos.content".Equals(uri.Authority);
         }
     }
 }

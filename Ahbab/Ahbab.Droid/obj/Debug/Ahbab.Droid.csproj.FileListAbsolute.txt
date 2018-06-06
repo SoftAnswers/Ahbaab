@@ -503,8 +503,6 @@ C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.Droid\obj\Debug\andro
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Asawer.Droid.dll.config
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Asawer.Droid.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Asawer.Droid.pdb
-C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\com.SoftAnswers.dating.Asawer.apk
-C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\com.SoftAnswers.dating.Asawer-Signed.apk
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Asawer.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Newtonsoft.Json.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Plugin.CurrentActivity.dll
@@ -583,7 +581,6 @@ C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.csproj.CoreCompileInputs.
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\Ahbab.Droid.csproj.CopyComplete
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\Asawer.Droid.dll
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\Asawer.Droid.pdb
-C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\bin\com.SoftAnswers.dating.Asawer.apk
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\layout\register.xml
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\layout\signindialog.xml
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\layout\mainpage.xml
@@ -937,9 +934,17 @@ C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\baseline_search_
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable-xxxhdpi\baseline_search_white_48.png
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\baseline_search_24.xml
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\menu\user_profile_menu.xml
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\block.png
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\blockfiles.png
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\likes.png
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\lovers.png
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\res\drawable\views.png
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\R.cs.flag
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\R.txt
 C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\uploadflags.txt
+C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\com.AFM.Asawer.apk
+C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\com.AFM.Asawer-Signed.apk
+C:\ws\repo\git\Ahbab\Ahbab.Droid\obj\Debug\android\bin\com.AFM.Asawer.apk
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\Mono.Android.pdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\mscorlib.pdb
 C:\ws\repo\git\Ahbab\Ahbab.Droid\bin\Debug\System.Core.pdb

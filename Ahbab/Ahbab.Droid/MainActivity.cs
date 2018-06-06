@@ -33,8 +33,8 @@ namespace Asawer.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            
-            Log.Debug("Asawer", "google app id: " + GetString(Resource.String.google_app_id));
+
+            this.SetContentView(Resource.Layout.Main);
 
             if (Intent.Extras != null)
             {
@@ -44,8 +44,6 @@ namespace Asawer.Droid
                     Log.Debug("Asawer", "Key: {0} Value: {1}", key, value);
                 }
             }
-
-            this.SetContentView(Resource.Layout.Main);
 
             this.IsPlayServicesAvailable();
 
@@ -92,7 +90,7 @@ namespace Asawer.Droid
                 })).Start();
             }
 
-            EnsureStoragePermission();
+            //EnsureStoragePermission();
 
             Log.Debug("Asawer", "InstanceID token: " + FirebaseInstanceId.Instance.Token);
         }
@@ -137,17 +135,13 @@ namespace Asawer.Droid
                         if (grantResults[0] == Permission.Granted)
                         {
                             //Permission granted
-                            Toast.MakeText(this,
-                                            "Storage permission is available.",
-                                            ToastLength.Short).Show();
+                            
                         }
                         else
                         {
                             //Permission Denied :(
                             //Disabling location functionality
-                            Toast.MakeText(this,
-                                            "Camera permission denied.",
-                                            ToastLength.Short).Show();
+                            
                         }
                     }
                     break;

@@ -21,6 +21,8 @@ namespace Asawer.Droid
     [Activity(Label = "@string/app_name", Theme = "@style/Theme.Ahbab")]
     public class MainPageActivity : AsawerAppCompatActivity
     {
+        public const string EXTRA_TAB_ID = "tabId";
+
         public List<SpinnerItem> StatusItems { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -36,6 +38,12 @@ namespace Asawer.Droid
             SetUpViewPager(viewPager);
 
             tabs.SetupWithViewPager(viewPager);
+
+            var tabIdExtra = this.Intent.GetIntExtra(EXTRA_TAB_ID, 0);
+            
+            var tabToSelect = tabs.GetTabAt(tabIdExtra);
+
+            tabToSelect.Select();
 
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
         }
@@ -114,7 +122,7 @@ namespace Asawer.Droid
 
         private void EditAccount_Click(object sender, EventArgs e)
         {
-            Intent userDetailsActivity = new Intent(this, typeof(userProfileActivity));
+            var userDetailsActivity = new Intent(this, typeof(userProfileActivity));
             userDetailsActivity.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(Ahbab.CurrentUser));
             this.StartActivity(userDetailsActivity);
             this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);

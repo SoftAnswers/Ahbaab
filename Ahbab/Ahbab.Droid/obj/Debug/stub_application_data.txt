@@ -1,2 +1,2 @@
 android.app.Application
-com.SoftAnswers.dating.Asawer
+com.AFM.Asawer
