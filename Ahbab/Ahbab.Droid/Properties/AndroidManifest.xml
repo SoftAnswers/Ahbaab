@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.AFM.Asawer" android:versionName="1.0.0" android:installLocation="preferExternal" android:versionCode="1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.AFM.dating.Asawer" android:versionName="1.0.0" android:installLocation="preferExternal" android:versionCode="1">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -22,7 +22,7 @@
 				<category android:name="${applicationId}" />
 			</intent-filter>
 		</receiver>
-		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.AFM.Asawer.fileprovider" android:exported="false" android:grantUriPermissions="true">
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.AFM.dating.Asawer.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
 		</provider>
 	</application>

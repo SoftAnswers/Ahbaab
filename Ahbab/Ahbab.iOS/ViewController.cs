@@ -13,7 +13,7 @@ namespace Asawer.iOS {
 
         public override void ViewDidLoad() {
             base.ViewDidLoad();
-            this.initializeSideMenuButton();
+            this.InitializeSideMenuButton();
             try {
                 GetData();
             } catch (Exception ex) {
@@ -30,7 +30,7 @@ namespace Asawer.iOS {
         /**
          * Function used to create and draw the button of the side menu 
          */
-        private void initializeSideMenuButton() {
+        private void InitializeSideMenuButton() {
             this.NavigationItem.SetRightBarButtonItem(
                 new UIBarButtonItem(UIImage.FromFile("Drawbles/menu.png"), UIBarButtonItemStyle.Plain, (sender, args) => {
                     this.slideMenuController().OpenRight();
@@ -70,8 +70,8 @@ namespace Asawer.iOS {
                 var result = await AhbabDatabase.Login(username, password);
                 if (result != null) {
                     Ahbab.CurrentUser = result;
-                    MainPageTabController mainPage = this.Storyboard.InstantiateViewController("MainPageTabController") as MainPageTabController;
-                    if (mainPage != null) {
+                    if (this.Storyboard.InstantiateViewController("MainPageTabController") is MainPageTabController mainPage)
+                    {
                         this.NavigationController.PushViewController(mainPage, true);
                     }
                 }

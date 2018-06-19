@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "275390063795",
-    "firebase_url": "https://asawer-afm.firebaseio.com",
-    "project_id": "asawer-afm",
-    "storage_bucket": "asawer-afm.appspot.com"
+    "project_number": "46427509078",
+    "firebase_url": "https://asawer-c0012.firebaseio.com",
+    "project_id": "asawer-c0012",
+    "storage_bucket": "asawer-c0012.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:275390063795:android:0c02bf7e0cdc2e8d",
+        "mobilesdk_app_id": "1:46427509078:android:0c02bf7e0cdc2e8d",
         "android_client_info": {
           "package_name": "com.AFM.Asawer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "275390063795-qg6stg2omikmpgarqd33igi518genunn.apps.googleusercontent.com",
+          "client_id": "46427509078-3fv80rolrtgm690k6769kmqu9h6ibof2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.AFM.Asawer",
@@ -23,17 +23,17 @@
           }
         },
         {
-          "client_id": "275390063795-mv42ksiqd7qkndf8b2o0ta8uvm033fg3.apps.googleusercontent.com",
+          "client_id": "46427509078-e55bhssg2uqe2bpcvadpee0kn0t95t46.apps.googleusercontent.com",
           "client_type": 3
         },
         {
-          "client_id": "275390063795-mv42ksiqd7qkndf8b2o0ta8uvm033fg3.apps.googleusercontent.com",
+          "client_id": "46427509078-e55bhssg2uqe2bpcvadpee0kn0t95t46.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCXapQLo9MJs-dZ96is8FhExjXwBw5Y53U"
+          "current_key": "AIzaSyCwaA1NHXe24ULfPxIGQ5pNRWg4kIwxfi4"
         }
       ],
       "services": {
@@ -44,7 +44,55 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "275390063795-mv42ksiqd7qkndf8b2o0ta8uvm033fg3.apps.googleusercontent.com",
+              "client_id": "46427509078-e55bhssg2uqe2bpcvadpee0kn0t95t46.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46427509078:android:f181f57ee8e3592a",
+        "android_client_info": {
+          "package_name": "com.AFM.dating.Asawer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46427509078-qkfq6ac1k182mo4lu1mg3hhksur79jup.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.AFM.dating.Asawer",
+            "certificate_hash": "799838ca5db4250785ebd1430cb036006fe9d6c8"
+          }
+        },
+        {
+          "client_id": "46427509078-e55bhssg2uqe2bpcvadpee0kn0t95t46.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "46427509078-e55bhssg2uqe2bpcvadpee0kn0t95t46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwaA1NHXe24ULfPxIGQ5pNRWg4kIwxfi4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46427509078-e55bhssg2uqe2bpcvadpee0kn0t95t46.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

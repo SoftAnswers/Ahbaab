@@ -764,7 +764,7 @@ namespace Asawer.Droid
             if (file != null)
             {
                 Uri photoURI = FileProvider.GetUriForFile(this,
-                                  "com.AFM.Asawer.fileprovider",
+                                  "com.AFM.dating.Asawer.fileprovider",
                                   file);
 
                 intent.PutExtra(MediaStore.ExtraOutput, photoURI);

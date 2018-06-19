@@ -234,7 +234,7 @@ namespace SharedCode
                     return resultAsString;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return "Send Failed";
             }
