@@ -3411,7 +3411,7 @@ namespace Asawer.Droid
 			public const int design_snackbar_background = 2131296347;
 			
 			// aapt resource value: 0x7F020027
-			public const int dialogbuttonsigninstyle = 2130837543;
+			public const int DialogButtonSignInStyle = 2130837543;
 			
 			// aapt resource value: 0x7F020028
 			public const int edit_text_style = 2130837544;
@@ -3699,7 +3699,7 @@ namespace Asawer.Droid
 			public const int select = 2130837584;
 			
 			// aapt resource value: 0x7F020051
-			public const int signindialogbuttontextcolor = 2130837585;
+			public const int SignInDialogButtonTextColor = 2130837585;
 			
 			// aapt resource value: 0x7F020052
 			public const int spinner-item = 2130837586;
