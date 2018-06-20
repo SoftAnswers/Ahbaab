@@ -45,7 +45,7 @@
 	<key>XSLaunchImageAssets</key>
 	<string>Resources/Images.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleName</key>
-	<string>Ahbab.iOS</string>
+	<string>Asawer.iOS</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>CFBundleDocumentTypes</key>

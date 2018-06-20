@@ -72,7 +72,7 @@
             <param name="verifyPurchase">Interface to verify purchase</param>
             <returns></returns>
         </member>
-        <member name="M:Plugin.InAppBilling.InAppBillingImplementation.ConnectAsync">
+        <member name="M:Plugin.InAppBilling.InAppBillingImplementation.ConnectAsync(Plugin.InAppBilling.Abstractions.ItemType)">
             <summary>
             Connect to billing service
             </summary>

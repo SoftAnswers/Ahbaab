@@ -2,18 +2,19 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:padding="5dp" >
  
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/item_value"
-    android:layout_height="?android:attr/listPreferredItemHeight"
-    android:layout_width="match_parent"
-    android:ellipsize="marquee"
-    android:textSize="10sp"
-	android:singleLine="true"
-    android:textColor="#000"
-    android:layoutDirection="rtl"
-    android:text="@string/pickOne"/>
+        android:id="@+id/item_value"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:ellipsize="marquee"
+        android:textSize="22sp"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:layoutDirection="rtl"
+        android:text="@string/pickOne"/>
  
     <TextView
         android:id="@+id/item_id"

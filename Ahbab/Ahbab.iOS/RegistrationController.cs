@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UIKit;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class RegistrationController : UITableViewController {
         RegistrationDataSource dataSource;
         public RegistrationController(IntPtr handle) : base(handle) {}
@@ -29,7 +29,7 @@ namespace Ahbab.iOS {
                 // display loader
                 var userInput = GetUserInput();
                 try {
-                    var resultString = AhbabDatabase.RegisterOrUpdate(Constants.FunctionsUri.RegisterUri, userInput);
+                    var resultString = AhbabDatabase.RegisterOrUpdate(Constants.Database.ApiFiles.RegisterFileName, userInput);
                     if (!string.IsNullOrEmpty(resultString)) {
                         var result = JsonConvert.DeserializeObject<List<User>>(resultString);
                         Ahbab.CurrentUser = result.FirstOrDefault();
@@ -128,7 +128,7 @@ namespace Ahbab.iOS {
                 } else if (indexPath.Row == 16) {
                     TextFieldCustomCell cell = tableView.DequeueReusableCell("reusableTextFieldCell") as TextFieldCustomCell;
                     if (string.IsNullOrEmpty(this.user.SelfDescription)) {
-                        cell.setPlaceholder(Constants.UI.selfDescription, this, indexPath.Row);
+                        cell.setPlaceholder(Constants.UI.SelfDescription, this, indexPath.Row);
                     } else {
                         cell.setTextValue(this.user.SelfDescription);
                     }
@@ -136,7 +136,7 @@ namespace Ahbab.iOS {
                 } else if (indexPath.Row == 17) {
                     TextFieldCustomCell cell = tableView.DequeueReusableCell("reusableTextFieldCell") as TextFieldCustomCell;
                     if (string.IsNullOrEmpty(this.user.OthersDescription)) {
-                        cell.setPlaceholder(Constants.UI.partnerDescription, this, indexPath.Row);
+                        cell.setPlaceholder(Constants.UI.PartnerDescription, this, indexPath.Row);
                     } else {
                         cell.setTextValue(this.user.OthersDescription);
                     }

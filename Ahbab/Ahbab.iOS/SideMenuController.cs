@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using UIKit;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class SideMenuController : UITableViewController {
         public SideMenuController (IntPtr handle) : base (handle) { }
 
@@ -22,10 +22,10 @@ namespace Ahbab.iOS {
 
             public SideMenuControllerDataSource(SideMenuController controller) {
                 this.controller = controller;
-                this.slideMenuItems = new List<string> {Constants.UI.contactUs, Constants.UI.whoAreWeTitle, Constants.UI.securityPolicyTitle,
-                                        Constants.UI.termsAndConditionTitle, Constants.UI.privacyPolicyTitle, Constants.UI.Logout};
-                this.slideMenuItemsBody = new List<string> {Constants.UI.whoAreWeBody, Constants.UI.securityPolicyBody,
-                                        Constants.UI.termsAndConditionsBody, Constants.UI.privacyPolicyBody};
+                this.slideMenuItems = new List<string> {Constants.UI.ContactUs, Constants.UI.WhoAreWeTitle, Constants.UI.SecurityPolicyTitle,
+                                        Constants.UI.TermsAndConditionTitle, Constants.UI.PrivacyPolicyTitle, Constants.UI.Logout};
+                this.slideMenuItemsBody = new List<string> {Constants.UI.WhoAreWeBody, Constants.UI.SecurityPolicyBody,
+                                        Constants.UI.TermsAndConditionsBody, Constants.UI.PrivacyPolicyBody};
             }
 
             // Returns the number of rows in each section of the table

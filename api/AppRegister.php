@@ -76,11 +76,6 @@
 				echo "الرجاء إختيار العمر";
 				return;
 			}
-			if($_POST['origin'] == "0")
-			{
-				echo "الرجاء إختيار بلد الأصل";
-				return;
-			}
 			if($_POST['current'] == "0")
 			{
 				echo "الرجاء إختيار بلد السكن";
@@ -204,7 +199,7 @@
 			//echo $lastid;
 		for ($i = 0; $i < count($images); $i++) {
 			
-			$imageContents = $images[$i]->{'ImageBytes'};
+			$imageContents = $images[$i]->{'FileBytes'};
 			
 			$fileName = $images[$i]->{'FileName'};
 			$dir = "../uimg/FullSize/";

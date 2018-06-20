@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UIKit;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class UploadimagesCell : UITableViewCell {
         RegistrationController parent;
         RegistrationController.RegistrationDataSource parent2;
@@ -21,7 +21,7 @@ namespace Ahbab.iOS {
         public void setCollectionView(RegistrationController parent, RegistrationController.RegistrationDataSource parent2) {
             this.parent = parent;
             this.parent2 = parent2;
-            this.parent2.user.Images = new List<UserImage>();
+            this.parent2.user.Images = new List<UserFile>();
             UIImageView imageView = new UIImageView(UIImage.FromBundle("Drawbles/add_img.png"));
             imagesList.Add(imageView);
             this.source = new ImageSource(imagesList);
@@ -104,7 +104,7 @@ namespace Ahbab.iOS {
                     var url = (NSUrl)e.Info.ValueForKey(new NSString("UIImagePickerControllerImageURL"));
                     String[] array = url.ToString().Split('/');
                     String fileName = array[array.Length - 1].Substring(0, array[array.Length - 1].Length - 5);
-                    this.parent2.user.Images.Add(new UserImage(dataBytes, fileName, "jpg"));
+                    this.parent2.user.Images.Add(new UserFile(dataBytes, fileName, "jpg"));
                 }
             }
             // dismiss the picker

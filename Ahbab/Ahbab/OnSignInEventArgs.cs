@@ -10,22 +10,30 @@ namespace Asawer
     {
         private string mUserName;
         private string mPassword;
+        private bool rememberMe;
 
         public string UserName
         {
-            get { return mUserName; }
-            set { mUserName = value; }
+            get { return this.mUserName; }
+            set { this.mUserName = value; }
         }
         public string Password
         {
-            get { return mPassword; }
-            set { mPassword = value; }
+            get { return this.mPassword; }
+            set { this.mPassword = value; }
         }
 
-        public OnSignInEventArgs(string userName, string password) : base()
+        public bool RememberMe
+        {
+            get { return this.rememberMe; }
+            set { this.rememberMe = value; }
+        }
+
+        public OnSignInEventArgs(string userName, string password, bool rememberMe) : base()
         {
             this.UserName = userName;
             this.Password = password;
+            this.RememberMe = rememberMe;
         }
     }
 }

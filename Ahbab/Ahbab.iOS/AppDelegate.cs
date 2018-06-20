@@ -1,8 +1,9 @@
 ﻿using Foundation;
 using UIKit;
 using SlideMenuControllerXamarin;
+using Asawer.iOS.Helpers;
 
-namespace Ahbab.iOS
+namespace Asawer.iOS
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
@@ -17,12 +18,22 @@ namespace Ahbab.iOS
 		}
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions) {
+            
+
+            
             //Create view controllers
-            UIViewController mainController = Window.RootViewController.Storyboard.InstantiateViewController("NavigationController") as NavigationController;
-            UIViewController rightController = Window.RootViewController.Storyboard.InstantiateViewController("SideMenuController") as SideMenuController;
-            SlideMenuController slideMenuController = new SlideMenuController(mainController, null, rightController);
+            var mainController = Window.RootViewController.Storyboard.InstantiateViewController("NavigationController") as NavigationController;
+
+            var rightController = Window.RootViewController.Storyboard.InstantiateViewController("SideMenuController") as SideMenuController;
+
+            var slideMenuController = new SlideMenuController(mainController, null, rightController);
+
             Window.RootViewController = slideMenuController;
+
             Window.MakeKeyAndVisible();
+
+            var databasePath = FileAccessHelper.GetLocalFilePath(Constants.Database.LocalDatabaseName);
+
             return true;
 		}
 

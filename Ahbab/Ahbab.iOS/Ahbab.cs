@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Asawer.Entities;
 
-namespace Ahbab.iOS
+namespace Asawer.iOS
 {
     class Ahbab {
         public static List<SpinnerItem> statusItems;

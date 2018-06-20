@@ -2,7 +2,7 @@
 using System;
 using UIKit;
 
-namespace Ahbab.iOS {
+namespace Asawer.iOS {
     public partial class ImageViewCustomCell : UITableViewCell {
         public ImageViewCustomCell (IntPtr handle) : base (handle) {}
 

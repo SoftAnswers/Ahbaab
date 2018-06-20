@@ -36,37 +36,46 @@ namespace Asawer.Droid
 			}
 		}
 
-		public override async void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+		public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
 		{
 			var simpleHolder = holder as SimpleViewHolder;
 
-			simpleHolder.mBoundString = mValues[position].Subject;
-			simpleHolder.mTxtView.Text = mValues[position].Subject;
+            var currentMessage = mValues[position];
 
-			int drawableID = Messages.RandomMessagesDrawable;
-			BitmapFactory.Options options = new BitmapFactory.Options();
+			simpleHolder.mBoundString = currentMessage.Subject;
+			simpleHolder.mTxtView.Text = currentMessage.Subject;
+            simpleHolder.dateTextView.Text = currentMessage.MessageDate;
 
-			if (mCalculatedSizes.ContainsKey(drawableID))
-			{
-				options.InSampleSize = mCalculatedSizes[drawableID];
-			}
+            if (currentMessage.MessageRead=="N")
+            {
+                simpleHolder.mTxtView.Typeface = Typeface.DefaultBold;
+                simpleHolder.dateTextView.Typeface = Typeface.DefaultBold;
+            }
 
-			else
-			{
-				options.InJustDecodeBounds = true;
+			//int drawableID = Messages.RandomMessagesDrawable;
+			//BitmapFactory.Options options = new BitmapFactory.Options();
 
-				BitmapFactory.DecodeResource(mResource, drawableID, options);
+			//if (mCalculatedSizes.ContainsKey(drawableID))
+			//{
+			//	options.InSampleSize = mCalculatedSizes[drawableID];
+			//}
 
-				options.InSampleSize = Messages.CalculateInSampleSize(options, 100, 100);
-				options.InJustDecodeBounds = false;
+			//else
+			//{
+			//	options.InJustDecodeBounds = true;
 
-				mCalculatedSizes.Add(drawableID, options.InSampleSize);
-			}
+			//	BitmapFactory.DecodeResource(mResource, drawableID, options);
+
+			//	options.InSampleSize = Messages.CalculateInSampleSize(options, 100, 100);
+			//	options.InJustDecodeBounds = false;
+
+			//	mCalculatedSizes.Add(drawableID, options.InSampleSize);
+			//}
 
 
-			var bitMap = await BitmapFactory.DecodeResourceAsync(mResource, drawableID, options);
+			//var bitMap = await BitmapFactory.DecodeResourceAsync(mResource, drawableID, options);
 
-			simpleHolder.mImageView.SetImageBitmap(bitMap);
+			//simpleHolder.mImageView.SetImageBitmap(bitMap);
 		}
 
 		public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -84,12 +93,16 @@ namespace Asawer.Droid
 		public readonly View mView;
 		public readonly ImageView mImageView;
 		public readonly TextView mTxtView;
+		public readonly TextView dateTextView;
 
-		public SimpleViewHolder(View view) : base(view)
+        public SimpleViewHolder(View view) : base(view)
 		{
 			mView = view;
 			mImageView = view.FindViewById<ImageView>(Resource.Id.avatar);
 			mTxtView = view.FindViewById<TextView>(Resource.Id.text1);
+			dateTextView = view.FindViewById<TextView>(Resource.Id.date);
+            dateTextView.Visibility = ViewStates.Visible;
+            mImageView.Visibility = ViewStates.Gone;
 		}
 
 		public override string ToString()

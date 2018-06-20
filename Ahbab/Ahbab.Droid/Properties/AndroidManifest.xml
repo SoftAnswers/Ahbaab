@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.SoftAnswers.Asawer" android:versionName="1.1" android:installLocation="auto" android:versionCode="4">
-	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="23" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.AFM.dating.Asawer" android:versionName="1.0.0" android:installLocation="preferExternal" android:versionCode="1">
+	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
@@ -8,5 +8,22 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="com.android.vending.BILLING" />
-	<application android:supportsRtl="true" android:icon="@drawable/maleOff" android:label="Asawer"></application>
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
+	<uses-permission android:name="android.permission.READ_SOCIAL_STREAM" />
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+	<application android:supportsRtl="true" android:icon="@drawable/asawer_icon" android:label="Asawer">
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+				<category android:name="${applicationId}" />
+			</intent-filter>
+		</receiver>
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.AFM.dating.Asawer.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+		</provider>
+	</application>
 </manifest>

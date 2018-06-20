@@ -92,19 +92,22 @@ namespace Asawer.Entities
         public DateTime PaidEndDate { get; set; }
         public string AccountStatus { get; set; }
         public int TimeZoneId { get; set; }
-        public UserImage Image { get; set; }
-        public List<UserImage> Images { get; set; }
+        public UserFile Image { get; set; }
+        public List<UserFile> Images { get; set; }
         public string[] ImageNames { get; set; }
         public string[] ImageBase64 { get; set; }
         public List<byte[]> ImageBytes {
             get {
-                List<Byte[]> userImages = new List<byte[]>();
+
+                var userImages = new List<byte[]>();
+
                 for (int i = 0; i < ImageBase64.Length; i++) {
                     if (!string.IsNullOrEmpty(this.ImageBase64[i])) {
                         byte[] image = Convert.FromBase64String(this.ImageBase64[i]);
                         userImages.Add(image);
                     }
                 }
+
                 if (userImages.Count > 0)
                     return userImages;
                 return null;

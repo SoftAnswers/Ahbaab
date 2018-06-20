@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_enabled="false">
+    <layer-list>
+      <item>
+        <shape>
+          <solid android:color="#808080" />
+          <corners android:radius="50dp" />
+        </shape>
+      </item>
+      <item android:drawable="@drawable/baseline_chevron_left_white_24" />
+    </layer-list>
+  </item>
+
+  <item android:state_enabled="true">
+    <layer-list>
+      <item>
+        <shape>
+          <solid android:color="#6c2288" />
+          <corners android:radius="50dp" />
+        </shape>
+      </item>
+      <item android:drawable="@drawable/baseline_chevron_left_white_24" />
+    </layer-list>
+  </item>
+
+  <item>
+    <layer-list>
+      <item>
+        <shape>
+          <solid android:color="#6c2288" />
+          <corners android:radius="50dp" />
+        </shape>
+      </item>
+      <item android:drawable="@drawable/baseline_chevron_left_white_24" />
+    </layer-list>
+  </item>
+
+</selector>

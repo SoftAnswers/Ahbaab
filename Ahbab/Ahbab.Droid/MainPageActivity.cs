@@ -1,58 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Text;
-using Android.App;
-using Android.OS;
-using Android.Views;
-using System.Net;
-using Newtonsoft.Json;
-using Android.Support.V4.View;
-using Android.Support.V7.App;
-using Android.Support.V4.Widget;
-using SupportToolbar = Android.Support.V7.Widget.Toolbar;
-using SupportActionBar = Android.Support.V7.App.ActionBar;
-using SupportFragment = Android.Support.V4.App.Fragment;
-using SupportFragmentManager = Android.Support.V4.App.FragmentManager;
-using Android.Support.Design.Widget;
-using Android.Support.V4.App;
-using Android.Widget;
+﻿using Android.App;
 using Android.Content;
 using Android.Graphics;
+using Android.OS;
+using Android.Support.Design.Widget;
+using Android.Support.V4.View;
+using Android.Views;
+using Android.Widget;
 using Asawer.Entities;
+using Newtonsoft.Json;
+using Plugin.InAppBilling;
+using Plugin.InAppBilling.Abstractions;
+using SharedCode;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using AlerDialog = Android.Support.V7.App.AlertDialog;
 
 namespace Asawer.Droid
 {
     [Activity(Label = "@string/app_name", Theme = "@style/Theme.Ahbab")]
-    public class MainPageActivity : AppCompatActivity
+    public class MainPageActivity : AsawerAppCompatActivity
     {
+        public const string EXTRA_TAB_ID = "tabId";
+
         public List<SpinnerItem> StatusItems { get; set; }
-        private DrawerLayout mDrawerLayout;
-        private NavigationView mNavigationView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.MainPage);
-
-            SupportToolbar toolbar = FindViewById<SupportToolbar>(Resource.Id.toolBar);
-
-            SetSupportActionBar(toolbar);
-
-            SupportActionBar ab = SupportActionBar;
-
-            ab.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
-            ab.SetDisplayHomeAsUpEnabled(true);
-
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-
-            mNavigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
-
-            if (mNavigationView != null)
-            {
-                SetUpDrawerContent(mNavigationView);
-            }
 
             TabLayout tabs = FindViewById<TabLayout>(Resource.Id.tabs);
 
@@ -62,15 +39,24 @@ namespace Asawer.Droid
 
             tabs.SetupWithViewPager(viewPager);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            var tabIdExtra = this.Intent.GetIntExtra(EXTRA_TAB_ID, 0);
+            
+            var tabToSelect = tabs.GetTabAt(tabIdExtra);
 
-            fab.Visibility = ViewStates.Invisible;
+            tabToSelect.Select();
 
-            var hView = mNavigationView.GetHeaderView(0);
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+            var hView = base.NavigationView.GetHeaderView(0);
 
             var editAccount = hView.FindViewById<ImageView>(Resource.Id.imgViewHeader);
 
-            if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
+            if (Ahbab.CurrentUser.ImageBase64 != null && Ahbab.CurrentUser.ImageBytes != null && Ahbab.CurrentUser.ImageBytes.Count > 0 && Ahbab.CurrentUser.ImageBytes[0].Length > 0)
             {
                 var bitmap = BitmapFactory.DecodeByteArray(Ahbab.CurrentUser.ImageBytes[0], 0, Ahbab.CurrentUser.ImageBytes[0].Length);
                 editAccount.SetImageBitmap(bitmap);
@@ -79,9 +65,14 @@ namespace Asawer.Droid
             editAccount.Click += EditAccount_Click;
         }
 
-        void SetUpViewPager(ViewPager viewPager)
+        public async void PerformPurchase()
         {
-            TabAdapter adapter = new TabAdapter(SupportFragmentManager);
+            var succeeded = await this.PurchaseItem("asawer_yearly_subscription", "AsawerPayload");
+        }
+
+        private void SetUpViewPager(ViewPager viewPager)
+        {
+            var adapter = new TabAdapter(SupportFragmentManager);
 
             adapter.AddFragment(new SearchFragment(), Constants.TabsNames.Search);
             adapter.AddFragment(new InboxFragment(), Constants.TabsNames.Inbox);
@@ -90,161 +81,118 @@ namespace Asawer.Droid
             viewPager.Adapter = adapter;
         }
 
-        void SetUpDrawerContent(NavigationView navigationView)
-        {
-            navigationView.NavigationItemSelected += (sender, e) =>
-            {   
-                // If the user click on contact us we open directly the email screen
-                if (e.MenuItem.ItemId != Resource.Id.contactUs)
-                {   
-                    // If the user clicks on logout we display the logout popup
-                    if (e.MenuItem.ItemId == Resource.Id.logout) {
-                        this.logout();
-                    } else{
-                        OpenLegalNotesFragment(e.MenuItem);
-                        mDrawerLayout.CloseDrawers();
-                    }
-                }
-                else
-                {
-                    var email = new Intent(Intent.ActionSend);
-                    email.PutExtra(Intent.ExtraEmail, new string[] { "info@ahbaab.com" });
-                    email.SetType("message/rfc822");
-                    StartActivity(email);
-                }
-            };
-        }
-
         // Function used to redirect the user to the login activity after clicking in logout
-        public void logout() {
-            Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+        protected override void Logout()
+        {
+            var alert = new AlerDialog.Builder(this);
+
             alert.SetTitle(Constants.UI.LogoutHeader);
+
             alert.SetMessage(Constants.UI.LogoutMessage);
-            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
-                Ahbab.CurrentUser = null;
-                Intent loginPageIntent = new Intent(this, typeof(MainActivity));
-                loginPageIntent.AddFlags(ActivityFlags.ClearTop| ActivityFlags.NewTask);
+
+            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) =>
+            {
+
+                Settings.RemoveKey(Constants.Settings.UsernamePreferenceName);
+                Settings.RemoveKey(Constants.Settings.PasswordPreferenceName);
+
+                var loginPageIntent = new Intent(this, typeof(MainActivity));
+
+                loginPageIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+
                 this.StartActivity(loginPageIntent);
+
                 this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
+
+                this.Finish();
+
+                Ahbab.CurrentUser = null;
             });
-            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) =>{});
-            Android.Support.V7.App.AlertDialog dialog = alert.Create();
+
+            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => { });
+
+            var dialog = alert.Create();
+
             dialog.SetCanceledOnTouchOutside(false);
+
             dialog.SetCancelable(false);
+
             dialog.Show();
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        private void EditAccount_Click(object sender, EventArgs e)
         {
-            item.SetChecked(false);
-            switch (item.ItemId)
-            {
-                case Android.Resource.Id.Home:
-                    mDrawerLayout.OpenDrawer((int)GravityFlags.Right);
-                    return true;
-
-                default:
-                    return true;//base.OnOptionsItemSelected(item);
-            }
-        }
-
-        public void OpenLegalNotesFragment(IMenuItem item)
-        {
-            Bundle mybundle = new Bundle();
-
-            mybundle.PutInt("ItemId", item.ItemId);
-
-            var transaction = SupportFragmentManager.BeginTransaction();
-
-            LegalNotesFragment legalNotesFragment = new LegalNotesFragment();
-
-            legalNotesFragment.Arguments = mybundle;
-
-            legalNotesFragment.Show(transaction, "dialog_fragment");
-
-            item.SetChecked(false);
-        }
-
-        void EditAccount_Click(object sender, EventArgs e)
-        {
-            Intent userDetailsActivity = new Intent(this, typeof(UserDetailsActivity));
+            var userDetailsActivity = new Intent(this, typeof(userProfileActivity));
             userDetailsActivity.PutExtra(UserDetailsActivity.EXTRA_MESSAGE, JsonConvert.SerializeObject(Ahbab.CurrentUser));
             this.StartActivity(userDetailsActivity);
             this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft, Android.Resource.Animation.SlideOutRight);
         }
 
-        public List<SpinnerItem> GetSpinnerItems(Uri functionUri, string tableName)
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            var retVal = new List<SpinnerItem>();
-
-            var mClient = new WebClient();
-
-            NameValueCollection parameters = new NameValueCollection();
-
-            parameters.Add("TableName", tableName);
-
-            var values = mClient.UploadValues(functionUri, parameters);
-
-            var items = Encoding.UTF8.GetString(values);
-
-            retVal = JsonConvert.DeserializeObject<List<SpinnerItem>>(items);
-
-            return retVal;
+            base.OnActivityResult(requestCode, resultCode, data);
+            InAppBillingImplementation.HandleActivityResult(requestCode, resultCode, data);
         }
 
-        public override void OnBackPressed()
+        private async Task<bool> PurchaseItem(string productId, string payload)
         {
-            Android.Support.V7.App.AlertDialog.Builder alert = new Android.Support.V7.App.AlertDialog.Builder(this);
-            alert.SetTitle(Constants.UI.LogoutHeader);
-            alert.SetMessage(Constants.UI.LogoutMessage);
-            alert.SetPositiveButton(Constants.UI.Logout, (senderAlert, args) => {
-                Ahbab.CurrentUser = null;
-                base.OnBackPressed();
-            });
-            alert.SetNegativeButton(Constants.UI.Cancel, (senderAlert, args) => {});
 
-            Android.Support.V7.App.AlertDialog dialog = alert.Create();
-            dialog.SetCanceledOnTouchOutside(false);
-            dialog.SetCancelable(false);
-            dialog.Show();
-        }
+            var supported = CrossInAppBilling.IsSupported;
 
-        public class TabAdapter : FragmentPagerAdapter
-        {
-            public List<SupportFragment> Fragments { get; set; }
-            public List<string> FragmentsNames { get; set; }
+            var billing = CrossInAppBilling.Current;
 
-            public TabAdapter(SupportFragmentManager sfm)
-                : base(sfm)
+            try
             {
-                Fragments = new List<SupportFragment>();
-                FragmentsNames = new List<string>();
-            }
+                var connected = await billing.ConnectAsync(ItemType.Subscription);
 
-            public void AddFragment(SupportFragment fragment, string name)
-            {
-                Fragments.Add(fragment);
-                FragmentsNames.Add(name);
-            }
-
-            public override int Count
-            {
-                get
+                if (!connected)
                 {
-                    return Fragments.Count;
+                    //we are offline or can't connect, don't try to purchase
+                    return false;
+                }
+
+                var product = await billing.GetProductInfoAsync(ItemType.Subscription, productId);
+
+                //check purchases
+                var purchase = await billing.PurchaseAsync(productId, ItemType.Subscription, payload);
+
+                //possibility that a null came through.
+                if (purchase == null)
+                {
+                    //did not purchase
+                    return false;
+                }
+                else
+                {
+                    try
+                    {
+                        var result = AhbabDatabase.Subscribe(Ahbab.CurrentUser.ID);
+                        if (result != null)
+                        {
+                            Ahbab.CurrentUser = result;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                    }
+                    return false;
                 }
             }
-
-            public override SupportFragment GetItem(int position)
+            catch (InAppBillingPurchaseException purchaseEx)
             {
-                return Fragments[position];
+                //Billing Exception handle this based on the type
+                return false;
             }
-
-            public override Java.Lang.ICharSequence GetPageTitleFormatted(int position)
+            catch (Exception ex)
             {
-                return new Java.Lang.String(FragmentsNames[position]);
+                //Something else has gone wrong, log it
+                return false;
+            }
+            finally
+            {
+                await billing.DisconnectAsync();
             }
         }
     }
 }
-

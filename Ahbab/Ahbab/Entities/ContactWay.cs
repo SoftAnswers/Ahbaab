@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 namespace Asawer
 {
 	public class ContactWay
@@ -6,14 +7,16 @@ namespace Asawer
 		public ContactWay()
 		{
 		}
-
-		public int way_id
+        
+        [JsonProperty(PropertyName = "way_id")]
+		public int ID
 		{
 			get;
 			set;
 		}
 
-		public string way_value
+        [JsonProperty(PropertyName = "way_value")]
+        public string Value
 		{
 			get;
 			set;

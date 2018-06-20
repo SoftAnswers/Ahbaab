@@ -1,248 +1,377 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-using System.Threading;
-using Android.Support.V7.App;
-using SharedCode;
-using SupportToolbar = Android.Support.V7.Widget.Toolbar;
-using SupportActionBar = Android.Support.V7.App.ActionBar;
-using Android.Support.V4.Widget;
-using Android.Support.Design.Widget;
+using Android.Widget;
 using Asawer.Entities;
+using SharedCode;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Android.Gms.Common;
+using Firebase.Messaging;
+using Firebase.Iid;
+using Android.Util;
+using Android;
+using Android.Content.PM;
+using Android.Runtime;
+using Firebase;
 
 namespace Asawer.Droid
 {
-    [Activity(Label = "@string/app_name", MainLauncher = true, Icon = "@drawable/logo", Theme = "@style/Theme.Ahbab")]
-    public class MainActivity : AppCompatActivity
+    [Activity(Label = "@string/app_name", Icon = "@drawable/logo", Theme = "@style/Theme.Ahbab")]
+    public class MainActivity : AsawerAppCompatActivity
     {
         private Button mButtonSignUp;
         private Button mButtonSignIn;
-        private ProgressBar mProgressBar;
-        private NavigationView mNavigationView;
-        private DrawerLayout mDrawerLayout;
+        private readonly string[] storagePermissions = new string[] 
+        {
+            Manifest.Permission.ReadExternalStorage,
+            Manifest.Permission.WriteExternalStorage,
+            Manifest.Permission.SystemAlertWindow
+        };
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            try
+            this.SetContentView(Resource.Layout.Main);
+
+            if (Intent.Extras != null)
             {
-                GetSpinnersItems();
-            }
-            catch (Exception ex)
-            {
-                var email = new Intent(Intent.ActionSend);
-                email.PutExtra(Intent.ExtraEmail, new string[] { "jad.abinader18@gmail.com" });
-                email.PutExtra(Intent.ExtraText, new string[] { ex.ToString() });
-                email.SetType("message/rfc822");
-                StartActivity(email);
+                foreach (var key in Intent.Extras.KeySet())
+                {
+                    var value = Intent.Extras.GetString(key);
+                    Log.Debug("Asawer", "Key: {0} Value: {1}", key, value);
+                }
             }
 
-            SetContentView(Resource.Layout.Main);
+            this.IsPlayServicesAvailable();
 
-            var toolbar = this.FindViewById<SupportToolbar>(Resource.Id.toolBar);
-
-            this.SetSupportActionBar(toolbar);
-
-            var actionBar = this.SupportActionBar;
-
-            actionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
-            actionBar.SetDisplayHomeAsUpEnabled(true);
-
-            mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-
-            mNavigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
-
-            if (mNavigationView != null)
-            {
-                SetUpDrawerContent(mNavigationView);
-            }
-
-
-            mButtonSignUp = FindViewById<Button>(Resource.Id.btnRegister);
+            mButtonSignUp = this.FindViewById<Button>(Resource.Id.btnRegister);
 
             mButtonSignIn = this.FindViewById<Button>(Resource.Id.btnLogin);
 
-            mProgressBar = this.FindViewById<ProgressBar>(Resource.Id.progressBar);
+            mButtonSignUp.Click += OnSignUpButtonClick;
 
-            mButtonSignUp.Click += (object sender, EventArgs args) =>
+            mButtonSignIn.Click += OnSignInButtonClick;
+
+            if (Settings.FirstVisit)
             {
-                Intent registerIntent = new Intent(this, typeof(RegisterActivity));
-                this.StartActivity(registerIntent);
-                this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
-                    Android.Resource.Animation.SlideOutRight);
+#pragma warning disable CS0618 // Type or member is obsolete
+                var progress = new ProgressDialog(this)
+#pragma warning restore CS0618 // Type or member is obsolete
+                {
+                    Indeterminate = true
+                };
+                progress.SetProgressStyle(ProgressDialogStyle.Spinner);
+                progress.SetMessage(Constants.UI.ConfiguringLoader);
+                progress.SetCancelable(false);
+                progress.Show();
 
-            };
+                new Thread(new ThreadStart(() =>
+                {
+                    this.GetSpinnersItems(Settings.FirstVisit);
 
-            mButtonSignIn.Click += (object sender, EventArgs args) =>
-            {
-                var transaction = SupportFragmentManager.BeginTransaction();
+                    RunOnUiThread(() =>
+                    {
+                        try
+                        {
+                            this.InsertItemsToLocalDatabase();
 
-                SignInDialog singInDialog = new SignInDialog(this);
+                            Settings.FirstVisit = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                        }
 
-                singInDialog.Show(transaction, "dialog_fragment");
+                        progress.Hide();
+                    });
+                })).Start();
+            }
 
-                singInDialog.mOnSignInComplete += signInDialog_mOnSignInComplete;
-            };
+            //EnsureStoragePermission();
+
+            Log.Debug("Asawer", "InstanceID token: " + FirebaseInstanceId.Instance.Token);
         }
 
-        void SetUpDrawerContent(NavigationView navigationView)
+        private bool EnsureStoragePermission()
         {
-            navigationView.NavigationItemSelected += (sender, e) =>
+            if ((int)Build.VERSION.SdkInt < 23)
             {
-                if (e.MenuItem.ItemId != Resource.Id.contactUs)
+                return true;
+            }
+
+            var retVal = false;
+
+            foreach (string permission in storagePermissions)
+            {
+                if (CheckSelfPermission(permission) == (int)Permission.Granted)
                 {
-                    OpenLegalNotesFragment(e.MenuItem);
-                    mDrawerLayout.CloseDrawers();
+                    retVal = true;
                 }
                 else
                 {
-                    var email = new Intent(Intent.ActionSend);
-
-                    email.PutExtra(Intent.ExtraEmail,
-                                   new string[] { "info@ahbaab.com" });
-
-                    email.SetType("message/rfc822");
-                    StartActivity(email);
+                    retVal = false;
                 }
-            };
+            }
+
+            if (retVal)
+            {
+                return true;
+            }
+
+            RequestPermissions(storagePermissions, 0);
+
+            return false;
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
-            item.SetChecked(false);
-            switch (item.ItemId)
+            switch (requestCode)
             {
-                case Android.Resource.Id.Home:
-                    mDrawerLayout.OpenDrawer((int)GravityFlags.Right);
-                    return true;
-
-                default:
-                    return true;//base.OnOptionsItemSelected(item);
+                case 0:
+                    {
+                        if (grantResults[0] == Permission.Granted)
+                        {
+                            //Permission granted
+                            
+                        }
+                        else
+                        {
+                            //Permission Denied :(
+                            //Disabling location functionality
+                            
+                        }
+                    }
+                    break;
             }
         }
 
-        public void OpenLegalNotesFragment(IMenuItem item)
+        public bool IsPlayServicesAvailable()
         {
-            Bundle mybundle = new Bundle();
+            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+            if (resultCode != ConnectionResult.Success)
+            {
+                if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                {
+                    Log.WriteLine(LogPriority.Info, "Asawer", GoogleApiAvailability.Instance.GetErrorString(resultCode));
+                }
+                else
+                {
+                    Log.WriteLine(LogPriority.Info, "Asawer", "This device is not supported");
+                    Finish();
+                }
+                return false;
+            }
+            else
+            {
+                Log.WriteLine(LogPriority.Info, "Asawer", "Google Play Services is available.");
+                return true;
+            }
+        }
 
-            mybundle.PutInt("ItemId", item.ItemId);
+        private void OnSignUpButtonClick(object sender, EventArgs args)
+        {
+            var registerIntent = new Intent(this, typeof(RegisterActivity));
 
+            this.StartActivity(registerIntent);
+
+            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
+                Android.Resource.Animation.SlideOutRight);
+        }
+
+        private void OnSignInButtonClick(object sender, EventArgs args)
+        {
             var transaction = SupportFragmentManager.BeginTransaction();
 
-            LegalNotesFragment legalNotesFragment = new LegalNotesFragment();
+            var singInDialog = new SignInDialog(this);
 
-            legalNotesFragment.Arguments = mybundle;
+            singInDialog.Show(transaction, "dialog_fragment");
 
-            legalNotesFragment.Show(transaction, "dialog_fragment");
-
-            item.SetChecked(false);
+            singInDialog.mOnSignInComplete += OnSignInComplete;
         }
-        
-        private void signInDialog_mOnSignInComplete(object sender, OnSignInEventArgs e)
+
+        private void OnSignInComplete(object sender, OnSignInEventArgs e)
         {
-            mProgressBar.Visibility = ViewStates.Visible;
+#pragma warning disable CS0618 // Type or member is obsolete
+            var progress = new ProgressDialog(this)
+#pragma warning restore CS0618 // Type or member is obsolete
+            {
+                Indeterminate = true
+            };
+            progress.SetProgressStyle(ProgressDialogStyle.Spinner);
+            progress.SetMessage(Constants.UI.LoginLoader);
+            progress.SetCancelable(false);
+            progress.Show();
 
             new Thread(new ThreadStart(() =>
             {
-                try
+                RunOnUiThread(async () =>
                 {
-                    var result = AhbabDatabase.Login(e.UserName, e.Password);
-
-                    if (result != null)
+                    try
                     {
-                        Ahbab.CurrentUser = result;
-
-                        Intent mainPageIntent = new Intent(this, typeof(MainPageActivity));
-
-                        this.StartActivity(mainPageIntent);
-
-                        this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
-                                                       Android.Resource.Animation.SlideOutRight);
-                    }
-                    RunOnUiThread(() =>
-                    {
-                        //HIDE PROGRESS DIALOG
-                        mProgressBar.Visibility = ViewStates.Invisible;
+                        var result = await Task.Run(() => AhbabDatabase.Login(e.UserName, e.Password));
 
                         if (result != null)
                         {
+                            Ahbab.CurrentUser = result;
+
+                            if (e.RememberMe)
+                            {
+                                Settings.Username = e.UserName;
+                                Settings.Password = e.Password.Base64Encode();
+                            }
+
+                            var userProfileIntent = new Intent(this, typeof(userProfileActivity));
+
+                            this.StartActivity(userProfileIntent);
+
+                            this.OverridePendingTransition(Android.Resource.Animation.SlideInLeft,
+                                                               Android.Resource.Animation.SlideOutRight);
+
+                            this.Finish();
+
                             Toast.MakeText(this, "Login Successfull.", ToastLength.Short).Show();
                         }
                         else
                         {
                             Toast.MakeText(this, "Login Failed.", ToastLength.Short).Show();
                         }
-                    });
-                }
-                catch (Exception ex) {
-                    var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
-                }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        var result = AhbabDatabase.LogMessage("Login error: " + ex.Message, "error");
+                    }
+
+                    progress.Hide();
+                });
             })).Start();
         }
 
-        static void GetSpinnersItems()
+        protected override void Logout()
         {
-            Ahbab.statusItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                        Constants.Tables.Status);
+        }
 
-            Ahbab.statusItems.Insert(0, new SpinnerItem(-1, "Choose", Constants.DefaultValues.FamilyStatus));
+        private void GetSpinnersItems(bool firstRun)
+        {
+            this.GetSpinnersItemsFromOnlineDatabase();
+        }
 
-            Ahbab.mAgeItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri),
-                                                      Constants.Tables.Age);
-            Ahbab.mAgeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Age));
+        private void InsertItemsToLocalDatabase()
+        {
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.statusItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mAgeItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mContactTimeItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mEducationItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mEyesColorItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mGoalFromSiteItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mHairColorItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mHeightItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mJobItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mCountries);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mTimeItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mWeightItems);
+            LocalDatabaseAccess.InsertItemsToDatabase<SpinnerItem>(Ahbab.LocalDatabasePath, Ahbab.mContactWays);
+        }
 
-            Ahbab.mContactTimeItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri),
-                                                                 Constants.Tables.ContactTime);
-            Ahbab.mContactTimeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.ContactTime));
+        private void GetSpinnersItemsFromOnlineDatabase()
+        {
+            Ahbab.statusItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                        Constants.Database.Tables.Status);
 
-            Ahbab.mEducationItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                            Constants.Tables.Education);
-            Ahbab.mEducationItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.EducationLevel));
+            Ahbab.statusItems.ForEach(i => i.Type = Constants.ItemTypes.StatusType);
 
-            Ahbab.mEyesColorItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                            Constants.Tables.EyesColor);
-            Ahbab.mEyesColorItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.EyesColor));
+            Ahbab.statusItems.Insert(0, new SpinnerItem(-1, Constants.DefaultValues.Choose, Constants.DefaultValues.FamilyStatus));
 
-            Ahbab.mGoalFromSiteItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                               Constants.Tables.GoalFromSite);
-            Ahbab.mGoalFromSiteItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.GoalFromSite));
+            Ahbab.mAgeItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetTwoColumnsSpinnersItemFileName,
+                                                      Constants.Database.Tables.Age);
 
-            Ahbab.mHairColorItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                            Constants.Tables.HairColor);
-            Ahbab.mHairColorItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.HairColor));
+            Ahbab.mAgeItems.ForEach(i => i.Type = Constants.ItemTypes.AgeType);
 
-            Ahbab.mHeightItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                         Constants.Tables.Height);
-            Ahbab.mHeightItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Height));
+            Ahbab.mAgeItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.Age));
 
-            Ahbab.mJobItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                      Constants.Tables.Job);
-            Ahbab.mJobItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Job));
+            Ahbab.mContactTimeItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetTwoColumnsSpinnersItemFileName,
+                                                                 Constants.Database.Tables.ContactTime);
 
-            Ahbab.mCountries = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                       Constants.Tables.Countries);
-            Ahbab.mCountries.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.OriginCountry));
+            Ahbab.mContactTimeItems.ForEach(i => i.Type = Constants.ItemTypes.ContactTimeType);
 
-            Ahbab.mResidenceCountries = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                       Constants.Tables.Countries);
-            Ahbab.mResidenceCountries.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.ResidenceCountry));
+            Ahbab.mContactTimeItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.ContactTime));
 
-            Ahbab.mContactWays = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                  Constants.Tables.ContactWays);
+            Ahbab.mEducationItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                            Constants.Database.Tables.Education);
 
-            Ahbab.mTimeItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetTwoColumnsSpinnersItemUri),
-                                                       Constants.Tables.Time);
-            Ahbab.mTimeItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.TimeZone));
+            Ahbab.mEducationItems.ForEach(i => i.Type = Constants.ItemTypes.EducationType);
 
-            Ahbab.mWeightItems = AhbabDatabase.GetSpinnerItems(new Uri(Constants.FunctionsUri.GetSpinnerItemsUri),
-                                                        Constants.Tables.Weight);
-            Ahbab.mWeightItems.Insert(0, new SpinnerItem(0, "Choose", Constants.DefaultValues.Weight));
+            Ahbab.mEducationItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.EducationLevel));
+
+            Ahbab.mEyesColorItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                            Constants.Database.Tables.EyesColor);
+
+            Ahbab.mEyesColorItems.ForEach(i => i.Type = Constants.ItemTypes.EyesColorType);
+
+            Ahbab.mEyesColorItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.EyesColor));
+
+            Ahbab.mGoalFromSiteItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                               Constants.Database.Tables.GoalFromSite);
+
+            Ahbab.mGoalFromSiteItems.ForEach(i => i.Type = Constants.ItemTypes.GoalFromSiteType);
+
+            Ahbab.mGoalFromSiteItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.GoalFromSite));
+
+            Ahbab.mHairColorItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                            Constants.Database.Tables.HairColor);
+
+            Ahbab.mHairColorItems.ForEach(i => i.Type = Constants.ItemTypes.HairColorType);
+
+            Ahbab.mHairColorItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.HairColor));
+
+            Ahbab.mHeightItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                         Constants.Database.Tables.Height);
+
+            Ahbab.mHeightItems.ForEach(i => i.Type = Constants.ItemTypes.HeightType);
+
+            Ahbab.mHeightItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.Height));
+
+            Ahbab.mJobItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                      Constants.Database.Tables.Job);
+
+            Ahbab.mJobItems.ForEach(i => i.Type = Constants.ItemTypes.JobType);
+
+            Ahbab.mJobItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.Job));
+
+            Ahbab.mCountries = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                       Constants.Database.Tables.Countries);
+
+            Ahbab.mCountries.ForEach(i => i.Type = Constants.ItemTypes.CountryType);
+
+            Ahbab.mCountries.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.OriginCountry));
+
+            Ahbab.mResidenceCountries = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                       Constants.Database.Tables.Countries);
+
+            Ahbab.mResidenceCountries.ForEach(i => i.Type = Constants.ItemTypes.CountryType);
+
+            Ahbab.mResidenceCountries.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.ResidenceCountry));
+
+            Ahbab.mContactWays = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                  Constants.Database.Tables.ContactWays);
+            Ahbab.mContactWays.ForEach(i => i.Type = Constants.ItemTypes.ContactWaysType);
+
+            Ahbab.mTimeItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetTwoColumnsSpinnersItemFileName,
+                                                       Constants.Database.Tables.Time);
+
+            Ahbab.mTimeItems.ForEach(i => i.Type = Constants.ItemTypes.TimeType);
+
+            Ahbab.mTimeItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.TimeZone));
+
+            Ahbab.mWeightItems = AhbabDatabase.GetSpinnerItems(Constants.Database.ApiFiles.GetSpinnerItemsFileName,
+                                                        Constants.Database.Tables.Weight);
+
+            Ahbab.mWeightItems.ForEach(i => i.Type = Constants.ItemTypes.WeightType);
+
+            Ahbab.mWeightItems.Insert(0, new SpinnerItem(0, Constants.DefaultValues.Choose, Constants.DefaultValues.Weight));
         }
     }
 }
-
-

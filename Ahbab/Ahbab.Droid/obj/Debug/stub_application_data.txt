@@ -1,2 +1,2 @@
 android.app.Application
-com.SoftAnswers.Asawer
+com.AFM.Asawer

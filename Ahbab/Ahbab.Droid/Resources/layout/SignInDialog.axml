@@ -1,62 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#D0BACE"
+<android.support.design.widget.CoordinatorLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
     android:minWidth="300dp"
-    android:minHeight="300dp"
-    android:layout_height="300dp"
+    android:minHeight="400dp"
+    android:layout_height="400dp"
+    android:layout_width="300dp"
     android:textDirection="rtl"
     android:layoutDirection="rtl">
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_centerInParent="true">
-            <android.support.design.widget.TextInputLayout
+            android:src="@drawable/logo"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/txtInputLayoutUserName"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+            android:layout_marginTop="20dp">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtDialogUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtInputLayoutUserName">
-                <EditText
-                    android:id="@+id/txtDialogUserName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="@string/userName"
-                    android:textColorHint="#000"
-                    android:gravity="right"/>
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
+                android:hint="@string/userName"
+                android:background="@drawable/edit_text_style"
+                android:textSize="22sp" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/txtInputLayoutPassword"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+            android:layout_marginTop="20dp">
+            <android.support.design.widget.TextInputEditText
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtInputLayoutPassword"
-                android:layout_below="@id/txtInputLayoutUserName"
-                android:layout_marginTop="4dp">
-                <EditText
-                    android:inputType="textPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txtDialogPassword"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="@string/password"
-                    android:textColorHint="#000" />
-            </android.support.design.widget.TextInputLayout>
-            <Button
-                android:layout_below="@id/txtInputLayoutPassword"
-                android:layout_marginTop="10dp"
-                android:text="@string/login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnDialogRegister"
-                android:textSize="20dp"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:height="70dp"
-                android:paddingTop="2dp"
-                android:background="@drawable/ButtonSignInStyle" />
-        </LinearLayout>
-    </RelativeLayout>
-</android.support.design.widget.CoordinatorLayout>
+                android:id="@+id/txtDialogPassword"
+                android:background="@drawable/edit_text_style"
+                android:hint="@string/password"
+                android:textSize="22sp" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.v7.widget.AppCompatCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rememberMeCheckBox"
+            android:textSize="25sp"
+            android:text="@string/remember_me"
+            android:layout_marginTop="20dp" />
+        <Button
+            android:layout_marginTop="20dp"
+            android:text="@string/login"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/btnDialogRegister"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:paddingTop="2dp"
+            android:background="@drawable/DialogButtonSignInStyle"
+            android:textColor="@drawable/SignInDialogButtonTextColor" />
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout >
