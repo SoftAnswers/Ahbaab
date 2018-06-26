@@ -11,6 +11,7 @@ using Android.Media;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
@@ -266,7 +267,7 @@ namespace Asawer.Droid
 
         internal bool EnsureRecordAudioPermissions()
         {
-            if (this.CheckSelfPermission(RecordAudioPermission) == (int)Permission.Granted)
+            if (ActivityCompat.CheckSelfPermission(this,RecordAudioPermission) == (int)Permission.Granted)
             {
                 return true;
             }

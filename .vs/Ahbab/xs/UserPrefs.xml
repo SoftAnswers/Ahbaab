@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{FB7CA8A2-6E59-40F9-A0D9-D6C50919B799}|Default">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.ItemProperties.Ahbab.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <DisabledProjects>
+    <String>Ahbab/Ahbab.WinPhone/Ahbab.WinPhone.csproj</String>
+    <String>../Tests/Tests.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.ItemProperties.Ahbab.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.900164F5-A3F2-427B-901C-EC35A61180F9" automaticSigning="False" />
+</Properties>

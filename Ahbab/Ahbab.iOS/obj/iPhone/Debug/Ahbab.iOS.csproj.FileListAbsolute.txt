@@ -1,20 +1,35 @@
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\AhbabiOS.exe
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\AhbabiOS.pdb
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\Ahbab.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\Newtonsoft.Json.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\SaturdayMP.XPlugins.iOS.BEMCheckBox.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\SlideMenuController.dll
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\Ahbab.pdb
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\Newtonsoft.Json.xml
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\actool\_PartialAppManifest.items
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\optimized\Drawbles\logo.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\optimized\Drawbles\menu.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\optimized\Drawbles\add_img.png
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\optimized\
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\Ahbab.iOS.csprojResolveAssemblyReference.cache
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\Ahbab.iOS.csproj.CoreCompileInputs.cache
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\AhbabiOS.exe
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\obj\iPhone\Debug\AhbabiOS.pdb
-C:\Freelance\SoftAnswers Projects\Ahbab\Ahbaab\Ahbab\Ahbab.iOS\bin\iPhone\Debug\Ahbab.dll.mdb
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/AsaweriOS.exe.config
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/AsaweriOS.exe
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/AsaweriOS.pdb
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Asawer.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Newtonsoft.Json.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Plugin.Settings.Abstractions.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Plugin.Settings.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SaturdayMP.XPlugins.iOS.BEMCheckBox.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SlideMenuController.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SQLite-net.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SQLitePCLRaw.batteries_green.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SQLitePCLRaw.batteries_v2.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SQLitePCLRaw.core.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SQLitePCLRaw.provider.sqlite3.dll
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Asawer.pdb
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Asawer.dll.mdb
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Asawer.dll.config
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Newtonsoft.Json.xml
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Plugin.Settings.xml
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Plugin.Settings.Abstractions.pdb
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/Plugin.Settings.Abstractions.xml
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SQLite-net.pdb
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/bin/iPhone/Debug/SQLite-net.xml
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/ibtool/_BundleResourceWithLogicalName.items
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/actool/_PartialAppManifest.items
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/coremlc/_PartialAppManifest.items
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/coremlc/_BundleResourceWithLogicalName.items
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/optimized/Drawbles/logo.png
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/optimized/Drawbles/menu.png
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/optimized/Drawbles/add_img.png
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/optimized/
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/Ahbab.iOS.csproj.CoreCompileInputs.cache
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/AsaweriOS.exe
+/Users/josepheid/Projects/SoftAnswers/Ahbaab/Ahbab/Ahbab.iOS/obj/iPhone/Debug/AsaweriOS.pdb

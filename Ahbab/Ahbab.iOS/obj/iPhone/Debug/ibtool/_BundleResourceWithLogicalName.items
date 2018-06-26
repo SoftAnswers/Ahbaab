@@ -1,65 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\LaunchScreen.storyboardc\Info.plist">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/LaunchScreen.storyboardc/Info.plist">
       <LogicalName>LaunchScreen.storyboardc/Info.plist</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/LaunchScreen.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\LaunchScreen.storyboardc\UIViewController-X5k-f2-b5h.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h.nib">
       <LogicalName>LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/LaunchScreen.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\LaunchScreen.storyboardc\X5k-f2-b5h-view-yd7-JS-zBw.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw.nib">
       <LogicalName>LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/LaunchScreen.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\5453-view-5454.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/5453-view-5454.nib">
       <LogicalName>Main.storyboardc/5453-view-5454.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\6256-view-6257.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/6256-view-6257.nib">
       <LogicalName>Main.storyboardc/6256-view-6257.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\6261-view-6262.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/6261-view-6262.nib">
       <LogicalName>Main.storyboardc/6261-view-6262.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\6527-view-6528.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/6527-view-6528.nib">
       <LogicalName>Main.storyboardc/6527-view-6528.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\BYZ-38-t0r-view-8bC-Xf-vdC.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib">
       <LogicalName>Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\Info.plist">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/Info.plist">
       <LogicalName>Main.storyboardc/Info.plist</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\MainPageTabController.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/MainPageTabController.nib">
       <LogicalName>Main.storyboardc/MainPageTabController.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\NavigationController.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/NavigationController.nib">
       <LogicalName>Main.storyboardc/NavigationController.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\SearchController.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/SearchController.nib">
       <LogicalName>Main.storyboardc/SearchController.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\SideMenuController.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/SideMenuController.nib">
       <LogicalName>Main.storyboardc/SideMenuController.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\UITableViewController-5453.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/UITableViewController-5453.nib">
       <LogicalName>Main.storyboardc/UITableViewController-5453.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj\iPhone\Debug\ibtool-link\Main.storyboardc\ViewController.nib">
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/ibtool-link/Main.storyboardc/ViewController.nib">
       <LogicalName>Main.storyboardc/ViewController.nib</LogicalName>
       <Optimize>false</Optimize>
+      <OriginalItemSpec>obj/iPhone/Debug/ibtool-link/Main.storyboardc</OriginalItemSpec>
     </_BundleResourceWithLogicalName>
   </ItemGroup>
 </Project>

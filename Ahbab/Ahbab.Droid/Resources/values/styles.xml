@@ -10,6 +10,8 @@
     <item name="colorPrimary">@color/primaryColor</item>
     <item name="colorPrimaryDark">@color/primaryDarkColor</item>
     <item name="colorAccent">@color/accent</item>
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
   </style>
 
   <style name="Widget.CardContent" parent="android:Widget">
@@ -38,9 +40,13 @@
     <item name="colorPrimary">@color/primaryColor</item>
     <item name="colorPrimaryDark">@color/primaryDarkColor</item>
     <item name="colorAccent">@color/accent</item>
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
   </style>
   <style name="SplashTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
     <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
   </style>
 
   <!--ProgressBar Theme-->
